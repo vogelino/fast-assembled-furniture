@@ -1,5 +1,7 @@
 import Head from "next/head";
-import { request, gql } from "graphql-request";
+import { gql } from "graphql-request";
+import Image from "next/image";
+import { request } from "../utils/requestUtil";
 
 export default function Home({ products }) {
   return (
@@ -9,8 +11,13 @@ export default function Home({ products }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ul>
-        {products.map(({ slug }) => (
-          <li key={slug}>{slug}</li>
+        {products.map(({ slug, title, startPrice, description, thumbnail }) => (
+          <li key={slug}>
+            <Image src={thumbnail} alt={title} width={40} height={40} />
+            <h3>{title}</h3>
+            <h4>Starting from {startPrice}€</h4>
+            <p>{description}</p>
+          </li>
         ))}
       </ul>
     </div>
@@ -21,13 +28,28 @@ const query = gql`
   {
     products {
       slug
+      title
+      description {
+        markdown
+      }
+      startPrice
+      isConfigurable
+      thumbnail {
+        url
+      }
     }
   }
 `;
 
-export async function getStaticProps() {
-  const data = await request("http://localhost:1337/graphql", query);
-  console.log(data);
+const mapDataToProps = ({ products }) => ({
+  products: products.map(({ description, thumbnail, ...product }) => ({
+    ...product,
+    description: description.markdown,
+    thumbnail: thumbnail.url,
+  })),
+});
 
-  return { props: data };
+export async function getStaticProps() {
+  const props = await request(query);
+  return { props: mapDataToProps(props) };
 }
