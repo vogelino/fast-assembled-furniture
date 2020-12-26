@@ -1,7 +1,7 @@
 import React from "react";
 
 const getRobots = () => `User-agent: *
-Disallow: ${process.env.NODE_ENV === "production" ? "/_next/static/" : "/"}
+Disallow: ${process.env.VERCEL_ENV === "production" ? "/_next/static/" : "/"}
 `;
 
 class Sitemap extends React.Component {
