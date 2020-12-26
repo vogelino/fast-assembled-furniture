@@ -29,8 +29,8 @@ export default function ProductPage({
 }
 
 const individualProductQuery = gql`
-  query IndividualProduct($slug: String!) {
-    product(where: { slug: $slug }) {
+  query IndividualProduct($slug: String!, $stage: Stage!) {
+    product(where: { slug: $slug }, stage: $stage) {
       title
       description {
         markdown
@@ -50,8 +50,8 @@ export async function getStaticProps({ params: { slug } }) {
 }
 
 const allProductsQuery = gql`
-  query AllProductsPagePaths {
-    products {
+  query AllProductsPagePaths($stage: Stage!) {
+    products(stage: $stage) {
       slug
     }
   }

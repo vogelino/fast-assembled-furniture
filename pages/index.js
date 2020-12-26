@@ -19,14 +19,15 @@ export default function Home({ products }) {
 }
 
 const query = gql`
-  query AllProductsHome {
-    products {
+  query AllProductsHome($stage: Stage!) {
+    products(stage: $stage) {
       slug
       title
       description {
         markdown
       }
       startPrice
+      isConfigurable
       thumbnail {
         url
       }
