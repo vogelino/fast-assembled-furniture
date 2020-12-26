@@ -2,6 +2,7 @@ import Head from "next/head";
 import { gql } from "graphql-request";
 import { request } from "../../utils/requestUtil";
 import ProductList from "../../components/ProductList";
+import { mapProductToProps } from "../../utils/graphcmsUtil";
 
 export default function Products({ products }) {
   return (
@@ -17,14 +18,15 @@ export default function Products({ products }) {
 }
 
 const query = gql`
-  query AllProductsProducts {
-    products {
+  query AllProductsProducts($stage: Stage!) {
+    products(stage: $stage) {
       slug
       title
       description {
         markdown
       }
       startPrice
+      isConfigurable
       thumbnail {
         url
       }
@@ -33,11 +35,7 @@ const query = gql`
 `;
 
 const mapDataToProps = ({ products }) => ({
-  products: products.map(({ description, thumbnail, ...product }) => ({
-    ...product,
-    description: description.markdown,
-    thumbnail: thumbnail.url,
-  })),
+  products: products.map(mapProductToProps),
 });
 
 export async function getStaticProps() {
