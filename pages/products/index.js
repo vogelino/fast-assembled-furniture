@@ -1,15 +1,13 @@
 import Head from "next/head";
 import { gql } from "graphql-request";
-import { request } from "../utils/requestUtil";
-import { mapProductToProps } from "../utils/graphcmsUtil";
-import ProductList from "../components/ProductList";
+import { request } from "../../utils/requestUtil";
+import ProductList from "../../components/ProductList";
 
-export default function Home({ products }) {
+export default function Products({ products }) {
   return (
     <div>
       <Head>
         <title>FAF - Products</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <ul>
         <ProductList products={products} />
@@ -19,7 +17,7 @@ export default function Home({ products }) {
 }
 
 const query = gql`
-  query AllProductsHome {
+  query AllProductsProducts {
     products {
       slug
       title
@@ -35,7 +33,11 @@ const query = gql`
 `;
 
 const mapDataToProps = ({ products }) => ({
-  products: products.map(mapProductToProps),
+  products: products.map(({ description, thumbnail, ...product }) => ({
+    ...product,
+    description: description.markdown,
+    thumbnail: thumbnail.url,
+  })),
 });
 
 export async function getStaticProps() {
