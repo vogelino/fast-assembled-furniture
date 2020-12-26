@@ -24,7 +24,7 @@ const getSitemap = ({ products }) => `<?xml version="1.0" encoding="utf-8"?>
 </urlset>`;
 
 const createFullUrl = (path) =>
-  `${process.env.VERCEL_URL || "http://localhost:3000"}${path}`;
+  `${process.env.URL || "http://localhost:3000"}${path}`;
 const formatDate = (dateStr) => {
   const date = dateStr ? new Date(dateStr) : new Date();
   return `${date.getUTCFullYear()}-${
