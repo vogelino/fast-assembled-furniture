@@ -1,7 +1,12 @@
 {
-  "name": "faf-website",
+  "name": "fast-assembled-furniture",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Lucas Vogel [vogelino]",
+    "email": "contact@vogelino.com",
+    "url": "https://vogelino.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,5 +18,12 @@
     "next": "10.0.4",
     "react": "17.0.1",
     "react-dom": "17.0.1"
-  }
+  },
+  "repository": {
+		"type": "git",
+		"url": "git@github.com:vogelino/fast-assembled-furniture.git"
+	},
+	"bugs": {
+		"url": "https://github.com/vogelino/fast-assembled-furniture/issues"
+	}
 }
