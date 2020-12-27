@@ -19,7 +19,7 @@ export default function ProductPage ({
             alt={title}
             layout='responsive'
             width='1000'
-            height='600'
+            height='400'
             objectFit='cover'
           />
           </div>
