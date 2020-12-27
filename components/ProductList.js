@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Button from './Button'
 
 const shortenText = (text) => text.length > 80 ? `${text.slice(0, 80)}...` : text
 
@@ -21,7 +22,7 @@ const ProductListItem = ({
           <h3 className='font-bold text-xl'>{title}</h3>
           {startPrice && <h4 className='text-mmd mb-2'>Starting from {startPrice}€</h4>}
           <p className='text-sm mt-1 text-gray-400 mb-4'>{shortenText(description)}</p>
-          <button className='transition-all bg-black font-bold border-2 rounded-full border-black group-hover:bg-transparent hover:bg-transparent group-hover:text-black hover:text-black hover:border-gray-300 text-white px-4 py-2'>Learn more</button>
+          <Button>Learn more</Button>
         </div>
       </a>
     </Link>

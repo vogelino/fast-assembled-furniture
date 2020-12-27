@@ -1,0 +1,9 @@
+.btnLetter {
+    min-width: 3px;
+    transform: rotate(0);
+    transition: transform 200ms ease-out;
+}
+
+.btn:hover .btnLetter {
+    transform: rotate(360deg);
+}
