@@ -1,14 +1,14 @@
-import { gql } from "graphql-request";
-import React from "react";
-import Image from "next/image";
-import { mapProductToProps } from "../utils/graphcmsUtil";
-import { request } from "../utils/requestUtil";
+import { gql } from 'graphql-request'
+import React from 'react'
+import Image from 'next/image'
+import { mapProductToProps } from '../utils/graphcmsUtil'
+import { request } from '../utils/requestUtil'
 
-export default function ProductPage({
+export default function ProductPage ({
   title,
   startPrice,
   description,
-  thumbnail,
+  thumbnail
 }) {
   return (
     <main>
@@ -17,7 +17,7 @@ export default function ProductPage({
           <Image
             src={thumbnail.url}
             alt={title}
-            layout="intrinsic"
+            layout='intrinsic'
             width={400}
             height={400}
           />
@@ -27,7 +27,7 @@ export default function ProductPage({
       <h4>Starting from {startPrice}€</h4>
       <p>{description}</p>
     </main>
-  );
+  )
 }
 
 const individualProductQuery = gql`
@@ -44,19 +44,19 @@ const individualProductQuery = gql`
       }
     }
   }
-`;
+`
 
-export async function getStaticProps({
+export async function getStaticProps ({
   params: { product: slug },
   locale,
-  defaultLocale,
+  defaultLocale
 }) {
-  const lang = locale || defaultLocale;
+  const lang = locale || defaultLocale
   const { product } = await request(individualProductQuery, {
     slug,
-    locale: lang,
-  });
-  return { props: mapProductToProps(product) };
+    locale: lang
+  })
+  return { props: mapProductToProps(product) }
 }
 
 const allProductsQuery = gql`
@@ -65,22 +65,22 @@ const allProductsQuery = gql`
       slug
     }
   }
-`;
+`
 
 const generatePathForLocale = (locale, products) =>
   products.map(({ slug }) => ({
     params: { product: slug },
-    locale,
-  }));
+    locale
+  }))
 
-export async function getStaticPaths({ locales }) {
-  const { products } = await request(allProductsQuery);
+export async function getStaticPaths ({ locales }) {
+  const { products } = await request(allProductsQuery)
   const paths = locales
     .map((locale) => generatePathForLocale(locale, products))
-    .flat(1);
-  console.log(paths);
+    .flat(1)
+  console.log(paths)
   return {
     paths,
-    fallback: false,
-  };
+    fallback: false
+  }
 }

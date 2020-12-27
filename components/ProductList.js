@@ -1,13 +1,13 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const ProductListItem = ({
   slug,
   title,
   startPrice,
   description,
-  thumbnail,
+  thumbnail
 }) => (
   <li>
     <Link href={`/${slug}`}>
@@ -21,14 +21,14 @@ const ProductListItem = ({
       </a>
     </Link>
   </li>
-);
+)
 
-export default function ProductList({ products }) {
+export default function ProductList ({ products }) {
   return (
     <>
       {products.map((product) => (
         <ProductListItem key={product.slug} {...product} />
       ))}
     </>
-  );
+  )
 }

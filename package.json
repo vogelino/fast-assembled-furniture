@@ -10,7 +10,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "standard",
+    "lint-fix": "npm run lint -- --fix",
+    "lint-watch": "npm run lint -- --watch"
   },
   "dependencies": {
     "graphql": "^15.4.0",
@@ -25,5 +28,8 @@
   },
   "bugs": {
     "url": "https://github.com/vogelino/fast-assembled-furniture/issues"
+  },
+  "devDependencies": {
+    "standard": "^16.0.3"
   }
 }
