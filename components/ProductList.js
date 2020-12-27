@@ -10,9 +10,11 @@ const ProductListItem = ({
   thumbnail,
 }) => (
   <li>
-    <Link href={`/products/${slug}`}>
+    <Link href={`/${slug}`}>
       <a>
-        <Image src={thumbnail.url} alt={title} width={40} height={40} />
+        {thumbnail && (
+          <Image src={thumbnail.url} alt={title} width={40} height={40} />
+        )}
         <h3>{title}</h3>
         <h4>Starting from {startPrice}€</h4>
         <p>{description}</p>

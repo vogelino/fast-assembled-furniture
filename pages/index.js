@@ -19,8 +19,8 @@ export default function Home({ products }) {
 }
 
 const query = gql`
-  query AllProductsHome($stage: Stage!) {
-    products(stage: $stage) {
+  query AllProductsHome($stage: Stage!, $locale: Locale!) {
+    products(stage: $stage, locales: [$locale]) {
       slug
       title
       description {
@@ -39,7 +39,8 @@ const mapDataToProps = ({ products }) => ({
   products: products.map(mapProductToProps),
 });
 
-export async function getStaticProps() {
-  const props = await request(query);
+export async function getStaticProps({ locale, defaultLocale }) {
+  const lang = locale || defaultLocale;
+  const props = await request(query, { locale: lang });
   return { props: mapDataToProps(props) };
 }
