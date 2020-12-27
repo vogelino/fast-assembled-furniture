@@ -9,7 +9,7 @@ export default function LanguageSwitch () {
       {router.locales.map((locale) => (
         <li key={locale}>
           <Link href={router.asPath} locale={locale}>
-            <a>{locale}</a>
+            <a className={router.locale === locale ? 'active' : 'inactive'}>{locale}</a>
           </Link>
         </li>
       ))}
