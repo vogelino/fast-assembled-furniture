@@ -12,8 +12,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "standard",
-    "lint-fix": "npm run lint -- --fix",
-    "lint-watch": "npm run lint -- --watch"
+    "lint-fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "graphql": "^15.4.0",
