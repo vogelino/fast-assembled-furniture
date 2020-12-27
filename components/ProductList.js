@@ -13,15 +13,15 @@ const ProductListItem = ({
 }) => (
   <li>
     <Link href={`/${slug}`}>
-      <a className='grid grid-cols-1 border-black rounded-lg overflow-hidden border-2 hover:border-gray-300'>
+      <a className='group grid grid-cols-1 border-black rounded-lg overflow-hidden border-2 hover:border-gray-300 transition-all'>
         {thumbnail && (
           <Image src={thumbnail.url} alt={title} layout='responsive' width='1000' height='600' objectFit='cover' />
         )}
-        <div className='p-6'>
+        <div className='p-6 border-t-2 border-black group-hover:border-gray-300 transition-all'>
           <h3 className='font-bold text-xl'>{title}</h3>
           {startPrice && <h4 className='text-mmd mb-2'>Starting from {startPrice}€</h4>}
           <p className='text-sm mt-1 text-gray-400 mb-4'>{shortenText(description)}</p>
-          <button className='bg-black font-bold border-2 rounded-full border-black hover:bg-transparent hover:text-black hover:border-gray-300 text-white px-4 py-2'>Learn more</button>
+          <button className='transition-all bg-black font-bold border-2 rounded-full border-black group-hover:bg-transparent hover:bg-transparent group-hover:text-black hover:text-black hover:border-gray-300 text-white px-4 py-2'>Learn more</button>
         </div>
       </a>
     </Link>
