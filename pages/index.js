@@ -6,15 +6,13 @@ import ProductList from '../components/ProductList'
 
 export default function Home ({ products }) {
   return (
-    <div>
+    <>
       <Head>
         <title>FAF - Products</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <ul>
-        <ProductList products={products} />
-      </ul>
-    </div>
+      <ProductList products={products} />
+    </>
   )
 }
 

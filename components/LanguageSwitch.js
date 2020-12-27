@@ -5,11 +5,11 @@ import { useRouter } from 'next/router'
 export default function LanguageSwitch () {
   const router = useRouter()
   return (
-    <ul>
+    <ul className='inline-flex mb-4'>
       {router.locales.map((locale) => (
         <li key={locale}>
           <Link href={router.asPath} locale={locale}>
-            <a className={router.locale === locale ? 'active' : 'inactive'}>{locale}</a>
+            <a className={`${router.locale === locale ? 'font-bold cursor-default' : 'hover:underline'} py-2 mr-4`}>{locale.toUpperCase()}</a>
           </Link>
         </li>
       ))}

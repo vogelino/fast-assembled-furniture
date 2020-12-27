@@ -2,22 +2,27 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+const shortenText = (text) => text.length > 80 ? `${text.slice(0, 80)}...` : text
+
 const ProductListItem = ({
   slug,
-  title,
-  startPrice,
-  description,
+  title = 'Untitled',
+  startPrice = 10,
+  description = 'No description yet.',
   thumbnail
 }) => (
   <li>
     <Link href={`/${slug}`}>
-      <a>
+      <a className='grid grid-cols-1 border-black rounded-lg overflow-hidden border-2 hover:border-gray-300'>
         {thumbnail && (
-          <Image src={thumbnail.url} alt={title} width={40} height={40} />
+          <Image src={thumbnail.url} alt={title} layout='responsive' width='1000' height='600' objectFit='cover' />
         )}
-        <h3>{title}</h3>
-        <h4>Starting from {startPrice}€</h4>
-        <p>{description}</p>
+        <div className='p-6'>
+          <h3 className='font-bold text-xl'>{title}</h3>
+          {startPrice && <h4 className='text-mmd mb-2'>Starting from {startPrice}€</h4>}
+          <p className='text-sm mt-1 text-gray-400 mb-4'>{shortenText(description)}</p>
+          <button className='bg-black font-bold border-2 rounded-full border-black hover:bg-transparent hover:text-black hover:border-gray-300 text-white px-4 py-2'>Learn more</button>
+        </div>
       </a>
     </Link>
   </li>
@@ -25,10 +30,10 @@ const ProductListItem = ({
 
 export default function ProductList ({ products }) {
   return (
-    <>
+    <ul className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
       {products.map((product) => (
         <ProductListItem key={product.slug} {...product} />
       ))}
-    </>
+    </ul>
   )
 }

@@ -12,20 +12,23 @@ export default function ProductPage ({
 }) {
   return (
     <main>
-      <div style={{ maxWidth: 400 }}>
         {thumbnail && (
-          <Image
+          <div className="rounded-xl overflow-hidden border-2 border-black">
+            <Image
             src={thumbnail.url}
             alt={title}
-            layout='intrinsic'
-            width={400}
-            height={400}
+            layout='responsive'
+            width='1000'
+            height='600'
+            objectFit='cover'
           />
+          </div>
         )}
+      <div className='px-6 py-8'>
+        <h3 className='text-6xl font-bold px-6 py-2 mb-4 bg-black text-white inline-block rounded-full'>{title}</h3>
+        {startPrice && <h4 className='text-2xl pl-6'>Starting from {startPrice}€</h4>}
+        <p className='text-3xl mt-4 pl-6'>{description}</p>
       </div>
-      <h3>{title}</h3>
-      <h4>Starting from {startPrice}€</h4>
-      <p>{description}</p>
     </main>
   )
 }
@@ -83,7 +86,6 @@ export async function getStaticPaths ({ locales }) {
   const paths = locales
     .map((locale) => generatePathForLocale(locale, products))
     .flat(1)
-  console.log(paths)
   return {
     paths,
     fallback: false
