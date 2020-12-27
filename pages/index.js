@@ -28,6 +28,9 @@ const query = gql`
       }
       startPrice
       isConfigurable
+    }
+    thumbnails: products(stage: $stage) {
+      slug
       thumbnail {
         url
       }
@@ -35,8 +38,11 @@ const query = gql`
   }
 `
 
-const mapDataToProps = ({ products }) => ({
-  products: products.map(mapProductToProps)
+const mapDataToProps = ({ products, thumbnails }) => ({
+  products: products.map((product) => ({
+    ...mapProductToProps(product),
+    thumbnail: thumbnails.find((thumb) => thumb.slug === product.slug)?.thumbnail
+  }))
 })
 
 export async function getStaticProps ({ locale, defaultLocale }) {

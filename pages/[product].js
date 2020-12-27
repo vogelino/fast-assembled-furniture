@@ -39,6 +39,8 @@ const individualProductQuery = gql`
       }
       startPrice
       isConfigurable
+    }
+    thumb: product(where: { slug: $slug }, stage: $stage) {
       thumbnail {
         url
       }
@@ -52,11 +54,14 @@ export async function getStaticProps ({
   defaultLocale
 }) {
   const lang = locale || defaultLocale
-  const { product } = await request(individualProductQuery, {
+  const { product, thumb: { thumbnail } } = await request(individualProductQuery, {
     slug,
     locale: lang
   })
-  return { props: mapProductToProps(product) }
+  return { props: {
+    ...mapProductToProps(product),
+    thumbnail
+  } }
 }
 
 const allProductsQuery = gql`
