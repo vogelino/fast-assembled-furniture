@@ -1,13 +1,14 @@
 import React from 'react'
+import { gql } from 'graphql-request'
+import { request } from '../utils/requestUtil'
 
 const getManifest = ({
-  shortTitle = 'Fast Assembled Furniture',
-  longTitle = 'Fast Assembled Furniture',
-  textColor = '#000000',
-  backgroundColor = '#ffffff'
+  siteTitle = 'Fast Assembled Furniture',
+  themeTextColor = '#000000',
+  themeBackgroundColor = '#ffffff'
 }) => `{
-    "name": "${longTitle}",
-    "short_name": "${shortTitle}",
+    "name": "${siteTitle}",
+    "short_name": "FAF",
     "icons": [
         {
             "src": "/favicons/android-chrome-192x192.png",
@@ -20,16 +21,27 @@ const getManifest = ({
             "type": "image/png"
         }
     ],
-    "theme_color": "${textColor}",
-    "background_color": "${backgroundColor}",
+    "theme_color": "${themeTextColor}",
+    "background_color": "${themeBackgroundColor}",
     "display": "standalone"
 }
+`
+
+const query = gql`
+  query AllProductsHome($stage: Stage!) {
+    seoCommons(stage: $stage) {
+      siteTitle
+      themeTextColor
+      themeBackgroundColor
+    }
+  }
 `
 
 class Sitemap extends React.Component {
   static async getInitialProps ({ res }) {
     res.setHeader('Content-Type', 'application/manifest+json')
-    res.write(getManifest({}))
+    const { seoCommons } = await request(query)
+    res.write(getManifest(seoCommons))
     res.end()
   }
 }
