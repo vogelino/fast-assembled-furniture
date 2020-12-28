@@ -80,7 +80,6 @@ export async function getStaticProps ({
     slug,
     locale: lang
   })
-  console.log(res)
   return { props: mapRequestToProps(res) }
 }
 
