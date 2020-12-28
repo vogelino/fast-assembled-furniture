@@ -3,6 +3,7 @@ import Link from 'next/link'
 import LanguageSwitch from '../components/LanguageSwitch'
 import '../styles/globals.css'
 import Head from '../components/Head'
+import LoginLink from '../components/LoginLink'
 
 function MyApp ({
   Component,
@@ -22,13 +23,16 @@ function MyApp ({
         locale={router.locale}
         currentPagePath={router.asPath}
       />
-      <header className='flex place-content-between'>
+      <header className='flex place-content-between items-center mb-4'>
         <Link href='/' locale={router.locale}>
           <a>
             <h2 className='font-bold'>Home</h2>
           </a>
         </Link>
-        <LanguageSwitch />
+        <div>
+          <LanguageSwitch />
+          <LoginLink />
+        </div>
       </header>
       <Component {...pageProps} />
     </div>

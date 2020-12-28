@@ -4,12 +4,12 @@ import { btn, btnLetter } from './button.module.css'
 const commonClasses = 'transition-all rounded-full hover:border-black px-4 py-2 border-2 transform rotate-0 group-hover:rotate-180'
 const secondaryClasses = 'border-gray-200'
 const primaryClasses = 'bg-black text-white border-black font-bold hover:bg-transparent hover:text-black'
-const Button = ({ children, primary = false, ...rest }) => (
+const Button = ({ children = '', primary = false, ...rest }) => (
   <button
     className={`${btn} ${commonClasses} ${primary ? primaryClasses : secondaryClasses}`}
     {...rest}
   >
-    {children.split('').map((letter, idx) => (
+    {((Array.isArray(children) ? children.join(' ') : children) || '').split('').map((letter, idx) => (
       <span
         key={`${idx}-${letter}`}
         style={{

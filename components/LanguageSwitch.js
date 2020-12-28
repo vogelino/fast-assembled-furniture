@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 export default function LanguageSwitch () {
   const router = useRouter()
   return (
-    <ul className='inline-flex mb-4'>
+    <ul className='inline-flex'>
       {router.locales.map((locale) => (
         <li key={locale}>
           <Link href={router.asPath} locale={locale}>
