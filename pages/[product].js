@@ -36,6 +36,9 @@ export default function ProductPage ({
 const individualProductQuery = gql`
   query IndividualProduct($slug: String!, $stage: Stage!, $locale: Locale!) {
     product(where: { slug: $slug }, stage: $stage, locales: [$locale]) {
+      seoTitle
+      seoDescription
+      seoKeywords
       title
       description {
         markdown
@@ -48,8 +51,24 @@ const individualProductQuery = gql`
         url
       }
     }
+    seoCommons(stage: $stage, locales: [$locale]) {
+      siteTitle
+      themeTextColor
+      twitterUsername
+    }
   }
 `
+
+const mapRequestToProps = ({ product, thumb: { thumbnail }, seoCommons }) => ({
+  ...mapProductToProps(product),
+  thumbnail,
+  seo: {
+    title: product.seoTitle || product.title || null,
+    description: product.seoDescription || product.description || null,
+    keywords: product.seoKeywords || null,
+    ...seoCommons[0]
+  }
+})
 
 export async function getStaticProps ({
   params: { product: slug },
@@ -57,14 +76,12 @@ export async function getStaticProps ({
   defaultLocale
 }) {
   const lang = locale || defaultLocale
-  const { product, thumb: { thumbnail } } = await request(individualProductQuery, {
+  const res = await request(individualProductQuery, {
     slug,
     locale: lang
   })
-  return { props: {
-    ...mapProductToProps(product),
-    thumbnail
-  } }
+  console.log(res)
+  return { props: mapRequestToProps(res) }
 }
 
 const allProductsQuery = gql`
