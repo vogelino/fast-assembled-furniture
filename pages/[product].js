@@ -33,14 +33,14 @@ export default function ProductPage ({
           </div>
         )}
       <div className='px-6 py-8'>
-        <h3 className='text-6xl font-bold px-6 py-2 mb-4 bg-black text-white inline-block rounded-full'>{title}</h3>
-        {startPrice && <h4 className='text-2xl pl-6'>Starting from {startPrice}€</h4>}
+        <h3 className='text-3xl md:text-6xl font-bold px-6 py-2 mb-4 bg-black text-white inline-block rounded-full'>{title}</h3>
+        {startPrice && <h4 className='text-xl md:text-2xl pl-6'>Starting from {startPrice}€</h4>}
         <p className='mt-4 pl-2'>
           {cart && cart[slug]
             ? <Button onClick={removeFromCart}>Remove from cart</Button>
             : <Button onClick={addToCart}>Add to cart</Button>}
         </p>
-        <p className='text-3xl mt-4 pl-6'>{description}</p>
+        <p className='text-2xl md:text-3xl mt-4 pl-6'>{description}</p>
       </div>
     </main>
   )
