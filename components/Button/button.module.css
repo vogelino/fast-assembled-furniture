@@ -4,6 +4,17 @@
     transition: transform 200ms ease-out;
 }
 
+.btn {
+    box-shadow: 0 0 0 0px black;
+    user-select: none;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px black;
+    border-color: black;
+}
+
 .btn:hover .btnLetter {
     transform: rotate(360deg);
 }
