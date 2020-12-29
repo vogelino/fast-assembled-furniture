@@ -1,15 +1,23 @@
 import { gql } from 'graphql-request'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Image from 'next/image'
 import { mapProductToProps } from '../utils/graphcmsUtil'
 import { request } from '../utils/requestUtil'
+import Button from '../components/Button'
+import { CartContext } from '../components/CartContext'
 
 export default function ProductPage ({
+  slug,
   title,
   startPrice,
   description,
   thumbnail
 }) {
+  const [cart, getCartAdder, getCartRemover] = useContext(CartContext)
+
+  const addToCart = getCartAdder(slug, {slug, title, startPrice})
+  const removeFromCart = getCartRemover(slug)
+
   return (
     <main>
         {thumbnail && (
@@ -27,6 +35,9 @@ export default function ProductPage ({
       <div className='px-6 py-8'>
         <h3 className='text-6xl font-bold px-6 py-2 mb-4 bg-black text-white inline-block rounded-full'>{title}</h3>
         {startPrice && <h4 className='text-2xl pl-6'>Starting from {startPrice}€</h4>}
+        {cart && cart[slug]
+          ? <Button onClick={removeFromCart}>Remove from cart</Button>
+          : <Button onClick={addToCart}>Add to cart</Button>}
         <p className='text-3xl mt-4 pl-6'>{description}</p>
       </div>
     </main>
@@ -36,6 +47,7 @@ export default function ProductPage ({
 const individualProductQuery = gql`
   query IndividualProduct($slug: String!, $stage: Stage!, $locale: Locale!) {
     product(where: { slug: $slug }, stage: $stage, locales: [$locale]) {
+      slug
       seoTitle
       seoDescription
       seoKeywords
