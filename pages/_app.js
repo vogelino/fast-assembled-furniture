@@ -3,7 +3,6 @@ import Link from 'next/link'
 import LanguageSwitch from '../components/LanguageSwitch'
 import '../styles/globals.css'
 import Head from '../components/Head'
-import LoginLink from '../components/LoginLink'
 
 function MyApp ({
   Component,
@@ -31,7 +30,6 @@ function MyApp ({
         </Link>
         <div>
           <LanguageSwitch />
-          <LoginLink />
         </div>
       </header>
       <Component {...pageProps} />
