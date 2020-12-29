@@ -80,6 +80,7 @@ const mapRequestToProps = ({ product, thumb: { thumbnail }, seoCommons }) => ({
     title: product.seoTitle || product.title || null,
     description: product.seoDescription || product.description || null,
     keywords: product.seoKeywords || null,
+    thumbnail,
     ...seoCommons[0]
   }
 })

@@ -21,6 +21,7 @@ function MyApp ({
           keywords={pageProps?.seo?.keywords}
           themeColor={pageProps?.seo?.themeTextColor}
           twitterUsername={pageProps?.seo?.twitterUsername}
+          socialThumbnail={pageProps?.seo?.thumbnail?.url}
           locales={router.locales}
           locale={router.locale}
           currentPagePath={router.asPath}
@@ -32,7 +33,7 @@ function MyApp ({
             </a>
           </Link>
           <div>
-            <Cart />
+            <Cart locale={router.locale} />
             <LanguageSwitch />
           </div>
         </header>
