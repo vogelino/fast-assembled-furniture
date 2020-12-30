@@ -13,7 +13,8 @@ const ProductListItem = ({
   description = 'No description yet.',
   thumbnail
 }) => {
-  const { t } = useTranslation('common')
+  const { t, lang } = useTranslation()
+  const currency = new Intl.NumberFormat(lang, { style: 'currency', currency: 'EUR' })
 
   return (
     <Link href={`/${slug}`}>
@@ -23,9 +24,9 @@ const ProductListItem = ({
         )}
         <div className='p-6 border-t-2 border-black group-hover:border-gray-300 transition-all'>
           <h3 className='font-bold text-xl'>{title}</h3>
-          {startPrice && <h4 className='text-mmd mb-2'>Starting from {startPrice}€</h4>}
+          {startPrice && <h4 className='text-mmd mb-2'>{t('product:priceStartingFrom', { price: currency.format(startPrice) })}</h4>}
           <p className='text-sm mt-1 text-gray-400 mb-4'>{shortenText(description)}</p>
-          <Button>{t('buttons.learnMore')}</Button>
+          <Button>{t('common:buttons.learnMore')}</Button>
         </div>
       </a>
     </Link>

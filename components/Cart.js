@@ -14,6 +14,7 @@ export default function Cart () {
   const [cartIsOpened, setCartIsOpened] = useState(false)
   useOnClickOutside(ref, () => setCartIsOpened(false))
   const { t } = useTranslation('common')
+  const currency = new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' })
 
   const hasCart = cart && Object.keys(cart).length > 0
 
@@ -38,7 +39,7 @@ export default function Cart () {
             <Link href={`/${product.slug}`} key={product.slug}>
               <a className='block py-4 px-6 border-t hover:bg-gray-200 focus:bg-black focus:text-white focus:outline-none focus:border-black'>
                 <h4 className='font-bold'>{product.title}</h4>
-                <span className='mr-4'>{product.startPrice}€</span>
+                <span className='mr-4'>{currency.format(product.startPrice)}</span>
                 <span className='text-sm underline float-right' onClick={getCartRemoverHandler(product.slug)}>{t('cart.remove')}</span>
               </a>
             </Link>
@@ -50,7 +51,7 @@ export default function Cart () {
               style={{ userSelect: 'none' }}
             >
               {t('cart.checkout')}
-              <span className='float-right'>{getTotalPrice(cart)}€</span>
+              <span className='float-right ml-8'>{currency.format(getTotalPrice(cart))}</span>
             </button>
           </Link>
         </div>

@@ -1,6 +1,7 @@
 import { gql } from 'graphql-request'
 import React, { useContext, useEffect } from 'react'
 import Image from 'next/image'
+import useTranslation from 'next-translate/useTranslation'
 import { mapProductToProps } from '../utils/graphcmsUtil'
 import { request } from '../utils/requestUtil'
 import Button from '../components/Button'
@@ -14,9 +15,11 @@ export default function ProductPage ({
   thumbnail
 }) {
   const [cart, getCartAdder, getCartRemover] = useContext(CartContext)
+  const { t, lang } = useTranslation('product') 
 
   const addToCart = getCartAdder(slug, {slug, title, startPrice})
   const removeFromCart = getCartRemover(slug)
+  const currency = new Intl.NumberFormat(lang, { style: 'currency', currency: 'EUR' })
 
   return (
     <main>
@@ -34,11 +37,11 @@ export default function ProductPage ({
         )}
       <div className='px-6 py-8'>
         <h3 className='text-3xl md:text-6xl font-bold px-6 py-2 mb-4 bg-black text-white inline-block rounded-full'>{title}</h3>
-        {startPrice && <h4 className='text-xl md:text-2xl pl-6'>Starting from {startPrice}€</h4>}
+        {startPrice && <h4 className='text-xl md:text-2xl pl-6'>{t('priceStartingFrom', { price: currency.format(startPrice) })}</h4>}
         <p className='mt-4 pl-2'>
           {cart && cart[slug]
-            ? <Button onClick={removeFromCart}>Remove from cart</Button>
-            : <Button onClick={addToCart}>Add to cart</Button>}
+            ? <Button onClick={removeFromCart}>{t('buttons.removeFromCart')}</Button>
+            : <Button onClick={addToCart}>{t('buttons.addToCart')}</Button>}
         </p>
         <p className='text-2xl md:text-3xl mt-4 pl-6'>{description}</p>
       </div>
