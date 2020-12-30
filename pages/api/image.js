@@ -1,5 +1,5 @@
-// import Cors from 'cors'
-// import initMiddleware from '../../utils/corsUtil'
+import Cors from 'cors'
+import initMiddleware from '../../utils/corsUtil'
 // import { createCanvas, loadImage } from 'canvas'
 
 const DEFAULT_IMAGE = 'https://media.graphcms.com/resize=fit:crop,height:640,width:1200/nbczo5TCSuGKdNFND0hw'
@@ -16,11 +16,11 @@ const TEXT_FULL_PADDING = TEXT_PADDING * 2
 // const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 // const ctx = canvas.getContext('2d')
 
-// const cors = initMiddleware(
-//   Cors({
-//     methods: ['GET', 'POST', 'OPTIONS']
-//   })
-// )
+const cors = initMiddleware(
+  Cors({
+    methods: ['GET', 'POST', 'OPTIONS']
+  })
+)
 
 const drawRoundedRect = (ctx, { x, y, width, height, radius = 5, strokeColor = '#000000', strokeWidth, fillColor = '#000000' }) => {
   if (typeof radius === 'number') {
@@ -89,6 +89,7 @@ const drawText = (ctx, {
 
 export default async (req, res) => {
   console.log(req?.query?.img)
+  await cors(req, res)
   // const [logoImg, bgImage] = await Promise.all([
   //   loadImage(`${process.env.URL}/favicons/android-chrome-192x192.png`),
   //   loadImage(req?.query?.img || DEFAULT_IMAGE),
