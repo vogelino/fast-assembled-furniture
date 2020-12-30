@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import NextHead from 'next/head'
 import getHeadFavicons from '../utils/faviconsUtil'
+import { LoadingContext } from './LoadingContext'
 
 const siteUrl = process.env.URL
 
@@ -16,6 +17,15 @@ export default function Head ({
   twitterUsername,
   socialThumbnail
 }) {
+  const { isLoading, stopLoading } = useContext(LoadingContext)
+
+  useEffect(() => {
+    const to = setTimeout(stopLoading, 10000)
+    return () => {
+      clearTimeout(to)
+    }
+  }, [])
+
   const longTitle = [pageTitle, siteTitle].join(' ✦ ')
   return (
     <NextHead>
@@ -53,7 +63,7 @@ export default function Head ({
 
       <link rel='apple-touch-icon' href='/favicons/apple-touch-icon.png' />
 
-      {getHeadFavicons().map((favicon) =>
+      {getHeadFavicons({ isPlaying: isLoading }).map((favicon) =>
         <link key={favicon.href} {...favicon} />)}
 
       <link rel='manifest' href='/manifest.webmanifest' />
