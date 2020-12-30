@@ -44,11 +44,7 @@ export default function Head ({
       <meta itemProp='name' content={longTitle} />
       <meta itemProp='description' content={description} />
 
-      {socialThumbnail && <meta itemProp='image' content={socialThumbnail} />}
-      {socialThumbnail && <meta name='twitter:image' content={socialThumbnail} />}
-      {socialThumbnail && <meta property='og:image' content={socialThumbnail} />}
-
-      <meta name='twitter:card' content='summary' />
+      <meta name='twitter:card' content='summary_large_image' />
       {twitterUsername && <meta name='twitter:site' content={`@${twitterUsername}`} />}
       <meta name='twitter:title' content={pageTitle} />
       <meta name='twitter:description' content={description} />
@@ -60,6 +56,10 @@ export default function Head ({
       <meta property='og:url' content={`${siteUrl}${currentPagePath}`} />
       <meta property='og:description' content={description} />
       <meta property='og:site_name' content={siteTitle} />
+
+      {socialThumbnail && <meta itemProp='image' content={socialThumbnail} />}
+      {socialThumbnail && <meta name='twitter:image' content={socialThumbnail} />}
+      {socialThumbnail && <meta property='og:image' content={socialThumbnail} />}
 
       <link rel='apple-touch-icon' href='/favicons/apple-touch-icon.png' />
 
