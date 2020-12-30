@@ -27,7 +27,7 @@ export default function Head ({
   }, [])
 
   const longTitle = [pageTitle, siteTitle].join(' ✦ ')
-  const formatedSocialImage = socialThumbnail && `/image?text=${encodeURI(pageTitle)}&img=${encodeURI(socialThumbnail)}`
+  const formatedSocialImage = socialThumbnail && `/api/image?text=${encodeURI(pageTitle)}&img=${encodeURI(socialThumbnail)}`
   return (
     <NextHead>
       <title>{longTitle}</title>
