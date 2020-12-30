@@ -1,5 +1,6 @@
 import React from 'react'
 import NextHead from 'next/head'
+import getHeadFavicons from '../utils/faviconsUtil'
 
 const siteUrl = process.env.URL
 
@@ -52,9 +53,8 @@ export default function Head ({
 
       <link rel='apple-touch-icon' href='/favicons/apple-touch-icon.png' />
 
-      <link rel='icon' type='image/png' href='/favicons/favicon-16x16.png' sizes='16x16' />
-      <link rel='icon' type='image/png' href='/favicons/favicon-32x32.png' sizes='32x32' />
-      <link rel='shortcut icon' href='/favicon.ico' />
+      {getHeadFavicons().map((favicon) =>
+        <link key={favicon.href} {...favicon} />)}
 
       <link rel='manifest' href='/manifest.webmanifest' />
 

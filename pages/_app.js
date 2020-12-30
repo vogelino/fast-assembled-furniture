@@ -11,6 +11,7 @@ function MyApp ({
   pageProps
 }) {
   const router = useRouter()
+
   return (
     <CartProvider>
       <div className='container mx-auto p-4'>
