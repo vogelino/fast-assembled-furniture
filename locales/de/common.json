@@ -1,0 +1,13 @@
+{
+    "buttons": {
+        "learnMore": "Mehr erfahren"
+    },
+    "pages": {
+        "home": "Startseite"
+    },
+    "cart": {
+        "checkout": "Zur Kasse",
+        "close": "Schließen",
+        "remove": "Entfernen"
+    }
+}

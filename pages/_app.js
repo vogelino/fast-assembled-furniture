@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import useTranslation from 'next-translate/useTranslation'
 import LanguageSwitch from '../components/LanguageSwitch'
 import '../styles/globals.css'
 import Head from '../components/Head'
@@ -13,6 +14,7 @@ function MyApp ({
   pageProps
 }) {
   const router = useRouter()
+  const { t } = useTranslation('common')
 
   return (
     <LoadingProvider>
@@ -33,7 +35,7 @@ function MyApp ({
           <header className='flex place-content-between items-center mb-4'>
             <Link href='/' locale={router.locale}>
               <a>
-                <h2 className='font-bold'>Home</h2>
+                <h2 className='font-bold'>{t('pages.home')}</h2>
               </a>
             </Link>
             <div>

@@ -1,0 +1,13 @@
+{
+    "buttons": {
+        "learnMore": "Learn more"
+    },
+    "pages": {
+        "home": "Home"
+    },
+    "cart": {
+        "checkout": "Checkout",
+        "close": "Close",
+        "remove": "Remove"
+    }
+}

@@ -1,4 +1,6 @@
-module.exports = {
+const nextTranslate = require('next-translate')
+
+module.exports = nextTranslate({
   images: {
     domains: ['media.graphcms.com']
   },
@@ -6,4 +8,4 @@ module.exports = {
     locales: ['de', 'en'],
     defaultLocale: 'de'
   }
-}
+})

@@ -1,6 +1,7 @@
 import React, { useState, useContext, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 import useOnClickOutside from '../utils/hooks/useOnClickOutside'
 import { CartContext } from './CartContext'
 
@@ -12,6 +13,7 @@ export default function Cart () {
   const ref = useRef(null)
   const [cartIsOpened, setCartIsOpened] = useState(false)
   useOnClickOutside(ref, () => setCartIsOpened(false))
+  const { t } = useTranslation('common')
 
   const hasCart = cart && Object.keys(cart).length > 0
 
@@ -27,7 +29,7 @@ export default function Cart () {
     <span className='group mr-8 relative cursor-pointer' ref={ref}>
       {hasCart && (
         <span onClick={() => setCartIsOpened(!cartIsOpened)}>
-          {cartIsOpened ? 'Close ✕' : `🛒 ${Object.keys(cart).length}`}
+          {cartIsOpened ? `${t('cart.close')} ✕` : `🛒 ${Object.keys(cart).length}`}
         </span>
       )}
       {cartIsOpened && hasCart && (
@@ -37,7 +39,7 @@ export default function Cart () {
               <a className='block py-4 px-6 border-t hover:bg-gray-200 focus:bg-black focus:text-white focus:outline-none focus:border-black'>
                 <h4 className='font-bold'>{product.title}</h4>
                 <span className='mr-4'>{product.startPrice}€</span>
-                <span className='text-sm underline float-right' onClick={getCartRemoverHandler(product.slug)}>Remove</span>
+                <span className='text-sm underline float-right' onClick={getCartRemoverHandler(product.slug)}>{t('cart.remove')}</span>
               </a>
             </Link>
           ))}
@@ -47,7 +49,8 @@ export default function Cart () {
               className='block px-6 py-4 border-t w-full text-left bg-black text-white focus:outline-none font-bold hover:bg-gray-800 hover:underline transition-all'
               style={{ userSelect: 'none' }}
             >
-              Checkout <span className='float-right'>{getTotalPrice(cart)}€</span>
+              {t('cart.checkout')}
+              <span className='float-right'>{getTotalPrice(cart)}€</span>
             </button>
           </Link>
         </div>
