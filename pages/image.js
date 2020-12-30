@@ -1,5 +1,6 @@
+import React, { useRouter } from 'react'
 import Cors from 'cors'
-import initMiddleware from '../../utils/corsUtil'
+import initMiddleware from '../utils/corsUtil'
 import { createCanvas, loadImage } from 'canvas'
 
 const DEFAULT_IMAGE = 'https://media.graphcms.com/resize=fit:crop,height:640,width:1200/nbczo5TCSuGKdNFND0hw'
@@ -87,36 +88,45 @@ const drawText = (ctx, {
   ctx.fillText(text, x + TEXT_PADDING, y - height + TEXT_PADDING)
 }
 
-export default async (req, res) => {
-  console.log(req?.query?.img)
-  const [logoImg, bgImage] = await Promise.all([
-    loadImage(`${process.env.URL}/favicons/android-chrome-192x192.png`),
-    loadImage(req?.query?.img || DEFAULT_IMAGE),
-    cors(req, res)
-  ])
+class Image extends React.Component {
+  static async getInitialProps ({ res, req, query }) {
+    try {
+      const [logoImg, bgImage] = await Promise.all([
+        loadImage(`${process.env.URL}/favicons/android-chrome-192x192.png`),
+        loadImage(query?.img || DEFAULT_IMAGE),
+        cors(req, res)
+      ])
 
-  drawRoundedRect(ctx, {
-    width: CANVAS_WIDTH - FULL_PADDING,
-    height: CANVAS_HEIGHT - FULL_PADDING,
-    x: PADDING,
-    y: PADDING,
-    radius: PADDING,
-    strokeWidth: STROKE_WIDTH,
-    strokeColor: STROKE_COLOR
-  })
-  ctx.clip()
-  ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  ctx.drawImage(logoImg, FULL_PADDING, FULL_PADDING, LOGO_SIZE, LOGO_SIZE)
+      drawRoundedRect(ctx, {
+        width: CANVAS_WIDTH - FULL_PADDING,
+        height: CANVAS_HEIGHT - FULL_PADDING,
+        x: PADDING,
+        y: PADDING,
+        radius: PADDING,
+        strokeWidth: STROKE_WIDTH,
+        strokeColor: STROKE_COLOR
+      })
+      ctx.clip()
+      ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+      ctx.drawImage(logoImg, FULL_PADDING, FULL_PADDING, LOGO_SIZE, LOGO_SIZE)
 
-  drawText(ctx, {
-    x: FULL_PADDING,
-    y: CANVAS_HEIGHT - FULL_PADDING,
-    text: req?.query?.text,
-    fontSize: 64,
-    lineHeight: 56
-  })
+      drawText(ctx, {
+        x: FULL_PADDING,
+        y: CANVAS_HEIGHT - FULL_PADDING,
+        text: query?.text,
+        fontSize: 64,
+        lineHeight: 56
+      })
 
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'image/png')
-  res.end(canvas.toBuffer())
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'image/png')
+      res.end(canvas.toBuffer())
+    } catch (err) {
+      res.statusCode = err.statusCode || 500
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify(err))
+    }
+  }
 }
+
+export default Image
