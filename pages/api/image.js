@@ -1,6 +1,6 @@
 import Cors from 'cors'
 import initMiddleware from '../../utils/corsUtil'
-// import { createCanvas, loadImage } from 'canvas'
+import { createCanvas, loadImage } from 'canvas'
 
 const DEFAULT_IMAGE = 'https://media.graphcms.com/resize=fit:crop,height:640,width:1200/nbczo5TCSuGKdNFND0hw'
 const CANVAS_WIDTH = 1200
