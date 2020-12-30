@@ -1,6 +1,6 @@
 // import Cors from 'cors'
 // import initMiddleware from '../../utils/corsUtil'
-import { createCanvas, loadImage } from 'canvas'
+// import { createCanvas, loadImage } from 'canvas'
 
 const DEFAULT_IMAGE = 'https://media.graphcms.com/resize=fit:crop,height:640,width:1200/nbczo5TCSuGKdNFND0hw'
 const CANVAS_WIDTH = 1200
@@ -13,8 +13,8 @@ const STROKE_COLOR = '#000000'
 const TEXT_PADDING = 24
 const TEXT_FULL_PADDING = TEXT_PADDING * 2
 
-const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT)
-const ctx = canvas.getContext('2d')
+// const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+// const ctx = canvas.getContext('2d')
 
 // const cors = initMiddleware(
 //   Cors({
@@ -95,28 +95,29 @@ export default async (req, res) => {
   //   cors(req, res)
   // ])
 
-  drawRoundedRect(ctx, {
-    width: CANVAS_WIDTH - FULL_PADDING,
-    height: CANVAS_HEIGHT - FULL_PADDING,
-    x: PADDING,
-    y: PADDING,
-    radius: PADDING,
-    strokeWidth: STROKE_WIDTH,
-    strokeColor: STROKE_COLOR
-  })
-  // ctx.clip()
-  // ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  // ctx.drawImage(logoImg, FULL_PADDING, FULL_PADDING, LOGO_SIZE, LOGO_SIZE)
+  // drawRoundedRect(ctx, {
+  //   width: CANVAS_WIDTH - FULL_PADDING,
+  //   height: CANVAS_HEIGHT - FULL_PADDING,
+  //   x: PADDING,
+  //   y: PADDING,
+  //   radius: PADDING,
+  //   strokeWidth: STROKE_WIDTH,
+  //   strokeColor: STROKE_COLOR
+  // })
+  // // ctx.clip()
+  // // ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+  // // ctx.drawImage(logoImg, FULL_PADDING, FULL_PADDING, LOGO_SIZE, LOGO_SIZE)
 
-  drawText(ctx, {
-    x: FULL_PADDING,
-    y: CANVAS_HEIGHT - FULL_PADDING,
-    text: req?.query?.text,
-    fontSize: 64,
-    lineHeight: 56
-  })
+  // drawText(ctx, {
+  //   x: FULL_PADDING,
+  //   y: CANVAS_HEIGHT - FULL_PADDING,
+  //   text: req?.query?.text,
+  //   fontSize: 64,
+  //   lineHeight: 56
+  // })
 
   res.statusCode = 200
-  res.setHeader('Content-Type', 'image/png')
-  res.end(canvas.toBuffer())
+  res.setHeader('Content-Type', 'application/json')
+  // res.end(canvas.toBuffer())
+  res.end(JSON.stringify(req?.query))
 }
