@@ -26,7 +26,7 @@ export default function ProductPage ({
             src={thumbnail.url}
             alt={title}
             layout='responsive'
-            width='1000'
+            width='1200'
             height='400'
             objectFit='cover'
           />
@@ -62,7 +62,15 @@ const individualProductQuery = gql`
     }
     thumb: product(where: { slug: $slug }, stage: $stage) {
       thumbnail {
-        url
+        url(transformation: {
+          image: {
+            resize: {
+              width: 1200,
+              height: 600,
+              fit: crop
+            }
+          }
+        })
       }
     }
     seoCommons(stage: $stage, locales: [$locale]) {
