@@ -27,6 +27,7 @@ export default function Head ({
   }, [])
 
   const longTitle = [pageTitle, siteTitle].join(' ✦ ')
+  const formatedSocialImage = socialThumbnail && `/api/image?text=${encodeURI(pageTitle)}&img=${encodeURI(socialThumbnail)}`
   return (
     <NextHead>
       <title>{longTitle}</title>
@@ -57,9 +58,9 @@ export default function Head ({
       <meta property='og:description' content={description} />
       <meta property='og:site_name' content={siteTitle} />
 
-      {socialThumbnail && <meta itemProp='image' content={socialThumbnail} />}
-      {socialThumbnail && <meta name='twitter:image' content={socialThumbnail} />}
-      {socialThumbnail && <meta property='og:image' content={socialThumbnail} />}
+      {socialThumbnail && <meta itemProp='image' content={formatedSocialImage} />}
+      {socialThumbnail && <meta name='twitter:image' content={formatedSocialImage} />}
+      {socialThumbnail && <meta property='og:image' content={formatedSocialImage} />}
 
       <link rel='apple-touch-icon' href='/favicons/apple-touch-icon.png' />
 
