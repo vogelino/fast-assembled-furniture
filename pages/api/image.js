@@ -1,6 +1,4 @@
-import Cors from 'cors'
-import initMiddleware from '../../utils/corsUtil'
-import { createCanvas, loadImage } from 'canvas'
+import { createCanvas, screenshotCanvas, loadImage, close } from 'puppet-canvas'
 
 const DEFAULT_IMAGE = 'https://media.graphcms.com/resize=fit:crop,height:640,width:1200/nbczo5TCSuGKdNFND0hw'
 const CANVAS_WIDTH = 1200
@@ -13,16 +11,7 @@ const STROKE_COLOR = '#000000'
 const TEXT_PADDING = 24
 const TEXT_FULL_PADDING = TEXT_PADDING * 2
 
-// const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT)
-// const ctx = canvas.getContext('2d')
-
-const cors = initMiddleware(
-  Cors({
-    methods: ['GET', 'POST', 'OPTIONS']
-  })
-)
-
-const drawRoundedRect = (ctx, { x, y, width, height, radius = 5, strokeColor = '#000000', strokeWidth, fillColor = '#000000' }) => {
+const drawRoundedRect = async (ctx, { x, y, width, height, radius = 5, strokeColor = '#000000', strokeWidth, fillColor = '#000000' }) => {
   if (typeof radius === 'number') {
     radius = { tl: radius, tr: radius, br: radius, bl: radius }
   } else {
@@ -54,7 +43,7 @@ const drawRoundedRect = (ctx, { x, y, width, height, radius = 5, strokeColor = '
   }
 }
 
-const drawText = (ctx, {
+const drawText = async (ctx, {
   x,
   y,
   text,
@@ -68,13 +57,13 @@ const drawText = (ctx, {
   if (!text) return
 
   ctx.font = `${fontWeight} ${fontSize}px ${fontFace}`
-  const textWidth = ctx.measureText(text).width
+  const textWidth = await ctx.measureText(text).width
 
   ctx.textAlign = 'left'
   ctx.textBaseline = 'top'
 
   const height = (lineHeight || fontSize) + TEXT_FULL_PADDING
-  drawRoundedRect(ctx, {
+  await drawRoundedRect(ctx, {
     x,
     y: y - height,
     width: textWidth + TEXT_FULL_PADDING,
@@ -88,37 +77,45 @@ const drawText = (ctx, {
 }
 
 export default async (req, res) => {
-  console.log(req?.query?.img)
-  await cors(req, res)
-  // const [logoImg, bgImage] = await Promise.all([
-  //   loadImage(`${process.env.URL}/favicons/android-chrome-192x192.png`),
-  //   loadImage(req?.query?.img || DEFAULT_IMAGE),
-  //   cors(req, res)
-  // ])
+  try {
+    const canvas = await createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+    const ctx = await canvas.getContext('2d')
 
-  // drawRoundedRect(ctx, {
-  //   width: CANVAS_WIDTH - FULL_PADDING,
-  //   height: CANVAS_HEIGHT - FULL_PADDING,
-  //   x: PADDING,
-  //   y: PADDING,
-  //   radius: PADDING,
-  //   strokeWidth: STROKE_WIDTH,
-  //   strokeColor: STROKE_COLOR
-  // })
-  // // ctx.clip()
-  // // ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  // // ctx.drawImage(logoImg, FULL_PADDING, FULL_PADDING, LOGO_SIZE, LOGO_SIZE)
+    const [logoImg, bgImage] = await Promise.all([
+      loadImage(`${process.env.URL}/favicons/android-chrome-192x192.png`, canvas),
+      loadImage(req?.query?.img || DEFAULT_IMAGE, canvas)
+    ])
 
-  // drawText(ctx, {
-  //   x: FULL_PADDING,
-  //   y: CANVAS_HEIGHT - FULL_PADDING,
-  //   text: req?.query?.text,
-  //   fontSize: 64,
-  //   lineHeight: 56
-  // })
+    await drawRoundedRect(ctx, {
+      width: CANVAS_WIDTH - FULL_PADDING,
+      height: CANVAS_HEIGHT - FULL_PADDING,
+      x: PADDING,
+      y: PADDING,
+      radius: PADDING,
+      strokeWidth: STROKE_WIDTH,
+      strokeColor: STROKE_COLOR
+    })
+    await ctx.clip()
+    await ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+    await ctx.drawImage(logoImg, FULL_PADDING, FULL_PADDING, LOGO_SIZE, LOGO_SIZE)
 
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'application/json')
-  // res.end(canvas.toBuffer())
-  res.end(JSON.stringify(req?.query))
+    await drawText(ctx, {
+      x: FULL_PADDING,
+      y: CANVAS_HEIGHT - FULL_PADDING,
+      text: req?.query?.text,
+      fontSize: 64,
+      lineHeight: 56
+    })
+
+    const imageBuffer = await screenshotCanvas(canvas)
+    console.log('I WENT THAT FAR')
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'image/png')
+    res.end(imageBuffer)
+    await close()
+  } catch (error) {
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'text/html')
+    res.end(`<h1>Error: ${error.message}</h1>`)
+  }
 }
