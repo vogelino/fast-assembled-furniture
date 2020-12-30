@@ -19,6 +19,7 @@
     "@stripe/stripe-js": "^1.11.0",
     "autoprefixer": "^10.1.0",
     "canvas": "^2.6.1",
+    "cors": "^2.8.5",
     "graphql": "^15.4.0",
     "graphql-request": "^3.4.0",
     "next": "10.0.4",
