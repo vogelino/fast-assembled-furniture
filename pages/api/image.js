@@ -1,3 +1,4 @@
+import 'Browser'
 import { createCanvas, screenshotCanvas, loadImage, close } from 'puppet-canvas'
 
 const DEFAULT_IMAGE = 'https://media.graphcms.com/resize=fit:crop,height:640,width:1200/nbczo5TCSuGKdNFND0hw'
