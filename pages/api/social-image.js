@@ -6,23 +6,15 @@ import { absoluteUrl } from '../../utils/urlUtil'
 const isDev = process.env.NODE_ENV === 'development'
 const config = {
   width: 1200,
-  height: 640,
-  padding: 32,
-  logoSize: 120,
-  strokeWidth: 10,
-  strokeColor: '#000000',
-  textPadding: 24
+  height: 640
 }
 
 export default async (req, res) => {
   let browser = null
 
   try {
-    const text = req?.query?.text
-    const imgUrl = req?.query?.imgUrl
-
     const { origin } = absoluteUrl(req)
-    const query = qs.stringify({ text, imgUrl, ...config })
+    const query = qs.stringify({ ...config, ...(req?.query || {}) })
     const url = `${origin}/social-image?${query}`
 
     browser = await chrome.puppeteer.launch({
@@ -36,9 +28,10 @@ export default async (req, res) => {
     })
     const page = await browser.newPage()
 
+    console.log(req?.query?.height ? parseInt(req?.query?.height, 10) : config.height)
     await page.setViewport({
-      width: config.width,
-      height: config.height
+      width: req?.query?.width ? parseInt(req?.query?.width, 10) : config.width,
+      height: req?.query?.height ? parseInt(req?.query?.height, 10) : config.height
     })
 
     await page.goto(url, {
