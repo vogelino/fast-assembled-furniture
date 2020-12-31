@@ -10,6 +10,7 @@ export default function Head ({
   description = '',
   siteTitle = 'Fast Assembled Furniture',
   pageTitle = 'Fast Assembled Furniture',
+  fbAppId,
   keywords = [],
   themeColor = '#000000',
   locales = ['de', 'en'],
@@ -57,10 +58,12 @@ export default function Head ({
       <meta property='og:url' content={`${siteUrl}${currentPagePath}`} />
       <meta property='og:description' content={description} />
       <meta property='og:site_name' content={siteTitle} />
+      {fbAppId && <meta property='fb:app_id' content={fbAppId} />}
 
       {socialThumbnail && <meta itemProp='image' content={formatedSocialImage} />}
       {socialThumbnail && <meta name='twitter:image' content={formatedSocialImage} />}
       {socialThumbnail && <meta property='og:image' content={formatedSocialImage} />}
+      {socialThumbnail && <meta property='og:image:alt' content={socialThumbnail} />}
 
       <link rel='apple-touch-icon' href='/favicons/apple-touch-icon.png' />
 

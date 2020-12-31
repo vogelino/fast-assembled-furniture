@@ -22,6 +22,7 @@ const MyApp = ({
           themeColor={pageProps?.seo?.themeTextColor}
           twitterUsername={pageProps?.seo?.twitterUsername}
           socialThumbnail={pageProps?.seo?.thumbnail?.url}
+          fbAppId={process.env.FACEBOOK_APP_ID}
           locales={router.locales}
           locale={router.locale}
           currentPagePath={router.asPath}
