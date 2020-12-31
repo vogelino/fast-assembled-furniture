@@ -6,6 +6,7 @@ import { mapProductToProps } from '../utils/graphcmsUtil'
 import { request } from '../utils/requestUtil'
 import Button from '../components/Button'
 import { CartContext } from '../components/CartContext'
+import Layout from '../components/Layout'
 
 export default function ProductPage ({
   slug,
@@ -22,7 +23,8 @@ export default function ProductPage ({
   const currency = new Intl.NumberFormat(lang, { style: 'currency', currency: 'EUR' })
 
   return (
-    <main>
+    <Layout>
+      <main>
         {thumbnail && (
           <div className="rounded-xl overflow-hidden border-2 border-black">
             <Image
@@ -35,17 +37,18 @@ export default function ProductPage ({
           />
           </div>
         )}
-      <div className='px-6 py-8'>
-        <h3 className='text-3xl md:text-6xl font-bold px-6 py-2 mb-4 bg-black text-white inline-block rounded-full'>{title}</h3>
-        {startPrice && <h4 className='text-xl md:text-2xl pl-6'>{t('priceStartingFrom', { price: currency.format(startPrice) })}</h4>}
-        <p className='mt-4 pl-2'>
-          {cart && cart[slug]
-            ? <Button onClick={removeFromCart}>{t('buttons.removeFromCart')}</Button>
-            : <Button onClick={addToCart}>{t('buttons.addToCart')}</Button>}
-        </p>
-        <p className='text-2xl md:text-3xl mt-4 pl-6'>{description}</p>
-      </div>
-    </main>
+        <div className='px-6 py-8'>
+          <h3 className='text-3xl md:text-6xl font-bold px-6 py-2 mb-4 bg-black text-white inline-block rounded-full'>{title}</h3>
+          {startPrice && <h4 className='text-xl md:text-2xl pl-6'>{t('priceStartingFrom', { price: currency.format(startPrice) })}</h4>}
+          <p className='mt-4 pl-2'>
+            {cart && cart[slug]
+              ? <Button onClick={removeFromCart}>{t('buttons.removeFromCart')}</Button>
+              : <Button onClick={addToCart}>{t('buttons.addToCart')}</Button>}
+          </p>
+          <p className='text-2xl md:text-3xl mt-4 pl-6'>{description}</p>
+        </div>
+      </main>
+    </Layout>
   )
 }
 

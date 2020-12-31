@@ -4,13 +4,16 @@ import { parseCookies, setCookie } from 'nookies'
 import { Elements } from '@stripe/react-stripe-js'
 import getStripe from '../utils/stripeUtil'
 import CheckoutForm from '../components/CheckoutForm'
+import Layout from '../components/Layout'
 
 const stripe = getStripe()
 
 const Checkout = ({ paymentIntent }) => (
-  <Elements stripe={stripe}>
-    <CheckoutForm paymentIntent={paymentIntent} />
-  </Elements>
+  <Layout>
+    <Elements stripe={stripe}>
+      <CheckoutForm paymentIntent={paymentIntent} />
+    </Elements>
+  </Layout>
 )
 
 export const getServerSideProps = async (ctx) => {

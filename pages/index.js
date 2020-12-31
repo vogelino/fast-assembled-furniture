@@ -2,12 +2,13 @@ import { gql } from 'graphql-request'
 import { request } from '../utils/requestUtil'
 import { mapProductToProps } from '../utils/graphcmsUtil'
 import ProductList from '../components/ProductList'
+import Layout from '../components/Layout'
 
 export default function Home ({ products }) {
   return (
-    <>
+    <Layout>
       <ProductList products={products} />
-    </>
+    </Layout>
   )
 }
 
