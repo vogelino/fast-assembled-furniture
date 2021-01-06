@@ -1,8 +1,9 @@
 import { gql } from 'graphql-request'
 import { request } from '../utils/requestUtil'
-import { mapProductToProps, ProductUnmapped } from '../utils/graphcmsUtil'
+import { mapProductsToProps, mapProductToProps, mapSeoToProps, RawProject, RawSeoCommons, RawSeoPage, RawThumbnail } from '../utils/graphcmsUtil'
 import ProductList, { Product, Products, Thumbnail } from '../components/ProductList'
 import Layout from '../components/Layout'
+import { GetStaticProps } from 'next'
 
 
 const Home: React.FC<Products> = ({ products }) => {
@@ -45,39 +46,19 @@ const query = gql`
   }
 `
 
-interface SeoPage {
-  seoTitle: string,
-  seoKeywords: string[],
-  seoDescription: string
-}
-
-interface SeoCommons {
-  siteTitle: string,
-  themeTextColor: string,
-  twitterUsername: string
-}
-
 interface Data {
-  products: Product[],
-  thumbnails: Thumbnail[],
-  pages: SeoPage[],
-  seoCommons: SeoCommons[],
+  products: RawProject[],
+  thumbnails: RawThumbnail[],
+  pages: RawSeoPage[],
+  seoCommons: RawSeoCommons[],
 }
 
-const mapDataToProps = ({ products, thumbnails, pages, seoCommons }) => ({
-  products: products.map((product: ProductUnmapped) => ({
-    ...mapProductToProps(product),
-    thumbnail: thumbnails.find((thumb: Thumbnail) => thumb.slug === product.slug)?.thumbnail
-  })),
-  seo: {
-    title: pages[0]?.seoTitle,
-    description: pages[0]?.seoDescription,
-    keywords: pages[0]?.seoKeywords,
-    ...seoCommons[0]
-  }
+const mapDataToProps = ({ products, thumbnails, pages, seoCommons }: Data) => ({
+  products: mapProductsToProps(products, thumbnails),
+  seo: mapSeoToProps({ pages, seoCommons })
 })
 
-export async function getStaticProps({ locale, defaultLocale }) {
+export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
   const lang = locale || defaultLocale
   const props = await request(query, { locale: lang })
   return { props: mapDataToProps(props) }
