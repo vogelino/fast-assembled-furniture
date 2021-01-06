@@ -4,9 +4,9 @@ import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import Button from './Button'
 
-const shortenText = (text) => text.length > 80 ? `${text.slice(0, 80)}...` : text
+const shortenText: (text: string) => string = (text) => text.length > 80 ? `${text.slice(0, 80)}...` : text
 
-const ProductListItem = ({
+const ProductListItem: React.FC<Product> = ({
   slug,
   title = 'Untitled',
   startPrice = 10,
@@ -33,7 +33,24 @@ const ProductListItem = ({
   )
 }
 
-export default function ProductList ({ products }) {
+export interface Thumbnail {
+  slug?: string,
+  url: string
+}
+
+export interface Product {
+  slug: string,
+  title?: string,
+  startPrice?: number,
+  description?: string,
+  thumbnail?: Thumbnail
+}
+
+export interface Products {
+  products: Product[]
+}
+
+const ProductList: React.FC<Products> = ({ products }) => {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
       {products.map((product) => (
@@ -42,3 +59,5 @@ export default function ProductList ({ products }) {
     </div>
   )
 }
+
+export default ProductList

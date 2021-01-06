@@ -2,7 +2,12 @@ import React from 'react'
 import { gql } from 'graphql-request'
 import { request } from '../utils/requestUtil'
 
-const getSitemap = ({ products }) => `<?xml version="1.0" encoding="utf-8"?>
+type Product = {
+  slug: string,
+  updatedAt: string
+}
+
+const getSitemap: (props: { products: Product[] }) => string = ({ products }) => `<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${createFullUrl('/')}</loc>
@@ -25,11 +30,10 @@ const getSitemap = ({ products }) => `<?xml version="1.0" encoding="utf-8"?>
 
 const createFullUrl = (path) =>
   `${process.env.URL || 'http://localhost:3000'}${path}`
-const formatDate = (dateStr) => {
+const formatDate: (dateStr?: string) => string = (dateStr) => {
   const date = dateStr ? new Date(dateStr) : new Date()
-  return `${date.getUTCFullYear()}-${
-    date.getUTCMonth() + 1
-  }-${date.getUTCDate()}`
+  return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1
+    }-${date.getUTCDate()}`
 }
 
 const sitemapQuery = gql`
@@ -42,8 +46,8 @@ const sitemapQuery = gql`
 `
 
 class Sitemap extends React.Component {
-  static async getInitialProps ({ res }) {
-    const generationData = await request(sitemapQuery)
+  static async getInitialProps({ res }) {
+    const generationData: { products: Product[] } = await request(sitemapQuery)
     res.setHeader('Content-Type', 'text/xml')
     res.write(getSitemap(generationData))
     res.end()

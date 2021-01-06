@@ -1,12 +1,12 @@
 import { useRef, useEffect } from 'react'
 
-function useInterval (callback, delay) {
-  const savedCallback = useRef()
+function useInterval(callback: () => void, delay = 1000) {
+  const savedCallback = useRef<() => void>()
   useEffect(() => {
     savedCallback.current = callback
   })
   useEffect(() => {
-    function tick () {
+    function tick() {
       if (typeof savedCallback?.current !== 'undefined') {
         savedCallback?.current()
       }

@@ -9,7 +9,13 @@ const aFaviconPathPNG16 = '/favicons/favicon-16x16.png'
 const fFaviconPathPNG32 = '/favicons/favicon-f-32x32.png'
 const aFaviconPathPNG32 = '/favicons/favicon-32x32.png'
 
-const getFavicons = (letter) => [
+interface FaviconProps {
+  href: string,
+  type: 'image/x-icon' | 'image/png',
+  rel: 'shortcut icon' | 'icon'
+}
+
+const getFavicons = (letter: string): FaviconProps[] => [
   { href: `${letter === 'F' ? fFaviconPath : aFaviconPath}`, type: 'image/x-icon', rel: 'shortcut icon' },
   { href: `${letter === 'F' ? fFaviconPathPNG16 : aFaviconPathPNG16}`, type: 'image/png', rel: 'icon' },
   { href: `${letter === 'F' ? fFaviconPathPNG32 : aFaviconPathPNG32}`, type: 'image/png', rel: 'icon' }

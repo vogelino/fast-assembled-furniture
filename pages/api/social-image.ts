@@ -1,6 +1,7 @@
 import qs from 'querystring'
 import pptr from 'puppeteer'
 import chrome from 'chrome-aws-lambda'
+import { NextApiRequest, NextApiResponse } from 'next'
 import { absoluteUrl } from '../../utils/urlUtil'
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -9,12 +10,12 @@ const config = {
   height: 640
 }
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   let browser = null
 
   try {
     const { origin } = absoluteUrl(req)
-    const query = qs.stringify({ ...config, ...(req?.query || {}) })
+    const query = qs.stringify({ ...config, ...(req.query || {}) })
     const url = `${origin}/social-image?${query}`
 
     browser = await chrome.puppeteer.launch({
@@ -28,10 +29,11 @@ export default async (req, res) => {
     })
     const page = await browser.newPage()
 
-    console.log(req?.query?.height ? parseInt(req?.query?.height, 10) : config.height)
+    const queryWidth: string | string[] | undefined = req.query.width
+    const queryHeight: string | string[] | undefined = req.query.height
     await page.setViewport({
-      width: req?.query?.width ? parseInt(req?.query?.width, 10) : config.width,
-      height: req?.query?.height ? parseInt(req?.query?.height, 10) : config.height
+      width: queryWidth ? parseInt(`${queryWidth}`, 10) : config.width,
+      height: queryHeight ? parseInt(`${queryHeight}`, 10) : config.height
     })
 
     await page.goto(url, {

@@ -16,12 +16,14 @@ const Checkout = ({ paymentIntent }) => (
   </Layout>
 )
 
-export const getServerSideProps = async (ctx) => {
-  const stripe = Stripe(process.env.STRIPE_SECRET_KEY)
+export const getServerSideProps = async (ctx: unknown) => {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2020-08-27'
+  })
 
   let paymentIntent
 
-  const { paymentIntentId } = await parseCookies(ctx)
+  const { paymentIntentId } = parseCookies(ctx)
 
   if (paymentIntentId) {
     paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId)
@@ -30,7 +32,7 @@ export const getServerSideProps = async (ctx) => {
       amount: 1000,
       currency: 'eur'
     })
-    setCookie(ctx, 'paymentIntentId', paymentIntent.id)
+    setCookie(ctx, 'paymentIntentId', paymentIntent.id, {})
   }
 
   return {

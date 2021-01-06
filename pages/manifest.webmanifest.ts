@@ -38,7 +38,7 @@ const query = gql`
 `
 
 class Sitemap extends React.Component {
-  static async getInitialProps ({ res }) {
+  static async getInitialProps({ res }) {
     res.setHeader('Content-Type', 'application/manifest+json')
     const { seoCommons } = await request(query)
     res.write(getManifest(seoCommons))

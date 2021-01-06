@@ -7,8 +7,9 @@ import { request } from '../utils/requestUtil'
 import Button from '../components/Button'
 import { CartContext } from '../components/CartContext'
 import Layout from '../components/Layout'
+import { Product } from '../components/ProductList'
 
-export default function ProductPage ({
+export default function ProductPage({
   slug,
   title,
   startPrice,
@@ -16,9 +17,9 @@ export default function ProductPage ({
   thumbnail
 }) {
   const [cart, getCartAdder, getCartRemover] = useContext(CartContext)
-  const { t, lang } = useTranslation('product') 
+  const { t, lang } = useTranslation('product')
 
-  const addToCart = getCartAdder(slug, {slug, title, startPrice})
+  const addToCart = getCartAdder(slug, { slug, title, startPrice })
   const removeFromCart = getCartRemover(slug)
   const currency = new Intl.NumberFormat(lang, { style: 'currency', currency: 'EUR' })
 
@@ -28,13 +29,13 @@ export default function ProductPage ({
         {thumbnail && (
           <div className="rounded-xl overflow-hidden border-2 border-black">
             <Image
-            src={thumbnail.url}
-            alt={title}
-            layout='responsive'
-            width='1200'
-            height='400'
-            objectFit='cover'
-          />
+              src={thumbnail.url}
+              alt={title}
+              layout='responsive'
+              width='1200'
+              height='400'
+              objectFit='cover'
+            />
           </div>
         )}
         <div className='px-6 py-8'>
@@ -99,7 +100,7 @@ const mapRequestToProps = ({ product, thumb: { thumbnail }, seoCommons }) => ({
   }
 })
 
-export async function getStaticProps ({
+export async function getStaticProps({
   params: { product: slug },
   locale,
   defaultLocale
@@ -120,16 +121,18 @@ const allProductsQuery = gql`
   }
 `
 
-const generatePathForLocale = (locale, products) =>
+type locale = 'en' | 'de'
+
+const generatePathForLocale = (locale: locale, products: Product[]) =>
   products.map(({ slug }) => ({
     params: { product: slug },
     locale
   }))
 
-export async function getStaticPaths ({ locales }) {
+export async function getStaticPaths({ locales }) {
   const { products } = await request(allProductsQuery)
   const paths = locales
-    .map((locale) => generatePathForLocale(locale, products))
+    .map((locale: 'en' | 'de') => generatePathForLocale(locale, products))
     .flat(1)
   return {
     paths,
