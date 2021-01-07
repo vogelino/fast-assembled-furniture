@@ -1,11 +1,10 @@
-import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function LanguageSwitch() {
   const router = useRouter();
   return (
-    <ul className="inline-flex">
+    <ul className='inline-flex'>
       {router.locales.map((locale) => (
         <li key={locale}>
           <Link href={router.asPath} locale={locale}>

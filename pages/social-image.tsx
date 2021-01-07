@@ -1,5 +1,4 @@
-import { title } from "process";
-import React from "react";
+import { title } from 'process';
 
 const SocialImagePage = ({
   text,
@@ -24,7 +23,7 @@ const SocialImagePage = ({
     <div>
       {imgUrl && (
         <div
-          className="fixed bg-cover rounded-xl box-border"
+          className='fixed bg-cover rounded-xl box-border'
           style={{
             width: width - fullOuterPadding,
             height: height - fullOuterPadding,
@@ -44,20 +43,20 @@ const SocialImagePage = ({
             top: innerOuterPadding,
           }}
           alt={title}
-          src="/favicons/apple-touch-icon.png"
-          className="fixed rounded-md"
+          src='/favicons/apple-touch-icon.png'
+          className='fixed rounded-md'
         />
       )}
       {text && (
         <h1
-          className="fixed bg-black font-bold text-white leading-tight text-5xl rounded-md break-normal overflow-hidden"
+          className='fixed bg-black font-bold text-white leading-tight text-5xl rounded-md break-normal overflow-hidden'
           style={{
             maxWidth: width - fullPadding - textPadding,
             left: innerOuterPadding,
             bottom: innerOuterPadding,
-            padding: `${Math.round(
-              textPadding * 0.4
-            )}px ${textPadding}px ${Math.round(textPadding * 0.7)}px`,
+            padding: `${Math.round(textPadding * 0.4)}px ${textPadding}px ${Math.round(
+              textPadding * 0.7
+            )}px`,
           }}
         >
           {text.length > 109 ? `${text.slice(0, 109)}...` : text}

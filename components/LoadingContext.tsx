@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { FC, createContext, useState, useEffect } from 'react';
 
-export const LoadingContext = React.createContext({});
+export const LoadingContext = createContext({});
 
-export const LoadingProvider: React.FC = ({ children }) => {
+export const LoadingProvider: FC = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const startLoading = () => setIsLoading(true);

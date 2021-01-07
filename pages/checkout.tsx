@@ -1,10 +1,9 @@
-import React from "react";
-import Stripe from "stripe";
-import { parseCookies, setCookie } from "nookies";
-import { Elements } from "@stripe/react-stripe-js";
-import getStripe from "../utils/stripeUtil";
-import CheckoutForm from "../components/CheckoutForm";
-import Layout from "../components/Layout";
+import Stripe from 'stripe';
+import { parseCookies, setCookie } from 'nookies';
+import { Elements } from '@stripe/react-stripe-js';
+import getStripe from '../utils/stripeUtil';
+import CheckoutForm from '../components/CheckoutForm';
+import Layout from '../components/Layout';
 
 const globalStripe = getStripe();
 
@@ -18,7 +17,7 @@ const Checkout = ({ paymentIntent }) => (
 
 export const getServerSideProps = async (ctx: unknown) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2020-08-27",
+    apiVersion: '2020-08-27',
   });
 
   let paymentIntent: { id: string };
@@ -30,9 +29,9 @@ export const getServerSideProps = async (ctx: unknown) => {
   } else {
     paymentIntent = await stripe.paymentIntents.create({
       amount: 1000,
-      currency: "eur",
+      currency: 'eur',
     });
-    setCookie(ctx, "paymentIntentId", paymentIntent.id, {});
+    setCookie(ctx, 'paymentIntentId', paymentIntent.id, {});
   }
 
   return {

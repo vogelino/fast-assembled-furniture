@@ -1,12 +1,12 @@
-import React from "react";
+import { Component } from 'react';
 
 const getRobots = () => `User-agent: *
-Disallow: ${process.env.VERCEL_ENV === "production" ? "/_next/static/" : "/"}
+Disallow: ${process.env.VERCEL_ENV === 'production' ? '/_next/static/' : '/'}
 `;
 
-class Sitemap extends React.Component {
+class Sitemap extends Component {
   static async getInitialProps({ res }) {
-    res.setHeader("Content-Type", "text/plain");
+    res.setHeader('Content-Type', 'text/plain');
     res.write(getRobots());
     res.end();
   }

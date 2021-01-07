@@ -1,7 +1,7 @@
-import React from "react";
-import { gql } from "graphql-request";
-import { GetStaticProps } from "next";
-import { request } from "../utils/requestUtil";
+import { FC } from 'react';
+import { gql } from 'graphql-request';
+import { GetStaticProps } from 'next';
+import { request } from '../utils/requestUtil';
 import {
   mapProductsToProps,
   mapSeoToProps,
@@ -9,11 +9,11 @@ import {
   RawSeoCommons,
   RawSeoPage,
   RawThumbnail,
-} from "../utils/graphcmsUtil";
-import ProductList, { Products } from "../components/ProductList";
-import Layout from "../components/Layout";
+} from '../utils/graphcmsUtil';
+import ProductList, { Products } from '../components/ProductList';
+import Layout from '../components/Layout';
 
-const Home: React.FC<Products> = ({ products }) => (
+const Home: FC<Products> = ({ products }) => (
   <Layout>
     <ProductList products={products} />
   </Layout>
@@ -63,10 +63,7 @@ const mapDataToProps = ({ products, thumbnails, pages, seoCommons }: Data) => ({
   seo: mapSeoToProps({ pages, seoCommons }),
 });
 
-export const getStaticProps: GetStaticProps = async ({
-  locale,
-  defaultLocale,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
   const lang = locale || defaultLocale;
   const props = await request(query, { locale: lang });
   return { props: mapDataToProps(props) };

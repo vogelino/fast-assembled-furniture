@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 const LOCAL_STORAGE_CART_KEY = 'FAF_CART';
 
-export const CartContext = React.createContext();
+export const CartContext = createContext();
 
 export const CartProvider = (props) => {
   const [cart, setCart] = useState({});
@@ -28,7 +28,7 @@ export const CartProvider = (props) => {
         const val = cart[key];
         if (key === slug) return acc;
         return { ...acc, [key]: val };
-      }, {}),
+      }, {})
     );
   };
 

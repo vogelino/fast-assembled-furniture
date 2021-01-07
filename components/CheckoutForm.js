@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { destroyCookie } from 'nookies';
 import Button from './Button';
@@ -26,7 +26,6 @@ export default function CheckoutForm({ paymentIntent }) {
       }
     } catch (err) {
       setCheckoutError(err.message);
-      console.log(err);
     }
   };
 
@@ -36,11 +35,11 @@ export default function CheckoutForm({ paymentIntent }) {
     <form onSubmit={handleSubmit}>
       <CardElement />
 
-      <Button type="submit" disabled={!stripe}>
+      <Button type='submit' disabled={!stripe}>
         Pay now
       </Button>
 
-      {checkoutError && <span className="text-red-500">{checkoutError}</span>}
+      {checkoutError && <span className='text-red-500'>{checkoutError}</span>}
     </form>
   );
 }
