@@ -1,5 +1,5 @@
-import { title } from 'process';
-import React from 'react';
+import { title } from "process";
+import React from "react";
 
 const SocialImagePage = ({
   text,
@@ -55,9 +55,9 @@ const SocialImagePage = ({
             maxWidth: width - fullPadding - textPadding,
             left: innerOuterPadding,
             bottom: innerOuterPadding,
-            padding: `${Math.round(textPadding * 0.4)}px ${textPadding}px ${Math.round(
-              textPadding * 0.7,
-            )}px`,
+            padding: `${Math.round(
+              textPadding * 0.4
+            )}px ${textPadding}px ${Math.round(textPadding * 0.7)}px`,
           }}
         >
           {text.length > 109 ? `${text.slice(0, 109)}...` : text}

@@ -1,20 +1,24 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import useTranslation from 'next-translate/useTranslation';
-import Button from './Button';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import useTranslation from "next-translate/useTranslation";
+import Button from "./Button";
 
-const shortenText: (text: string) => string = (text) => (text.length > 80 ? `${text.slice(0, 80)}...` : text);
+const shortenText: (text: string) => string = (text) =>
+  text.length > 80 ? `${text.slice(0, 80)}...` : text;
 
 const ProductListItem: React.FC<Product> = ({
   slug,
-  title = 'Untitled',
+  title = "Untitled",
   startPrice = 10,
-  description = 'No description yet.',
+  description = "No description yet.",
   thumbnail,
 }) => {
   const { t, lang } = useTranslation();
-  const currency = new Intl.NumberFormat(lang, { style: 'currency', currency: 'EUR' });
+  const currency = new Intl.NumberFormat(lang, {
+    style: "currency",
+    currency: "EUR",
+  });
 
   return (
     <Link href={`/${slug}`}>
@@ -33,11 +37,15 @@ const ProductListItem: React.FC<Product> = ({
           <h3 className="font-bold text-xl">{title}</h3>
           {startPrice && (
             <h4 className="text-mmd mb-2">
-              {t('product:priceStartingFrom', { price: currency.format(startPrice) })}
+              {t("product:priceStartingFrom", {
+                price: currency.format(startPrice),
+              })}
             </h4>
           )}
-          <p className="text-sm mt-1 text-gray-400 mb-4">{shortenText(description)}</p>
-          <Button type="button">{t('common:buttons.learnMore')}</Button>
+          <p className="text-sm mt-1 text-gray-400 mb-4">
+            {shortenText(description)}
+          </p>
+          <Button type="button">{t("common:buttons.learnMore")}</Button>
         </div>
       </a>
     </Link>

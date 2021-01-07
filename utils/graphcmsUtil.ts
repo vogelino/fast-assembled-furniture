@@ -1,6 +1,6 @@
-import { Product, Thumbnail } from '../components/ProductList';
+import { Product, Thumbnail } from "../components/ProductList";
 
-type ProductWithoutDescription = Omit<Product, 'description'>;
+type ProductWithoutDescription = Omit<Product, "description">;
 export interface RawProject extends ProductWithoutDescription {
   description: {
     markdown?: string;
@@ -31,18 +31,22 @@ export const mapProductToProps: (product: RawProject) => Product = ({
   ...product
 }) => ({
   ...product,
-  description: description?.markdown || '',
+  description: description?.markdown || "",
 });
 
 export const mapProductsToProps: (
   products: RawProject[],
   thumbnails?: RawThumbnail[]
-) => Product[] = (products, thumbnails) => products.map((product: RawProject) => ({
-  ...mapProductToProps(product),
-  ...(thumbnails
-    ? { thumbnail: thumbnails.find((thumb) => thumb.slug === product.slug)?.thumbnail }
-    : {}),
-}));
+) => Product[] = (products, thumbnails) =>
+  products.map((product: RawProject) => ({
+    ...mapProductToProps(product),
+    ...(thumbnails
+      ? {
+          thumbnail: thumbnails.find((thumb) => thumb.slug === product.slug)
+            ?.thumbnail,
+        }
+      : {}),
+  }));
 
 export const mapSeoToProps = ({
   pages,
@@ -51,8 +55,8 @@ export const mapSeoToProps = ({
   pages: RawSeoPage[];
   seoCommons: RawSeoCommons[];
 }): MappedSeoProps => ({
-  title: pages[0].seoTitle || '',
-  description: pages[0].seoDescription || '',
+  title: pages[0].seoTitle || "",
+  description: pages[0].seoDescription || "",
   keywords: pages[0].seoKeywords || [],
   ...seoCommons[0],
 });

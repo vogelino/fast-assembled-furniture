@@ -1,9 +1,9 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import '../styles/globals.css';
-import { CartProvider } from '../components/CartContext';
-import { LoadingProvider } from '../components/LoadingContext';
-import Head from '../components/Head';
+import React from "react";
+import { useRouter } from "next/router";
+import "../styles/globals.css";
+import { CartProvider } from "../components/CartContext";
+import { LoadingProvider } from "../components/LoadingContext";
+import Head from "../components/Head";
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();

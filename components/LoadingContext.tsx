@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-export const LoadingContext = React.createContext();
+export const LoadingContext = React.createContext({});
 
-export const LoadingProvider = (props) => {
+export const LoadingProvider: React.FC = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const startLoading = () => setIsLoading(true);
@@ -24,7 +24,7 @@ export const LoadingProvider = (props) => {
         stopLoading,
       }}
     >
-      {props.children}
+      {children}
     </LoadingContext.Provider>
   );
 };

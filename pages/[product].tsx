@@ -1,23 +1,30 @@
-import { gql } from 'graphql-request';
-import React, { useContext } from 'react';
-import Image from 'next/image';
-import useTranslation from 'next-translate/useTranslation';
-import { mapProductToProps } from '../utils/graphcmsUtil';
-import { request } from '../utils/requestUtil';
-import Button from '../components/Button';
-import { CartContext } from '../components/CartContext';
-import Layout from '../components/Layout';
-import { Product } from '../components/ProductList';
+import { gql } from "graphql-request";
+import React, { useContext } from "react";
+import Image from "next/image";
+import useTranslation from "next-translate/useTranslation";
+import { mapProductToProps } from "../utils/graphcmsUtil";
+import { request } from "../utils/requestUtil";
+import Button from "../components/Button";
+import { CartContext } from "../components/CartContext";
+import Layout from "../components/Layout";
+import { Product } from "../components/ProductList";
 
 export default function ProductPage({
-  slug, title, startPrice, description, thumbnail,
+  slug,
+  title,
+  startPrice,
+  description,
+  thumbnail,
 }) {
   const [cart, getCartAdder, getCartRemover] = useContext(CartContext);
-  const { t, lang } = useTranslation('product');
+  const { t, lang } = useTranslation("product");
 
   const addToCart = getCartAdder(slug, { slug, title, startPrice });
   const removeFromCart = getCartRemover(slug);
-  const currency = new Intl.NumberFormat(lang, { style: 'currency', currency: 'EUR' });
+  const currency = new Intl.NumberFormat(lang, {
+    style: "currency",
+    currency: "EUR",
+  });
 
   return (
     <Layout>
@@ -40,14 +47,18 @@ export default function ProductPage({
           </h3>
           {startPrice && (
             <h4 className="text-xl md:text-2xl pl-6">
-              {t('priceStartingFrom', { price: currency.format(startPrice) })}
+              {t("priceStartingFrom", { price: currency.format(startPrice) })}
             </h4>
           )}
           <p className="mt-4 pl-2">
             {cart && cart[slug] ? (
-              <Button type="button" onClick={removeFromCart}>{t('buttons.removeFromCart')}</Button>
+              <Button type="button" onClick={removeFromCart}>
+                {t("buttons.removeFromCart")}
+              </Button>
             ) : (
-              <Button type="button" onClick={addToCart}>{t('buttons.addToCart')}</Button>
+              <Button type="button" onClick={addToCart}>
+                {t("buttons.addToCart")}
+              </Button>
             )}
           </p>
           <p className="text-2xl md:text-3xl mt-4 pl-6">{description}</p>
@@ -73,7 +84,11 @@ const individualProductQuery = gql`
     }
     thumbnails: product(where: { slug: $slug }, stage: $stage) {
       thumbnail {
-        url(transformation: { image: { resize: { width: 1200, height: 600, fit: crop } } })
+        url(
+          transformation: {
+            image: { resize: { width: 1200, height: 600, fit: crop } }
+          }
+        )
       }
     }
     seoCommons(stage: $stage, locales: [$locale]) {
@@ -84,7 +99,11 @@ const individualProductQuery = gql`
   }
 `;
 
-const mapRequestToProps = ({ product, thumbnails: { thumbnail }, seoCommons }) => ({
+const mapRequestToProps = ({
+  product,
+  thumbnails: { thumbnail },
+  seoCommons,
+}) => ({
   ...mapProductToProps(product),
   thumbnail,
   seo: {
@@ -96,7 +115,11 @@ const mapRequestToProps = ({ product, thumbnails: { thumbnail }, seoCommons }) =
   },
 });
 
-export async function getStaticProps({ params: { product: slug }, locale, defaultLocale }) {
+export async function getStaticProps({
+  params: { product: slug },
+  locale,
+  defaultLocale,
+}) {
   const lang = locale || defaultLocale;
   const res = await request(individualProductQuery, {
     slug,
@@ -113,17 +136,18 @@ const allProductsQuery = gql`
   }
 `;
 
-type Locale = 'en' | 'de';
+type Locale = "en" | "de";
 
-const generatePathForLocale = (locale: Locale, products: Product[]) => products.map(({ slug }) => ({
-  params: { product: slug },
-  locale,
-}));
+const generatePathForLocale = (locale: Locale, products: Product[]) =>
+  products.map(({ slug }) => ({
+    params: { product: slug },
+    locale,
+  }));
 
 export async function getStaticPaths({ locales }) {
   const { products } = await request(allProductsQuery);
   const paths = locales
-    .map((locale: 'en' | 'de') => generatePathForLocale(locale, products))
+    .map((locale: "en" | "de") => generatePathForLocale(locale, products))
     .flat(1);
   return {
     paths,

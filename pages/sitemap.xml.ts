@@ -1,16 +1,19 @@
-import React from 'react';
-import { gql } from 'graphql-request';
-import { request } from '../utils/requestUtil';
+import React from "react";
+import { gql } from "graphql-request";
+import { request } from "../utils/requestUtil";
 
 type Product = {
   slug: string;
   updatedAt: string;
 };
 
-const createFullUrl: (path: string) => string = (path) => `${process.env.URL || 'http://localhost:3000'}${path}`;
+const createFullUrl: (path: string) => string = (path) =>
+  `${process.env.URL || "http://localhost:3000"}${path}`;
 const formatDate: (dateStr?: string) => string = (dateStr) => {
   const date = dateStr ? new Date(dateStr) : new Date();
-  return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}`;
+  return `${date.getUTCFullYear()}-${
+    date.getUTCMonth() + 1
+  }-${date.getUTCDate()}`;
 };
 
 const getSitemap: (props: { products: Product[] }) => string = ({
@@ -18,11 +21,11 @@ const getSitemap: (props: { products: Product[] }) => string = ({
 }) => `<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>${createFullUrl('/')}</loc>
+    <loc>${createFullUrl("/")}</loc>
     <lastmod>${formatDate()}</lastmod>
   </url>
   <url>
-    <loc>${createFullUrl('/products')}</loc>
+    <loc>${createFullUrl("/products")}</loc>
     <lastmod>${formatDate()}</lastmod>
   </url>
   ${products
@@ -31,9 +34,9 @@ const getSitemap: (props: { products: Product[] }) => string = ({
   <url>
     <loc>${createFullUrl(`/products/${slug}`)}</loc>
     <lastmod>${formatDate(updatedAt)}</lastmod>
-  </url>`,
+  </url>`
     )
-    .join('')}
+    .join("")}
 </urlset>`;
 
 const sitemapQuery = gql`
@@ -48,7 +51,7 @@ const sitemapQuery = gql`
 class Sitemap extends React.Component {
   static async getInitialProps({ res }) {
     const generationData: { products: Product[] } = await request(sitemapQuery);
-    res.setHeader('Content-Type', 'text/xml');
+    res.setHeader("Content-Type", "text/xml");
     res.write(getSitemap(generationData));
     res.end();
   }

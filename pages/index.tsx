@@ -1,7 +1,7 @@
-import React from 'react';
-import { gql } from 'graphql-request';
-import { GetStaticProps } from 'next';
-import { request } from '../utils/requestUtil';
+import React from "react";
+import { gql } from "graphql-request";
+import { GetStaticProps } from "next";
+import { request } from "../utils/requestUtil";
 import {
   mapProductsToProps,
   mapSeoToProps,
@@ -9,9 +9,9 @@ import {
   RawSeoCommons,
   RawSeoPage,
   RawThumbnail,
-} from '../utils/graphcmsUtil';
-import ProductList, { Products } from '../components/ProductList';
-import Layout from '../components/Layout';
+} from "../utils/graphcmsUtil";
+import ProductList, { Products } from "../components/ProductList";
+import Layout from "../components/Layout";
 
 const Home: React.FC<Products> = ({ products }) => (
   <Layout>
@@ -58,14 +58,15 @@ interface Data {
   seoCommons: RawSeoCommons[];
 }
 
-const mapDataToProps = ({
-  products, thumbnails, pages, seoCommons,
-}: Data) => ({
+const mapDataToProps = ({ products, thumbnails, pages, seoCommons }: Data) => ({
   products: mapProductsToProps(products, thumbnails),
   seo: mapSeoToProps({ pages, seoCommons }),
 });
 
-export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+  defaultLocale,
+}) => {
   const lang = locale || defaultLocale;
   const props = await request(query, { locale: lang });
   return { props: mapDataToProps(props) };
