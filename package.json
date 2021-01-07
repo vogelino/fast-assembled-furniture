@@ -11,7 +11,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "prettier-eslint $PWD/'**/*.{ts,tsx}'",
+    "lint": "eslint --ext .ts,.tsx .",
     "lint-fix": "prettier-eslint --write $PWD/'**/*.{ts,tsx}'"
   },
   "dependencies": {

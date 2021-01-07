@@ -1,11 +1,11 @@
-import React from 'react'
-import { gql } from 'graphql-request'
-import { request } from '../utils/requestUtil'
+import React from 'react';
+import { gql } from 'graphql-request';
+import { request } from '../utils/requestUtil';
 
 const getManifest = ({
   siteTitle = 'Fast Assembled Furniture',
   themeTextColor = '#000000',
-  themeBackgroundColor = '#ffffff'
+  themeBackgroundColor = '#ffffff',
 }) => `{
     "name": "${siteTitle}",
     "short_name": "FAF",
@@ -25,7 +25,7 @@ const getManifest = ({
     "background_color": "${themeBackgroundColor}",
     "display": "standalone"
 }
-`
+`;
 
 const query = gql`
   query AllProductsHome($stage: Stage!) {
@@ -35,15 +35,15 @@ const query = gql`
       themeBackgroundColor
     }
   }
-`
+`;
 
 class Sitemap extends React.Component {
   static async getInitialProps({ res }) {
-    res.setHeader('Content-Type', 'application/manifest+json')
-    const { seoCommons } = await request(query)
-    res.write(getManifest(seoCommons))
-    res.end()
+    res.setHeader('Content-Type', 'application/manifest+json');
+    const { seoCommons } = await request(query);
+    res.write(getManifest(seoCommons));
+    res.end();
   }
 }
 
-export default Sitemap
+export default Sitemap;

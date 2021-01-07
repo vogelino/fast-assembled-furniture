@@ -1,13 +1,21 @@
-import React from 'react'
-import { gql } from 'graphql-request'
-import { request } from '../utils/requestUtil'
+import React from 'react';
+import { gql } from 'graphql-request';
+import { request } from '../utils/requestUtil';
 
 type Product = {
-  slug: string,
-  updatedAt: string
-}
+  slug: string;
+  updatedAt: string;
+};
 
-const getSitemap: (props: { products: Product[] }) => string = ({ products }) => `<?xml version="1.0" encoding="utf-8"?>
+const createFullUrl: (path: string) => string = (path) => `${process.env.URL || 'http://localhost:3000'}${path}`;
+const formatDate: (dateStr?: string) => string = (dateStr) => {
+  const date = dateStr ? new Date(dateStr) : new Date();
+  return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}`;
+};
+
+const getSitemap: (props: { products: Product[] }) => string = ({
+  products,
+}) => `<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${createFullUrl('/')}</loc>
@@ -23,18 +31,10 @@ const getSitemap: (props: { products: Product[] }) => string = ({ products }) =>
   <url>
     <loc>${createFullUrl(`/products/${slug}`)}</loc>
     <lastmod>${formatDate(updatedAt)}</lastmod>
-  </url>`
+  </url>`,
     )
     .join('')}
-</urlset>`
-
-const createFullUrl = (path) =>
-  `${process.env.URL || 'http://localhost:3000'}${path}`
-const formatDate: (dateStr?: string) => string = (dateStr) => {
-  const date = dateStr ? new Date(dateStr) : new Date()
-  return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1
-    }-${date.getUTCDate()}`
-}
+</urlset>`;
 
 const sitemapQuery = gql`
   query SitemapQuery($stage: Stage!) {
@@ -43,15 +43,15 @@ const sitemapQuery = gql`
       updatedAt
     }
   }
-`
+`;
 
 class Sitemap extends React.Component {
   static async getInitialProps({ res }) {
-    const generationData: { products: Product[] } = await request(sitemapQuery)
-    res.setHeader('Content-Type', 'text/xml')
-    res.write(getSitemap(generationData))
-    res.end()
+    const generationData: { products: Product[] } = await request(sitemapQuery);
+    res.setHeader('Content-Type', 'text/xml');
+    res.write(getSitemap(generationData));
+    res.end();
   }
 }
 
-export default Sitemap
+export default Sitemap;

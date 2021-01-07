@@ -1,15 +1,12 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import '../styles/globals.css'
-import { CartProvider } from '../components/CartContext'
-import { LoadingProvider } from '../components/LoadingContext'
-import Head from '../components/Head'
+import React from 'react';
+import { useRouter } from 'next/router';
+import '../styles/globals.css';
+import { CartProvider } from '../components/CartContext';
+import { LoadingProvider } from '../components/LoadingContext';
+import Head from '../components/Head';
 
-const MyApp = ({
-  Component,
-  pageProps
-}) => {
-  const router = useRouter()
+const MyApp = ({ Component, pageProps }) => {
+  const router = useRouter();
 
   return (
     <LoadingProvider>
@@ -27,9 +24,10 @@ const MyApp = ({
           locale={router.locale}
           currentPagePath={router.asPath}
         />
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} />
       </CartProvider>
     </LoadingProvider>
-  )
-}
-export default MyApp
+  );
+};
+export default MyApp;

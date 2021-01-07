@@ -1,4 +1,5 @@
-import React from 'react'
+import { title } from 'process';
+import React from 'react';
 
 const SocialImagePage = ({
   text,
@@ -11,26 +12,26 @@ const SocialImagePage = ({
   innerPadding = 40,
   outerPadding = 24,
   padding,
-  imgUrl
+  imgUrl,
 }) => {
-  const innerPad = padding && !innerPadding ? padding : innerPadding
-  const outerPad = padding && !outerPadding ? padding : outerPadding
-  const innerOuterPadding = innerPad + outerPad
-  const fullInnerPadding = innerPad * 2
-  const fullOuterPadding = outerPad * 2
-  const fullPadding = fullInnerPadding + fullOuterPadding
+  const innerPad = padding && !innerPadding ? padding : innerPadding;
+  const outerPad = padding && !outerPadding ? padding : outerPadding;
+  const innerOuterPadding = innerPad + outerPad;
+  const fullInnerPadding = innerPad * 2;
+  const fullOuterPadding = outerPad * 2;
+  const fullPadding = fullInnerPadding + fullOuterPadding;
   return (
     <div>
       {imgUrl && (
         <div
-          className='fixed bg-cover rounded-xl box-border'
+          className="fixed bg-cover rounded-xl box-border"
           style={{
             width: width - fullOuterPadding,
             height: height - fullOuterPadding,
             marginLeft: outerPad,
             marginTop: outerPad,
             backgroundImage: `url(${imgUrl})`,
-            border: `solid ${strokeWidth}px black`
+            border: `solid ${strokeWidth}px black`,
           }}
         />
       )}
@@ -40,33 +41,36 @@ const SocialImagePage = ({
             width: logoSize,
             height: logoSize,
             left: innerOuterPadding,
-            top: innerOuterPadding
+            top: innerOuterPadding,
           }}
-          src='/favicons/apple-touch-icon.png'
-          className='fixed rounded-md'
+          alt={title}
+          src="/favicons/apple-touch-icon.png"
+          className="fixed rounded-md"
         />
       )}
       {text && (
         <h1
-          className='fixed bg-black font-bold text-white leading-tight text-5xl rounded-md break-normal overflow-hidden'
+          className="fixed bg-black font-bold text-white leading-tight text-5xl rounded-md break-normal overflow-hidden"
           style={{
             maxWidth: width - fullPadding - textPadding,
             left: innerOuterPadding,
             bottom: innerOuterPadding,
-            padding: `${Math.round(textPadding * 0.4)}px ${textPadding}px ${Math.round(textPadding * 0.7)}px`
+            padding: `${Math.round(textPadding * 0.4)}px ${textPadding}px ${Math.round(
+              textPadding * 0.7,
+            )}px`,
           }}
         >
           {text.length > 109 ? `${text.slice(0, 109)}...` : text}
         </h1>
       )}
     </div>
-  )
-}
+  );
+};
 
-SocialImagePage.disableLayout = true
+SocialImagePage.disableLayout = true;
 
 export const getServerSideProps = async ({ query }) => ({
-  props: query
-})
+  props: query,
+});
 
-export default SocialImagePage
+export default SocialImagePage;

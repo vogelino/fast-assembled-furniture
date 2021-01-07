@@ -1,23 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
-export const LoadingContext = React.createContext()
+export const LoadingContext = React.createContext();
 
 export const LoadingProvider = (props) => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
-  const startLoading = () => setIsLoading(true)
-  const stopLoading = () => setIsLoading(false)
+  const startLoading = () => setIsLoading(true);
+  const stopLoading = () => setIsLoading(false);
 
   useEffect(() => {
-    startLoading()
+    startLoading();
     return () => {
-      stopLoading()
-    }
-  }, [])
+      stopLoading();
+    };
+  }, []);
 
   return (
-    <LoadingContext.Provider value={{ isLoading, setIsLoading, startLoading, stopLoading }}>
+    <LoadingContext.Provider
+      value={{
+        isLoading,
+        setIsLoading,
+        startLoading,
+        stopLoading,
+      }}
+    >
       {props.children}
     </LoadingContext.Provider>
-  )
-}
+  );
+};
