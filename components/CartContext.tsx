@@ -1,18 +1,30 @@
-import { createContext, useState, useEffect } from 'react';
+import { FC, createContext, useState, useEffect, MouseEvent } from 'react';
+import { Product } from './ProductList';
 
 const LOCAL_STORAGE_CART_KEY = 'FAF_CART';
 
-export const CartContext = createContext();
+type Cart = { [key: string]: Product };
+type DefineCartSignature = (cart: Cart) => void;
+type GetCartAdderSignature = (slug: string, item: Product) => (e: MouseEvent) => void;
+type GetCartRemoverSignature = (slug: string) => (e: MouseEvent) => void;
 
-export const CartProvider = (props) => {
+type CartContextType = [
+  cart: Cart,
+  getCartAdder: GetCartAdderSignature,
+  getCartRemover: GetCartRemoverSignature
+];
+
+export const CartContext = createContext<CartContextType>(null);
+
+export const CartProvider: FC = ({ children }) => {
   const [cart, setCart] = useState({});
 
-  const defineCart = (cart) => {
+  const defineCart: DefineCartSignature = (cart) => {
     setCart(cart);
     window.localStorage.setItem(LOCAL_STORAGE_CART_KEY, JSON.stringify(cart));
   };
 
-  const getCartAdder = (slug, item) => (e) => {
+  const getCartAdder: GetCartAdderSignature = (slug, item) => (e) => {
     e.preventDefault();
     defineCart({
       ...cart,
@@ -20,7 +32,7 @@ export const CartProvider = (props) => {
     });
   };
 
-  const getCartRemover = (slug) => (e) => {
+  const getCartRemover: GetCartRemoverSignature = (slug) => (e) => {
     e.preventDefault();
 
     defineCart(
@@ -45,7 +57,7 @@ export const CartProvider = (props) => {
 
   return (
     <CartContext.Provider value={[cart, getCartAdder, getCartRemover]}>
-      {props.children}
+      {children}
     </CartContext.Provider>
   );
 };

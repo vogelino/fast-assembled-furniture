@@ -1,6 +1,12 @@
 import { FC, createContext, useState, useEffect } from 'react';
 
-export const LoadingContext = createContext({});
+interface LoadingContextType {
+  isLoading: boolean;
+  startLoading: () => void;
+  stopLoading: () => void;
+}
+
+export const LoadingContext = createContext<LoadingContextType>(null);
 
 export const LoadingProvider: FC = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +25,6 @@ export const LoadingProvider: FC = ({ children }) => {
     <LoadingContext.Provider
       value={{
         isLoading,
-        setIsLoading,
         startLoading,
         stopLoading,
       }}

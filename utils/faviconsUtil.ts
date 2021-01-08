@@ -32,8 +32,13 @@ const getFavicons = (letter: string): FaviconProps[] => [
   },
 ];
 
+type GetHeadFaviconsSignature = (props?: { isPlaying?: boolean; delay?: number }) => FaviconProps[];
+
 const defaults = { isPlaying: false, delay: 500 };
-const getHeadFavicons = ({ isPlaying = defaults.isPlaying, delay = defaults.delay } = defaults) => {
+const getHeadFavicons: GetHeadFaviconsSignature = ({
+  isPlaying = defaults.isPlaying,
+  delay = defaults.delay,
+} = defaults) => {
   const [faviconLetter, setFaviconLetter] = useState('A');
 
   useInterval(() => {

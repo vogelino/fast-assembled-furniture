@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
           </a>
         </Link>
         <div>
-          <Cart locale={router.locale} />
+          <Cart />
           <LanguageSwitch />
         </div>
       </header>

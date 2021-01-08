@@ -5,6 +5,11 @@ import { LoadingContext } from './LoadingContext';
 
 const siteUrl = process.env.URL;
 
+interface LoadingContextType {
+  isLoading: boolean;
+  stopLoading: () => void;
+}
+
 export default function Head({
   currentPagePath = '/',
   description = '',
@@ -18,7 +23,7 @@ export default function Head({
   twitterUsername,
   socialThumbnail,
 }) {
-  const { isLoading, stopLoading } = useContext(LoadingContext);
+  const { isLoading, stopLoading }: LoadingContextType = useContext(LoadingContext);
 
   useEffect(() => {
     const to = setTimeout(stopLoading, 10000);

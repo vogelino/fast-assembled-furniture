@@ -6,8 +6,8 @@ import Button from './Button';
 export default function CheckoutForm({ paymentIntent }) {
   const stripe = useStripe();
   const elements = useElements();
-  const [checkoutError, setCheckoutError] = useState();
-  const [checkoutSuccess, setCheckoutSuccess] = useState();
+  const [checkoutError, setCheckoutError] = useState(false);
+  const [checkoutSuccess, setCheckoutSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

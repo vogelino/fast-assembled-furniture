@@ -1,4 +1,6 @@
-export function absoluteUrl(req, localhostAddress = 'localhost:3000') {
+import { NextApiRequest } from 'next';
+
+export function absoluteUrl(req: NextApiRequest, localhostAddress = 'localhost:3000') {
   let host = (req?.headers ? req.headers.host : window.location.host) || localhostAddress;
   let protocol = /^localhost(:\d+)?$/.test(host) ? 'http:' : 'https:';
 

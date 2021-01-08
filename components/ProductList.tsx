@@ -14,8 +14,8 @@ export interface Thumbnail {
 
 export interface Product {
   slug: string;
-  title?: string;
-  startPrice?: number;
+  title: string;
+  startPrice: number;
   description?: string;
   thumbnail?: Thumbnail;
 }

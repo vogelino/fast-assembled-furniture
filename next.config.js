@@ -1,7 +1,7 @@
-const nextTranslate = require("next-translate");
+const nextTranslate = require('next-translate');
 
 module.exports = nextTranslate({
   images: {
-    domains: ["media.graphcms.com"],
+    domains: ['media.graphcms.com'],
   },
 });
