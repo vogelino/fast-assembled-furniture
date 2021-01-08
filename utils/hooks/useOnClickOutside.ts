@@ -1,24 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 
-export default function useOnClickOutside(
-  ref: { current: HTMLElement },
-  handler: (event: Event) => void
-) {
-  useEffect(() => {
-    const listener = (event: Event): void => {
-      if (!ref.current || ref.current.contains(event.target as Node)) {
-        return;
-      }
+type UseOnClickOutsideSignature = (
+	ref: { current: HTMLDivElement | null },
+	handler: (event: Event) => void
+) => void
 
-      handler(event);
-    };
+const useOnClickOutside: UseOnClickOutsideSignature = (ref, handler) => {
+	useEffect(() => {
+		const listener = (event: Event): void => {
+			if (!ref.current || ref.current.contains(event.target as Node)) {
+				return
+			}
 
-    document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
+			handler(event)
+		}
 
-    return () => {
-      document.removeEventListener('mousedown', listener);
-      document.removeEventListener('touchstart', listener);
-    };
-  }, [ref, handler]);
+		document.addEventListener('mousedown', listener)
+		document.addEventListener('touchstart', listener)
+
+		return () => {
+			document.removeEventListener('mousedown', listener)
+			document.removeEventListener('touchstart', listener)
+		}
+	}, [ref, handler])
 }
+
+export default useOnClickOutside

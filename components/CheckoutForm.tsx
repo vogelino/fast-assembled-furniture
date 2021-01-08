@@ -1,45 +1,52 @@
-import { useState } from 'react';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { destroyCookie } from 'nookies';
-import Button from './Button';
+import { useState, FC, MouseEvent } from 'react'
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
+import { StripeCardElement } from '@stripe/stripe-js'
+import { destroyCookie } from 'nookies'
+import Button from './Button'
 
-export default function CheckoutForm({ paymentIntent }) {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [checkoutError, setCheckoutError] = useState(false);
-  const [checkoutSuccess, setCheckoutSuccess] = useState(false);
+// eslint-disable-next-line camelcase
+type PaymentIntent = { id: string; client_secret: string }
+const CheckoutForm: FC<{ paymentIntent: PaymentIntent }> = ({ paymentIntent }) => {
+	const stripe = useStripe()
+	const elements = useElements()
+	const [checkoutError, setCheckoutError] = useState(false)
+	const [checkoutSuccess, setCheckoutSuccess] = useState(false)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+	const handleSubmit = async (e: Pick<MouseEvent, 'preventDefault'>) => {
+		e.preventDefault()
 
-    try {
-      const res = await stripe.confirmCardPayment(paymentIntent.client_secret, {
-        payment_method: {
-          card: elements.getElement(CardElement),
-        },
-      });
+		if (!stripe || !elements) return
 
-      if (res.error) throw new Error(res.error.message);
-      if (res.paymentIntent?.status === 'succeeded') {
-        destroyCookie(null, 'paymentIntentId');
-        setCheckoutSuccess(true);
-      }
-    } catch (err) {
-      setCheckoutError(err.message);
-    }
-  };
+		try {
+			const res = await stripe.confirmCardPayment(paymentIntent.client_secret, {
+				payment_method: {
+					card: elements.getElement(CardElement) as StripeCardElement,
+				},
+			})
 
-  if (checkoutSuccess) return <h1>Payment success!</h1>;
+			if (res.error) throw new Error(res.error.message)
+			if (res.paymentIntent?.status === 'succeeded') {
+				destroyCookie(null, 'paymentIntentId')
+				setCheckoutSuccess(true)
+			}
+		} catch (err) {
+			setCheckoutError(err.message)
+		}
+	}
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <CardElement />
+	if (checkoutSuccess) return <h1>Payment success!</h1>
 
-      <Button type='submit' disabled={!stripe}>
-        Pay now
-      </Button>
+	return (
+		<form onSubmit={handleSubmit}>
+			<CardElement />
 
-      {checkoutError && <span className='text-red-500'>{checkoutError}</span>}
-    </form>
-  );
+			<Button type="submit" disabled={!stripe}>
+				Pay now
+			</Button>
+
+			{checkoutError && <span className="text-red-500">{checkoutError}</span>}
+		</form>
+	)
 }
+
+export default CheckoutForm

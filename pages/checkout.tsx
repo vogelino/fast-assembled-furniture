@@ -1,44 +1,54 @@
-import Stripe from 'stripe';
-import { parseCookies, setCookie } from 'nookies';
-import { Elements } from '@stripe/react-stripe-js';
-import getStripe from '../utils/stripeUtil';
-import CheckoutForm from '../components/CheckoutForm';
-import Layout from '../components/Layout';
+import { NextPageContext } from 'next'
+import { FC } from 'react'
+import Stripe from 'stripe'
+import { parseCookies, setCookie } from 'nookies'
+import { Elements } from '@stripe/react-stripe-js'
+import getStripe from '../utils/stripeUtil'
+import CheckoutForm from '../components/CheckoutForm'
+import Layout from '../components/Layout'
 
-const globalStripe = getStripe();
+const globalStripe = getStripe()
 
-const Checkout = ({ paymentIntent }) => (
-  <Layout>
-    <Elements stripe={globalStripe}>
-      <CheckoutForm paymentIntent={paymentIntent} />
-    </Elements>
-  </Layout>
-);
+type PaymentIntent = { id: string }
 
-export const getServerSideProps = async (ctx: unknown) => {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2020-08-27',
-  });
+const Checkout: FC<{ paymentIntent: PaymentIntent }> = ({ paymentIntent }) => (
+	<Layout>
+		<Elements stripe={globalStripe}>
+			<CheckoutForm paymentIntent={paymentIntent} />
+		</Elements>
+	</Layout>
+)
 
-  let paymentIntent: { id: string };
+type GetServerSidePropsSignature = (
+	ctx: NextPageContext
+) => Promise<{
+	props: { paymentIntent: PaymentIntent }
+}>
 
-  const { paymentIntentId } = parseCookies(ctx);
+export const getServerSideProps: GetServerSidePropsSignature = async (ctx) => {
+	const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+		apiVersion: '2020-08-27',
+	})
 
-  if (paymentIntentId) {
-    paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
-  } else {
-    paymentIntent = await stripe.paymentIntents.create({
-      amount: 1000,
-      currency: 'eur',
-    });
-    setCookie(ctx, 'paymentIntentId', paymentIntent.id, {});
-  }
+	let paymentIntent: PaymentIntent | undefined
 
-  return {
-    props: {
-      paymentIntent,
-    },
-  };
-};
+	const { paymentIntentId } = parseCookies(ctx)
 
-export default Checkout;
+	if (paymentIntentId) {
+		paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId)
+	} else {
+		paymentIntent = await stripe.paymentIntents.create({
+			amount: 1000,
+			currency: 'eur',
+		})
+		setCookie(ctx, 'paymentIntentId', paymentIntent.id, {})
+	}
+
+	return {
+		props: {
+			paymentIntent,
+		},
+	}
+}
+
+export default Checkout
