@@ -1,6 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+	.gf {
+		@apply p-4 border-2 rounded-lg bg-secondary border-primary bg-primary transition-colors;
+		margin-top: calc(var(--borderWidth, 3) * -1);
+		margin-left: calc(var(--borderWidth, 3) * -1);
+	}
+
+	.gfc {
+		@apply bg-primary;
+		padding-top: var(--borderWidth);
+		padding-left: var(--borderWidth);
+	}
+}
 
 .theme.theme-light {
 	--primary: red;

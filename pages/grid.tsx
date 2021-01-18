@@ -1,15 +1,15 @@
 import React, { FC } from 'react'
 import Layout from '../components/Layout'
-import { GridFrame, GridFrameContainer } from '../components/GridFrame'
+// import { GridFrame, GridFrameContainer } from '../components/GridFrame'
 
 const Grid: FC<{}> = ({}) => (
 	<Layout>
-		<GridFrameContainer className="grid grid-cols-4">
-			<GridFrame>Hello</GridFrame>
-			<GridFrame>Hello</GridFrame>
-			<GridFrame>Hello</GridFrame>
-			<GridFrame>Hello</GridFrame>
-		</GridFrameContainer>
+		<div className="gfc grid grid-cols-4">
+			<div className="gf">Hello</div>
+			<div className="gf">Hello</div>
+			<div className="gf">Hello</div>
+			<div className="gf">Hello</div>
+		</div>
 	</Layout>
 )
 export default Grid
