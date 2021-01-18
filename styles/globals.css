@@ -3,9 +3,10 @@
 @tailwind utilities;
 @layer utilities {
 	.gf {
-		@apply p-4 border-2 rounded-lg bg-secondary border-primary bg-primary transition-colors;
-		margin-top: calc(var(--borderWidth, 3) * -1);
-		margin-left: calc(var(--borderWidth, 3) * -1);
+		@apply overflow-hidden rounded-lg bg-secondary border-primary bg-primary transition-colors;
+		border-width: var(--borderWidth, 3px);
+		margin-top: calc(var(--borderWidth, 3px) * -1);
+		margin-left: calc(var(--borderWidth, 3px) * -1);
 	}
 
 	.gfc {
@@ -25,8 +26,19 @@
 	--secondary: yellow;
 }
 
+.theme.theme-fancyA {
+	--primary: purple;
+	--secondary: orange;
+}
+
+html,
+body {
+	overflow-x: hidden;
+}
+
 body {
 	--borderWidth: 3px;
-	@apply bg-secondary text-primary transition-colors;
+	@apply bg-primary text-primary transition-colors;
+	padding-left: 61px;
 }
 

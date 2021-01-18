@@ -1,4 +1,4 @@
-import { FC, createContext, useState, useEffect } from 'react'
+import { FC, createContext, useState } from 'react'
 
 enum ColorSchemes {
 	light = 'light',

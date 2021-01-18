@@ -43,18 +43,23 @@ const ProductListItem: FC<Product> = ({
 	return (
 		<Link href={`/${slug}`}>
 			{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-			<a className="group border-black rounded-lg overflow-hidden border-2 hover:border-gray-300 transition-all">
+			<a
+				className="group gfc hover:border-gray-300"
+				style={{ paddingTop: 'calc(var(--borderWidth, 3px) * -1)' }}
+			>
 				{thumbnail && (
-					<Image
-						src={thumbnail.url}
-						alt={title}
-						layout="responsive"
-						width="1000"
-						height="600"
-						objectFit="cover"
-					/>
+					<div className="gf">
+						<Image
+							src={thumbnail.url}
+							alt={title}
+							layout="responsive"
+							width="1000"
+							height="600"
+							objectFit="cover"
+						/>
+					</div>
 				)}
-				<div className="p-6 border-t-2 border-black group-hover:border-gray-300 transition-all">
+				<div className="gf p-6 group-hover:border-gray-300">
 					<h3 className="font-bold text-xl">{title}</h3>
 					{startPrice && (
 						<h4 className="text-mmd mb-2">
@@ -72,7 +77,10 @@ const ProductListItem: FC<Product> = ({
 }
 
 const ProductList: FC<Products> = ({ products }) => (
-	<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+	<div
+		className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+		style={{ paddingTop: 'var(--borderWidth, 3px)' }}
+	>
 		{products.map((product) => (
 			<ProductListItem
 				key={product.slug}
