@@ -1,27 +1,55 @@
-import { FC, createContext, useState } from 'react'
+import { FC, createContext, useState, useEffect } from 'react'
 
-enum ColorSchemes {
-	light = 'light',
-	dark = 'dark',
-	fancyA = 'fancyA',
+type Theme = {
+	[key: string]: string
 }
 
+type Themes = { [key: string]: Theme }
+
+const themes: Themes = {
+	light: { primary: 'black', secondary: 'white' },
+	dark: { primary: 'white', secondary: 'black' },
+	fancyA: { primary: 'green', secondary: 'yellow' },
+}
 interface ColorThemeContextType {
-	theme: ColorSchemes
-	setTheme: (theme: ColorSchemes) => void
+	themeKey: string
+	theme: Theme
+	setTheme: (theme: string) => void
+	themes: Themes
 }
 
-export const ColorThemeContext = createContext<ColorThemeContextType>({
-	theme: ColorSchemes.light,
+const defaults = {
+	themeKey: 'light',
+	theme: themes.light,
 	setTheme: () => undefined,
-})
+	themes,
+}
+
+export const ColorThemeContext = createContext<ColorThemeContextType>(defaults)
 
 export const ColorThemeProvider: FC = ({ children }) => {
-	const [theme, setTheme] = useState(ColorSchemes.light)
+	const [themeKey, setTheme] = useState(defaults.themeKey)
+
+	const selectTheme = (nextThemeKey: string) => {
+		const nextTheme = themes[nextThemeKey]
+		const nextThemeKeys: string[] = Object.keys(nextTheme)
+
+		nextThemeKeys.forEach((k: string) => {
+			document.documentElement.style.setProperty(`--${k}`, nextTheme[k])
+		})
+
+		setTheme(nextThemeKey)
+	}
+
+	useEffect(() => {
+		selectTheme('light')
+	}, [])
 
 	return (
-		<ColorThemeContext.Provider value={{ theme, setTheme }}>
-			<body className={`theme theme-${theme}`}>{children}</body>
+		<ColorThemeContext.Provider
+			value={{ themeKey, theme: themes[themeKey], themes, setTheme: selectTheme }}
+		>
+			{children}
 		</ColorThemeContext.Provider>
 	)
 }

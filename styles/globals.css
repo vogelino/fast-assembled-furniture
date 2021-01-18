@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer utilities {
 	.gf {
-		@apply overflow-hidden rounded-lg bg-secondary border-primary bg-primary transition-colors;
+		@apply overflow-hidden rounded-lg border-primary bg-secondary;
 		border-width: var(--borderWidth, 3px);
 		margin-top: calc(var(--borderWidth, 3px) * -1);
 		margin-left: calc(var(--borderWidth, 3px) * -1);
@@ -16,29 +16,15 @@
 	}
 }
 
-.theme.theme-light {
-	--primary: red;
-	--secondary: lightgray;
-}
+@layer base {
+	html,
+	body {
+		overflow-x: hidden;
+	}
 
-.theme.theme-dark {
-	--primary: green;
-	--secondary: yellow;
+	body {
+		--borderWidth: 3px;
+		@apply bg-primary text-primary;
+		padding-left: 61px;
+	}
 }
-
-.theme.theme-fancyA {
-	--primary: purple;
-	--secondary: orange;
-}
-
-html,
-body {
-	overflow-x: hidden;
-}
-
-body {
-	--borderWidth: 3px;
-	@apply bg-primary text-primary transition-colors;
-	padding-left: 61px;
-}
-

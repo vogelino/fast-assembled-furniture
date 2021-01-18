@@ -24,12 +24,12 @@ export const Logo: FC = () => {
 				}}
 			>
 				{allPaths.map((letter: string, idx: number) => (
-					<li className="content-center justify-center list-none rounded bg-primary text-secondary w-11 grid">
-						<svg
-							viewBox="0 0 24 24"
-							style={{ width: 24, height: 24 }}
-							key={`${letter}-${idx}`}
-						>
+					<li
+						className="content-center justify-center list-none rounded bg-primary text-secondary w-11 grid"
+						// eslint-disable-next-line react/no-array-index-key
+						key={`${letter}-${idx}`}
+					>
+						<svg viewBox="0 0 24 24" style={{ width: 24, height: 24 }}>
 							<path d={letter} fillRule="evenodd" fill="currentColor" />
 						</svg>
 					</li>
