@@ -9,7 +9,8 @@ import Layout from '../components/Layout'
 
 const globalStripe = getStripe()
 
-type PaymentIntent = { id: string }
+// eslint-disable-next-line camelcase
+type PaymentIntent = { id: string; client_secret: string | null }
 
 const Checkout: FC<{ paymentIntent: PaymentIntent }> = ({ paymentIntent }) => (
 	<Layout>

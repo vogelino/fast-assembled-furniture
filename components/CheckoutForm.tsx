@@ -5,7 +5,7 @@ import { destroyCookie } from 'nookies'
 import Button from './Button'
 
 // eslint-disable-next-line camelcase
-type PaymentIntent = { id: string; client_secret: string }
+type PaymentIntent = { id: string; client_secret: string | null }
 const CheckoutForm: FC<{ paymentIntent: PaymentIntent }> = ({ paymentIntent }) => {
 	const stripe = useStripe()
 	const elements = useElements()
@@ -18,7 +18,7 @@ const CheckoutForm: FC<{ paymentIntent: PaymentIntent }> = ({ paymentIntent }) =
 		if (!stripe || !elements) return
 
 		try {
-			const res = await stripe.confirmCardPayment(paymentIntent.client_secret, {
+			const res = await stripe.confirmCardPayment(paymentIntent.client_secret || '', {
 				payment_method: {
 					card: elements.getElement(CardElement) as StripeCardElement,
 				},
