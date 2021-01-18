@@ -1,12 +1,24 @@
 import React, { FC } from 'react'
-import { gridFrame } from './gridframe.module.css'
+import { gridFrame, gridFrameContent } from './gridframe.module.css'
 
-const GridFrame: FC<{
+export const GridFrame: FC<{
 	className?: string
 }> = ({ children, className }) => (
-	<>
-		<div className={`${gridFrame} ${className || ''}`}>{children}</div>
-	</>
+	<div className={gridFrame}>
+		<div className={`${gridFrameContent} ${className || ''}`}>{children}</div>
+	</div>
 )
 
-export default GridFrame
+export const GridFrameContainer: FC<{
+	className?: string
+}> = ({ className, children }) => (
+	<div
+		className={`overflow-hidden rounded-lg ${className || ''}`}
+		style={{
+			paddingLeft: 'var(--borderWidth, 3px)',
+			paddingTop: 'var(--borderWidth, 3px)',
+		}}
+	>
+		{children}
+	</div>
+)

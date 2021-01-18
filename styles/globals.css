@@ -4,7 +4,7 @@
 
 .theme.theme-light {
 	--primary: red;
-	--secondary: blue;
+	--secondary: lightgray;
 }
 
 .theme.theme-dark {
@@ -13,7 +13,7 @@
 }
 
 body {
-	background: var(--secondary);
-	color: var(--primary);
+	--borderWidth: 3px;
+	@apply bg-secondary text-primary transition-colors;
 }
 
