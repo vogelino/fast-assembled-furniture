@@ -18,13 +18,26 @@
 
 @layer base {
 	html,
-	body {
+	body,
+	#__next {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
+		-webkit-overflow-scrolling: touch;
+		overflow: hidden;
+	}
+
+	#__next {
 		overflow-x: hidden;
+		overflow-y: scroll;
+		z-index: 1;
+		padding-left: 61px;
 	}
 
 	body {
 		--borderWidth: 3px;
 		@apply bg-primary text-primary;
-		padding-left: 61px;
 	}
 }
+

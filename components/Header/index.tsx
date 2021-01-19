@@ -8,7 +8,7 @@ const Header: FC = () => {
 	return (
 		<>
 			<header
-				className="fixed top-0 left-0 w-16 h-screen gfc grid z-50"
+				className="fixed top-0 left-0 w-16 h-full gfc grid z-50"
 				style={{ gridTemplateRows: 'auto 1fr auto' }}
 			>
 				<Logo />
@@ -20,7 +20,9 @@ const Header: FC = () => {
 								borderWidth: 'var(--borderWidth, 3px)',
 								borderColor: themes[themeKey].primary,
 								backgroundColor:
-									themes[themeKey][themeKey === activeTheme ? 'primary' : 'secondary'],
+									themes[themeKey][
+										themeKey === activeTheme ? 'primary' : 'secondary'
+									],
 								boxShadow: `0 0 0 var(--borderWidth, 3px) ${themes[themeKey].secondary}`,
 							}}
 							className="w-4 h-4 bg-secondary rounded-full mx-auto my-2 ring-2 focus:outline-none focus:rounded-full"
@@ -36,7 +38,7 @@ const Header: FC = () => {
 				<Button type="button">x</Button>
 			</header>
 			<div
-				className="gf fixed h-screen pointer-events-none z-40"
+				className="gf fixed h-full pointer-events-none z-40"
 				style={{
 					top: 3,
 					left: 64,
