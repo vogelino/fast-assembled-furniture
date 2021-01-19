@@ -7,9 +7,11 @@ type Theme = {
 type Themes = { [key: string]: Theme }
 
 const themes: Themes = {
-	light: { primary: 'black', secondary: 'white' },
-	dark: { primary: 'white', secondary: 'black' },
-	fancyA: { primary: 'green', secondary: 'yellow' },
+	light: { primary: '#14213d', secondary: '#f8f9fa' },
+	dark: { primary: '#f8f9fa', secondary: '#212529' },
+	primaryGreen: { primary: '#00ab64', secondary: '#e7ffeb' },
+	primaryBlue: { primary: '#1347e4', secondary: '#e5edf1' },
+	primaryRed: { primary: '#f52937', secondary: '#ffebb6' },
 }
 interface ColorThemeContextType {
 	themeKey: string
