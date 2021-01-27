@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { PageTreeType } from './Menu'
-import Breadcrumb from './Breadcrump'
+import { PageTreeType } from '@/brand/Menu'
+import Breadcrumb from '@/brand/Breadcrump'
 
 type HeaderPropType = {
 	pageTree: PageTreeType

@@ -16,8 +16,19 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/brand/*": ["components/BrandGuide/*"],
+      "@/utils/*": ["utils/*"],
+      "@/docs/*": ["docs/*"],
+      "@/public/*": ["public/*"],
+      "@/pages/*": ["pages/*"],
+      "@/locales/*": ["locales/*"],
+      "@/styles/*": ["styles/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Cart.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

@@ -2,9 +2,9 @@ import { FC, useState, useContext, useRef, MouseEvent } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
-import useOnClickOutside from '../utils/hooks/useOnClickOutside'
-import { CartContext } from './CartContext'
-import { Product } from './ProductList'
+import useOnClickOutside from '@/utils/hooks/useOnClickOutside'
+import { CartContext } from '@/components/CartContext'
+import { Product } from '@/components/ProductList'
 
 type CartType = { [key: string]: Product }
 type Event = Pick<MouseEvent, 'preventDefault'>

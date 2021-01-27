@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
-import { pageTree } from './Menu'
-import Sidebar from './Sidebar'
-import Header from './Header'
-import PageTextZone from './PageTextZone'
-import PagePreviewZone from './PagePreviewZone'
-import { PreviewStateProvider } from './PreviewStateContext'
+import { pageTree } from '@/brand/Menu'
+import Sidebar from '@/brand/Sidebar'
+import Header from '@/brand/Header'
+import PageTextZone from '@/brand/PageTextZone'
+import PagePreviewZone from '@/brand/PagePreviewZone'
+import { PreviewStateProvider } from '@/brand/PreviewStateContext'
 
 const BrandGuide: FC<{ text?: string }> = ({ text = '', children }) => (
 	<PreviewStateProvider>

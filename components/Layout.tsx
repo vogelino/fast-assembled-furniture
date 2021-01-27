@@ -1,8 +1,8 @@
 import { useEffect, FC } from 'react'
-import Header from './Header'
+import Header from '@/components/Header'
 
 const setVh = () => {
-	let vh = window.innerHeight * 0.01
+	const vh = window.innerHeight * 0.01
 	document.documentElement.style.setProperty('--vh', `${vh}px`)
 }
 

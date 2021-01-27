@@ -3,12 +3,12 @@ import { useContext } from 'react'
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { MappedSeoProps, mapProductToProps, RawProduct, RawSeoCommons } from '../utils/graphcmsUtil'
-import { request } from '../utils/requestUtil'
-import Button from '../components/Button'
-import { CartContext } from '../components/CartContext'
-import Layout from '../components/Layout'
-import { Product, Thumbnail } from '../components/ProductList'
+import { MappedSeoProps, mapProductToProps, RawProduct, RawSeoCommons } from '@/utils/graphcmsUtil'
+import { request } from '@/utils/requestUtil'
+import Button from '@/components/Button'
+import { CartContext } from '@/components/CartContext'
+import Layout from '@/components/Layout'
+import { Product, Thumbnail } from '@/components/ProductList'
 
 type ProductPageProps = {
 	slug: string

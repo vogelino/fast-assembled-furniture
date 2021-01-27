@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import Layout from '../../../components/BrandGuide/Layout'
-import text from '../../../docs/brand/ci/ci.md'
+import text from '@/docs/brand/ci/ci.md'
+import Layout from '@/brand/Layout'
 
 const BrandGuide: FC = () => <Layout text={text}>Corporate Identity!</Layout>
 

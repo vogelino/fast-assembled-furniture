@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { gql } from 'graphql-request'
 import { GetStaticProps } from 'next'
-import { request } from '../utils/requestUtil'
+import { request } from '@/utils/requestUtil'
 import {
 	mapProductsToProps,
 	mapSeoToProps,
@@ -9,9 +9,9 @@ import {
 	RawSeoCommons,
 	RawSeoPage,
 	RawThumbnail,
-} from '../utils/graphcmsUtil'
-import ProductList, { Products } from '../components/ProductList'
-import Layout from '../components/Layout'
+} from '@/utils/graphcmsUtil'
+import ProductList, { Products } from '@/components/ProductList'
+import Layout from '@/components/Layout'
 
 const Home: FC<Products> = ({ products }) => (
 	<Layout>

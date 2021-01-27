@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import ActiveLink from '../Link'
+import ActiveLink from '@/components/Link'
 
 export type MenuItemType = {
 	title: string

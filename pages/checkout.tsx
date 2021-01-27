@@ -3,9 +3,9 @@ import { FC } from 'react'
 import Stripe from 'stripe'
 import { parseCookies, setCookie } from 'nookies'
 import { Elements } from '@stripe/react-stripe-js'
-import getStripe from '../utils/stripeUtil'
-import CheckoutForm from '../components/CheckoutForm'
-import Layout from '../components/Layout'
+import getStripe from '@/utils/stripeUtil'
+import CheckoutForm from '@/components/CheckoutForm'
+import Layout from '@/components/Layout'
 
 const globalStripe = getStripe()
 

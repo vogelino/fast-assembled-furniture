@@ -21,7 +21,6 @@ export const PreviewStateContext = createContext<PreviewStateContextType>(defaul
 export const PreviewStateProvider: FC = ({ children }) => {
 	const [previewState, setPreviewState] = useState(defaults)
 
-	console.log(previewState)
 	return (
 		<PreviewStateContext.Provider
 			value={{

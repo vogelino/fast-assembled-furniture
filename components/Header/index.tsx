@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react'
+import { Button } from '@/components/SquareButton'
+import { ColorThemeContext } from '@/components/ColorThemeContext'
 import { Logo } from './Logo'
-import { Button } from '../SquareButton'
-import { ColorThemeContext } from '../ColorThemeContext'
 
 const Header: FC = () => {
 	const { themeKey: activeTheme, themes, setTheme } = useContext(ColorThemeContext)
