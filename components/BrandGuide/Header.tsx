@@ -12,7 +12,7 @@ const Header: FC<HeaderPropType> = ({ pageTree }) => {
 			className="fixed top-0 right-0 h-16 gfc"
 			style={{ left: `calc(20rem - var(--borderWidth, 3px))` }}
 		>
-			<div className="gf h-full-p p-4">
+			<div className="gf h-full-p px-6 py-4">
 				<Breadcrumb pageTree={pageTree} />
 			</div>
 		</div>

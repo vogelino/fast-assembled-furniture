@@ -73,15 +73,6 @@
   display: list-item;
 }
 
-.markdownContainer a {
-  background-color: initial;
-}
-
-.markdownContainer a:active,
-.markdownContainer a:hover {
-  outline-width: 0;
-}
-
 .markdownContainer strong {
   font-weight: inherit;
   font-weight: bolder;
@@ -132,10 +123,17 @@
 .markdownContainer a {
   color: inherit;
   text-decoration: underline;
+  background-color: initial;
+  transition: font-weight 100ms ease-out;
+}
+
+.markdownContainer a:active,
+.markdownContainer a:hover {
+  outline-width: 0;
 }
 
 .markdownContainer a:hover {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .markdownContainer strong {
