@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import { useState, FC } from 'react'
+import { FC, useContext } from 'react'
+import { BackgroundType, PreviewStateContext } from '../PreviewStateContext'
 import { checkerboard } from './PagePreviewZone.module.css'
 
 const BackgroundButton: FC<{
@@ -14,23 +15,32 @@ const BackgroundButton: FC<{
 	/>
 )
 
+const previewBackgroundMap = {
+	[BackgroundType.Transparent as string]: checkerboard,
+	[BackgroundType.Light as string]: 'bg-secondary',
+	[BackgroundType.Dark as string]: 'bg-primary',
+}
+
 const PagePreviewZone: FC = ({ children }) => {
-	const [previewBackground, setPreviewBackground] = useState<string>(checkerboard)
+	const { previewBackground, setPreviewBackground } = useContext(PreviewStateContext)
 	return (
 		<div
-			className={`${previewBackground} relative grid content-center items-center justify-center h-full p-8`}
+			className={`${previewBackgroundMap[previewBackground]} relative grid content-center items-center justify-center h-full p-8`}
 		>
 			<nav className="absolute top-8 right-8">
 				<ul>
-					{[checkerboard, 'bg-secondary', 'bg-primary'].map((str) => (
-						<li key={str}>
-							<BackgroundButton
-								onClick={() => setPreviewBackground(str)}
-								background={str}
-								borderClass={str === 'bg-primary' ? 'border-secondary' : undefined}
-							/>
-						</li>
-					))}
+					{Object.keys(previewBackgroundMap).map((enumStr: string) => {
+						const backgroundClass = previewBackgroundMap[enumStr]
+						return (
+							<li key={enumStr}>
+								<BackgroundButton
+									onClick={() => setPreviewBackground(enumStr as BackgroundType)}
+									background={backgroundClass}
+									borderClass={enumStr === 'Dark' ? 'border-secondary' : undefined}
+								/>
+							</li>
+						)
+					})}
 				</ul>
 			</nav>
 			<div className="inline-block">{children}</div>
