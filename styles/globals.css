@@ -14,6 +14,22 @@
 		padding-top: var(--borderWidth);
 		padding-left: var(--borderWidth);
 	}
+
+	.h-full-p {
+		height: calc(100% + var(--borderWidth, 3px));
+	}
+
+	.h-full-fr {
+		height: calc(1fr + var(--borderWidth, 3px));
+	}
+
+	.w-full-p {
+		width: calc(100% + var(--borderWidth, 3px));
+	}
+
+	.w-full-fr {
+		width: calc(1fr + var(--borderWidth, 3px));
+	}
 }
 
 @layer base {

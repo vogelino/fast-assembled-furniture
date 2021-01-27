@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Link from '../Link'
 
 const paths = {
 	F:
@@ -10,22 +10,27 @@ const paths = {
 }
 const allPaths: string[] = [paths.F, paths.A, paths.F]
 
-export const Logo: FC = () => {
+type LogoPropType = {
+	framed?: boolean
+	vertical?: boolean
+}
+
+export const Logo: FC<LogoPropType> = ({ framed = true, vertical = true }) => {
 	const router = useRouter()
 
 	return (
 		<Link href="/" locale={router.locale}>
 			<nav
-				className="gf grid grid-flow-row"
+				className={`${framed ? 'gf' : ''} grid cursor-pointer hover:opacity-50 transition-opacity`}
 				style={{
-					gridAutoRows: '44px',
+					[vertical ? 'gridTemplateRows' : 'gridTemplateColumns']: 'repeat(3, 44px)',
 					gridGap: '7px',
-					padding: '8px 7px',
+					padding: framed ? '8px 7px' : '0px',
 				}}
 			>
 				{allPaths.map((letter: string, idx: number) => (
 					<li
-						className="content-center justify-center list-none rounded bg-primary text-secondary w-11 grid"
+						className="content-center justify-center list-none rounded bg-primary text-secondary h-11 w-11 grid"
 						// eslint-disable-next-line react/no-array-index-key
 						key={`${letter}-${idx}`}
 					>
