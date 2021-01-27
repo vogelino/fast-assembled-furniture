@@ -2,8 +2,10 @@ import React, { FC } from 'react'
 import { pageTree } from './Menu'
 import Sidebar from './Sidebar'
 import Header from './Header'
+import PageTextZone from './PageTextZone'
+import PagePreviewZone from './PagePreviewZone'
 
-const BrandGuide: FC = ({ children }) => (
+const BrandGuide: FC<{ text?: string }> = ({ text = '', children }) => (
 	<div
 		className="h-screen relative"
 		style={{
@@ -13,8 +15,13 @@ const BrandGuide: FC = ({ children }) => (
 	>
 		<Sidebar pageTree={pageTree} />
 		<Header pageTree={pageTree} />
-		<div className="gfc h-full">
-			<div className="gf h-full">{children}</div>
+		<div className="gfc h-full-p">
+			<div className="gf h-full inline-block w-50-p">
+				<PageTextZone>{text}</PageTextZone>
+			</div>
+			<div className="gf h-full inline-block w-50-p">
+				<PagePreviewZone>{children}</PagePreviewZone>
+			</div>
 		</div>
 	</div>
 )

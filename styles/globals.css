@@ -30,6 +30,10 @@
 	.w-full-fr {
 		width: calc(1fr + var(--borderWidth, 3px));
 	}
+
+	.w-50-p {
+		width: calc(50% + var(--borderWidth, 3px));
+	}
 }
 
 @layer base {

@@ -20,9 +20,9 @@ const SidebarHeader: FC = () => (
 )
 
 const Sidebar: FC<{ pageTree: PageTreeType }> = ({ pageTree }) => (
-	<div className="gfc w-80 h-screen fixed top-0 left-0 bottom-0">
+	<div className="gfc w-80 h-full-p fixed top-0 left-0 bottom-0">
 		<div
-			className="gf h-screen w-full-p grid grid-flow-row-dense"
+			className="gf h-full-p w-full-p grid grid-flow-row-dense"
 			style={{ gridTemplateRows: 'auto auto 1fr' }}
 		>
 			<SidebarHeader />
