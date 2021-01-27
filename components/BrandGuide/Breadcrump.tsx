@@ -81,6 +81,7 @@ const Breadcrumb: FC<BreadcrumbPropType> = ({ pageTree }) => {
 						href={`/brand${treeItem.path}`}
 						activeClassName="line-through"
 						inactiveClassName="opacity-50"
+						className="hover:opacity-100 transition-opacity"
 					>
 						{treeItem.title}
 					</Link>
