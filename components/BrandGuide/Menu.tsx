@@ -1,13 +1,14 @@
 import { FC } from 'react'
 import ActiveLink from '../Link'
 
-type MenuItemType = {
+export type MenuItemType = {
 	title: string
 	path: string
 	children?: MenuItemType[]
 }
 
-const linkItems: MenuItemType[] = [
+export type PageTreeType = MenuItemType[]
+export const pageTree: PageTreeType = [
 	{
 		title: 'Welcome',
 		path: '/brand',
@@ -19,6 +20,12 @@ const linkItems: MenuItemType[] = [
 			{
 				title: 'Logo',
 				path: '/brand/ci/logo',
+				children: [
+					{
+						title: `Dos and Don'ts`,
+						path: `/brand/ci/logo/dos-and-donts`,
+					},
+				],
 			},
 		],
 	},
@@ -53,7 +60,7 @@ const getClassesByLevel = (level = 0): { [level: string]: string } => {
 			linInactiveClasses: `${linkCommonInactive}`,
 			linkActiveClasses: `${linkCommonActive}`,
 		},
-	][level]
+	][level === 0 ? 0 : 1]
 }
 
 function getChildMapper(level = 0) {
@@ -84,6 +91,8 @@ function getChildMapper(level = 0) {
 	}
 }
 
-const Menu: FC = () => <ul className="w-full-p">{linkItems.map(getChildMapper())}</ul>
+const Menu: FC<{ pageTree: PageTreeType }> = ({ pageTree: localPageTree }) => (
+	<ul className="w-full-p">{localPageTree.map(getChildMapper())}</ul>
+)
 
 export default Menu
