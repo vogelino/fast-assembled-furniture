@@ -1,6 +1,12 @@
 import React, { FC } from 'react'
+import { NotionRendererProps } from 'react-notion/dist/renderer'
 import Layout from '@/brand/Layout'
+import { getNotionPage } from '@/utils/notionUtil'
 
-const BrandGuide: FC = () => <Layout>UI library {'>'} Frame</Layout>
+export const getStaticProps = getNotionPage('db31dff4705d4a73894a83971aad95f4')
+
+const BrandGuide: FC<Pick<NotionRendererProps, 'blockMap'>> = ({ blockMap }) => (
+	<Layout notionContent={blockMap} />
+)
 
 export default BrandGuide

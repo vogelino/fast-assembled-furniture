@@ -1,12 +1,12 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { pageTree } from '@/brand/Menu'
 import Sidebar from '@/brand/Sidebar'
 import Header from '@/brand/Header'
-import PageTextZone from '@/brand/PageTextZone'
+import PageTextZone, { PageTextZonePropsType } from '@/brand/PageTextZone'
 import PagePreviewZone from '@/brand/PagePreviewZone'
 import { PreviewStateProvider } from '@/brand/PreviewStateContext'
 
-const BrandGuide: FC<{ text?: string }> = ({ text = '', children }) => (
+const BrandGuide: FC<PageTextZonePropsType> = ({ notionContent, children }) => (
 	<PreviewStateProvider>
 		<div
 			className="h-screen relative"
@@ -18,12 +18,14 @@ const BrandGuide: FC<{ text?: string }> = ({ text = '', children }) => (
 			<Sidebar pageTree={pageTree} />
 			<Header pageTree={pageTree} />
 			<div className="gfc h-full-p">
-				<div className="gf h-full inline-block w-50-p">
-					<PageTextZone>{text}</PageTextZone>
+				<div className={`gf h-full inline-block ${children ? 'w-50-p' : 'w-full-p'}`}>
+					<PageTextZone notionContent={notionContent} />
 				</div>
-				<div className="gf h-full inline-block w-50-p">
-					<PagePreviewZone>{children}</PagePreviewZone>
-				</div>
+				{children && (
+					<div className="gf h-full inline-block w-50-p">
+						<PagePreviewZone>{children}</PagePreviewZone>
+					</div>
+				)}
 			</div>
 		</div>
 	</PreviewStateProvider>
