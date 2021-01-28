@@ -65,8 +65,14 @@
 		caret-color: var(--primary);
 	}
 
+	body .notion h1,
+	body .notion h2,
+	body .notion h3 {
+		@apply uppercase font-semibold;
+	}
+
 	body .notion h1 {
-		@apply text-2xl;
+		@apply text-2xl font-bold;
 	}
 
 	body .notion h2 {
@@ -75,12 +81,6 @@
 
 	body .notion h3 {
 		@apply text-lg;
-	}
-
-	body .notion h1,
-	body .notion h2,
-	body .notion h3 {
-		@apply uppercase font-bold;
 	}
 
 	body .notion-table {
