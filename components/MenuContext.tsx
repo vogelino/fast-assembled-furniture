@@ -41,6 +41,10 @@ const defaults = {
 	],
 	secondaryLinks: [
 		{
+			path: '/brand',
+			title: 'Brand assets',
+		},
+		{
 			path: '/imprint',
 			title: 'Imprint',
 		},
