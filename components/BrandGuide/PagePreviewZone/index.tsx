@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { FC, useContext } from 'react'
 import { BackgroundType, PreviewStateContext } from '@/brand/PreviewStateContext'
+import { ColorThemeContext } from '@/components/ColorThemeContext'
 import { checkerboard } from './PagePreviewZone.module.css'
 
 const BackgroundButton: FC<{
@@ -23,9 +24,14 @@ const previewBackgroundMap = {
 
 const PagePreviewZone: FC = ({ children }) => {
 	const { previewBackground, setPreviewBackground } = useContext(PreviewStateContext)
+	const { themeKey } = useContext(ColorThemeContext)
+
 	return (
 		<div
 			className={`${previewBackgroundMap[previewBackground]} relative grid content-center items-center justify-center h-full p-8`}
+			style={{
+				backgroundBlendMode: themeKey === 'dark' ? 'overlay' : 'luminosity',
+			}}
 		>
 			<nav className="absolute top-8 right-8">
 				<ul>
