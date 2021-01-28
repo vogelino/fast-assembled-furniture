@@ -44,7 +44,7 @@ const ProductListItem: FC<Product> = ({
 		<Link href={`/${slug}`}>
 			{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 			<a
-				className="group gfc hover:border-gray-300"
+				className="group gfc hover:border-gray-300 w-full-p"
 				style={{ paddingTop: 'calc(var(--borderWidth, 3px) * -1)' }}
 			>
 				{thumbnail && (

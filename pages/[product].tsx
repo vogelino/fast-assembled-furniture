@@ -37,11 +37,17 @@ const ProductPage: NextPage<ProductPageProps> = ({
 
 	return (
 		<Layout>
-			<main>
+			<main
+				className="h-full-p grid grid-flow-row"
+				style={{
+					gridTemplateRows: 'auto minmax(1fr, auto)',
+				}}
+			>
 				{thumbnail && (
-					<div className="rounded-xl overflow-hidden border-2 border-black">
+					<div className="gfc">
 						<Image
 							src={thumbnail.url}
+							className="gf"
 							alt={title}
 							layout="responsive"
 							width="1200"
@@ -50,27 +56,29 @@ const ProductPage: NextPage<ProductPageProps> = ({
 						/>
 					</div>
 				)}
-				<div className="px-6 py-8">
-					<h3 className="text-3xl md:text-6xl font-bold px-6 py-2 mb-4 bg-black text-white inline-block rounded-full">
-						{title}
-					</h3>
-					{startPrice && (
-						<h4 className="text-xl md:text-2xl pl-6">
-							{t('priceStartingFrom', { price: currency.format(startPrice) })}
-						</h4>
-					)}
-					<p className="mt-4 pl-2">
-						{cart && cart[slug] ? (
-							<Button type="button" onClick={removeFromCart}>
-								{t('buttons.removeFromCart')}
-							</Button>
-						) : (
-							<Button type="button" onClick={addToCart}>
-								{t('buttons.addToCart')}
-							</Button>
+				<div className="gfc h-full-fr">
+					<div className="gf h-full px-8 py-8">
+						<h3 className="text-3xl md:text-4xl uppercase font-bold mb-0 bg-black text-white inline-block rounded-full">
+							{title}
+						</h3>
+						{startPrice && (
+							<h4 className="text-xl md:text-2xl mt-0 mb-4">
+								{t('priceStartingFrom', { price: currency.format(startPrice) })}
+							</h4>
 						)}
-					</p>
-					<p className="text-2xl md:text-3xl mt-4 pl-6">{description}</p>
+						<p className="text-2xl md:text-3xl mt-4">{description}</p>
+						<p className="mt-4">
+							{cart && cart[slug] ? (
+								<Button type="button" onClick={removeFromCart}>
+									{t('buttons.removeFromCart')}
+								</Button>
+							) : (
+								<Button type="button" onClick={addToCart}>
+									{t('buttons.addToCart')}
+								</Button>
+							)}
+						</p>
+					</div>
 				</div>
 			</main>
 		</Layout>
