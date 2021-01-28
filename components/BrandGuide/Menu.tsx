@@ -45,6 +45,10 @@ export const pageTree: PageTreeType = [
 				title: 'Menu',
 				path: '/brand/ui/menu',
 			},
+			{
+				title: 'Border Edge',
+				path: '/brand/ui/borderEdge',
+			},
 		],
 	},
 ]

@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { PageTreeType, MenuItemType } from '@/brand/Menu'
 import Link from '@/components/Link'
+import { identity } from '@/utils/functionsUtil'
 
 function cleanupPath(path: string): string {
 	return path.replace('/brand', '')
@@ -39,11 +40,8 @@ function findPageByPath(path: string, tree: PageTreeType): MenuItemType | undefi
 	return page
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const exists = (x: any): boolean => Boolean(x)
-
 function getParentPath(currentPath: string): string | undefined {
-	const currentPathArray = currentPath.split('/').filter(exists)
+	const currentPathArray = currentPath.split('/').filter(identity)
 	if (currentPathArray[0] === currentPath) return undefined
 	currentPathArray.pop()
 	return currentPathArray && `/${currentPathArray.join('/')}`

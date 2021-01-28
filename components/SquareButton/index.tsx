@@ -1,4 +1,4 @@
-import { HTMLProps, FC } from 'react'
+import { HTMLProps, FC, CSSProperties } from 'react'
 import { icons, IconType } from '@/components/Icon'
 import {
 	squareButton,
@@ -14,11 +14,11 @@ enum TypeColorMap {
 	Buy = '#87E39D',
 }
 interface ButtonProps extends HTMLProps<HTMLButtonElement> {
-	primary?: boolean
 	type: 'button' | 'submit' | 'reset'
 	status?: string | number
 	icon?: string
 	colorType?: 'Edit' | 'Add' | 'Info' | 'Buy'
+	style?: CSSProperties
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -27,6 +27,7 @@ export const Button: FC<ButtonProps> = ({
 	icon,
 	status = '',
 	colorType,
+	style = {},
 	...rest
 }) => {
 	const IconTag = icon ? (icons[icon] as IconType) : () => null
@@ -35,7 +36,7 @@ export const Button: FC<ButtonProps> = ({
 		// eslint-disable-next-line react/button-has-type
 		<button
 			className={`gf ${squareButton} ${className} `}
-			style={colorType ? { backgroundColor: TypeColorMap[colorType] } : {}}
+			style={colorType ? { ...style, backgroundColor: TypeColorMap[colorType] } : style}
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			{...rest}
 		>

@@ -1,9 +1,6 @@
 import { request as gqlRequest } from 'graphql-request'
 import { RequestDocument } from 'graphql-request/dist/types'
-
-function identity<T>(arg: T): T {
-	return arg
-}
+import { identity } from '@/utils/functionsUtil'
 
 type PossibleKeys = 'products' | 'pages' | 'thumbnails' | 'product' | 'seoCommons'
 
