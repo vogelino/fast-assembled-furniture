@@ -45,14 +45,7 @@ export const Button: FC<ButtonProps> = ({
 						<IconTag size={20} />
 					</span>
 				)}
-				{status && (
-					<span
-						style={{ gridArea: 'status' }}
-						className={`${buttonContent} justify-self-start status`}
-					>
-						{status}
-					</span>
-				)}
+				{status}
 				<span style={{ gridArea: 'text' }} className="text self-center justify-self-start">
 					{children}
 				</span>

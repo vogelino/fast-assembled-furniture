@@ -49,8 +49,6 @@
 	}
 
 	.app-wrapper {
-		overflow-x: hidden;
-		overflow-y: scroll;
 		z-index: 1;
 		padding-left: 61px;
 	}
@@ -87,7 +85,33 @@
 		@apply break-normal whitespace-normal;
 	}
 
+	body .notion-th {
+		@apply text-primary;
+	}
+
+	body .notion-table {
+		@apply bg-primary rounded-md;
+		background-blend-mode: overlay;
+		border-collapse: separate;
+		border-spacing: 2px;
+	}
+
+	body .notion-th {
+		@apply text-secondary font-bold uppercase;
+	}
+
+	body .notion-td {
+		@apply bg-secondary rounded;
+	}
+
+	body .notion-table,
+	body .notion-th,
+	body .notion-td {
+		border: none;
+	}
+
 	/* Dirty trick to target div parent of tables */
+	body .notion div[style="max-width: 100%; margin-top: 5px;"],
 	body .notion div[style="max-width:100%;margin-top:5px"] {
 		overflow-x: auto;
 	}
