@@ -1,11 +1,6 @@
 import { HTMLProps, FC } from 'react'
 import { icons, IconType } from '@/components/Icon'
-import {
-	squareButton,
-	buttonContent,
-	buttonContentContainer,
-	textOnlyContainer,
-} from './SquareButton.module.css'
+import { squareButton, buttonContent, buttonContentContainer } from './SquareButton.module.css'
 
 enum TypeColorMap {
 	Edit = '#FF9A6B',
