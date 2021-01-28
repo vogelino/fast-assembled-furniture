@@ -17,7 +17,7 @@ const Layout: FC = ({ children }) => {
 	}, [])
 
 	return (
-		<div>
+		<div className="app-wrapper">
 			<Header />
 			{children}
 		</div>
