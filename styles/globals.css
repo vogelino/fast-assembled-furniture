@@ -58,6 +58,7 @@
 		@apply bg-primary text-primary;
 	}
 
+	/* purgecss start ignore */
 	body .notion {
 		@apply text-primary font-sans text-base leading-normal;
 		caret-color: var(--primary);
@@ -115,5 +116,6 @@
 	body .notion div[style="max-width:100%;margin-top:5px"] {
 		overflow-x: auto;
 	}
+	/* purgecss end ignore */
 }
 
