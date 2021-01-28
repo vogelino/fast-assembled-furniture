@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 import { FC } from 'react'
-import { PageTreeType, MenuItemType } from '@/brand/Menu'
-import Link from '@/components/Link'
-import { identity } from '@/utils/functionsUtil'
+import { PageTreeType, MenuItemType } from '@components/BrandGuide/Menu'
+import Link from '@components/Link'
+import { identity } from '@utils/functionsUtil'
 
 function cleanupPath(path: string): string {
 	return path.replace('/brand', '')

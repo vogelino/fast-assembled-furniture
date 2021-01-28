@@ -1,7 +1,7 @@
 import { NextPage, NextApiResponse } from 'next'
 import { Component } from 'react'
 import { gql } from 'graphql-request'
-import { request } from '@/utils/requestUtil'
+import { request } from '@utils/requestUtil'
 
 type Product = {
 	slug: string

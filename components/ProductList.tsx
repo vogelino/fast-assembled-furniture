@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
-import Button from '@/components/Button'
+import { Button } from '@components/SquareButton'
 
 const shortenText: (text: string) => string = (text) =>
 	text.length > 80 ? `${text.slice(0, 80)}...` : text

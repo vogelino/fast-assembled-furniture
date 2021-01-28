@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import Layout from '@/brand/Layout'
+import Layout from '@components/BrandGuide/Layout'
 import { NotionRendererProps } from 'react-notion/dist/renderer'
-import { getNotionPage } from '@/utils/notionUtil'
-import Menu from '@/components/Header'
+import { getNotionPage } from '@utils/notionUtil'
+import Menu from '@components/Header'
 
 export const getStaticProps = getNotionPage('46ec0392bd734685b96bfb5a9ae3dc96')
 

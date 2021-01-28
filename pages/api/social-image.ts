@@ -2,7 +2,7 @@ import qs from 'querystring'
 import pptr from 'puppeteer'
 import chrome from 'chrome-aws-lambda'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { absoluteUrl } from '@/utils/urlUtil'
+import { absoluteUrl } from '@utils/urlUtil'
 
 const isDev = process.env.NODE_ENV === 'development'
 const config = {

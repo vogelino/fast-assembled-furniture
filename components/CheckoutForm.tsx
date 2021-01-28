@@ -2,7 +2,7 @@ import { useState, FC, MouseEvent } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import { StripeCardElement } from '@stripe/stripe-js'
 import { destroyCookie } from 'nookies'
-import Button from '@/components/Button'
+import Button from '@components/Button'
 
 // eslint-disable-next-line camelcase
 type PaymentIntent = { id: string; client_secret: string | null }

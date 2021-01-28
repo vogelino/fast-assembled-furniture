@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { Logo } from '@/components/Header/Logo'
-import Menu, { PageTreeType } from '@/brand/Menu'
+import { Logo } from '@components/Header/Logo'
+import Menu, { PageTreeType } from '@components/BrandGuide/Menu'
 
 const SidebarHeader: FC = () => (
 	<div className="w-full-p">

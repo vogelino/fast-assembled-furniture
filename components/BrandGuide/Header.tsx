@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { PageTreeType } from '@/brand/Menu'
-import Breadcrumb from '@/brand/Breadcrump'
+import { PageTreeType } from '@components/BrandGuide/Menu'
+import Breadcrumb from '@components/BrandGuide/Breadcrump'
 import ThemeSelect from '../ThemeSelect'
 
 type HeaderPropType = {

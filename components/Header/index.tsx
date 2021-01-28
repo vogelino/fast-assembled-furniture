@@ -1,10 +1,10 @@
 import React, { FC, useContext } from 'react'
-import { Button } from '@/components/SquareButton'
-import { Logo } from '@/components/Header/Logo'
-import { CartContext } from '@/components/CartContext'
-import ThemeSelect from '@/components/ThemeSelect'
-import { MenuContext } from '@/components/MenuContext'
-import Link from '@/components/Link'
+import { Button } from '@components/SquareButton'
+import { Logo } from '@components/Header/Logo'
+import { CartContext } from '@components/CartContext'
+import ThemeSelect from '@components/ThemeSelect'
+import { MenuContext } from '@components/MenuContext'
+import Link from '@components/Link'
 
 const year = new Date().getFullYear()
 
@@ -127,6 +127,9 @@ const Header: FC = () => {
 							background: 'none',
 						}}
 						onClick={closeMenu}
+						onKeyPress={closeMenu}
+						role="button"
+						tabIndex={0}
 					>
 						<div
 							className="absolute top-0 right-0 left-0 bottom-0 bg-primary transition-opacity"

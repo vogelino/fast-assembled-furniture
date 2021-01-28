@@ -1,6 +1,6 @@
-import { identity } from '@/utils/functionsUtil'
 import { CSSProperties, FC } from 'react'
-import { Button } from '../SquareButton'
+import { identity } from '@utils/functionsUtil'
+import { Button } from '@components/SquareButton'
 import {
 	containerClass,
 	commonClass,

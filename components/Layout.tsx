@@ -1,5 +1,5 @@
 import { useEffect, FC } from 'react'
-import Header from '@/components/Header'
+import Header from '@components/Header'
 
 const setVh = () => {
 	const vh = window.innerHeight * 0.01

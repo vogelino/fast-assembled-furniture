@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import Layout from '@/brand/Layout'
 import { NotionRendererProps } from 'react-notion/dist/renderer'
-import { getNotionPage } from '@/utils/notionUtil'
-import { BorderEdge, ButtonWithBorderEdges } from '@/components/BorderEdge'
+import Layout from '@components/BrandGuide/Layout'
+import { getNotionPage } from '@utils/notionUtil'
+import { BorderEdge, ButtonWithBorderEdges } from '@components/BorderEdge'
 
 export const getStaticProps = getNotionPage('c10f61d4edc44070a4d3d34793526345')
 

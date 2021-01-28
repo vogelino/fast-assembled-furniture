@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { pageTree } from '@/brand/Menu'
-import Sidebar from '@/brand/Sidebar'
-import Header from '@/brand/Header'
-import PageTextZone, { PageTextZonePropsType } from '@/brand/PageTextZone'
-import PagePreviewZone from '@/brand/PagePreviewZone'
-import { PreviewStateProvider } from '@/brand/PreviewStateContext'
+import { pageTree } from '@components/BrandGuide/Menu'
+import Sidebar from '@components/BrandGuide/Sidebar'
+import Header from '@components/BrandGuide/Header'
+import PageTextZone, { PageTextZonePropsType } from '@components/BrandGuide/PageTextZone'
+import PagePreviewZone from '@components/BrandGuide/PagePreviewZone'
+import { PreviewStateProvider } from '@components/BrandGuide/PreviewStateContext'
 
 const BrandGuide: FC<PageTextZonePropsType> = ({ notionContent, children }) => (
 	<PreviewStateProvider>

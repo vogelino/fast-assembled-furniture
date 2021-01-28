@@ -26,6 +26,7 @@
     "next-translate": "^1.0.1",
     "nookies": "^2.5.0",
     "postcss": "^8.1.7",
+    "prismjs": "^1.23.0",
     "puppeteer": "^5.5.0",
     "qs": "^6.9.4",
     "react": "17.0.1",
@@ -46,11 +47,9 @@
     "@types/node": "^14.14.16",
     "@types/puppeteer": "^5.4.2",
     "@types/react": "^17.0.0",
-    "emit-file-loader": "0.0.2",
-    "eslint": "^7.17.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript-prettier": "^4.1.0",
     "prettier": "^2.2.1",
-    "raw-loader": "^4.0.2",
     "typescript": "^4.1.3"
   }
 }

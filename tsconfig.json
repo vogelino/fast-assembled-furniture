@@ -6,9 +6,12 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2019"],
+    "lib": [
+      "dom",
+      "es2019"
+    ],
     "module": "esnext",
-    "moduleResolution": "node",
+    // "moduleResolution": "node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
@@ -19,16 +22,25 @@
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/brand/*": ["components/BrandGuide/*"],
-      "@/utils/*": ["utils/*"],
-      "@/docs/*": ["docs/*"],
-      "@/public/*": ["public/*"],
-      "@/pages/*": ["pages/*"],
-      "@/locales/*": ["locales/*"],
-      "@/styles/*": ["styles/*"]
-    }
+      "@components/*": [
+        "./components/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ]
+    },
+    "moduleResolution": "node"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "./components/**/*.ts",
+    "./components/**/*.tsx",
+    "./utils/**/*.ts",
+    "./utils/**/*.tsx",
+    "./pages/**/*.ts",
+    "./pages/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

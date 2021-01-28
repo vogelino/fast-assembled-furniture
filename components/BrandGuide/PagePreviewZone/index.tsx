@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { FC, useContext } from 'react'
-import { BackgroundType, PreviewStateContext } from '@/brand/PreviewStateContext'
-import { ColorThemeContext } from '@/components/ColorThemeContext'
+import { BackgroundType, PreviewStateContext } from '@components/BrandGuide/PreviewStateContext'
+import { ColorThemeContext } from '@components/ColorThemeContext'
 import { checkerboard } from './PagePreviewZone.module.css'
 
 const BackgroundButton: FC<{

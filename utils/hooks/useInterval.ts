@@ -8,15 +8,14 @@ function useInterval(callback: () => void, delay = 1000): void {
 	useEffect(() => {
 		function tick() {
 			if (typeof savedCallback?.current !== 'undefined') {
-				savedCallback?.current()
+				savedCallback.current()
 			}
 		}
 		if (delay !== null) {
 			const id = setInterval(tick, delay)
 			return () => clearInterval(id)
 		}
-		// eslint-disable-next-line @typescript-eslint/no-empty-function
-		return () => {}
+		return () => undefined
 	}, [delay])
 }
 

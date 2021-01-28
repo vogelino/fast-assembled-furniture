@@ -1,5 +1,5 @@
 import { HTMLProps, FC, CSSProperties } from 'react'
-import { icons, IconType } from '@/components/Icon'
+import { icons, IconType } from '@components/Icon'
 import {
 	squareButton,
 	buttonContent,

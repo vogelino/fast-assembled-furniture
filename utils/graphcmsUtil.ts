@@ -1,4 +1,4 @@
-import { Product, Thumbnail } from '../components/ProductList'
+import { Product, Thumbnail } from '@components/ProductList'
 
 export interface RawProduct {
 	slug: string

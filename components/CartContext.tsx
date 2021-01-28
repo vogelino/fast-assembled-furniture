@@ -1,5 +1,5 @@
 import { FC, createContext, useState, useEffect, MouseEvent } from 'react'
-import { Product } from '@/components/ProductList'
+import { Product } from '@components/ProductList'
 
 const LOCAL_STORAGE_CART_KEY = 'FAF_CART'
 

@@ -1,7 +1,7 @@
 import { FC, useContext, useEffect } from 'react'
 import NextHead from 'next/head'
-import getHeadFavicons from '@/utils/faviconsUtil'
-import { LoadingContext } from '@/components/LoadingContext'
+import getHeadFavicons from '@utils/faviconsUtil'
+import { LoadingContext } from '@components/LoadingContext'
 
 const siteUrl = process.env.URL
 

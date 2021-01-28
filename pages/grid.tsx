@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
-import Layout from '@/components/Layout'
-// import { GridFrame, GridFrameContainer } from '../components/GridFrame'
+import Layout from '@components/Layout'
 
-const Grid: FC<{}> = ({}) => (
+const Grid: FC = () => (
 	<Layout>
 		<div className="gfc grid grid-cols-4">
 			<div className="gf">Hello</div>
