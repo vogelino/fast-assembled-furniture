@@ -14,6 +14,7 @@ type LinkType = {
 	activeClassName?: string
 	inactiveClassName?: string
 	className?: string
+	onClick?: () => void
 }
 
 const ActiveLink: FC<LinkType> = ({
@@ -23,6 +24,7 @@ const ActiveLink: FC<LinkType> = ({
 	activeClassName = '',
 	inactiveClassName = '',
 	className: childClassName = '',
+	onClick,
 	...props
 }) => {
 	const { asPath } = useRouter()
@@ -35,7 +37,7 @@ const ActiveLink: FC<LinkType> = ({
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
 		<Link {...props} href={href}>
-			<a href={href} className={className}>
+			<a href={href} className={className} onClick={onClick}>
 				{children}
 			</a>
 		</Link>

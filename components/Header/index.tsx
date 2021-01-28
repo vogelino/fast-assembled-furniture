@@ -22,7 +22,9 @@ const Header: FC = () => {
 				<div className="gf flex flex-col pt-3 relative">
 					<ThemeSelect />
 					<div className="absolute transform left-2 -bottom-2 uppercase font-bold origin-top-left -rotate-90 whitespace-nowrap">
-						MENU
+						{menuIsOpened
+							? 'Menu'
+							: menuLinks.filter(({ active }) => active).map(({ title }) => title)}
 					</div>
 				</div>
 				<Button type="button" icon="ShoppingCart" status={Object.keys(cart).length}>
@@ -74,11 +76,13 @@ const Header: FC = () => {
 												: 'font-bold cursor-pointer hover:opacity-50 transition-opacity'
 										}`}
 									>
-										<Link href={menuLink.path}>{menuLink.title}</Link>
+										<Link href={menuLink.path} onClick={closeMenu}>
+											{menuLink.title}
+										</Link>
 									</li>
 								))}
 								<li
-									className="gf list-none w-full h-full-fr p-4 grid grid-flow-row gap-4"
+									className="gf list-none w-full-p h-full-fr p-4 grid grid-flow-row gap-4"
 									style={{
 										gridTemplateRows: '1fr auto auto',
 									}}
@@ -90,6 +94,7 @@ const Header: FC = () => {
 												<Link
 													href={secondaryLink.path}
 													inactiveClassName="underline hover:no-underline cursor-pointer"
+													onClick={closeMenu}
 												>
 													{secondaryLink.title}
 												</Link>
