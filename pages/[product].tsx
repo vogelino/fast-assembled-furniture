@@ -40,7 +40,7 @@ const ProductPage: NextPage<ProductPageProps> = ({
 			<main
 				className="h-full-p grid grid-flow-row"
 				style={{
-					gridTemplateRows: 'auto minmax(1fr, auto)',
+					gridTemplateRows: 'auto 1fr',
 				}}
 			>
 				{thumbnail && (
