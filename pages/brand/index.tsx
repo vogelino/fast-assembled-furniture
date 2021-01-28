@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import Layout from '@/brand/Layout'
 import { NotionRendererProps } from 'react-notion/dist/renderer'
 import { getNotionPage } from '@/utils/notionUtil'
