@@ -59,5 +59,37 @@
 		--borderWidth: 3px;
 		@apply bg-primary text-primary;
 	}
+
+	body .notion {
+		@apply text-primary font-sans text-base leading-normal;
+		caret-color: var(--primary);
+	}
+
+	body .notion h1 {
+		@apply text-2xl;
+	}
+
+	body .notion h2 {
+		@apply text-xl;
+	}
+
+	body .notion h3 {
+		@apply text-lg;
+	}
+
+	body .notion h1,
+	body .notion h2,
+	body .notion h3 {
+		@apply uppercase font-bold;
+	}
+
+	body .notion-table {
+		@apply break-normal whitespace-normal;
+	}
+
+	/* Dirty trick to target div parent of tables */
+	body .notion div[style="max-width:100%;margin-top:5px"] {
+		overflow-x: auto;
+	}
 }
 
