@@ -41,6 +41,10 @@ export const pageTree: PageTreeType = [
 				title: 'Buttons',
 				path: '/brand/ui/buttons',
 			},
+			{
+				title: 'Menu',
+				path: '/brand/ui/menu',
+			},
 		],
 	},
 ]
