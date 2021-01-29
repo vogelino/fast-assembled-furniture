@@ -6,7 +6,7 @@ function useInterval(callback: () => void, delay = 1000): void {
 		savedCallback.current = callback
 	})
 	useEffect(() => {
-		function tick() {
+		function tick(): void {
 			if (typeof savedCallback?.current !== 'undefined') {
 				savedCallback.current()
 			}

@@ -90,6 +90,7 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 		</div>
 		{edges.map(({ position, orientation }) => (
 			<BorderEdge
+				key={`${position}-${orientation}`}
 				orientation={orientation}
 				className={[
 					'absolute',

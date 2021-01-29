@@ -15,8 +15,12 @@ export const LoadingContext = createContext<LoadingContextType>({
 export const LoadingProvider: FC = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false)
 
-	const startLoading = () => setIsLoading(true)
-	const stopLoading = () => setIsLoading(false)
+	const startLoading = (): void => {
+		setIsLoading(true)
+	}
+	const stopLoading = (): void => {
+		setIsLoading(false)
+	}
 
 	useEffect(() => {
 		startLoading()

@@ -158,7 +158,13 @@ const allProductsQuery = gql`
 
 type Locale = 'en' | 'de'
 
-const generatePathForLocale = (locale: Locale, products: Product[]) =>
+const generatePathForLocale = (
+	locale: Locale,
+	products: Product[]
+): Array<{
+	params: { product: string }
+	locale: Locale
+}> =>
 	products.map(({ slug }) => ({
 		params: { product: slug },
 		locale,

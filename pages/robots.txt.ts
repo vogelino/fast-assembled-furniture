@@ -1,7 +1,7 @@
 import { NextApiResponse } from 'next'
 import { Component } from 'react'
 
-const getRobots = () => `User-agent: *
+const getRobots = (): string => `User-agent: *
 Disallow: ${process.env.VERCEL_ENV === 'production' ? '/_next/static/' : '/'}
 `
 

@@ -7,7 +7,7 @@ const getManifest = ({
 	siteTitle = 'Fast Assembled Furniture',
 	themeTextColor = '#000000',
 	themeBackgroundColor = '#ffffff',
-}) => `{
+}): string => `{
     "name": "${siteTitle}",
     "short_name": "FAF",
     "icons": [

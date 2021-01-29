@@ -12,7 +12,7 @@ const CheckoutForm: FC<{ paymentIntent: PaymentIntent }> = ({ paymentIntent }) =
 	const [checkoutError, setCheckoutError] = useState(false)
 	const [checkoutSuccess, setCheckoutSuccess] = useState(false)
 
-	const handleSubmit = async (e: Pick<MouseEvent, 'preventDefault'>) => {
+	const handleSubmit = async (e: Pick<MouseEvent, 'preventDefault'>): Promise<void> => {
 		e.preventDefault()
 
 		if (!stripe || !elements) return

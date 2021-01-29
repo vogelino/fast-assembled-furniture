@@ -32,7 +32,7 @@ export const ColorThemeContext = createContext<ColorThemeContextType>(defaults)
 export const ColorThemeProvider: FC = ({ children }) => {
 	const [themeKey, setTheme] = useState(defaults.themeKey)
 
-	const selectTheme = (nextThemeKey: string) => {
+	const selectTheme = (nextThemeKey: string): void => {
 		const nextTheme = themes[nextThemeKey]
 		const nextThemeKeys: string[] = Object.keys(nextTheme)
 

@@ -71,11 +71,12 @@ const getClassesByLevel = (level = 0): { [level: string]: string } => {
 	][level === 0 ? 0 : 1]
 }
 
-function getChildMapper(level = 0) {
+function getChildMapper(level = 0): (linkItem: MenuItemType) => JSX.Element {
 	const Tag = (level === 0 ? 'h3' : 'span') as keyof JSX.IntrinsicElements
 
 	const { linkCommonClasses, linkActiveClasses, linInactiveClasses } = getClassesByLevel(level)
 
+	// eslint-disable-next-line react/display-name
 	return (linkItem: MenuItemType) => {
 		return (
 			<li className={`${level === 0 ? 'gf px-4 py-6' : 'py-0 px-6'} relative`} key={linkItem.title}>
