@@ -1,10 +1,12 @@
 name: Lint
 on: [push]
 jobs:
-  check-bats-version:
+  Eslin-Typescript:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+        with:
+          node-version: v15.0.1
       - run: npm install -ci
       - run: npm run lint
