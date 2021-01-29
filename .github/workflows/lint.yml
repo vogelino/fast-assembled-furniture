@@ -1,34 +1,10 @@
-# This is a basic workflow that is manually triggered
-
 name: Lint
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
-on:
-  workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Linting Javascipt/Typescript files'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: false
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+on: [push]
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  check-bats-version:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Run ESLint
-    # You may pin to the exact commit or the version.
-    # uses: stefanoeb/eslint-action@0b532bcd98dbed80a59071fa8986fcf1b1715be4
-        uses: stefanoeb/eslint-action@1.0.2
-        with:
-          # Blob of files to lint
-          files: '**/*.{js,jsx,ts,tsx}'
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install -ci
+      - run: npm run lint
