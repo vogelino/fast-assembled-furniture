@@ -1,5 +1,11 @@
 name: Lint
-on: [push]
+on: 
+  push:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
 jobs:
   Eslin-Typescript:
     runs-on: ubuntu-latest
