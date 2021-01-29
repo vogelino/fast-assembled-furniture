@@ -1,0 +1,32 @@
+.containerClass {
+    @apply h-6 w-6 overflow-hidden inline-block;
+}
+
+.commonClass {
+    @apply border-primary h-full w-full border-solid inline-block;
+    box-shadow: 0 0 0 10px var(--primary);
+}
+
+.TopLeftClass {
+    @apply rounded-tl-lg;
+    border-left-width: 3px;
+    border-top-width: 3px;
+}
+
+.TopRightClass {
+    @apply rounded-tr-lg;
+    border-right-width: 3px;
+    border-top-width: 3px;
+}
+
+.BottomLeftClass {
+    @apply rounded-bl-lg;
+    border-left-width: 3px;
+    border-bottom-width: 3px;
+}
+
+.BottomRightClass {
+    @apply rounded-br-lg;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+}

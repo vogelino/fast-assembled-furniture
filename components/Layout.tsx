@@ -1,29 +1,27 @@
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import useTranslation from 'next-translate/useTranslation';
-import LanguageSwitch from './LanguageSwitch';
-import Cart from './Cart';
+import { useEffect, FC } from 'react'
+import Header from '@components/Header'
 
-const Layout = ({ children }) => {
-  const router = useRouter();
-  const { t } = useTranslation('common');
+const setVh = (): void => {
+	const vh = window.innerHeight * 0.01
+	document.documentElement.style.setProperty('--vh', `${vh}px`)
+}
 
-  return (
-    <div className='container mx-auto p-4'>
-      <header className='flex place-content-between items-center mb-4'>
-        <Link href='/' locale={router.locale}>
-          <a>
-            <h2 className='font-bold'>{t('pages.home')}</h2>
-          </a>
-        </Link>
-        <div>
-          <Cart />
-          <LanguageSwitch />
-        </div>
-      </header>
-      {children}
-    </div>
-  );
-};
+const Layout: FC = ({ children }) => {
+	useEffect(() => {
+		setVh()
+		window.addEventListener('resize', setVh)
 
-export default Layout;
+		return () => {
+			window.removeEventListener('resize', setVh)
+		}
+	}, [])
+
+	return (
+		<div className="app-wrapper">
+			<Header />
+			{children}
+		</div>
+	)
+}
+
+export default Layout

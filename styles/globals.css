@@ -1,3 +1,177 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+
+	.h-full-p {
+		height: calc(100% + var(--borderWidth, 3px));
+	}
+
+	.h-full-fr {
+		height: calc(1fr + var(--borderWidth, 3px));
+	}
+
+	.w-full-p {
+		width: calc(100% + var(--borderWidth, 3px));
+	}
+
+	.w-full-fr {
+		width: calc(1fr + var(--borderWidth, 3px));
+	}
+
+	.w-50-p {
+		width: calc(50% + var(--borderWidth, 3px));
+	}
+
+	.p-bd {
+		padding: var(--borderWidth, 3px);
+	}
+
+	.pt-bd {
+		padding-top: var(--borderWidth, 3px);
+	}
+
+	.pl-bd {
+		padding-left: var(--borderWidth, 3px);
+	}
+
+	.-mt-bd {
+		margin-top: calc(var(--borderWidth, 3px) * -1);
+	}
+
+	.-ml-bd {
+		margin-left: calc(var(--borderWidth, 3px) * -1);
+	}
+
+	.-mr-bd {
+		margin-right: calc(var(--borderWidth, 3px) * -1);
+	}
+
+	.border-bd {
+		border-width: var(--borderWidth, 3px);
+	}
+
+	.top-bd {
+		top: var(--borderWidth, 3px)
+	}
+
+	.right-bd {
+		right: var(--borderWidth, 3px)
+	}
+
+	.bottom-bd {
+		bottom: var(--borderWidth, 3px)
+	}
+
+	.left-bd {
+		left: var(--borderWidth, 3px)
+	}
+
+	.-top-bd {
+		top: calc(var(--borderWidth, 3px) * -1);
+	}
+
+	.-right-bd {
+		right: calc(var(--borderWidth, 3px) * -1)
+	}
+
+	.-bottom-bd {
+		bottom: calc(var(--borderWidth, 3px) * -1)
+	}
+
+	.-left-bd {
+		left: calc(var(--borderWidth, 3px) * -1)
+	}
+
+	.gf {
+		@apply overflow-hidden rounded-lg border-primary bg-secondary -mt-bd -ml-bd border-bd;
+	}
+
+	.gfc {
+		@apply bg-primary pt-bd pl-bd;
+	}
+}
+
+@layer base {
+	html,
+	body,
+	.app-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
+		-webkit-overflow-scrolling: touch;
+		overflow: hidden;
+	}
+
+	.app-wrapper {
+		z-index: 1;
+		padding-left: 61px;
+	}
+
+	body {
+		--borderWidth: 3px;
+		@apply bg-primary text-primary;
+	}
+
+	/* purgecss start ignore */
+	body .notion {
+		@apply text-primary font-sans text-base leading-normal;
+		caret-color: var(--primary);
+	}
+
+	body .notion h1,
+	body .notion h2,
+	body .notion h3 {
+		@apply uppercase font-semibold;
+	}
+
+	body .notion h1 {
+		@apply text-2xl font-bold;
+	}
+
+	body .notion h2 {
+		@apply text-xl;
+	}
+
+	body .notion h3 {
+		@apply text-lg;
+	}
+
+	body .notion-table {
+		@apply break-normal whitespace-normal;
+	}
+
+	body .notion-th {
+		@apply text-primary;
+	}
+
+	body .notion-table {
+		@apply bg-primary rounded-md;
+		background-blend-mode: overlay;
+		border-collapse: separate;
+		border-spacing: 2px;
+	}
+
+	body .notion-th {
+		@apply text-secondary font-bold uppercase;
+	}
+
+	body .notion-td {
+		@apply bg-secondary rounded;
+	}
+
+	body .notion-table,
+	body .notion-th,
+	body .notion-td {
+		border: none;
+	}
+
+	/* Dirty trick to target div parent of tables */
+	body .notion div[style="max-width: 100%; margin-top: 5px;"],
+	body .notion div[style="max-width:100%;margin-top:5px"] {
+		overflow-x: auto;
+	}
+	/* purgecss end ignore */
+}
+

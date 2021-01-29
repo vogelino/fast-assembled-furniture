@@ -1,2 +1,2 @@
-export const btnLetter: string;
-export const btn: string;
+export const btnLetter: string
+export const btn: string
