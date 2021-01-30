@@ -60,7 +60,7 @@ const Header: FC = () => {
 								gridTemplateRows: '1fr 67px',
 							}}
 						>
-							<div className="overflow-x-hidden overflow-y-auto border-bd rounded-lg -mt-bd -ml-bd w-full-p">
+							<div className="focus-ring overflow-x-hidden overflow-y-auto border-bd rounded-lg -mt-bd -ml-bd w-full-p">
 								<ul
 									className="inline-grid grid-flow-row w-full-p"
 									style={{
@@ -69,21 +69,22 @@ const Header: FC = () => {
 									}}
 								>
 									{menuLinks.map((menuLink) => (
-										<li
-											key={menuLink.path}
-											className={`gf list-none p-4 uppercase text-2xl ${
-												menuLink.active
-													? 'line-through'
-													: 'font-bold cursor-pointer hover:opacity-50 transition-opacity'
-											}`}
-										>
-											<Link href={menuLink.path} onClick={closeMenu}>
+										<li key={menuLink.path}>
+											<Link
+												href={menuLink.path}
+												onClick={closeMenu}
+												className={`gf block list-none p-4 uppercase text-2xl ${
+													menuLink.active
+														? 'line-through'
+														: 'font-bold cursor-pointer hover:opacity-50 transition-opacity'
+												}`}
+											>
 												{menuLink.title}
 											</Link>
 										</li>
 									))}
 									<li
-										className="gf list-none w-full-p h-full-fr p-4 grid grid-flow-row gap-4"
+										className="gf list-none w-full-p h-full-fr p-2 grid grid-flow-row gap-4"
 										style={{
 											gridTemplateRows: '1fr auto auto',
 										}}
@@ -94,7 +95,7 @@ const Header: FC = () => {
 												<li key={secondaryLink.path}>
 													<Link
 														href={secondaryLink.path}
-														inactiveClassName="underline hover:no-underline cursor-pointer"
+														inactiveClassName="underline hover:no-underline cursor-pointer p-2"
 														onClick={closeMenu}
 													>
 														{secondaryLink.title}
@@ -102,14 +103,14 @@ const Header: FC = () => {
 												</li>
 											))}
 										</ul>
-										<small className="opacity-50 block">
+										<small className="opacity-50 block p-2">
 											© {year} Fast Assembled Furniture
 											<br />
 											🌐 by{' '}
 											<a
 												href="https://vogelino.com"
 												title="Portfolio of Lucas Vogel, creator of this website"
-												className="underline hover:no-underline cursor-pointer"
+												className="underline hover:no-underline cursor-pointer p-2"
 											>
 												vogelino
 											</a>

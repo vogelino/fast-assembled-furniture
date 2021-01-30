@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import React, { FC } from 'react'
+import React, { CSSProperties, FC } from 'react'
 
 type LinkType = {
 	href: string
@@ -15,6 +15,7 @@ type LinkType = {
 	inactiveClassName?: string
 	className?: string
 	onClick?: () => void
+	style?: CSSProperties
 }
 
 const ActiveLink: FC<LinkType> = ({
@@ -25,6 +26,7 @@ const ActiveLink: FC<LinkType> = ({
 	inactiveClassName = '',
 	className: childClassName = '',
 	onClick,
+	style = {},
 	...props
 }) => {
 	const { asPath } = useRouter()
@@ -37,7 +39,7 @@ const ActiveLink: FC<LinkType> = ({
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
 		<Link {...props} href={href}>
-			<a href={href} className={className} onClick={onClick}>
+			<a href={href} style={style} className={`focus-ring ${className}`} onClick={onClick}>
 				{children}
 			</a>
 		</Link>

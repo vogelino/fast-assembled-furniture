@@ -90,6 +90,14 @@
 	.gfc {
 		@apply bg-primary pt-bd pl-bd;
 	}
+
+	.focus-ring {
+		@apply focus:ring-4 ring-inset ring-primary20 focus:outline-none;
+	}
+
+	.group-focus-ring {
+		@apply group-focus:ring-4 ring-inset ring-primary20;
+	}
 }
 
 @layer base {
@@ -102,6 +110,10 @@
 		height: calc(var(--vh, 1vh) * 100);
 		-webkit-overflow-scrolling: touch;
 		overflow: hidden;
+	}
+
+	*:focus {
+		@apply focus-ring rounded;
 	}
 
 	.app-wrapper {

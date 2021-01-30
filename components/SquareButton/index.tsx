@@ -55,7 +55,7 @@ export const Button: FC<ButtonProps> = ({
 	return (
 		// eslint-disable-next-line react/button-has-type
 		<button
-			className={`gf ${squareButton} ${className} ${active ? squareButtonActive : ''}`}
+			className={`gf focus-ring ${squareButton} ${className} ${active ? squareButtonActive : ''}`}
 			style={colorType ? { ...style, backgroundColor: typeColor } : style}
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			{...rest}

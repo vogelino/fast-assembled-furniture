@@ -22,7 +22,7 @@
         'text text';
     grid-auto-rows: 1fr;
     transform: translateY(0);
-    box-shadow: inset 0 -3px 0 0 var(--semi50), 0 0 0 4px var(--semi50);
+    box-shadow: inset 0 -3px 0 0 var(--primary20), 0 0 0 4px var(--primary20);
     will-change: transform;
 }
 
@@ -30,10 +30,6 @@
     @apply py-1.5 px-4 text-2xl font-black;
     grid-template-areas: 'text text'
         'text text';
-}
-
-.squareButton:focus {
-    @apply outline-none ring-4 ring-primary20 ring-inset;
 }
 
 .buttonContent {
