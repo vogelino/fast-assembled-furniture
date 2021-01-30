@@ -17,6 +17,23 @@ module.exports = {
 			secondary50: 'var(--secondary50)',
 			secondary20: 'var(--secondary20)',
 		},
+		extend: {
+			borderWidth: {
+				'bd': 'var(--borderWidth, 3px)',
+			},
+			spacing: {
+				'bd': 'var(--borderWidth, 3px)'
+			},
+			width: {
+				'full-p': 'calc(100% + var(--borderWidth, 3px))',
+				'50-p': 'calc(50% + var(--borderWidth, 3px))',
+				'full-fr': 'calc(1fr + var(--borderWidth, 3px))',
+			},
+			height: {
+				'full-p': 'calc(100% + var(--borderWidth, 3px))',
+				'full-fr': 'calc(1fr + var(--borderWidth, 3px))',
+			},
+		}
 	},
 	variants: {
 		extend: {
