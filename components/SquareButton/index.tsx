@@ -1,4 +1,4 @@
-import { HTMLProps, FC, CSSProperties } from 'react'
+import { HTMLProps, FC, CSSProperties, useContext } from 'react'
 import { icons, IconType } from '@components/Icon'
 import {
 	squareButton,
@@ -7,6 +7,8 @@ import {
 	textOnlyContainer,
 	squareButtonActive,
 } from './SquareButton.module.css'
+import { getLuminance, meetsContrastGuidelines, readableColor } from 'polished'
+import { ColorThemeContext } from '@components/ColorThemeContext'
 
 enum TypeColorMap {
 	Edit = '#FF9A6B',
@@ -33,17 +35,41 @@ export const Button: FC<ButtonProps> = ({
 	active = false,
 	...rest
 }) => {
+	const { themeKey, themes } = useContext(ColorThemeContext)
 	const IconTag = icon ? (icons[icon] as IconType) : () => null
 	const isTextOnly = !icon && !status && children
+	const theme = themes[themeKey]
+	const typeColor = TypeColorMap[colorType || 'Edit']
+	let { primary: textColor } = theme
+
+	if (colorType && getLuminance(textColor) > 0.5) {
+		textColor = theme.secondary
+	}
+
+	const contrastGuideLines = meetsContrastGuidelines(textColor, typeColor)
+
+	if (colorType && !contrastGuideLines.AALarge) {
+		textColor = readableColor(textColor)
+	}
+
 	return (
 		// eslint-disable-next-line react/button-has-type
 		<button
 			className={`gf ${squareButton} ${className} ${active ? squareButtonActive : ''}`}
-			style={colorType ? { ...style, backgroundColor: TypeColorMap[colorType] } : style}
+			style={colorType ? { ...style, backgroundColor: typeColor } : style}
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			{...rest}
 		>
-			<span className={`${buttonContentContainer} ${isTextOnly && textOnlyContainer}`}>
+			<span
+				className={`${buttonContentContainer} ${isTextOnly && textOnlyContainer}`}
+				style={{
+					...(colorType
+						? {
+								color: textColor,
+						  }
+						: {}),
+				}}
+			>
 				{icon && (
 					<span style={{ gridArea: 'icon' }} className={`${buttonContent} icon`}>
 						<IconTag size={20} />

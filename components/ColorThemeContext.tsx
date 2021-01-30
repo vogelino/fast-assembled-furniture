@@ -1,18 +1,18 @@
 import { FC, createContext, useState, useEffect } from 'react'
-import { ThemesType, ThemeType, themes, ThemeNameType, ThemePropType } from '@utils/themeUtil'
+import { ThemesType, ThemeType, themes } from '@utils/themeUtil'
 
 type ColorThemeContextType = {
-	themeKey: ThemeNameType | undefined
-	theme?: Partial<ThemeType>
-	setTheme: (theme: ThemeNameType) => void
-	themes?: Partial<ThemesType>
+	themeKey: string
+	theme: ThemeType
+	setTheme: (theme: string) => void
+	themes: ThemesType
 }
 
 const defaults = {
-	themeKey: 'light' as ThemeNameType,
-	theme: themes.light as Partial<ThemeType>,
+	themeKey: 'light',
+	theme: themes.light,
 	setTheme: () => undefined,
-	themes: themes as Partial<ThemesType>,
+	themes: themes,
 }
 
 export const ColorThemeContext = createContext<ColorThemeContextType>(defaults)
@@ -20,16 +20,13 @@ export const ColorThemeContext = createContext<ColorThemeContextType>(defaults)
 export const ColorThemeProvider: FC = ({ children }) => {
 	const [themeKey, setTheme] = useState(defaults.themeKey)
 
-	const selectTheme = (nextThemeKey: ThemeNameType): void => {
+	const selectTheme = (nextThemeKey: string): void => {
 		if (Object.keys(themes).length === 0) return
-		const nextTheme = themes[nextThemeKey] as Partial<ThemeType>
-		if (!nextTheme) return
-		const nextThemeKeys = Object.keys(nextTheme) as ThemePropType[]
+		const nextTheme = themes[nextThemeKey]
+		const nextThemeKeys = Object.keys(nextTheme)
 
 		nextThemeKeys.forEach((k) => {
-			if (typeof k === 'string' && k in nextTheme) {
-				document.documentElement.style.setProperty(`--${k}`, nextTheme[k] as string)
-			}
+			document.documentElement.style.setProperty(`--${k}`, nextTheme[k])
 		})
 
 		setTheme(nextThemeKey)
@@ -42,8 +39,8 @@ export const ColorThemeProvider: FC = ({ children }) => {
 	return (
 		<ColorThemeContext.Provider
 			value={{
-				themeKey: themeKey as ThemeNameType,
-				theme: themes[themeKey as ThemeNameType] as Partial<ThemeType>,
+				themeKey: themeKey,
+				theme: themes[themeKey],
 				themes,
 				setTheme: selectTheme,
 			}}
