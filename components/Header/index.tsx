@@ -46,78 +46,80 @@ const Header: FC = () => {
 				<div
 					className="relative w-full h-full-p grid gap-0"
 					style={{
-						gridTemplateColumns: menuIsOpened ? '320px 1fr' : '0px 1fr',
+						gridTemplateColumns: menuIsOpened ? '256px 1fr' : '0px 1fr',
 						background: 'none',
 					}}
 				>
 					<div className="gfc h-full z-10 overflow-hidden relative" style={{ paddingLeft: 0 }}>
 						<div
-							className="absolute"
+							className="absolute grid grid-flow-row w-full h-full"
 							style={{
 								minWidth: 256,
 								top: 3,
-								right: 0,
-								bottom: 3,
 								left: 0,
+								gridTemplateRows: '1fr 67px',
 							}}
 						>
-							<ul
-								className="grid grid-flow-row h-full"
-								style={{
-									gridTemplateRows: `repeat(${menuLinks.length}, auto) 1fr`,
-								}}
-							>
-								{menuLinks.map((menuLink) => (
-									<li
-										key={menuLink.path}
-										className={`gf list-none p-4 uppercase text-2xl ${
-											menuLink.active
-												? 'line-through'
-												: 'font-bold cursor-pointer hover:opacity-50 transition-opacity'
-										}`}
-									>
-										<Link href={menuLink.path} onClick={closeMenu}>
-											{menuLink.title}
-										</Link>
-									</li>
-								))}
-								<li
-									className="gf list-none w-full-p h-full-fr p-4 grid grid-flow-row gap-4"
+							<div className="overflow-y-auto border-bd rounded-lg -mt-bd -ml-bd w-full-p">
+								<ul
+									className="inline-grid grid-flow-row w-full-p"
 									style={{
-										gridTemplateRows: '1fr auto auto',
+										gridTemplateRows: `repeat(${menuLinks.length}, auto) 1fr`,
+										minHeight: 'calc(100% + var(--borderWidth, 3px))',
 									}}
 								>
-									<div />
-									<ul className="grid grid-flow-row-dense auto-rows-auto items-end">
-										{secondaryLinks.map((secondaryLink) => (
-											<li key={secondaryLink.path}>
-												<Link
-													href={secondaryLink.path}
-													inactiveClassName="underline hover:no-underline cursor-pointer"
-													onClick={closeMenu}
-												>
-													{secondaryLink.title}
-												</Link>
-											</li>
-										))}
-									</ul>
-									<small className="opacity-50 block">
-										© {year} Fast Assembled Furniture
-										<br />
-										🌐 by{' '}
-										<a
-											href="https://vogelino.com"
-											title="Portfolio of Lucas Vogel, creator of this website"
-											className="underline hover:no-underline cursor-pointer"
+									{menuLinks.map((menuLink) => (
+										<li
+											key={menuLink.path}
+											className={`gf list-none p-4 uppercase text-2xl ${
+												menuLink.active
+													? 'line-through'
+													: 'font-bold cursor-pointer hover:opacity-50 transition-opacity'
+											}`}
 										>
-											vogelino
-										</a>
-									</small>
-								</li>
-								<Button type="button" colorType="Buy" className="w-full-p">
-									Checkout <span className="inline-block text-sm font-normal">(599€)</span>
-								</Button>
-							</ul>
+											<Link href={menuLink.path} onClick={closeMenu}>
+												{menuLink.title}
+											</Link>
+										</li>
+									))}
+									<li
+										className="gf list-none w-full-p h-full-fr p-4 grid grid-flow-row gap-4"
+										style={{
+											gridTemplateRows: '1fr auto auto',
+										}}
+									>
+										<div />
+										<ul className="grid grid-flow-row-dense auto-rows-auto items-end">
+											{secondaryLinks.map((secondaryLink) => (
+												<li key={secondaryLink.path}>
+													<Link
+														href={secondaryLink.path}
+														inactiveClassName="underline hover:no-underline cursor-pointer"
+														onClick={closeMenu}
+													>
+														{secondaryLink.title}
+													</Link>
+												</li>
+											))}
+										</ul>
+										<small className="opacity-50 block">
+											© {year} Fast Assembled Furniture
+											<br />
+											🌐 by{' '}
+											<a
+												href="https://vogelino.com"
+												title="Portfolio of Lucas Vogel, creator of this website"
+												className="underline hover:no-underline cursor-pointer"
+											>
+												vogelino
+											</a>
+										</small>
+									</li>
+								</ul>
+							</div>
+							<Button type="button" colorType="Buy" className="w-full-p">
+								Checkout <span className="inline-block text-sm font-normal">(599€)</span>
+							</Button>
 						</div>
 					</div>
 					<div

@@ -1,30 +1,18 @@
 import { FC, createContext, useState, useEffect } from 'react'
+import { ThemesType, ThemeType, themes } from '@utils/themeUtil'
 
-type Theme = {
-	[key: string]: string
-}
-
-type Themes = { [key: string]: Theme }
-
-const themes: Themes = {
-	light: { primary: '#000000', secondary: '#ffffff' },
-	dark: { primary: '#f8f9fa', secondary: '#212529' },
-	primaryGreen: { primary: '#00ab64', secondary: '#e7ffeb' },
-	primaryBlue: { primary: '#1347e4', secondary: '#e5edf1' },
-	primaryRed: { primary: '#f52937', secondary: '#ffebb6' },
-}
-interface ColorThemeContextType {
+type ColorThemeContextType = {
 	themeKey: string
-	theme: Theme
+	theme: ThemeType
 	setTheme: (theme: string) => void
-	themes: Themes
+	themes: ThemesType
 }
 
 const defaults = {
 	themeKey: 'light',
 	theme: themes.light,
 	setTheme: () => undefined,
-	themes,
+	themes: themes,
 }
 
 export const ColorThemeContext = createContext<ColorThemeContextType>(defaults)
@@ -33,10 +21,11 @@ export const ColorThemeProvider: FC = ({ children }) => {
 	const [themeKey, setTheme] = useState(defaults.themeKey)
 
 	const selectTheme = (nextThemeKey: string): void => {
+		if (Object.keys(themes).length === 0) return
 		const nextTheme = themes[nextThemeKey]
-		const nextThemeKeys: string[] = Object.keys(nextTheme)
+		const nextThemeKeys = Object.keys(nextTheme)
 
-		nextThemeKeys.forEach((k: string) => {
+		nextThemeKeys.forEach((k) => {
 			document.documentElement.style.setProperty(`--${k}`, nextTheme[k])
 		})
 
@@ -49,7 +38,12 @@ export const ColorThemeProvider: FC = ({ children }) => {
 
 	return (
 		<ColorThemeContext.Provider
-			value={{ themeKey, theme: themes[themeKey], themes, setTheme: selectTheme }}
+			value={{
+				themeKey: themeKey,
+				theme: themes[themeKey],
+				themes,
+				setTheme: selectTheme,
+			}}
 		>
 			{children}
 		</ColorThemeContext.Provider>

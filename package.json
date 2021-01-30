@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-	  "node": "v15.0.1"
+    "node": "v15.0.1"
   },
   "author": {
     "name": "Lucas Vogel [vogelino]",
@@ -14,7 +14,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ext js,jsx,ts,tsx --fix",
+    "lint": "eslint --ext js,jsx,ts,tsx .",
     "lint-fix": "npm run lint -- --fix",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit"
   },
@@ -29,6 +29,7 @@
     "next": "10.0.4",
     "next-translate": "^1.0.1",
     "nookies": "^2.5.0",
+    "polished": "^4.1.0",
     "postcss": "^8.1.7",
     "prismjs": "^1.23.0",
     "puppeteer": "^5.5.0",
