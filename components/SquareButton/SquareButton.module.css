@@ -2,11 +2,15 @@
     @apply h-16 grid;
 }
 
-.squareButton:hover .buttonContentContainer {
+.squareButtonActive {
+    @apply bg-primary text-secondary cursor-default;
+}
+
+.squareButton:hover:not(.squareButtonActive) .buttonContentContainer {
     transform: translateY(-2px);
 }
 
-.squareButton:active .buttonContentContainer {
+.squareButton:active:not(.squareButtonActive) .buttonContentContainer {
     transform: translateY(3px);
 }
 
@@ -29,9 +33,8 @@
 }
 
 .squareButton:focus {
-    @apply outline-none ring-4;
+    @apply outline-none ring-2 ring-primary ring-inset;
 }
-
 
 .buttonContent {
     @apply grid content-start items-center w-full h-full;

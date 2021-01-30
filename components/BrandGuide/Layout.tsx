@@ -2,11 +2,15 @@ import { FC } from 'react'
 import { pageTree } from '@components/BrandGuide/Menu'
 import Sidebar from '@components/BrandGuide/Sidebar'
 import Header from '@components/BrandGuide/Header'
-import PageTextZone, { PageTextZonePropsType } from '@components/BrandGuide/PageTextZone'
-import PagePreviewZone from '@components/BrandGuide/PagePreviewZone'
+import PageTextZone from '@components/BrandGuide/PageTextZone'
+import PagePreviewZone, { PreviewOptionsType } from '@components/BrandGuide/PagePreviewZone'
 import { PreviewStateProvider } from '@components/BrandGuide/PreviewStateContext'
+import { BlockMapType } from 'react-notion'
 
-const BrandGuide: FC<PageTextZonePropsType> = ({ notionContent, children }) => (
+const BrandGuide: FC<{
+	notionContent: BlockMapType
+	previewOptions?: PreviewOptionsType
+}> = ({ notionContent, children, previewOptions }) => (
 	<PreviewStateProvider>
 		<div
 			className="h-screen relative"
@@ -23,7 +27,7 @@ const BrandGuide: FC<PageTextZonePropsType> = ({ notionContent, children }) => (
 				</div>
 				{children && (
 					<div className="gf h-full inline-block w-50-p">
-						<PagePreviewZone>{children}</PagePreviewZone>
+						<PagePreviewZone previewOptions={previewOptions}>{children}</PagePreviewZone>
 					</div>
 				)}
 			</div>

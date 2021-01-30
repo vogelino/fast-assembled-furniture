@@ -5,6 +5,7 @@ import {
 	buttonContent,
 	buttonContentContainer,
 	textOnlyContainer,
+	squareButtonActive,
 } from './SquareButton.module.css'
 
 enum TypeColorMap {
@@ -19,6 +20,7 @@ interface ButtonProps extends HTMLProps<HTMLButtonElement> {
 	icon?: string
 	colorType?: 'Edit' | 'Add' | 'Info' | 'Buy'
 	style?: CSSProperties
+	active?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -28,6 +30,7 @@ export const Button: FC<ButtonProps> = ({
 	status = '',
 	colorType,
 	style = {},
+	active = false,
 	...rest
 }) => {
 	const IconTag = icon ? (icons[icon] as IconType) : () => null
@@ -35,7 +38,7 @@ export const Button: FC<ButtonProps> = ({
 	return (
 		// eslint-disable-next-line react/button-has-type
 		<button
-			className={`gf ${squareButton} ${className} `}
+			className={`gf ${squareButton} ${className} ${active ? squareButtonActive : ''}`}
 			style={colorType ? { ...style, backgroundColor: TypeColorMap[colorType] } : style}
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			{...rest}
