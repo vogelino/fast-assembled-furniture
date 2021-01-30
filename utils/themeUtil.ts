@@ -1,4 +1,4 @@
-import { transparentize, mix } from 'polished'
+import { transparentize } from 'polished'
 
 export type ThemeType = {
 	[key: string]: string
@@ -9,15 +9,11 @@ export type ThemesType = {
 }
 
 function createThemeVariant(rawTheme: ThemeType): ThemeType {
-	const extendedRawTheme: {
-		[key: string]: string
-		semi: string
-	} = { ...rawTheme, semi: mix(0.5, rawTheme.secondary, rawTheme.primary) }
-	return Object.keys(extendedRawTheme).reduce(
+	return Object.keys(rawTheme).reduce(
 		(acc, themeProp) => ({
 			...(acc || {}),
-			[`${themeProp}50`]: transparentize(0.5, extendedRawTheme[themeProp]),
-			[`${themeProp}20`]: transparentize(0.8, extendedRawTheme[themeProp]),
+			[`${themeProp}50`]: transparentize(0.5, rawTheme[themeProp]),
+			[`${themeProp}20`]: transparentize(0.8, rawTheme[themeProp]),
 		}),
 		rawTheme
 	)

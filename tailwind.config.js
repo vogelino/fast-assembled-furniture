@@ -16,9 +16,6 @@ module.exports = {
 			secondary: 'var(--secondary)',
 			secondary50: 'var(--secondary50)',
 			secondary20: 'var(--secondary20)',
-			semi: 'var(--semi)',
-			semi50: 'var(--semi50)',
-			semi20: 'var(--semi20)',
 		},
 	},
 	variants: {

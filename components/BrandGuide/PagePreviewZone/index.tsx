@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { FC, useContext } from 'react'
 import { BackgroundType, PreviewStateContext } from '@components/BrandGuide/PreviewStateContext'
-import { ColorThemeContext } from '@components/ColorThemeContext'
 import { checkerboard } from './PagePreviewZone.module.css'
 import { identity } from '@utils/functionsUtil'
 import { Button } from '@components/SquareButton'
@@ -81,7 +80,6 @@ const PagePreviewZone: FC<{
 	previewOptions?: PreviewOptionsType
 }> = ({ children, previewOptions = previewOptionsDefault }) => {
 	const { isResponsive, previewBackground, setPreviewBackground } = useContext(PreviewStateContext)
-	const { themeKey } = useContext(ColorThemeContext)
 	const mergedOptions = { ...previewOptionsDefault, ...previewOptions }
 	const previewAddons = [
 		mergedOptions.withBackgroundSelect && (
@@ -94,9 +92,6 @@ const PagePreviewZone: FC<{
 		<div className="grid grid-cols-2 h-full-p w-full-p" style={{ gridTemplateColumns: '1fr 4rem' }}>
 			<div
 				className={`${previewBackgroundMap[previewBackground]} relative rounded-lg border-bd border-primary -mt-bd -ml-bd grid content-center items-center justify-center h-full-p p-8`}
-				style={{
-					backgroundBlendMode: themeKey === 'dark' ? 'overlay' : 'luminosity',
-				}}
 			>
 				{isResponsive ? (
 					<div className="absolute top-8 left-8 bottom-8 right-8">

@@ -1,8 +1,7 @@
 .checkerboard {
     background-color: var(--secondary);
-    background-image: linear-gradient(45deg, lightgrey 25%, transparent 25%, transparent 75%, lightgrey 75%, lightgrey),
-    linear-gradient(45deg, lightgrey 25%, transparent 25%, transparent 75%, lightgrey 75%, lightgrey);
+    background-image: linear-gradient(45deg, var(--primary20) 25%, transparent 25%, transparent 75%, var(--primary20) 75%, var(--primary20)),
+    linear-gradient(45deg, var(--primary20) 25%, transparent 25%, transparent 75%, var(--primary20) 75%, var(--primary20));
     background-size: 16px 16px;
     background-position: 0 0, 8px 8px;
-    background-blend-mode: luminosity;
 }
