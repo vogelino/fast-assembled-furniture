@@ -60,7 +60,7 @@ const Header: FC = () => {
 								gridTemplateRows: '1fr 67px',
 							}}
 						>
-							<div className="overflow-y-auto border-bd rounded-lg -mt-bd -ml-bd w-full-p">
+							<div className="overflow-x-hidden overflow-y-auto border-bd rounded-lg -mt-bd -ml-bd w-full-p">
 								<ul
 									className="inline-grid grid-flow-row w-full-p"
 									style={{
