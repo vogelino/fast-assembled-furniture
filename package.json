@@ -16,6 +16,7 @@
     "type-check": "tsc --project tsconfig.json --pretty --noEmit"
   },
   "dependencies": {
+    "@fontsource/inter": "^4.1.0",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.11.0",
     "autoprefixer": "^10.1.0",

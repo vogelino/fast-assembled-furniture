@@ -1,12 +1,13 @@
 import { FC } from 'react'
 import { useRouter } from 'next/router'
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { CartProvider } from '@components/CartContext'
 import { LoadingProvider } from '@components/LoadingContext'
 import Head from '@components/Head'
 import { ColorThemeProvider } from '@components/ColorThemeContext'
 import { MenuProvider } from '@components/MenuContext'
+import '@fontsource/inter/variable.css'
+import '../styles/globals.css'
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 	const router = useRouter()
