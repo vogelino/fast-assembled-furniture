@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "15.0.1"
+    "node": "15.x"
   },
   "author": {
     "name": "Lucas Vogel [vogelino]",
