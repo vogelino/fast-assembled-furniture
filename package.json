@@ -2,9 +2,6 @@
   "name": "fast-assembled-furniture",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "15.x"
-  },
   "author": {
     "name": "Lucas Vogel [vogelino]",
     "email": "contact@vogelino.com",
