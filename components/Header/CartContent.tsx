@@ -21,10 +21,9 @@ export const CartContent: FC = () => {
 
 	return (
 		<div
-			className="inline-grid grid-flow-row w-full-p"
+			className="inline-grid grid-flow-row w-full-p min-h-full"
 			style={{
 				gridTemplateRows: cartSize ? `61px repeat(${cartSize}, auto) 1fr` : '61px 1fr',
-				minHeight: 'calc(100% + var(--borderWidth, 3px))',
 			}}
 		>
 			<div className="grid" style={{ gridTemplateColumns: '1fr 64px' }}>
@@ -95,7 +94,10 @@ export const CartContent: FC = () => {
 					</div>
 				</div>
 			))}
-			<div className="gf grid place-content-center place-items-center gap-4">
+			<div
+				className="gf grid place-content-center place-items-center gap-4"
+				style={{ borderBottom: 0, minHeight: 40 }}
+			>
 				{cartSize === 0 && (
 					<>
 						<span className="animate-bounce">

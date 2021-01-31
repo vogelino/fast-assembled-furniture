@@ -8,10 +8,9 @@ export const MenuContent: FC = () => {
 
 	return (
 		<ul
-			className="inline-grid grid-flow-row w-full-p"
+			className="inline-grid grid-flow-row w-full-p min-h-full"
 			style={{
 				gridTemplateRows: `repeat(${menuLinks.length}, auto) 1fr`,
-				minHeight: 'calc(100% + var(--borderWidth, 3px))',
 			}}
 		>
 			{menuLinks.map((menuLink) => (
@@ -33,6 +32,7 @@ export const MenuContent: FC = () => {
 				className="gf list-none w-full-p h-full-fr p-2 grid grid-flow-row gap-4"
 				style={{
 					gridTemplateRows: '1fr auto auto',
+					borderBottom: 0,
 				}}
 			>
 				<div />
