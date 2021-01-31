@@ -5,7 +5,7 @@ import { MenuSidebar } from './MenuSidebar'
 import { MenuOverlay } from './MenuOverlay'
 
 const Header: FC = () => {
-	const { menuIsOpened, closeMenu } = useContext(MenuContext)
+	const { menuIsOpened, cartIsOpened, closeMenu } = useContext(MenuContext)
 
 	return (
 		<>
@@ -16,18 +16,18 @@ const Header: FC = () => {
 					background: 'none',
 					left: 64,
 					boxShadow: '0 0 0 10px var(--primary)',
-					pointerEvents: menuIsOpened ? 'all' : 'none',
+					pointerEvents: menuIsOpened || cartIsOpened ? 'all' : 'none',
 				}}
 			>
 				<div
 					className="relative w-full h-full-p grid gap-0"
 					style={{
-						gridTemplateColumns: menuIsOpened ? '256px 1fr' : '0px 1fr',
+						gridTemplateColumns: menuIsOpened || cartIsOpened ? '256px 1fr' : '0px 1fr',
 						background: 'none',
 					}}
 				>
 					<MenuArea />
-					<MenuOverlay isVisible={menuIsOpened} onClick={closeMenu} />
+					<MenuOverlay isVisible={menuIsOpened || cartIsOpened} onClick={closeMenu} />
 				</div>
 			</div>
 		</>

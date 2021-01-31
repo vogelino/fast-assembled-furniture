@@ -1,4 +1,4 @@
-import { FC, useState, useContext, useRef, MouseEvent } from 'react'
+import { FC, useState, useContext, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
@@ -7,13 +7,12 @@ import { CartContext } from '@components/CartContext'
 import { Product } from '@components/ProductList'
 
 type CartType = { [key: string]: Product }
-type Event = Pick<MouseEvent, 'preventDefault'>
 
 const getTotalPrice: (cart: CartType) => number = (cart) =>
 	Object.values(cart).reduce((acc, product) => acc + product.startPrice, 0)
 
 const Cart: FC = () => {
-	const [cart, , getCartRemover] = useContext(CartContext)
+	const { cart, removeCartItem } = useContext(CartContext)
 	const { locale } = useRouter()
 	const ref = useRef<HTMLDivElement>(null)
 	const [cartIsOpened, setCartIsOpened] = useState(false)
@@ -27,14 +26,6 @@ const Cart: FC = () => {
 	})
 
 	const hasCart = cart && cartSize > 0
-
-	const getCartRemoverHandler: (slug: string) => (e: Event) => void = (slug) => (e) => {
-		getCartRemover(slug)(e)
-
-		if (cartSize === 0) {
-			setCartIsOpened(false)
-		}
-	}
 
 	return (
 		<span className="group mr-8 relative cursor-pointer" ref={ref}>
@@ -61,12 +52,26 @@ const Cart: FC = () => {
 								<span className="mr-4">{currency.format(startPrice)}</span>
 								<span
 									className="text-sm underline float-right"
-									onClick={getCartRemoverHandler(slug)}
 									role="button"
 									tabIndex={0}
+									onClick={(e) => {
+										e.preventDefault()
+
+										removeCartItem(slug)
+
+										if (cartSize === 0) {
+											setCartIsOpened(false)
+										}
+									}}
 									onKeyPress={(e) => {
 										if (e.key !== 'Enter') return
-										getCartRemoverHandler(slug)(e)
+										e.preventDefault()
+
+										removeCartItem(slug)
+
+										if (cartSize === 0) {
+											setCartIsOpened(false)
+										}
 									}}
 								>
 									{t('cart.remove')}

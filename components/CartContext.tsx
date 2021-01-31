@@ -1,51 +1,58 @@
-import { FC, createContext, useState, useEffect, MouseEvent } from 'react'
+import { FC, createContext, useState, useEffect } from 'react'
 import { Product } from '@components/ProductList'
 
 const LOCAL_STORAGE_CART_KEY = 'FAF_CART'
 
-type Event = Pick<MouseEvent, 'preventDefault'>
 type Cart = { [key: string]: Product }
 type DefineCartSignature = (cart: Cart) => void
-type GetCartAdderSignature = (slug: string, item: Product) => (e: Event) => void
-type GetCartRemoverSignature = (slug: string) => (e: Event) => void
+type AddCartItemSignature = (item: Product) => void
+type RemoveCartItemSignature = (slug: string) => void
+type ClearCartSignature = () => void
 
-type CartContextType = [
-	cart: Cart,
-	getCartAdder: GetCartAdderSignature,
-	getCartRemover: GetCartRemoverSignature
-]
+type CartContextType = {
+	cartSize: number
+	cart: Cart
+	addCartItem: AddCartItemSignature
+	removeCartItem: RemoveCartItemSignature
+	clearCart: ClearCartSignature
+}
 
-export const CartContext = createContext<CartContextType>([
-	{},
-	() => () => undefined,
-	() => () => undefined,
-])
+const defaults = {
+	cartSize: 0,
+	cart: {},
+	addCartItem: () => undefined,
+	removeCartItem: () => undefined,
+	clearCart: () => undefined,
+}
+
+export const CartContext = createContext<CartContextType>(defaults)
 
 export const CartProvider: FC = ({ children }) => {
-	const [cart, setCart] = useState({} as Cart)
+	const [cart, setCart] = useState<Cart>(defaults.cart)
 
 	const defineCart: DefineCartSignature = (cart2define) => {
 		setCart(cart2define)
 		window.localStorage.setItem(LOCAL_STORAGE_CART_KEY, JSON.stringify(cart))
 	}
 
-	const getCartAdder: GetCartAdderSignature = (slug, item) => (e) => {
-		e.preventDefault()
+	const addCartItem: AddCartItemSignature = (item) => {
 		defineCart({
 			...cart,
-			[slug]: item,
+			[item.slug]: item,
 		})
 	}
 
-	const getCartRemover: GetCartRemoverSignature = (slug) => (e) => {
-		e.preventDefault()
+	const clearCart: ClearCartSignature = () => {
+		defineCart({})
+	}
 
+	const removeCartItem: RemoveCartItemSignature = (slug) => {
 		defineCart(
 			Object.keys(cart).reduce((acc, key) => {
-				const val = cart[key as string]
+				const val = cart[key]
 				if (key === slug) return acc
 				return { ...acc, [key]: val }
-			}, {} as Cart)
+			}, {})
 		)
 	}
 
@@ -61,7 +68,15 @@ export const CartProvider: FC = ({ children }) => {
 	}, [])
 
 	return (
-		<CartContext.Provider value={[cart, getCartAdder, getCartRemover]}>
+		<CartContext.Provider
+			value={{
+				cartSize: Object.keys(cart).length,
+				cart,
+				clearCart,
+				addCartItem,
+				removeCartItem,
+			}}
+		>
 			{children}
 		</CartContext.Provider>
 	)

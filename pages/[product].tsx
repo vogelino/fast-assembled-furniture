@@ -25,11 +25,11 @@ const ProductPage: NextPage<ProductPageProps> = ({
 	description,
 	thumbnail,
 }) => {
-	const [cart, getCartAdder, getCartRemover] = useContext(CartContext)
+	const { cart, addCartItem, removeCartItem } = useContext(CartContext)
 	const { t, lang } = useTranslation('product')
 
-	const addToCart = getCartAdder(slug, { slug, title, startPrice })
-	const removeFromCart = getCartRemover(slug)
+	const addToCart = (): void => addCartItem({ slug, title, startPrice })
+	const removeFromCart = (): void => removeCartItem(slug)
 	const currency = new Intl.NumberFormat(lang, {
 		style: 'currency',
 		currency: 'EUR',

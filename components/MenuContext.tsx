@@ -11,9 +11,12 @@ interface MenuContextType {
 	menuLinks: MenuLink[]
 	secondaryLinks: MenuLink[]
 	menuIsOpened: boolean
+	cartIsOpened: boolean
 	openMenu: () => void
+	openCart: () => void
 	closeMenu: () => void
 	toggleMenu: () => void
+	toggleCart: () => void
 }
 
 const defaults = {
@@ -54,9 +57,12 @@ const defaults = {
 		},
 	],
 	menuIsOpened: false,
+	cartIsOpened: false,
 	openMenu: () => undefined,
+	openCart: () => undefined,
 	closeMenu: () => undefined,
 	toggleMenu: () => undefined,
+	toggleCart: () => undefined,
 }
 
 export const MenuContext = createContext<MenuContextType>(defaults)
@@ -73,9 +79,13 @@ export const MenuProvider: FC = ({ children }) => {
 					...menuLink,
 					active: menuLink.path === router.asPath,
 				})),
-				openMenu: () => setState({ ...state, menuIsOpened: true }),
-				closeMenu: () => setState({ ...state, menuIsOpened: false }),
-				toggleMenu: () => setState({ ...state, menuIsOpened: !state.menuIsOpened }),
+				openMenu: () => setState({ ...state, menuIsOpened: true, cartIsOpened: false }),
+				openCart: () => setState({ ...state, cartIsOpened: true, menuIsOpened: false }),
+				closeMenu: () => setState({ ...state, menuIsOpened: false, cartIsOpened: false }),
+				toggleMenu: () =>
+					setState({ ...state, menuIsOpened: !state.menuIsOpened, cartIsOpened: false }),
+				toggleCart: () =>
+					setState({ ...state, cartIsOpened: !state.cartIsOpened, menuIsOpened: false }),
 			}}
 		>
 			{children}

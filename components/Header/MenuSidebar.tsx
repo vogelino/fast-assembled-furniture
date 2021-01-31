@@ -6,8 +6,11 @@ import ThemeSelect from '@components/ThemeSelect'
 import { MenuContext } from '@components/MenuContext'
 
 export const MenuSidebar: FC = () => {
-	const { menuLinks, menuIsOpened, toggleMenu } = useContext(MenuContext)
-	const [cart] = useContext(CartContext)
+	const { menuLinks, cartIsOpened, menuIsOpened, toggleMenu, toggleCart } = useContext(MenuContext)
+	const { cartSize } = useContext(CartContext)
+	let menuTitle = menuLinks.filter(({ active }) => active).map(({ title }) => title)[0] || ''
+	if (menuIsOpened) menuTitle = 'Menu'
+	if (cartIsOpened) menuTitle = 'Cart'
 
 	return (
 		<header
@@ -18,15 +21,24 @@ export const MenuSidebar: FC = () => {
 			<div className="gf flex flex-col pt-3 relative">
 				<ThemeSelect />
 				<div className="absolute transform left-2 -bottom-2 uppercase font-bold origin-top-left -rotate-90 whitespace-nowrap">
-					{menuIsOpened
-						? 'Menu'
-						: menuLinks.filter(({ active }) => active).map(({ title }) => title)}
+					{menuTitle}
 				</div>
 			</div>
-			<Button type="button" icon="ShoppingCart" status={Object.keys(cart).length}>
-				Cart
+			<Button
+				type="button"
+				icon={cartIsOpened ? 'X' : 'ShoppingCart'}
+				status={cartSize}
+				onClick={toggleCart}
+				active={cartIsOpened}
+			>
+				{cartIsOpened ? 'Close' : 'Cart'}
 			</Button>
-			<Button type="button" icon={menuIsOpened ? 'X' : 'Menu'} onClick={toggleMenu}>
+			<Button
+				type="button"
+				icon={menuIsOpened ? 'X' : 'Menu'}
+				onClick={toggleMenu}
+				active={menuIsOpened}
+			>
 				{menuIsOpened ? 'Close' : 'Menu'}
 			</Button>
 		</header>

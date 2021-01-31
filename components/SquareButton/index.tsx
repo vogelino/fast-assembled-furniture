@@ -16,7 +16,7 @@ enum TypeColorMap {
 	Info = '#70B3FF',
 	Buy = '#87E39D',
 }
-interface ButtonProps extends HTMLProps<HTMLButtonElement> {
+export interface ButtonProps extends HTMLProps<HTMLButtonElement> {
 	type: 'button' | 'submit' | 'reset'
 	status?: string | number
 	icon?: string

@@ -1,6 +1,6 @@
 import { CSSProperties, FC } from 'react'
 import { identity } from '@utils/functionsUtil'
-import { Button } from '@components/SquareButton'
+import { Button, ButtonProps } from '@components/SquareButton'
 import {
 	containerClass,
 	commonClass,
@@ -27,17 +27,14 @@ type BorderEdgeType = {
 	style?: CSSProperties
 }
 
-type ButtonWithBorderEdgesPropType = {
+interface ButtonWithBorderEdgesPropType extends Omit<ButtonProps, 'type'> {
 	openings?: OrientationType[]
 	edges?: Array<{
 		position: PositionType
 		orientation: OrientationType
 	}>
-	className?: string
-	style?: CSSProperties
-	status?: string | number
-	icon?: string
 	colorType?: 'Edit' | 'Add' | 'Info' | 'Buy'
+	type?: 'button' | 'submit' | 'reset'
 }
 
 export const BorderEdge: FC<BorderEdgeType> = ({ orientation, style = {}, className = '' }) => (
@@ -65,8 +62,11 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 	colorType,
 	icon,
 	status,
+	type = 'button',
+	onClick = () => undefined,
+	...rest
 }) => (
-	<div className="inline-block relative -mt-bd -ml-bd">
+	<div className="inline-block relative -mt-bd -ml-bd w-full-p">
 		<div
 			className={[
 				'bg-primary overflow-hidden',
@@ -84,7 +84,16 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 				.join(' ')}
 			style={style}
 		>
-			<Button type="button" colorType={colorType} icon={icon} status={status} style={{ margin: 0 }}>
+			<Button
+				type={type}
+				colorType={colorType}
+				icon={icon}
+				status={status}
+				style={{ margin: 0 }}
+				onClick={onClick}
+				className="w-full"
+				{...rest}
+			>
 				{children}
 			</Button>
 		</div>

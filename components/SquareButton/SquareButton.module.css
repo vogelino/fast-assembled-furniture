@@ -3,7 +3,7 @@
 }
 
 .squareButtonActive {
-    @apply bg-primary text-secondary cursor-default;
+    @apply bg-primary text-secondary;
 }
 
 .squareButton:hover:not(.squareButtonActive) .buttonContentContainer {
