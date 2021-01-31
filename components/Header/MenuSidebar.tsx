@@ -1,8 +1,8 @@
-import { FC, useContext } from 'react'
+import React, { FC, useContext } from 'react'
 import { Button } from '@components/SquareButton'
 import { Logo } from '@components/Header/Logo'
 import { CartContext } from '@components/CartContext'
-import ThemeSelect from '@components/ThemeSelect'
+import { ThemeSwitcher } from '@components/ThemeSelect'
 import { MenuContext } from '@components/MenuContext'
 
 export const MenuSidebar: FC = () => {
@@ -19,7 +19,7 @@ export const MenuSidebar: FC = () => {
 		>
 			<Logo />
 			<div className="gf flex flex-col pt-3 relative">
-				<ThemeSelect />
+				<ThemeSwitcher />
 				<div className="absolute transform left-2 -bottom-2 uppercase font-bold origin-top-left -rotate-90 whitespace-nowrap">
 					{menuTitle}
 				</div>
