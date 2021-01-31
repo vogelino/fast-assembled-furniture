@@ -23,14 +23,15 @@ export const Logo: FC<LogoPropType> = ({ framed = true, vertical = true }) => {
 			<nav
 				className={`${framed ? 'gf' : ''} grid cursor-pointer hover:opacity-50 transition-opacity`}
 				style={{
-					[vertical ? 'gridTemplateRows' : 'gridTemplateColumns']: 'repeat(3, 44px)',
-					gridGap: '7px',
-					padding: framed ? '8px 7px' : '0px',
+					[vertical ? 'gridTemplateRows' : 'gridTemplateColumns']: 'repeat(3, 52px)',
+					[vertical ? 'gridTemplateColumns' : 'gridTemplateRows']: '52px',
+					gridGap: 'var(--borderWidth, 3px)',
+					padding: framed ? 'var(--borderWidth, 3px)' : '0px',
 				}}
 			>
 				{allPaths.map((letter: string, idx: number) => (
 					<li
-						className="content-center justify-center list-none rounded bg-primary text-secondary h-11 w-11 grid"
+						className="content-center justify-center list-none rounded bg-primary text-secondary h-13 w-13 grid"
 						// eslint-disable-next-line react/no-array-index-key
 						key={`${letter}-${idx}`}
 					>
