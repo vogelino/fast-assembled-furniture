@@ -17,6 +17,10 @@
 	.group-focus-ring {
 		@apply group-focus:ring-4 ring-inset ring-primary20;
 	}
+
+	.h-screen {
+		height: calc(var(--vh, 1vh) * 100);
+	}
 }
 
 @layer base {
@@ -24,7 +28,6 @@
 	body,
 	.app-wrapper {
 		@apply relative w-full h-screen overflow-hidden;
-		height: calc(var(--vh, 1vh) * 100);
 		-webkit-overflow-scrolling: touch;
 		transition: height 100ms ease-in-out;
 		will-change: height;
