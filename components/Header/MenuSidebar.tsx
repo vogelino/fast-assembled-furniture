@@ -6,7 +6,7 @@ import ThemeSelect, { ThemeSwitcher } from '@components/ThemeSelect'
 import { MenuContext } from '@components/MenuContext'
 import { useBoundingClientRect } from '@utils/hooks/useBoundingClientRect'
 
-export const MenuSidebar: FC = () => {
+export const MenuSidebar: FC<{ fixed: boolean }> = ({ fixed }) => {
 	const { ref, height } = useBoundingClientRect('menu-sidebar')
 	const { menuLinks, cartIsOpened, menuIsOpened, toggleMenu, toggleCart } = useContext(MenuContext)
 	const { cartSize } = useContext(CartContext)
@@ -16,8 +16,8 @@ export const MenuSidebar: FC = () => {
 
 	return (
 		<header
-			className="absolute top-0 left-0 w-16 h-full gfc grid z-50"
-			style={{ gridTemplateRows: 'auto 1fr auto' }}
+			className="top-0 left-0 w-16 h-full gfc grid z-50"
+			style={{ gridTemplateRows: 'auto 1fr auto', position: fixed ? 'fixed' : 'absolute' }}
 		>
 			<Logo />
 			<div className="gf flex flex-col pt-3 relative" ref={ref}>

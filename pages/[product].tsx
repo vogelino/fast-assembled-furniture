@@ -57,7 +57,7 @@ const ProductPage: NextPage<ProductPageProps> = ({
 					</div>
 				)}
 				<div className="gfc h-full-fr">
-					<div className="gf h-full px-8 py-8">
+					<div className="gf h-full-p px-8 py-8">
 						<h3 className="text-3xl md:text-4xl uppercase font-bold mb-0 bg-black text-white inline-block rounded-full">
 							{title}
 						</h3>

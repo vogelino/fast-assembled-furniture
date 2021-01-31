@@ -4,12 +4,12 @@ import { MenuArea } from './MenuArea'
 import { MenuSidebar } from './MenuSidebar'
 import { MenuOverlay } from './MenuOverlay'
 
-const Header: FC = () => {
+const Header: FC<{ fixed?: boolean }> = ({ fixed = false }) => {
 	const { menuIsOpened, cartIsOpened, closeMenu } = useContext(MenuContext)
 
 	return (
 		<>
-			<MenuSidebar />
+			<MenuSidebar fixed={fixed} />
 			<div
 				className="top-0 right-0 bottom-0 absolute  z-40"
 				style={{
@@ -17,6 +17,7 @@ const Header: FC = () => {
 					left: 64,
 					boxShadow: '0 0 0 10px var(--primary)',
 					pointerEvents: menuIsOpened || cartIsOpened ? 'all' : 'none',
+					position: fixed ? 'fixed' : 'absolute',
 				}}
 			>
 				<div
@@ -27,7 +28,7 @@ const Header: FC = () => {
 					}}
 				>
 					<MenuArea />
-					<MenuOverlay isVisible={menuIsOpened || cartIsOpened} onClick={closeMenu} />
+					<MenuOverlay isVisible={menuIsOpened || cartIsOpened} fixed={fixed} onClick={closeMenu} />
 				</div>
 			</div>
 		</>

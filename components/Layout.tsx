@@ -13,8 +13,8 @@ const Layout: FC = ({ children }) => {
 	useWindowResize('setVh', setVh)
 
 	return (
-		<div className="app-wrapper">
-			<Header />
+		<div className="app-wrapper overflow-x-hidden overflow-y-auto h-screen">
+			<Header fixed />
 			{children}
 		</div>
 	)

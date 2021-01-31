@@ -1,9 +1,10 @@
 import { FC } from 'react'
 
 export const MenuOverlay: FC<{
+	fixed: boolean
 	isVisible: boolean
 	onClick: () => void
-}> = ({ onClick, isVisible }) => (
+}> = ({ onClick, fixed, isVisible }) => (
 	<div
 		className="gfc h-full z-0 relative"
 		style={{
@@ -16,8 +17,8 @@ export const MenuOverlay: FC<{
 		tabIndex={0}
 	>
 		<div
-			className="absolute top-0 right-0 left-0 bottom-0 bg-primary transition-opacity"
-			style={{ opacity: isVisible ? 0.8 : 0 }}
+			className="top-0 right-0 left-0 bottom-0 bg-primary transition-opacity"
+			style={{ opacity: isVisible ? 0.8 : 0, position: fixed ? 'fixed' : 'absolute' }}
 		/>
 		<div
 			className="gf h-full"
