@@ -15,6 +15,7 @@ export function useWindowResize(
 	subscriptions[subscriptionKey] = subscription
 	useEffect(() => {
 		window.addEventListener('resize', onResize)
+		onResize()
 		return () => {
 			window.removeEventListener('resize', onResize)
 		}
