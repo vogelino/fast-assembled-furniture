@@ -22,7 +22,10 @@ export const MenuSidebar: FC = () => {
 			<Logo />
 			<div className="gf flex flex-col pt-3 relative" ref={ref}>
 				{height && height < 400 ? <ThemeSwitcher /> : <ThemeSelect />}
-				<div className="absolute transform left-2 -bottom-2 uppercase font-bold origin-top-left -rotate-90 whitespace-nowrap">
+				<div
+					className="absolute transform left-2 -bottom-2 uppercase font-bold origin-top-left -rotate-90 whitespace-nowrap overflow-hidden overflow-ellipsis"
+					style={{ maxWidth: 'calc((100 * var(--vh)) - 370px)' }}
+				>
 					{menuTitle}
 				</div>
 			</div>
