@@ -4,16 +4,17 @@ import { Logo } from '@components/Header/Logo'
 import { CartContext } from '@components/CartContext'
 import ThemeSelect, { ThemeSwitcher } from '@components/ThemeSelect'
 import { MenuContext } from '@components/MenuContext'
-import { useHeight } from '@utils/hooks/useHeight'
+import { useBoundingClientRect } from '@utils/hooks/useBoundingClientRect'
 
 export const MenuSidebar: FC = () => {
-	const { ref, height } = useHeight()
+	const { ref, height } = useBoundingClientRect()
 	const { menuLinks, cartIsOpened, menuIsOpened, toggleMenu, toggleCart } = useContext(MenuContext)
 	const { cartSize } = useContext(CartContext)
 	let menuTitle = menuLinks.filter(({ active }) => active).map(({ title }) => title)[0] || ''
 	if (menuIsOpened) menuTitle = 'Menu'
 	if (cartIsOpened) menuTitle = 'Cart'
 
+	console.log(height)
 	return (
 		<header
 			className="absolute top-0 left-0 w-16 h-full gfc grid z-50"
