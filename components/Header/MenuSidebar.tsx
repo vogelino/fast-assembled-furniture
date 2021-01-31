@@ -14,7 +14,6 @@ export const MenuSidebar: FC = () => {
 	if (menuIsOpened) menuTitle = 'Menu'
 	if (cartIsOpened) menuTitle = 'Cart'
 
-	console.log(height)
 	return (
 		<header
 			className="absolute top-0 left-0 w-16 h-full gfc grid z-50"

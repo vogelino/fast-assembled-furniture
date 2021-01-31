@@ -13,9 +13,16 @@ type BoundingsType = {
 	left?: number
 }
 
-export function useBoundingClientRect(): { ref: Ref<HTMLDivElement>; height?: number } {
+let lastBoundings: BoundingsType | undefined
+
+export function useBoundingClientRect(): {
+	ref: Ref<HTMLDivElement>
+	height?: number
+} {
 	const ref = useRef<HTMLDivElement>(null)
-	const [boundingClientRect, setBoundingClientRect] = useState<BoundingsType | undefined>()
+	const [boundingClientRect, setBoundingClientRect] = useState<BoundingsType | undefined>(
+		lastBoundings
+	)
 	useWindowResize(
 		'theme-select-height',
 		debounce(() => {
@@ -26,7 +33,7 @@ export function useBoundingClientRect(): { ref: Ref<HTMLDivElement>; height?: nu
 			)
 				return
 			const boundings = ref.current.getBoundingClientRect()
-			setBoundingClientRect({
+			const newBoundings = {
 				height: boundings.height,
 				width: boundings.width,
 				x: boundings.x,
@@ -34,7 +41,9 @@ export function useBoundingClientRect(): { ref: Ref<HTMLDivElement>; height?: nu
 				bottom: boundings.bottom,
 				top: boundings.top,
 				left: boundings.left,
-			})
+			}
+			lastBoundings = newBoundings
+			setBoundingClientRect(newBoundings)
 		}, 500)
 	)
 

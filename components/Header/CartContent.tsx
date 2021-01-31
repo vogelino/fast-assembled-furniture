@@ -26,18 +26,20 @@ export const CartContent: FC = () => {
 				gridTemplateRows: cartSize ? `61px repeat(${cartSize}, auto) 1fr` : '61px 1fr',
 			}}
 		>
-			<div className="grid" style={{ gridTemplateColumns: '1fr 64px' }}>
+			<div className="grid" style={{ gridTemplateColumns: cartSize ? '1fr 64px' : '1fr' }}>
 				<h3 className="gf uppercase font-bold text-2xl p-4 leading-7">Your cart</h3>
-				<Button
-					type="button"
-					icon="XSquare"
-					onClick={() => {
-						clearCart()
-						closeMenu()
-					}}
-				>
-					Clear
-				</Button>
+				{cartSize > 0 && (
+					<Button
+						type="button"
+						icon="XSquare"
+						onClick={() => {
+							clearCart()
+							closeMenu()
+						}}
+					>
+						Clear
+					</Button>
+				)}
 			</div>
 			{cartArray.map((product) => (
 				<div className="" key={product.slug}>
