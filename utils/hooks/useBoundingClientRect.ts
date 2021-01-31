@@ -13,15 +13,17 @@ type BoundingsType = {
 	left?: number
 }
 
-let lastBoundings: BoundingsType | undefined
+const lastBoundings: { [key: string]: BoundingsType | undefined } = {}
 
-export function useBoundingClientRect(): {
+export function useBoundingClientRect(
+	key: string
+): {
 	ref: Ref<HTMLDivElement>
 	height?: number
 } {
 	const ref = useRef<HTMLDivElement>(null)
 	const [boundingClientRect, setBoundingClientRect] = useState<BoundingsType | undefined>(
-		lastBoundings
+		lastBoundings[key]
 	)
 	useWindowResize(
 		'theme-select-height',
@@ -42,7 +44,7 @@ export function useBoundingClientRect(): {
 				top: boundings.top,
 				left: boundings.left,
 			}
-			lastBoundings = newBoundings
+			lastBoundings[key] = newBoundings
 			setBoundingClientRect(newBoundings)
 		}, 500)
 	)

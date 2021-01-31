@@ -7,7 +7,7 @@ import { MenuContext } from '@components/MenuContext'
 import { useBoundingClientRect } from '@utils/hooks/useBoundingClientRect'
 
 export const MenuSidebar: FC = () => {
-	const { ref, height } = useBoundingClientRect()
+	const { ref, height } = useBoundingClientRect('menu-sidebar')
 	const { menuLinks, cartIsOpened, menuIsOpened, toggleMenu, toggleCart } = useContext(MenuContext)
 	const { cartSize } = useContext(CartContext)
 	let menuTitle = menuLinks.filter(({ active }) => active).map(({ title }) => title)[0] || ''
