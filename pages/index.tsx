@@ -2,47 +2,43 @@ import { FC } from 'react'
 import { gql } from 'graphql-request'
 import { GetStaticProps } from 'next'
 import { request } from '@utils/requestUtil'
-import {
-	MappedSeoProps,
-	mapProductsToProps,
-	mapSeoToProps,
-	RawProduct,
-	RawSeoCommons,
-	RawSeoPage,
-	RawThumbnail,
-} from '@utils/graphcmsUtil'
-import ProductList, { Product, Products } from '@components/ProductList'
+import { MappedSeoProps, mapSeoToProps, RawSeoCommons, RawHomePage } from '@utils/graphcmsUtil'
 import Layout from '@components/Layout'
 
-const Home: FC<Products> = ({ products }) => (
+const Home: FC<{ homepage: RawHomePage }> = ({ homepage }) => (
 	<Layout>
-		<ProductList products={products} />
+		<div>{homepage.displayTitle}</div>
 	</Layout>
 )
 
 export default Home
 
 const query = gql`
-	query AllProductsHome($stage: Stage!, $locale: Locale!) {
-		products(stage: $stage, locales: [$locale]) {
-			slug
-			title
-			description {
-				markdown
-			}
-			startPrice
-			isConfigurable
-		}
-		thumbnails: products(stage: $stage) {
-			slug
-			thumbnail {
-				url
-			}
-		}
+	query HomepageQuery($stage: Stage!, $locale: Locale!) {
 		pages(where: { isHomepage: true }, stage: $stage, locales: [$locale]) {
 			seoTitle
-			seoKeywords
 			seoDescription
+			seoKeywords
+			displayTitle
+			introductionText
+			mainGallery {
+				id
+				url
+			}
+			detailImages {
+				id
+				url
+			}
+			secondaryTitle
+			secondaryText
+			shelveIcon {
+				id
+				url
+			}
+			backgroundImage {
+				id
+				url
+			}
 		}
 		seoCommons(stage: $stage, locales: [$locale]) {
 			siteTitle
@@ -53,23 +49,19 @@ const query = gql`
 `
 
 interface Data {
-	products: RawProduct[]
-	thumbnails: RawThumbnail[]
-	pages: RawSeoPage[]
 	seoCommons: RawSeoCommons[]
+	pages: RawHomePage[]
 }
 
 const mapDataToProps = ({
-	products,
-	thumbnails,
 	pages,
 	seoCommons,
 }: Data): {
-	products: Product[]
 	seo: MappedSeoProps
+	homepage: RawHomePage
 } => ({
-	products: mapProductsToProps(products, thumbnails),
 	seo: mapSeoToProps({ pages, seoCommons }),
+	homepage: pages[0],
 })
 
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {

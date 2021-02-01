@@ -1,5 +1,31 @@
 import { Product, Thumbnail } from '@components/ProductList'
 
+export interface RawHomePage {
+	seoTitle: string
+	seoDescription: string
+	seoKeywords: string[]
+	displayTitle: string
+	introductionText: string
+	mainGallery: {
+		id: string
+		url: string
+	}
+	detailImages: {
+		id: string
+		url: string
+	}
+	secondaryTitle: string
+	secondaryText: string
+	shelveIcon: {
+		id: string
+		url: string
+	}
+	backgroundImage: {
+		id: string
+		url: string
+	}
+}
+
 export interface RawProduct {
 	slug: string
 	title: string
