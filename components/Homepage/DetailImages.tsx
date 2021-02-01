@@ -17,10 +17,10 @@ export const DetailImages: FC<RawHomePage> = ({ detailImages }) => {
 			{evenArray.map((detailImage) => (
 				<div
 					className="overflow-hidden rounded-lg -mt-bd -ml-bd row-span-2 bg-primary framed"
-					key={detailImage.id}
+					key={detailImage?.id}
 				>
 					<Image
-						src={detailImage.url}
+						src={detailImage?.url}
 						width={400}
 						height={400}
 						layout="responsive"

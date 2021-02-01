@@ -17,7 +17,7 @@ export const Homepage: FC<RawHomePage> = (props) => {
 				<div
 					className="h-screen overflow-x-hidden overflow-y-auto bg-center bg-no-repeat bg-cover gfc"
 					style={{
-						backgroundImage: `url(${props.backgroundImage.url})`,
+						backgroundImage: `url(${props.backgroundImage?.url})`,
 						backgroundBlendMode: isDark ? 'multiply' : 'screen',
 					}}
 				>
@@ -30,10 +30,12 @@ export const Homepage: FC<RawHomePage> = (props) => {
 					</div>
 				</div>
 			</div>
-			<div
-				className="h-full gf col-span-4 bg-cover bg-center"
-				style={{ marginTop: 0, backgroundImage: `url(${props.mainGallery[2].url})` }}
-			></div>
+			{props.mainGallery.length >= 3 && (
+				<div
+					className="h-full gf col-span-4 bg-cover bg-center"
+					style={{ marginTop: 0, backgroundImage: `url(${props.mainGallery[2].url})` }}
+				></div>
+			)}
 		</div>
 	)
 }
