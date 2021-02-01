@@ -1,0 +1,38 @@
+import { FC } from 'react'
+import { RawProduct } from '@utils/graphcmsUtil'
+import { Logo } from './Header/Logo'
+
+export const Homepage: FC<RawProduct> = ({ displayTitle, introductionText }) => (
+	<div className="h-full grid grid-cols-3">
+		<div className="h-full  relative">
+			<div className="absolute pointer-events-none top-0 left-0 w-full h-screen z-10 border-bd rounded-lg" />
+			<div className="overflow-x-hidden overflow-y-auto h-screen">
+				<div className="gfc grid grid-cols-2" style={{ gridAutoRows: '15vw' }}>
+					<div className="p-8 gf col-span-2 row-span-2">
+						<Logo
+							vertical={false}
+							className="inline-block transform origin-left scale-75"
+							framed={false}
+						/>
+						<h1 className="my-4 text-4xl font-bold leading-11 uppercase">
+							{displayTitle.split(' ').map((txt) => (
+								<span className="block" key={txt}>
+									{txt}
+								</span>
+							))}
+						</h1>
+						<p className="text-4xl">{introductionText}</p>
+					</div>
+					<div className="gf"></div>
+					<div className="gf"></div>
+					<div className="gf col-span-2 row-span-2"></div>
+					<div className="gf"></div>
+					<div className="gf"></div>
+					<div className="gf col-span-2"></div>
+					<div className="gf col-span-2"></div>
+				</div>
+			</div>
+		</div>
+		<div className="h-full gf col-span-2" style={{ marginTop: 0 }}></div>
+	</div>
+)

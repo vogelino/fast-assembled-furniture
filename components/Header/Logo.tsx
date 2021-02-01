@@ -13,15 +13,18 @@ const allPaths: string[] = [paths.F, paths.A, paths.F]
 type LogoPropType = {
 	framed?: boolean
 	vertical?: boolean
+	className?: string
 }
 
-export const Logo: FC<LogoPropType> = ({ framed = true, vertical = true }) => {
+export const Logo: FC<LogoPropType> = ({ framed = true, vertical = true, className = '' }) => {
 	const router = useRouter()
 
 	return (
 		<Link href="/" locale={router.locale}>
 			<nav
-				className={`${framed ? 'gf' : ''} grid cursor-pointer hover:opacity-50 transition-opacity`}
+				className={`${
+					framed ? 'gf' : ''
+				} grid cursor-pointer hover:opacity-50 transition-opacity ${className}`}
 				style={{
 					[vertical ? 'gridTemplateRows' : 'gridTemplateColumns']: 'repeat(3, 52px)',
 					[vertical ? 'gridTemplateColumns' : 'gridTemplateRows']: '52px',

@@ -1,29 +1,24 @@
 import { Product, Thumbnail } from '@components/ProductList'
 
+type RawImage = {
+	id?: string
+	url: string
+	height?: number
+	width?: number
+}
+
 export interface RawHomePage {
 	seoTitle: string
 	seoDescription: string
 	seoKeywords: string[]
 	displayTitle: string
 	introductionText: string
-	mainGallery: {
-		id: string
-		url: string
-	}
-	detailImages: {
-		id: string
-		url: string
-	}
+	mainGallery: RawImage[]
+	detailImages: RawImage[]
 	secondaryTitle: string
 	secondaryText: string
-	shelveIcon: {
-		id: string
-		url: string
-	}
-	backgroundImage: {
-		id: string
-		url: string
-	}
+	shelveIcon: RawImage
+	backgroundImage: RawImage
 }
 
 export interface RawProduct {

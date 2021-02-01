@@ -4,10 +4,11 @@ import { GetStaticProps } from 'next'
 import { request } from '@utils/requestUtil'
 import { MappedSeoProps, mapSeoToProps, RawSeoCommons, RawHomePage } from '@utils/graphcmsUtil'
 import Layout from '@components/Layout'
+import { Homepage } from '@components/Homepage'
 
 const Home: FC<{ homepage: RawHomePage }> = ({ homepage }) => (
 	<Layout>
-		<div>{homepage.displayTitle}</div>
+		<Homepage {...homepage} />
 	</Layout>
 )
 

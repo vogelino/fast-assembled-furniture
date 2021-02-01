@@ -36,3 +36,7 @@ export const themes: ThemesType = createThemesWithVariants({
 	primaryBlue: { primary: '#1347e4', secondary: '#e5edf1' },
 	primaryRed: { primary: '#f52937', secondary: '#ffebb6' },
 })
+
+export function isDarkTheme(themeKey: string): boolean {
+	return themeKey.toLowerCase().includes('dark')
+}

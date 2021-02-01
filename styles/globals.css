@@ -6,6 +6,10 @@
 		@apply overflow-hidden rounded-lg border-primary bg-secondary -mt-bd -ml-bd border-bd;
 	}
 
+	.gft {
+		@apply overflow-hidden rounded-lg border-primary -mt-bd -ml-bd border-bd;
+	}
+
 	.gfc {
 		@apply bg-primary pt-bd pl-bd;
 	}
@@ -21,6 +25,28 @@
 	.h-screen {
 		height: calc(var(--vh, 1vh) * 100);
 	}
+
+	.blend-screen {
+		mix-blend-mode: screen;
+	}
+
+	hover\:blend-normal {
+		mix-blend-mode: normal;
+	}
+
+	.blend-multiply {
+		mix-blend-mode: multiply;
+	}
+
+	.framed {
+		@apply relative;
+	}
+
+	.framed::before {
+		@apply absolute top-0 bottom-0 left-0 right-0 z-10 rounded-lg pointer-events-none;
+		box-shadow: inset 0 0 0 var(--borderWidth, 3px) var(--primary, black);
+		content: ' ';
+	}
 }
 
 @layer base {
@@ -34,7 +60,7 @@
 	}
 
 	*:focus {
-		@apply focus-ring rounded;
+		@apply rounded focus-ring;
 	}
 
 	.app-wrapper {
@@ -49,14 +75,14 @@
 
 	/* purgecss start ignore */
 	body .notion {
-		@apply text-primary font-sans text-base leading-normal;
+		@apply font-sans text-base leading-normal text-primary;
 		caret-color: var(--primary);
 	}
 
 	body .notion h1,
 	body .notion h2,
 	body .notion h3 {
-		@apply uppercase font-semibold;
+		@apply font-semibold uppercase;
 	}
 
 	body .notion h1 {
@@ -87,11 +113,11 @@
 	}
 
 	body .notion-th {
-		@apply text-secondary font-bold uppercase;
+		@apply font-bold uppercase text-secondary;
 	}
 
 	body .notion-td {
-		@apply bg-secondary rounded;
+		@apply rounded bg-secondary;
 	}
 
 	body .notion-table,
