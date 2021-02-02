@@ -1,14 +1,13 @@
 {
   "name": "fast-assembled-furniture",
   "version": "0.1.0",
-  "private": true,
   "author": {
     "name": "Lucas Vogel [vogelino]",
     "email": "contact@vogelino.com",
     "url": "https://vogelino.com"
   },
   "scripts": {
-	"cm": "cz",
+    "cm": "cz",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -55,6 +54,7 @@
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.14.1",
     "@typescript-eslint/parser": "^4.14.1",
+    "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^7.2.0",
@@ -71,7 +71,7 @@
   },
   "husky": {
     "hooks": {
-	  "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
       "pre-commit": "lint-staged"
     }
   },
