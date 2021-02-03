@@ -1,10 +1,12 @@
-import { FC, useContext } from 'react'
-import { RawHomePage } from '@utils/graphcmsUtil'
+import React, { FC, useContext } from 'react'
+
 import { ColorThemeContext } from '@components/ColorThemeContext'
+import { RawHomePage } from '@utils/graphcmsUtil'
 import { isDarkTheme } from '@utils/themeUtil'
+
+import { DetailImages } from './DetailImages'
 import { IntroductionBlock } from './IntroductionBlock'
 import { SecondaryBlock } from './SecondaryBlock'
-import { DetailImages } from './DetailImages'
 import { TransparentBoxes } from './TransparentBoxes'
 
 export const Homepage: FC<RawHomePage> = (props) => {
