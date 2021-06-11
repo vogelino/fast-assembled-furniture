@@ -171,9 +171,9 @@ const generatePathForLocale = (
 	}))
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-	const { products } = await request(allProductsQuery)
+	const res = await request(allProductsQuery)
 	const paths = (locales || [])
-		.map((locale) => generatePathForLocale(locale as Locale, products))
+		.map((locale) => generatePathForLocale(locale as Locale, res.products || []))
 		.flat(1)
 	return {
 		paths,

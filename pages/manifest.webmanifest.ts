@@ -41,8 +41,8 @@ const query = gql`
 class Sitemap extends Component {
 	static async getInitialProps({ res }: { res: NextApiResponse }): Promise<void> {
 		res.setHeader('Content-Type', 'application/manifest+json')
-		const { seoCommons } = await request(query)
-		res.write(getManifest(seoCommons))
+		const response = await request(query)
+		res.write(getManifest(response.seoCommons))
 		res.end()
 	}
 }

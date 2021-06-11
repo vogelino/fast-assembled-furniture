@@ -14,9 +14,11 @@ type RequestSignature = (
 
 const requestUrl = process.env.API_URL || 'http://localhost:8080'
 export const request: RequestSignature = async (query, variables = {}, stateMapper = identity) => {
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	const data = await gqlRequest(requestUrl, query, {
 		stage: process.env.VERCEL_ENV === 'production' ? 'PUBLISHED' : 'DRAFT',
 		...variables,
 	})
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 	return stateMapper(data)
 }

@@ -8,8 +8,23 @@ import Head from '@components/Head'
 import { ColorThemeProvider } from '@components/ColorThemeContext'
 import { MenuProvider } from '@components/MenuContext'
 
+interface MyPageProps {
+	seo?: {
+		siteTitle?: string
+		title?: string
+		description?: string
+		keywords?: string[]
+		themeTextColor?: string
+		twitterUsername?: string
+		thumbnail?: {
+			url?: string
+		}
+	}
+}
+
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 	const router = useRouter()
+	const pProps = pageProps as MyPageProps
 
 	return (
 		<ColorThemeProvider>
@@ -17,13 +32,13 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 				<CartProvider>
 					<MenuProvider>
 						<Head
-							siteTitle={pageProps?.seo?.siteTitle}
-							pageTitle={pageProps?.seo?.title}
-							description={pageProps?.seo?.description}
-							keywords={pageProps?.seo?.keywords}
-							themeColor={pageProps?.seo?.themeTextColor}
-							twitterUsername={pageProps?.seo?.twitterUsername}
-							socialThumbnail={pageProps?.seo?.thumbnail?.url}
+							siteTitle={pProps?.seo?.siteTitle}
+							pageTitle={pProps?.seo?.title}
+							description={pProps?.seo?.description}
+							keywords={pProps?.seo?.keywords || []}
+							themeColor={pProps?.seo?.themeTextColor}
+							twitterUsername={pProps?.seo?.twitterUsername}
+							socialThumbnail={pProps?.seo?.thumbnail?.url}
 							fbAppId={process.env.FACEBOOK_APP_ID}
 							locales={router.locales}
 							locale={router.locale}

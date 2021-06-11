@@ -9,7 +9,7 @@ type PaymentIntent = { id: string; client_secret: string | null }
 const CheckoutForm: FC<{ paymentIntent: PaymentIntent }> = ({ paymentIntent }) => {
 	const stripe = useStripe()
 	const elements = useElements()
-	const [checkoutError, setCheckoutError] = useState(false)
+	const [checkoutError, setCheckoutError] = useState<string | false>(false)
 	const [checkoutSuccess, setCheckoutSuccess] = useState(false)
 
 	const handleSubmit = async (e: Pick<MouseEvent, 'preventDefault'>): Promise<void> => {
@@ -30,7 +30,7 @@ const CheckoutForm: FC<{ paymentIntent: PaymentIntent }> = ({ paymentIntent }) =
 				setCheckoutSuccess(true)
 			}
 		} catch (err) {
-			setCheckoutError(err.message)
+			err instanceof Error && setCheckoutError(err.message)
 		}
 	}
 

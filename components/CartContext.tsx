@@ -42,7 +42,7 @@ export const CartProvider: FC = ({ children }) => {
 
 		defineCart(
 			Object.keys(cart).reduce((acc, key) => {
-				const val = cart[key as string]
+				const val = cart[key]
 				if (key === slug) return acc
 				return { ...acc, [key]: val }
 			}, {} as Cart)

@@ -3,7 +3,7 @@ import NextHead from 'next/head'
 import getHeadFavicons from '@utils/faviconsUtil'
 import { LoadingContext } from '@components/LoadingContext'
 
-const siteUrl = process.env.URL
+const siteUrl = process.env.URL || 'http://localhost:3000'
 
 interface LoadingContextType {
 	isLoading: boolean
@@ -48,7 +48,7 @@ const Head: FC<{
 	const formatedSocialImage =
 		socialThumbnail &&
 		`${
-			typeof window !== 'undefined' ? window.location.origin : siteUrl
+			typeof window !== 'undefined' ? window.location.origin : siteUrl || ''
 		}/api/social-image?text=${encodeURI(pageTitle)}&imgUrl=${encodeURI(socialThumbnail)}`
 
 	return (

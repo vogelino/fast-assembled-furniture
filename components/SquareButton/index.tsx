@@ -1,5 +1,5 @@
 import { HTMLProps, FC, CSSProperties, useContext } from 'react'
-import { icons, IconType } from '@components/Icon'
+import { icons } from '@components/Icon'
 import {
 	squareButton,
 	buttonContent,
@@ -36,7 +36,7 @@ export const Button: FC<ButtonProps> = ({
 	...rest
 }) => {
 	const { themeKey, themes } = useContext(ColorThemeContext)
-	const IconTag = icon ? (icons[icon] as IconType) : () => null
+	const IconTag = icon ? icons[icon] : () => null
 	const isTextOnly = !icon && !status && children
 	const theme = themes[themeKey]
 	const typeColor = TypeColorMap[colorType || 'Edit']
@@ -55,13 +55,13 @@ export const Button: FC<ButtonProps> = ({
 	return (
 		// eslint-disable-next-line react/button-has-type
 		<button
-			className={`gf ${squareButton} ${className} ${active ? squareButtonActive : ''}`}
+			className={`gf ${squareButton} ${className || ''} ${active ? squareButtonActive : ''}`}
 			style={colorType ? { ...style, backgroundColor: typeColor } : style}
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			{...rest}
 		>
 			<span
-				className={`${buttonContentContainer} ${isTextOnly && textOnlyContainer}`}
+				className={`${buttonContentContainer} ${(isTextOnly && textOnlyContainer) || ''}`}
 				style={{
 					...(colorType
 						? {

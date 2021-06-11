@@ -37,10 +37,18 @@
     "./components/**/*.tsx",
     "./utils/**/*.ts",
     "./utils/**/*.tsx",
+    "./mocks/**/*.ts",
+    "./mocks/**/*.tsx",
     "./pages/**/*.ts",
     "./pages/**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "*.setup.js",
+    ".eslintrc.js",
+    ".importjs.js",
+    "*.config.js",
+    ".prettierrc.js",
+    "i18n.js"
   ]
 }

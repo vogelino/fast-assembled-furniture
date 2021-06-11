@@ -6,7 +6,7 @@ Disallow: ${process.env.VERCEL_ENV === 'production' ? '/_next/static/' : '/'}
 `
 
 class Sitemap extends Component {
-	static async getInitialProps({ res }: { res: NextApiResponse }): Promise<void> {
+	static getInitialProps({ res }: { res: NextApiResponse }): void {
 		res.setHeader('Content-Type', 'text/plain')
 		res.write(getRobots())
 		res.end()

@@ -1,7 +1,8 @@
 {
   "name": "fast-assembled-furniture",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "author": {
     "name": "Lucas Vogel [vogelino]",
     "email": "contact@vogelino.com",

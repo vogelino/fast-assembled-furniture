@@ -30,8 +30,8 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 		const queryWidth: string | string[] | undefined = req.query.width
 		const queryHeight: string | string[] | undefined = req.query.height
 		await page.setViewport({
-			width: queryWidth ? parseInt(`${queryWidth}`, 10) : config.width,
-			height: queryHeight ? parseInt(`${queryHeight}`, 10) : config.height,
+			width: typeof queryWidth === 'string' ? parseInt(`${queryWidth}`, 10) : config.width,
+			height: typeof queryHeight === 'string' ? parseInt(`${queryHeight}`, 10) : config.height,
 		})
 
 		await page.goto(url, {
@@ -46,7 +46,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 		res.setHeader('cache-control', 'public, max-age=604800')
 		res.send(screenshot)
 	} catch (error) {
-		res.status(500).json({ error })
+		res.status(500).json({ error: new Error(error) })
 	} finally {
 		if (browser) {
 			await browser.close()
