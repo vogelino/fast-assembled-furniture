@@ -98,10 +98,12 @@
 	.app-wrapper {
 		position: relative;
 		width: 100%;
-		height: 100vh;
-		height: calc(var(--vh, 1vh) * 100);
 		-webkit-overflow-scrolling: touch;
-		overflow: hidden;
+		overflow-x: hidden;
+	}
+
+	html.no-scroll {
+		overflow: hidden !important;
 	}
 
 	.app-wrapper {
@@ -109,6 +111,15 @@
 	}
 
 	@media screen and (max-width: 640px) {
+		html,
+		body,
+		.app-wrapper {
+			height: 100vh;
+			height: calc(var(--vh, 1vh) * 100);
+			-webkit-overflow-scrolling: touch;
+			overflow: hidden;
+		}
+
 		.app-wrapper {
 			padding-left: 61px;
 		}
@@ -116,7 +127,7 @@
 
 	@media screen and (min-width: 640px) {
 		.app-wrapper {
-			padding-top: 61px;
+			padding-top: 66px;
 		}
 	}
 

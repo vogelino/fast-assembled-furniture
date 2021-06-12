@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react'
+import { FC, useContext, useEffect } from 'react'
 import { Button } from '@components/SquareButton'
 import Link from '@components/Link'
 import { MenuContext } from '@components/MenuContext'
@@ -7,12 +7,30 @@ import styles from './HeaderMenu.module.css'
 const year = new Date().getFullYear()
 
 export const HeaderMenu: FC = () => {
-	const { menuLinks, secondaryLinks, closeMenu } = useContext(MenuContext)
+	const { menuLinks, secondaryLinks, closeMenu, menuIsOpened } = useContext(MenuContext)
+
+	useEffect(() => {
+		const htmlElement = document.querySelector('html')
+		if (!htmlElement) return
+		if (menuIsOpened) htmlElement.classList.add('no-scroll')
+		else htmlElement.classList.remove('no-scroll')
+	}, [menuIsOpened])
 
 	return (
-		<div className={[styles.container, 'gfc h-full z-20 overflow-hidden relative'].join(' ')}>
+		<div
+			className={[
+				styles.container,
+				menuIsOpened ? 'opacity-100' : 'opacity-0',
+				'gfc h-full z-20 overflow-hidden relative',
+			].join(' ')}
+		>
 			<div className={[styles.innerContainer, 'grid grid-flow-row w-full h-full'].join(' ')}>
-				<div className="overflow-y-auto border-bd rounded-lg -mt-bd -ml-bd w-full-p">
+				<div
+					className={[
+						'overflow-y-auto overflow-x-hidden border-bd rounded-lg',
+						'-mt-bd -ml-bd sm:ml-0 w-full-p sm:w-full sm:border-b-0',
+					].join(' ')}
+				>
 					<ul
 						className={[styles.linksParent, 'inline-grid grid-flow-row w-full-p sm:grid'].join(' ')}
 						style={{

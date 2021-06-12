@@ -1,4 +1,22 @@
 .container {
-  padding-left: 0;
+  padding-left: var(--borderWidth, 3px);
   background: none;
+}
+
+.overlay {
+  background: none;
+}
+
+@media screen and (max-width: 640px) {
+  .overlay {
+    box-shadow: 0 0 0 10px var(--primary);
+    margin-left: calc(var(--borderWidth, 3px) * -2);
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .overlay {
+    border-radius: 0;
+    border: none;
+  }
 }

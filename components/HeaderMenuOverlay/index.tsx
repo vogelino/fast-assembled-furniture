@@ -15,14 +15,12 @@ export const HeaderMenuOverlay: FC = () => {
 		>
 			<div
 				className={[
-					'absolute top-0 right-0 left-0 bottom-0 bg-primary transition-opacity',
+					'absolute sm:fixed top-0 right-0 left-0 bottom-0',
+					'bg-primary transition-opacity',
 					menuIsOpened ? 'opacity-80' : 'opacity-0',
 				].join(' ')}
 			/>
-			<div
-				className="gf h-full"
-				style={{ background: 'none', boxShadow: '0 0 0 10px var(--primary)' }}
-			/>
+			<div className={[styles.overlay, 'gf h-full'].join(' ')} />
 		</div>
 	)
 }

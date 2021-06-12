@@ -17,7 +17,7 @@ const Layout: FC = ({ children }) => {
 	}, [])
 
 	return (
-		<div className="app-wrapper container mx-auto bg-primary">
+		<div className="app-wrapper container mx-auto">
 			<Header />
 			{children}
 		</div>
