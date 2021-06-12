@@ -294,7 +294,15 @@
 	#__next::before {
 		content: ' ';
 		height: calc(var(--vh, 1vh) * 100);
+		width: 100vw;
 		@apply fixed inset-0 rounded-lg border-bd pointer-events-none;
+	}
+
+	@media screen and (max-width: 639px) {
+		#__next::before {
+			width: calc(100vw - 61px);
+			@apply left-auto;
+		}
 	}
 
 	html.no-scroll {
@@ -305,7 +313,7 @@
 		z-index: 1;
 	}
 
-	@media screen and (max-width: 640px) {
+	@media screen and (max-width: 639px) {
 		html,
 		body,
 		.app-wrapper {

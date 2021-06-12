@@ -9,7 +9,7 @@
   grid-template-rows: auto 64px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
   .linksParent {
     grid-template-rows: repeat(var(--linksCount, 3), auto) 1fr;
     min-height: calc(100% + var(--borderWidth, 3px));

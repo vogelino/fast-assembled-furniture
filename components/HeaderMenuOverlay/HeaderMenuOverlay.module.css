@@ -7,7 +7,7 @@
   background: none;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
   .overlay {
     box-shadow: 0 0 0 10px var(--primary);
     margin-left: calc(var(--borderWidth, 3px) * -2);

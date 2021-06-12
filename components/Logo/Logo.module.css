@@ -6,7 +6,7 @@
 	padding: 8px 7px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
   .containerVertical {
 		grid-template-rows: repeat(3, 44px);
 	}
