@@ -1,5 +1,6 @@
 .squareButton {
-    @apply h-16 grid;
+    @apply grid;
+    min-height: 64px;
 }
 
 .squareButtonActive {
@@ -16,7 +17,7 @@
 
 .buttonContentContainer {
     @apply grid w-full place-items-center p-1.5 rounded-md uppercase font-bold text-left text-sm transition-transform;
-    height: calc(3.425rem + var(--borderWidth, 3px));
+    height: calc(100%);
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'icon status'
         'text text';

@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": [
-    "./next-env.d.ts",
-    "/Users/lucasvogel/repos/fast-assembled-furniture/components/Layout/Layout.test.tsx",
-    "/Users/lucasvogel/repos/fast-assembled-furniture/utils/setupTests.ts",
-    "unused"
-  ]
-}
