@@ -288,7 +288,13 @@
 
 	#__next {
 		min-height: calc(var(--vh, 1vh) * 100);
-		@apply bg-secondary;
+		@apply bg-secondary border-bd;
+	}
+
+	#__next::before {
+		content: ' ';
+		height: calc(var(--vh, 1vh) * 100);
+		@apply fixed inset-0 rounded-lg border-bd pointer-events-none;
 	}
 
 	html.no-scroll {
@@ -322,7 +328,7 @@
 
 	body {
 		--borderWidth: 3px;
-		@apply bg-secondary text-primary;
+		@apply bg-primary text-primary;
 	} 
 
 	/* purgecss start ignore */
