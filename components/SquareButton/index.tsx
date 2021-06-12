@@ -1,14 +1,16 @@
 import { HTMLProps, FC, CSSProperties, useContext } from 'react'
 import { icons } from '@components/Icon'
-import {
+import styles from './SquareButton.module.css'
+import { getLuminance, meetsContrastGuidelines, readableColor } from 'polished'
+import { ColorThemeContext } from '@components/ColorThemeContext'
+
+const {
 	squareButton,
 	buttonContent,
 	buttonContentContainer,
 	textOnlyContainer,
 	squareButtonActive,
-} from './SquareButton.module.css'
-import { getLuminance, meetsContrastGuidelines, readableColor } from 'polished'
-import { ColorThemeContext } from '@components/ColorThemeContext'
+} = styles
 
 enum TypeColorMap {
 	Edit = '#FF9A6B',

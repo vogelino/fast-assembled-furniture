@@ -1,5 +1,5 @@
 import { HTMLProps, FC } from 'react'
-import { btn, btnLetter } from './button.module.css'
+import styles from './button.module.css'
 
 const commonClasses =
 	'transition-all rounded-full hover:border-black px-4 py-2 border-2 transform rotate-0 group-hover:rotate-180'
@@ -15,7 +15,7 @@ interface ButtonProps extends HTMLProps<HTMLButtonElement> {
 const Button: FC<ButtonProps> = ({ children = '', primary = false, className = '', ...rest }) => (
 	// eslint-disable-next-line react/button-has-type
 	<button
-		className={`${btn} ${commonClasses} ${
+		className={`${styles.btn} ${commonClasses} ${
 			primary ? primaryClasses : secondaryClasses
 		} ${className}`}
 		// eslint-disable-next-line react/jsx-props-no-spreading
@@ -30,7 +30,7 @@ const Button: FC<ButtonProps> = ({ children = '', primary = false, className = '
 					style={{
 						transitionDelay: `${idx * 20}ms`,
 					}}
-					className={`${btnLetter} inline-block`}
+					className={`${styles.btnLetter} inline-block`}
 				>
 					{letter || '-'}
 				</span>

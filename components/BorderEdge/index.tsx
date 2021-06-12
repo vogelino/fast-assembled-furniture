@@ -1,14 +1,16 @@
 import { CSSProperties, FC } from 'react'
 import { identity } from '@utils/functionsUtil'
 import { Button } from '@components/SquareButton'
-import {
+import styles from './BorderEdge.module.css'
+
+const {
 	containerClass,
 	commonClass,
 	TopLeftClass,
 	TopRightClass,
 	BottomLeftClass,
 	BottomRightClass,
-} from './BorderEdge.module.css'
+} = styles
 
 type OrientationType = 'TopLeft' | 'TopRight' | 'BottomLeft' | 'BottomRight'
 type PositionType =

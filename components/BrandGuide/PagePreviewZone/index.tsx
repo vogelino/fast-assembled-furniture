@@ -2,7 +2,7 @@
 import { FC, useContext } from 'react'
 import { BackgroundType, PreviewStateContext } from '@components/BrandGuide/PreviewStateContext'
 import { ColorThemeContext } from '@components/ColorThemeContext'
-import { checkerboard } from './PagePreviewZone.module.css'
+import styles from './PagePreviewZone.module.css'
 import { identity } from '@utils/functionsUtil'
 import { Button } from '@components/SquareButton'
 
@@ -24,7 +24,7 @@ const BackgroundButton: FC<{
 )
 
 const previewBackgroundMap = {
-	[BackgroundType.Transparent as string]: checkerboard,
+	[BackgroundType.Transparent as string]: styles.checkerboard,
 	[BackgroundType.Light as string]: 'bg-secondary',
 	[BackgroundType.Dark as string]: 'bg-primary',
 }
