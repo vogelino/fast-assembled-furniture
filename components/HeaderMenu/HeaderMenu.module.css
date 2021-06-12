@@ -4,7 +4,7 @@
 
 .innerContainer {
   min-width: 256px;
-  top: 3px;
+  top: var(--borderWidth, 3px);
   left: 0px;
   grid-template-rows: auto 64px;
 }
@@ -19,6 +19,14 @@
 @media screen and (min-width: 640px) {
   .linksParent {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .container {
+		overflow: hidden;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+  }
+  .innerContainer {
+    grid-template-rows: auto 0;
   }
 }
 

@@ -17,17 +17,24 @@ const Header: FC = () => {
 			<header
 				className={[
 					styles.container,
-					'absolute top-0 left-0 w-16 h-full gfc grid z-50',
+					!menuIsOpened && styles.containerClosed,
+					'fixed top-0 left-0 w-16 h-full gfc grid z-50',
+					'container sm:left-1/2 sm:transform sm:-translate-x-1/2',
 					'sm:h-16 sm:w-full',
-				].join(' ')}
+				]
+					.filter(Boolean)
+					.join(' ')}
 			>
 				<Logo />
 				<div className="gf flex flex-col sm:flex-row pt-3 relative justify-start items-start sm:pl-3">
 					<ThemeSelect />
 					<div
 						className={[
-							'transform left-2 -bottom-2 uppercase font-bold',
-							'origin-top-left -rotate-90 sm:hidden whitespace-nowrap',
+							'transform absolute uppercase font-bold',
+							'left-2 sm:left-48',
+							'-bottom-2 sm:bottom-1/2 sm:translate-y-1/2',
+							'-rotate-90 sm:rotate-0',
+							'origin-top-left whitespace-nowrap',
 						].join(' ')}
 					>
 						{menuIsOpened
@@ -45,14 +52,14 @@ const Header: FC = () => {
 			<div
 				className={[
 					styles.menuWrapper,
-					'absolute top-0 right-0 bottom-0 z-40 bg-none',
+					'fixed top-0 right-0 bottom-0 z-40 bg-none',
 					menuIsOpened ? 'pointer-events-auto' : 'pointer-events-none',
 				].join(' ')}
 			>
 				<div
 					className={[
 						menuIsOpened ? styles.menuContainerOpened : styles.menuContainerClosed,
-						'relative w-full h-full-p grid gap-0 bg-none',
+						'container mx-auto relative w-full h-full-p grid gap-0 bg-none',
 					].join(' ')}
 				>
 					<HeaderMenu />
