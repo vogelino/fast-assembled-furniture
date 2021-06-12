@@ -2,6 +2,7 @@ import { MenuContext } from '@components/MenuContext'
 import Image from 'next/image'
 import { FC, ReactPortal, useContext, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import styles from './HomeHeroSection.module.css'
 
 const HomeImage = (): ReactPortal | null => {
 	const [container, setContainer] = useState<HTMLDivElement | null>(null)
@@ -20,9 +21,10 @@ const HomeImage = (): ReactPortal | null => {
 		<div
 			className={[
 				menuIsOpened ? 'z-0' : 'z-20',
+				styles.fadeIn,
 				'container',
 				'fixed top-4 left-1/2 transform -translate-x-1/2 pl-56 sm:pl-72 lg:pl-96',
-				'pointer-events-none mix-blend-luminosity fade-in text-right',
+				'pointer-events-none mix-blend-luminosity text-right',
 			].join(' ')}
 		>
 			<div className="transform translate-x-0 sm:translate-x-4 md:translate-x-8 lg:translate-x-24">
@@ -48,11 +50,15 @@ export const HomeHeroSection: FC = () => (
 			].join(' ')}
 			style={{ lineHeight: '.9em' }}
 		>
-			Fast
+			<span className={styles.textLine}>Fast</span>
 			<br />
-			Assembled
+			<span className={styles.textLine} style={{ animationDelay: '1150ms' }}>
+				Assembled
+			</span>
 			<br />
-			Furniture
+			<span className={styles.textLine} style={{ animationDelay: '1300ms' }}>
+				Furniture
+			</span>
 		</div>
 		<HomeImage />
 	</div>

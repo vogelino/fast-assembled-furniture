@@ -90,10 +90,6 @@
 	.gfc {
 		@apply bg-primary pt-bd pl-bd;
 	}
-
-	.fade-in {
-		animation: fadeIn 1000ms cubic-bezier(.35,.02,0,.99) 100ms 1 normal forwards;
-	}
 }
 
 @layer base {
@@ -327,12 +323,7 @@
 	body {
 		--borderWidth: 3px;
 		@apply bg-secondary text-primary;
-	}
-
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  } 
+	} 
 
 	/* purgecss start ignore */
 	body .notion {
