@@ -6,8 +6,48 @@ import styles from './HeaderMenu.module.css'
 
 const year = new Date().getFullYear()
 
+const MenuFooter: FC = () => {
+	const { secondaryLinks, closeMenu } = useContext(MenuContext)
+
+	return (
+		<li
+			className="gf list-none w-full-p sm:w-auto h-full-fr p-4 grid grid-flow-row sm:col-span-3 lg:col-span-1 lg:row-span-2"
+			style={{
+				gridTemplateRows: '1fr auto auto',
+			}}
+		>
+			<div className="sm:hidden" />
+			<ul className="grid grid-flow-row-dense auto-rows-auto items-end pb-4">
+				{secondaryLinks.map((secondaryLink) => (
+					<li key={secondaryLink.path}>
+						<Link
+							href={secondaryLink.path}
+							inactiveClassName="underline hover:no-underline cursor-pointer"
+							onClick={closeMenu}
+						>
+							{secondaryLink.title}
+						</Link>
+					</li>
+				))}
+			</ul>
+			<small className="opacity-50 block">
+				© {year} Fast Assembled Furniture
+				<br />
+				🌐 by{' '}
+				<a
+					href="https://vogelino.com"
+					title="Portfolio of Lucas Vogel, creator of this website"
+					className="underline hover:no-underline cursor-pointer"
+				>
+					vogelino
+				</a>
+			</small>
+		</li>
+	)
+}
+
 export const HeaderMenu: FC = () => {
-	const { menuLinks, secondaryLinks, closeMenu, menuIsOpened } = useContext(MenuContext)
+	const { menuLinks, closeMenu, menuIsOpened } = useContext(MenuContext)
 
 	useEffect(() => {
 		const htmlElement = document.querySelector('html')
@@ -58,39 +98,7 @@ export const HeaderMenu: FC = () => {
 								Checkout <span className="inline-block text-sm font-normal">(599€)</span>
 							</Button>
 						</li>
-						<li
-							className="gf list-none w-full-p sm:w-auto h-full-fr p-4 grid grid-flow-row sm:col-span-3 lg:col-span-1 lg:row-span-2"
-							style={{
-								gridTemplateRows: '1fr auto auto',
-							}}
-						>
-							<div className="sm:hidden" />
-							<ul className="grid grid-flow-row-dense auto-rows-auto items-end pb-4">
-								{secondaryLinks.map((secondaryLink) => (
-									<li key={secondaryLink.path}>
-										<Link
-											href={secondaryLink.path}
-											inactiveClassName="underline hover:no-underline cursor-pointer"
-											onClick={closeMenu}
-										>
-											{secondaryLink.title}
-										</Link>
-									</li>
-								))}
-							</ul>
-							<small className="opacity-50 block">
-								© {year} Fast Assembled Furniture
-								<br />
-								🌐 by{' '}
-								<a
-									href="https://vogelino.com"
-									title="Portfolio of Lucas Vogel, creator of this website"
-									className="underline hover:no-underline cursor-pointer"
-								>
-									vogelino
-								</a>
-							</small>
-						</li>
+						<MenuFooter />
 					</ul>
 				</div>
 				<div className="sm:hidden">

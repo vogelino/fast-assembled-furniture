@@ -30,8 +30,11 @@ const Header: FC = () => {
 					<ThemeSelect />
 					<div
 						className={[
-							'transform left-2 -bottom-2 uppercase font-bold',
-							'origin-top-left -rotate-90 sm:hidden whitespace-nowrap',
+							'transform absolute uppercase font-bold',
+							'left-2 sm:left-48',
+							'-bottom-2 sm:bottom-1/2 sm:translate-y-1/2',
+							'-rotate-90 sm:rotate-0',
+							'origin-top-left whitespace-nowrap',
 						].join(' ')}
 					>
 						{menuIsOpened
