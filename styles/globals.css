@@ -106,7 +106,18 @@
 
 	.app-wrapper {
 		z-index: 1;
-		padding-left: 61px;
+	}
+
+	@media screen and (max-width: 640px) {
+		.app-wrapper {
+			padding-left: 61px;
+		}
+	}
+
+	@media screen and (min-width: 640px) {
+		.app-wrapper {
+			padding-top: 61px;
+		}
 	}
 
 	body {
