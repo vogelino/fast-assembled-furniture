@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { useRouter } from 'next/router'
 import Link from '../Link'
+import styles from './Logo.module.css'
 
 const paths = {
 	F:
@@ -21,12 +22,15 @@ export const Logo: FC<LogoPropType> = ({ framed = true, vertical = true }) => {
 	return (
 		<Link href="/" locale={router.locale}>
 			<nav
-				className={`${framed ? 'gf' : ''} grid cursor-pointer hover:opacity-50 transition-opacity`}
-				style={{
-					[vertical ? 'gridTemplateRows' : 'gridTemplateColumns']: 'repeat(3, 44px)',
-					gridGap: '7px',
-					padding: framed ? '8px 7px' : '0px',
-				}}
+				className={[
+					styles.container,
+					framed && styles.containerFramed,
+					vertical ? styles.containerVertical : styles.containerHorizontal,
+					framed && 'gf',
+					'grid cursor-pointer hover:opacity-50 transition-opacity',
+				]
+					.filter(Boolean)
+					.join(' ')}
 			>
 				{allPaths.map((letter: string, idx: number) => (
 					<li

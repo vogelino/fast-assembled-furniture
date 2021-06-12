@@ -111,7 +111,7 @@
 
 	body {
 		--borderWidth: 3px;
-		@apply bg-primary text-primary;
+		@apply bg-secondary text-primary;
 	}
 
 	/* purgecss start ignore */

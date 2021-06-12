@@ -1,0 +1,30 @@
+.container {
+  padding-left: 0;
+}
+
+.innerContainer {
+  min-width: 256px;
+  top: 3px;
+  left: 0px;
+  grid-template-rows: auto 64px;
+}
+
+@media screen and (max-width: 640px) {
+  .linksParent {
+    grid-template-rows: repeat(var(--linksCount, 3), auto) 1fr;
+    min-height: calc(100% + var(--borderWidth, 3px));
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .linksParent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .linksParent {
+    grid-auto-flow: column dense;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
