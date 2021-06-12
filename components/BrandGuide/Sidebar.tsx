@@ -1,11 +1,11 @@
 import { FC } from 'react'
-import { Logo } from '@components/Header/Logo'
+import { Logo } from '@components/Logo'
 import Menu, { PageTreeType } from '@components/BrandGuide/Menu'
 
 const SidebarHeader: FC = () => (
 	<div className="w-full-p">
 		<div className="w-full-p gf px-4 py-6">
-			<Logo framed={false} vertical={false} />
+			<Logo framed={false} />
 			<h1 className="w-full-p leading-6 mt-4 font-bold text-2xl uppercase">
 				Fast
 				<br />
