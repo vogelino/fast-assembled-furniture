@@ -47,22 +47,26 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 						/>
 						{/* eslint-disable-next-line react/jsx-props-no-spreading */}
 						<Component {...pageProps} />
-						<BorderEdge
-							orientation={'TopLeft' as const}
-							className="fixed pointer-events-none top-0 left-0"
-						/>
-						<BorderEdge
-							orientation={'TopRight' as const}
-							className="fixed pointer-events-none top-0 right-0"
-						/>
-						<BorderEdge
-							orientation={'BottomRight' as const}
-							className="fixed pointer-events-none bottom-0 right-0"
-						/>
-						<BorderEdge
-							orientation={'BottomLeft' as const}
-							className="fixed pointer-events-none bottom-0 left-0"
-						/>
+						<div className="fixed pointer-events-none inset-0 page-edges z-50">
+							<div className="relative w-full h-full">
+								<BorderEdge
+									orientation={'TopLeft' as const}
+									className="absolute pointer-events-none top-0 left-0"
+								/>
+								<BorderEdge
+									orientation={'TopRight' as const}
+									className="absolute pointer-events-none top-0 right-0"
+								/>
+								<BorderEdge
+									orientation={'BottomRight' as const}
+									className="absolute pointer-events-none bottom-0 right-0"
+								/>
+								<BorderEdge
+									orientation={'BottomLeft' as const}
+									className="absolute pointer-events-none bottom-0 left-0"
+								/>
+							</div>
+						</div>
 					</MenuProvider>
 				</CartProvider>
 			</LoadingProvider>

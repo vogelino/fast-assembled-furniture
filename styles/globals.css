@@ -298,9 +298,10 @@
 	}
 
 	@media screen and (max-width: 639px) {
-		#__next::before {
+		#__next::before,
+		.page-edges {
 			width: calc(100vw - (var(--menuSize, 64px) + var(--borderWidth, 3px)));
-			@apply left-auto;
+			left: auto !important;
 		}
 	}
 

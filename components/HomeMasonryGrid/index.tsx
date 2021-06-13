@@ -125,9 +125,6 @@ export const HomeMasonryGrid: FC = () => {
 						/>
 					</div>
 				</div>
-				<div className="gfc -ml-bd -mt-bd w-full-p">
-					<div className="gf h-96"></div>
-				</div>
 			</div>
 		</div>
 	)
