@@ -78,11 +78,11 @@ export const HomeMasonryGrid: FC = () => (
 					<Image src="/images/Detail02.png" width={300} height={300} objectFit="cover" />
 				</div>
 				<div className="relative col-span-12 sm:col-span-6 lg:col-span-3">
-					<div className={[styles.middleBlock, 'gf h-full-p p-4 pt-16 sm:p-8 sm:pt-24'].join(' ')}>
+					<div className={[styles.middleBlock, 'gf h-full-p p-4 pt-14 sm:p-8 sm:pt-24'].join(' ')}>
 						<div
 							className={[
 								styles.marquee,
-								'absolute text-2xl uppercase font-bold whitespace-nowrap top-6 sm:top-10',
+								'absolute text-2xl uppercase font-bold whitespace-nowrap top-4 sm:top-10',
 							].join(' ')}
 						>
 							<div className={styles.marqueeInner} aria-hidden>
