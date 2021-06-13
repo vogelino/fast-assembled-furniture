@@ -5,9 +5,35 @@
     "pages": {
         "home": "Startseite"
     },
+    "menu": {
+        "titleShort": "Menü",
+        "titleLong": "Menü",
+        "home": "Hauptseite",
+        "faf-product-faf-shelve-a32s": "Das Sideboard",
+        "how-it-works": "Wie es funktioniert",
+        "about-us": "Über uns",
+        "contact-form": "Kontakt",
+        "brand": "Markenrichtlinien",
+        "imprint": "Impressum",
+        "data-privacy-guideline": "Datenschutz"
+    },
     "cart": {
+        "titleShort": "Wagn",
+        "titleLong": "Einkaufswagen",
         "checkout": "Zur Kasse",
-        "close": "Schließen",
-        "remove": "Entfernen"
+        "remove": "Entfernen",
+        "empty": "Ihr Warenkorb ist leer!"
+    },
+    "actions": {
+        "close": "Raus",
+        "buy": "Kaufen",
+        "buyShort": "Kaufen",
+        "edit": "Personalizieren",
+        "editShort": "Anpassen"
+    },
+    "components": {
+        "box": "Box",
+        "strap": "Gurt",
+        "board": "Brett"
     }
 }
