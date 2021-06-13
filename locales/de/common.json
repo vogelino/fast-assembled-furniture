@@ -35,5 +35,8 @@
         "box": "Box",
         "strap": "Gurt",
         "board": "Brett"
+    },
+    "terms": {
+        "preset": "Vari-ante"
     }
 }

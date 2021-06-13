@@ -6,8 +6,8 @@ import { CartProvider } from '@components/CartContext'
 import { LoadingProvider } from '@components/LoadingContext'
 import Head from '@components/Head'
 import { ColorThemeProvider } from '@components/ColorThemeContext'
-import { BorderEdge } from '@components/BorderEdge'
 import { MenuProvider } from '@components/MenuContext'
+import { PageFrame } from '@components/PageFrame'
 
 interface MyPageProps {
 	seo?: {
@@ -47,22 +47,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 						/>
 						{/* eslint-disable-next-line react/jsx-props-no-spreading */}
 						<Component {...pageProps} />
-						<BorderEdge
-							orientation={'TopLeft' as const}
-							className="fixed pointer-events-none top-0 left-0"
-						/>
-						<BorderEdge
-							orientation={'TopRight' as const}
-							className="fixed pointer-events-none top-0 right-0"
-						/>
-						<BorderEdge
-							orientation={'BottomRight' as const}
-							className="fixed pointer-events-none bottom-0 right-0"
-						/>
-						<BorderEdge
-							orientation={'BottomLeft' as const}
-							className="fixed pointer-events-none bottom-0 left-0"
-						/>
+						<PageFrame />
 					</MenuProvider>
 				</CartProvider>
 			</LoadingProvider>

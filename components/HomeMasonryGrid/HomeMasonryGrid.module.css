@@ -23,7 +23,7 @@
 
 @media screen and (min-width: 1024px) {
   .middleBlock {
-    width: 200%;
+    width: calc(200% + var(--borderWidth, 3px));
   }
 }
 

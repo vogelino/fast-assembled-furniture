@@ -116,17 +116,9 @@ export const HomeMasonryGrid: FC = () => {
 						<BorderEdge
 							orientation="BottomLeft"
 							className="opacity-0 lg:opacity-100 absolute bottom-0"
-							style={{ left: 'calc(200% - (2 * var(--borderWidth, 3px)))' }}
-						/>
-						<BorderEdge
-							orientation="BottomRight"
-							className="opacity-0 lg:opacity-100 absolute bottom-0"
-							style={{ left: 'calc(200% - var(--borderWidth, 3px) - 24px)' }}
+							style={{ left: 'calc(200% - var(--borderWidth, 3px))' }}
 						/>
 					</div>
-				</div>
-				<div className="gfc -ml-bd -mt-bd w-full-p">
-					<div className="gf h-96"></div>
 				</div>
 			</div>
 		</div>

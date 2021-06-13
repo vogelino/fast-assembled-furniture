@@ -1,0 +1,7 @@
+@media screen and (max-width: 639px) {
+  .container {
+    height: calc(var(--vh, 1vh) * 100);
+    width: calc(100vw - (var(--menuSize, 64px) + var(--borderWidth, 3px)));
+    left: auto !important;
+  }
+}
