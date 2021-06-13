@@ -1,0 +1,7 @@
+.buttonsContainer {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding-top: var(--borderWidth, 3px);
+  padding-left: var(--borderWidth, 3px);
+  margin-left: calc(var(--borderWidth, 3px) * -1);
+}

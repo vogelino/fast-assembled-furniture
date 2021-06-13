@@ -23,7 +23,7 @@ const HomeImage = (): ReactPortal | null => {
 				menuIsOpened ? 'z-0' : 'z-20',
 				styles.fadeIn,
 				'container',
-				'fixed top-4 left-1/2 transform -translate-x-1/2 pl-56 sm:pl-72 lg:pl-96',
+				'absolute top-4 left-1/2 transform -translate-x-1/2 pl-56 sm:pl-72 lg:pl-96',
 				'pointer-events-none mix-blend-luminosity text-right',
 			].join(' ')}
 		>
