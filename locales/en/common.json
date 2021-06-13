@@ -8,7 +8,6 @@
     "menu": {
         "titleShort": "Menu",
         "titleLong": "Menu",
-        "close": "Close",
         "home": "Home",
         "faf-product-faf-shelve-a32s": "The sideboard",
         "how-it-works": "How it works",
@@ -22,8 +21,14 @@
         "titleShort": "Cart",
         "titleLong": "Shopping Cart",
         "checkout": "Checkout",
-        "close": "Close",
         "remove": "Remove",
         "empty": "Your cart is empty!"
+    },
+    "actions": {
+        "close": "Close",
+        "buy": "Buy",
+        "buyShort": "Buy",
+        "edit": "Customize",
+        "editShort": "Customize"
     }
 }

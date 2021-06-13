@@ -85,7 +85,7 @@ const Header: FC = () => {
 						closeMenu()
 					}}
 				>
-					{cartIsOpened ? t('cart.close') : t('cart.titleShort')}
+					{cartIsOpened ? t('actions.close') : t('cart.titleShort')}
 				</Button>
 				<Button
 					type="button"
@@ -95,7 +95,7 @@ const Header: FC = () => {
 						closeCart()
 					}}
 				>
-					{menuIsOpened ? t('menu.close') : t('menu.titleShort')}
+					{menuIsOpened ? t('actions.close') : t('menu.titleShort')}
 				</Button>
 			</header>
 			<MenuContainer
