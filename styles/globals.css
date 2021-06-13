@@ -317,14 +317,13 @@
 		html,
 		body,
 		.app-wrapper {
-			height: 100vh;
-			height: calc(var(--vh, 1vh) * 100);
+			min-height: 100vh;
+			min-height: calc(var(--vh, 1vh) * 100);
 			-webkit-overflow-scrolling: touch;
-			overflow: hidden;
 		}
 
 		.app-wrapper {
-			padding-left: 61px;
+			padding-left: 61px !important;
 		}
 	}
 
