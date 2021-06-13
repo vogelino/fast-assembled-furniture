@@ -35,5 +35,8 @@
         "box": "Box",
         "strap": "Strap",
         "board": "Board"
+    },
+    "terms": {
+        "preset": "Pre-set"
     }
 }
