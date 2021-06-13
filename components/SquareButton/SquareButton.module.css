@@ -1,6 +1,6 @@
 .squareButton {
     @apply grid;
-    min-height: 64px;
+    min-height: var(--menuSize, 64px);
 }
 
 .squareButtonActive {
