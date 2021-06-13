@@ -15,7 +15,14 @@
   animation: fadeIn 1000ms cubic-bezier(.35,.02,0,.99) 800ms 1 normal forwards;
 }
 
+@media screen and (min-width: 1024px) {
+  .middleBlock {
+    width: 200%;
+  }
+}
+
 .marquee {
+  width: calc(200% - (var(--borderWidth, 3px) * 2));
   position: absolute;
   top: 32px;
   left: 0;
