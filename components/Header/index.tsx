@@ -10,6 +10,7 @@ import { HeaderMenuOverlay } from '@components/HeaderMenuOverlay'
 import styles from './Header.module.css'
 import { BorderEdge } from '@components/BorderEdge'
 import { Cart } from '@components/Cart'
+import { useRouter } from 'next/router'
 
 const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 	children,
@@ -38,7 +39,9 @@ const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 const Header: FC = () => {
 	const { menuLinks, menuIsOpened, closeMenu, toggleMenu } = useContext(MenuContext)
 	const { cartSize, cartIsOpened, closeCart, toggleCart } = useContext(CartContext)
+	const { locale, locales, asPath, push } = useRouter()
 	const { t } = useTranslation('common')
+	const nextLocale = (locales?.filter((loc) => loc !== locale) || [locale])[0]
 
 	return (
 		<>
@@ -67,8 +70,6 @@ const Header: FC = () => {
 					>
 						<span className="hidden sm:inline">{menuIsOpened && t('menu.titleLong')}</span>
 						<span className="hidden sm:inline">{cartIsOpened && t('cart.titleLong')}</span>
-						<span className="sm:hidden">{menuIsOpened && t('menu.titleShort')}</span>
-						<span className="sm:hidden">{cartIsOpened && t('cart.titleShort')}</span>
 						<span className="hidden sm:inline">
 							{!menuIsOpened &&
 								!cartIsOpened &&
@@ -76,6 +77,13 @@ const Header: FC = () => {
 						</span>
 					</div>
 				</div>
+				<Button
+					type="button"
+					icon={'Globe'}
+					onClick={() => push(asPath, asPath, { locale: nextLocale })}
+				>
+					{nextLocale}
+				</Button>
 				<Button
 					type="button"
 					icon={cartIsOpened ? 'X' : 'ShoppingCart'}
