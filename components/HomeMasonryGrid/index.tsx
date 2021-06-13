@@ -33,9 +33,9 @@ export const HomeMasonryGrid: FC = () => (
 		</div>
 		<div className="gfc -ml-bd -mt-bd w-full-p sm:rounded-tr-lg">
 			<div className="grid grid-cols-12 lg:grid-flow-col-dense">
-				<div className="gf col-span-12 sm:col-span-6 lg:col-span-6 grid gap-4 sm:grid-cols-5 p-4 pb-6 sm:p-8">
+				<div className="gf col-span-12 sm:col-span-6 lg:col-span-6 grid gap-4 lg:grid-cols-5 p-4 pb-6 sm:p-8">
 					<div className="col-span-2 flex sm:block">
-						<Logo framed={false} className="transform scale-75 origin-top-left hidden sm:block" />
+						<Logo framed={false} className="transform scale-75 origin-top-left hidden sm:grid" />
 						<h4 className="text-2xl font-bold uppercase leading-6 inline-block">
 							Fast
 							<br />
