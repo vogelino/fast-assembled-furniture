@@ -30,5 +30,10 @@
         "buyShort": "Buy",
         "edit": "Customize",
         "editShort": "Customize"
+    },
+    "components": {
+        "box": "Box",
+        "strap": "Strap",
+        "board": "Board"
     }
 }

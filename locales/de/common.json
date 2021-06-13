@@ -30,5 +30,10 @@
         "buyShort": "Kaufen",
         "edit": "Personalizieren",
         "editShort": "Anpassen"
+    },
+    "components": {
+        "box": "Box",
+        "strap": "Gurt",
+        "board": "Brett"
     }
 }

@@ -7,7 +7,11 @@ import { FC } from 'react'
 import styles from './HomeMasonryGrid.module.css'
 
 export const HomeMasonryGrid: FC = () => {
-	const { t } = useTranslation('common')
+	const { t: tCommon } = useTranslation('common')
+	const { t: tHome } = useTranslation('home')
+	const marqueeLine = `${tCommon('components.box')} · ${tCommon('components.strap')} · ${tCommon(
+		'components.board'
+	)} · `
 
 	return (
 		<div className={styles.container}>
@@ -15,8 +19,8 @@ export const HomeMasonryGrid: FC = () => {
 				<div className={[styles.buttonsContainer, 'inline-flex bg-primary'].join(' ')}>
 					<Button type="button" colorType="Buy">
 						<span className="whitespace-nowrap">
-							<span className="hidden sm:inline">{t('actions.buy')}</span>
-							<span className="sm:hidden">{t('actions.buyShort')}</span>
+							<span className="hidden sm:inline">{tCommon('actions.buy')}</span>
+							<span className="sm:hidden">{tCommon('actions.buyShort')}</span>
 						</span>
 					</Button>
 					<ButtonWithBorderEdges
@@ -24,8 +28,8 @@ export const HomeMasonryGrid: FC = () => {
 						openings={['TopRight']}
 						colorType="Edit"
 					>
-						<span className="hidden sm:inline">{t('actions.edit')}</span>
-						<span className="sm:hidden">{t('actions.editShort')}</span>
+						<span className="hidden sm:inline">{tCommon('actions.edit')}</span>
+						<span className="sm:hidden">{tCommon('actions.editShort')}</span>
 					</ButtonWithBorderEdges>
 				</div>
 				<BorderEdge
@@ -57,8 +61,7 @@ export const HomeMasonryGrid: FC = () => {
 							</h4>
 						</div>
 						<p className={['md:text-xl lg:text-2xl col-span-3 xl:col-span-5 sm:pl-0'].join(' ')}>
-							A customizable modular furniture system. Quick to assemble and disassemble. Industrial
-							components – or found objects – are collaged to form a piece of furniture.
+							{tHome('introduction')}
 						</p>
 					</div>
 					<div
@@ -97,17 +100,13 @@ export const HomeMasonryGrid: FC = () => {
 								].join(' ')}
 							>
 								<div className={styles.marqueeInner} aria-hidden>
-									<span>Box · Strap · Board ·&nbsp;</span>
-									<span>Box · Strap · Board ·&nbsp;</span>
-									<span>Box · Strap · Board ·&nbsp;</span>
-									<span>Box · Strap · Board ·&nbsp;</span>
+									<span>{marqueeLine}&nbsp;</span>
+									<span>{marqueeLine}&nbsp;</span>
+									<span>{marqueeLine}&nbsp;</span>
+									<span>{marqueeLine}&nbsp;</span>
 								</div>
 							</div>
-							<p className="md:text-xl lg:text-2xl">
-								The core elements of FAF allow for a quick and flexible assembly. The straps, the
-								box and the boards can be customized at will to match your branding or room
-								atmosphere.
-							</p>
+							<p className="md:text-xl lg:text-2xl">{tHome('componentsDescription')}</p>
 						</div>
 						<BorderEdge
 							orientation="BottomLeft"
