@@ -10,7 +10,9 @@ export const HomeMasonryGrid: FC = () => (
 		<div className="relative">
 			<div className={[styles.buttonsContainer, 'inline-flex bg-primary'].join(' ')}>
 				<Button type="button" colorType="Buy">
-					Buy <span className="hidden sm:inline text-sm font-normal">(123€)</span>
+					<span className="whitespace-nowrap">
+						Buy <span className="hidden sm:inline text-sm font-normal">(123€)</span>
+					</span>
 				</Button>
 				<ButtonWithBorderEdges
 					edges={[{ position: 'RightBottom', orientation: 'BottomLeft' }]}
