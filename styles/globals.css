@@ -295,7 +295,7 @@
 		content: ' ';
 		height: calc(var(--vh, 1vh) * 100);
 		width: 100vw;
-		@apply fixed inset-0 rounded-lg border-bd pointer-events-none;
+		@apply fixed inset-0 rounded-lg border-bd pointer-events-none z-50;
 	}
 
 	@media screen and (max-width: 639px) {

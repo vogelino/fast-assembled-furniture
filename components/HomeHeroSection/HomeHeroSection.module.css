@@ -19,5 +19,5 @@
   font-weight: 300;
   letter-spacing: 0.0001em;
   opacity: 0;
-  animation: fontWeightPulse 15000ms cubic-bezier(.45,.01,0,.98) 1000ms 1 alternate forwards;
+  animation: fontWeightPulse 15000ms cubic-bezier(.45,.01,0,.98) 100ms 1 alternate forwards;
 }

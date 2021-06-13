@@ -52,11 +52,11 @@ export const HomeHeroSection: FC = () => (
 		>
 			<span className={styles.textLine}>Fast</span>
 			<br />
-			<span className={styles.textLine} style={{ animationDelay: '1150ms' }}>
+			<span className={styles.textLine} style={{ animationDelay: '250ms' }}>
 				Assembled
 			</span>
 			<br />
-			<span className={styles.textLine} style={{ animationDelay: '1300ms' }}>
+			<span className={styles.textLine} style={{ animationDelay: '400ms' }}>
 				Furniture
 			</span>
 		</div>

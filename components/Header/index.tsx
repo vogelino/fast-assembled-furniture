@@ -18,6 +18,7 @@ const Header: FC = () => {
 			<header
 				className={[
 					styles.container,
+					styles.animatedContainer,
 					!menuIsOpened && styles.containerClosed,
 					'fixed top-0 left-0 w-16 h-full gfc grid z-50',
 					'container sm:left-1/2 sm:transform sm:-translate-x-1/2',
@@ -67,7 +68,13 @@ const Header: FC = () => {
 					<HeaderMenuOverlay />
 				</div>
 			</div>
-			<div className="fixed hidden sm:block top-0 left-1/2 transform -translate-x-1/2 container pointer-events-none h-2">
+			<div
+				className={[
+					styles.animatedContainer,
+					'fixed hidden sm:block top-0 left-1/2',
+					'container pointer-events-none h-8',
+				].join(' ')}
+			>
 				<div className="relative w-full h-full">
 					<BorderEdge
 						orientation={'TopRight' as const}
