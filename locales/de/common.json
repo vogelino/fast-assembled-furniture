@@ -8,6 +8,7 @@
     "cart": {
         "checkout": "Zur Kasse",
         "close": "Schließen",
-        "remove": "Entfernen"
+        "remove": "Entfernen",
+        "empty": "Ihr Warenkorb ist leer!"
     }
 }

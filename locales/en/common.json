@@ -8,6 +8,7 @@
     "cart": {
         "checkout": "Checkout",
         "close": "Close",
-        "remove": "Remove"
+        "remove": "Remove",
+        "empty": "Your cart is empty!"
     }
 }

@@ -6,13 +6,18 @@
   min-width: 256px;
   top: var(--borderWidth, 3px);
   left: 0px;
-  grid-template-rows: auto var(--menuSize, 64px);
 }
 
 @media screen and (max-width: 639px) {
   .linksParent {
     grid-template-rows: repeat(var(--linksCount, 3), auto) 1fr;
     min-height: calc(100% + var(--borderWidth, 3px));
+  }
+  .innerContainerWithCart {
+    grid-template-rows: auto var(--menuSize, 64px);
+  }
+  .innerContainerWithoutCart {
+    grid-template-rows: auto;
   }
 }
 

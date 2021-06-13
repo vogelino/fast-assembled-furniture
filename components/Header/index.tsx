@@ -8,10 +8,35 @@ import { HeaderMenu } from '@components/HeaderMenu'
 import { HeaderMenuOverlay } from '@components/HeaderMenuOverlay'
 import styles from './Header.module.css'
 import { BorderEdge } from '@components/BorderEdge'
+import { Cart } from '@components/Cart'
+
+const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
+	children,
+	isOpened = false,
+	onClose = () => undefined,
+}) => (
+	<div
+		className={[
+			styles.menuWrapper,
+			'fixed top-0 right-0 bottom-0 z-40 bg-none',
+			isOpened ? 'pointer-events-auto' : 'pointer-events-none',
+		].join(' ')}
+	>
+		<div
+			className={[
+				isOpened ? styles.menuContainerOpened : styles.menuContainerClosed,
+				'container mx-auto relative w-full h-full-p grid gap-0 bg-none',
+			].join(' ')}
+		>
+			{children}
+			<HeaderMenuOverlay isOpened={isOpened} onClose={onClose} />
+		</div>
+	</div>
+)
 
 const Header: FC = () => {
-	const { menuLinks, menuIsOpened, toggleMenu } = useContext(MenuContext)
-	const [cart] = useContext(CartContext)
+	const { menuLinks, menuIsOpened, closeMenu, toggleMenu } = useContext(MenuContext)
+	const { cartSize, cartIsOpened, closeCart, toggleCart } = useContext(CartContext)
 
 	return (
 		<>
@@ -19,7 +44,7 @@ const Header: FC = () => {
 				className={[
 					styles.container,
 					styles.animatedContainer,
-					!menuIsOpened && styles.containerClosed,
+					!(menuIsOpened || cartIsOpened) && styles.containerClosed,
 					'fixed top-0 left-0 gfc grid z-50',
 					'container sm:left-1/2 sm:transform sm:-translate-x-1/2',
 				]
@@ -43,30 +68,38 @@ const Header: FC = () => {
 							: menuLinks.filter(({ active }) => active).map(({ title }) => title)}
 					</div>
 				</div>
-				<Button type="button" icon="ShoppingCart" status={Object.keys(cart).length}>
-					Cart
+				<Button
+					type="button"
+					icon={cartIsOpened ? 'X' : 'ShoppingCart'}
+					status={cartSize}
+					onClick={() => {
+						toggleCart()
+						closeMenu()
+					}}
+				>
+					{cartIsOpened ? 'Close' : 'Cart'}
 				</Button>
-				<Button type="button" icon={menuIsOpened ? 'X' : 'Menu'} onClick={toggleMenu}>
+				<Button
+					type="button"
+					icon={menuIsOpened ? 'X' : 'Menu'}
+					onClick={() => {
+						toggleMenu()
+						closeCart()
+					}}
+				>
 					{menuIsOpened ? 'Close' : 'Menu'}
 				</Button>
 			</header>
-			<div
-				className={[
-					styles.menuWrapper,
-					'fixed top-0 right-0 bottom-0 z-40 bg-none',
-					menuIsOpened ? 'pointer-events-auto' : 'pointer-events-none',
-				].join(' ')}
+			<MenuContainer
+				isOpened={Boolean(menuIsOpened || cartIsOpened)}
+				onClose={() => {
+					closeCart()
+					closeMenu()
+				}}
 			>
-				<div
-					className={[
-						menuIsOpened ? styles.menuContainerOpened : styles.menuContainerClosed,
-						'container mx-auto relative w-full h-full-p grid gap-0 bg-none',
-					].join(' ')}
-				>
-					<HeaderMenu />
-					<HeaderMenuOverlay />
-				</div>
-			</div>
+				{menuIsOpened && <HeaderMenu />}
+				{cartIsOpened && <Cart />}
+			</MenuContainer>
 			<div
 				className={[
 					styles.animatedContainer,

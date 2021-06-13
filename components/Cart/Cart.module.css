@@ -1,0 +1,26 @@
+.container {
+  padding-left: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .innerContainer {
+    width: 256px;
+    max-width: 100%;
+  }
+  .innerContainerWithCart {
+    grid-template-rows: auto var(--menuSize, 64px);
+  }
+  .innerContainerWithoutCart {
+    grid-template-rows: auto;
+  }
+}
+@media screen and (min-width: 640px) {
+  .container {
+		overflow: hidden;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+  }
+  .innerContainer {
+    grid-template-rows: auto 0;
+  }
+}

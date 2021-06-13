@@ -17,7 +17,6 @@
 		grid-template-columns: auto 1fr;
 	}
 	.menuWrapper {
-		box-shadow: 0 0 0 10px var(--primary);
 		left: calc(var(--borderWidth, 3px) + var(--menuSize, 64px));
 	}
 }
@@ -43,7 +42,7 @@
 		grid-template-rows: auto 1fr;
 	}
 	.menuWrapper {
-		top: 63px;
+		top: calc(var(--menuSize, 64px) + (var(--borderWidth, 3px) * 2));
 		left: 0;
 	}
 }

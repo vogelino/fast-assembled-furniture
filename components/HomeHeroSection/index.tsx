@@ -1,3 +1,4 @@
+import { CartContext } from '@components/CartContext'
 import { MenuContext } from '@components/MenuContext'
 import Image from 'next/image'
 import { FC, ReactPortal, useContext, useEffect, useState } from 'react'
@@ -7,6 +8,7 @@ import styles from './HomeHeroSection.module.css'
 const HomeImage = (): ReactPortal | null => {
 	const [container, setContainer] = useState<HTMLDivElement | null>(null)
 	const { menuIsOpened } = useContext(MenuContext)
+	const { cartIsOpened } = useContext(CartContext)
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return
@@ -20,7 +22,7 @@ const HomeImage = (): ReactPortal | null => {
 	const element = (
 		<div
 			className={[
-				menuIsOpened ? 'z-0' : 'z-20',
+				menuIsOpened || cartIsOpened ? 'z-0' : 'z-20',
 				styles.fadeIn,
 				'container',
 				'absolute top-4 left-1/2 transform -translate-x-1/2 pl-56 sm:pl-72 lg:pl-96',

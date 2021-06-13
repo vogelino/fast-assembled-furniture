@@ -78,7 +78,10 @@ export const Button: FC<ButtonProps> = ({
 					</span>
 				)}
 				{status}
-				<span style={{ gridArea: 'text' }} className="text self-center justify-self-start">
+				<span
+					style={{ gridArea: 'text' }}
+					className="text leading-5 self-center justify-self-start"
+				>
 					{children}
 				</span>
 			</span>
