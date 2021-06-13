@@ -33,7 +33,13 @@ export const HomeMasonryGrid: FC = () => (
 		</div>
 		<div className="gfc -ml-bd -mt-bd w-full-p sm:rounded-tr-lg">
 			<div className="grid grid-cols-12 lg:grid-flow-col-dense">
-				<div className="gf col-span-12 sm:col-span-6 lg:col-span-6 grid gap-4 lg:grid-cols-5 p-4 pb-6 sm:p-8">
+				<div
+					className={[
+						'gf col-span-12 sm:col-span-6 lg:col-span-6',
+						'grid gap-4 lg:grid-cols-5 p-4 pb-6 sm:p-8',
+						'xl:grid-cols-7',
+					].join(' ')}
+				>
 					<div className="col-span-2 flex sm:block">
 						<Logo framed={false} className="transform scale-75 origin-top-left hidden sm:grid" />
 						<h4 className="text-2xl font-bold uppercase leading-6 inline-block">
@@ -44,7 +50,7 @@ export const HomeMasonryGrid: FC = () => (
 							Furniture
 						</h4>
 					</div>
-					<p className={['md:text-xl lg:text-2xl col-span-3 sm:pl-0'].join(' ')}>
+					<p className={['md:text-xl lg:text-2xl col-span-3 xl:col-span-5 sm:pl-0'].join(' ')}>
 						A customizable modular furniture system. Quick to assemble and disassemble. Industrial
 						components – or found objects – are collaged to form a piece of furniture.
 					</p>
@@ -57,7 +63,7 @@ export const HomeMasonryGrid: FC = () => (
 				>
 					<Image src="/images/LargeBlock01.png" width={696} height={808} objectFit="cover" />
 				</div>
-				<div className={[styles.imageContainer, 'gf lg:h-72 col-span-6 lg:col-span-3'].join(' ')}>
+				<div className={[styles.imageContainer, 'gf col-span-6 lg:col-span-3'].join(' ')}>
 					<Image src="/images/Detail01.png" width={300} height={300} objectFit="cover" />
 				</div>
 				<div className="relative col-span-6 lg:col-span-3">
@@ -68,7 +74,7 @@ export const HomeMasonryGrid: FC = () => (
 				<div
 					className={[
 						styles.imageContainer,
-						'hidden sm:block gf lg:h-72 col-span-6 lg:col-span-3',
+						'hidden sm:block gf col-span-6 lg:col-span-3',
 					].join(' ')}
 				>
 					<Image src="/images/Detail02.png" width={300} height={300} objectFit="cover" />
