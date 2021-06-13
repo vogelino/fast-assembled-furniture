@@ -6,25 +6,26 @@
 @media screen and (max-width: 639px) {
   .container {
 		grid-template-rows: auto 1fr auto;
+		width: calc(var(--menuSize, 64px) + (var(--borderWidth, 3px) * 2));
+		height: 100%;
 	}
 	.menuContainerClosed {
 		grid-template-columns: 0px 1fr;
-    margin-left: calc(var(--borderWidth, 3px) * -1);
-		width: calc(100% + var(--borderWidth, 3px));
+		width: 100%;
 	}
 	.menuContainerOpened {
 		grid-template-columns: auto 1fr;
 	}
 	.menuWrapper {
 		box-shadow: 0 0 0 10px var(--primary);
-		left: 64px;
+		left: calc(var(--borderWidth, 3px) + var(--menuSize, 64px));
 	}
 }
 
 @media screen and (min-width: 640px) {
   .container {
 		grid-template-columns: auto 1fr auto auto;
-		height: calc(var(--borderWidth, 3px) + 63px);
+		height: calc((var(--borderWidth, 3px) * 2) + 60px);
 	}
 	.animatedContainer {
 		animation: slideDown 1500ms cubic-bezier(0,1,.03,.99) 500ms 1 normal forwards;

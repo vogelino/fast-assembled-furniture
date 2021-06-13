@@ -294,13 +294,12 @@
 	#__next::before {
 		content: ' ';
 		height: calc(var(--vh, 1vh) * 100);
-		width: 100vw;
 		@apply fixed inset-0 rounded-lg border-bd pointer-events-none z-50;
 	}
 
 	@media screen and (max-width: 639px) {
 		#__next::before {
-			width: calc(100vw - 61px);
+			width: calc(100vw - (var(--menuSize, 64px) + var(--borderWidth, 3px)));
 			@apply left-auto;
 		}
 	}
@@ -323,7 +322,7 @@
 		}
 
 		.app-wrapper {
-			padding-left: 61px !important;
+			padding-left: calc(var(--borderWidth, 3px) + var(--menuSize, 64px)) !important;
 		}
 	}
 
@@ -334,7 +333,8 @@
 	}
 
 	body {
-		--borderWidth: 3px;
+		--borderWidth: 2px;
+		--menuSize: 58px;
 		@apply bg-primary text-primary;
 	} 
 

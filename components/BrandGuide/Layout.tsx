@@ -13,15 +13,14 @@ const BrandGuide: FC<{
 }> = ({ notionContent, children, previewOptions }) => (
 	<PreviewStateProvider>
 		<div
-			className="h-screen relative"
+			className="h-screen relative w-full-p overflow-hidden"
 			style={{
 				paddingLeft: 'calc(20rem - var(--borderWidth, 3px))',
-				paddingTop: 'calc(4rem - var(--borderWidth, 3px))',
 			}}
 		>
 			<Sidebar pageTree={pageTree} />
 			<Header pageTree={pageTree} />
-			<div className="gfc h-full-p">
+			<div className="bg-primary fixed pt-16 top-0 right-0 left-80 -bottom-bd z-0">
 				<div className={`gf h-full inline-block ${children ? 'w-50-p' : 'w-full-p'}`}>
 					<PageTextZone notionContent={notionContent} />
 				</div>

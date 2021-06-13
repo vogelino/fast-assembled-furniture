@@ -20,9 +20,8 @@ const Header: FC = () => {
 					styles.container,
 					styles.animatedContainer,
 					!menuIsOpened && styles.containerClosed,
-					'fixed top-0 left-0 w-16 h-full gfc grid z-50',
+					'fixed top-0 left-0 gfc grid z-50',
 					'container sm:left-1/2 sm:transform sm:-translate-x-1/2',
-					'sm:h-16 sm:w-full',
 				]
 					.filter(Boolean)
 					.join(' ')}

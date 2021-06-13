@@ -68,7 +68,7 @@ export const HeaderMenu: FC = () => {
 				<div
 					className={[
 						'overflow-y-auto overflow-x-hidden border-bd rounded-lg',
-						'-mt-bd -ml-bd sm:ml-0 w-full-p sm:w-full sm:border-b-0',
+						'-mt-bd sm:ml-0 w-full-p sm:w-full sm:border-b-0 border-b-0',
 					].join(' ')}
 				>
 					<ul
@@ -101,7 +101,7 @@ export const HeaderMenu: FC = () => {
 						<MenuFooter />
 					</ul>
 				</div>
-				<div className="sm:hidden">
+				<div className="sm:hidden gfc -mt-bd w-full-p">
 					<Button type="button" colorType="Buy" className="w-full-p">
 						Checkout <span className="inline-block text-sm font-normal">(599€)</span>
 					</Button>

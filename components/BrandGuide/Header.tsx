@@ -10,7 +10,7 @@ type HeaderPropType = {
 const Header: FC<HeaderPropType> = ({ pageTree }) => {
 	return (
 		<div
-			className="fixed top-0 right-0 h-16 gfc"
+			className="fixed top-0 right-0 h-16 gfc z-10"
 			style={{ left: `calc(20rem - var(--borderWidth, 3px))` }}
 		>
 			<div className="gf h-full-p px-6 py-4 flex justify-between items-center">

@@ -91,7 +91,10 @@ const PagePreviewZone: FC<{
 	].filter(identity)
 
 	return (
-		<div className="grid grid-cols-2 h-full-p w-full-p" style={{ gridTemplateColumns: '1fr 4rem' }}>
+		<div
+			className="bg-primary grid grid-cols-2 h-full-p w-full-p"
+			style={{ gridTemplateColumns: '1fr 4rem' }}
+		>
 			<div
 				className={`${previewBackgroundMap[previewBackground]} relative rounded-lg border-bd border-primary -mt-bd -ml-bd grid content-center items-center justify-center h-full-p p-8`}
 				style={{
@@ -111,7 +114,7 @@ const PagePreviewZone: FC<{
 				)}
 			</div>
 			<nav
-				className="h-full grid grid-flow-row"
+				className="h-full grid grid-flow-row bg-primary"
 				style={{ gridTemplateRows: ` repeat(${previewAddons.length}, auto) 1fr` }}
 			>
 				{previewAddons}

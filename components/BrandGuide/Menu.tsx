@@ -101,7 +101,7 @@ function getChildMapper(level = 0): (linkItem: MenuItemType) => JSX.Element {
 }
 
 const Menu: FC<{ pageTree: PageTreeType }> = ({ pageTree: localPageTree }) => (
-	<ul className="w-full-p">{localPageTree.map(getChildMapper())}</ul>
+	<ul className="w-full-p bg-primary">{localPageTree.map(getChildMapper())}</ul>
 )
 
 export default Menu
