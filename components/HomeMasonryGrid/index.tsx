@@ -33,7 +33,7 @@ export const HomeMasonryGrid: FC = () => (
 		</div>
 		<div className="gfc -ml-bd -mt-bd w-full-p sm:rounded-tr-lg">
 			<div className="grid grid-cols-12 lg:grid-flow-col-dense">
-				<div className="gf col-span-12 sm:col-span-6 lg:col-span-6 grid lg:grid-cols-5 p-4 sm:p-8">
+				<div className="gf col-span-12 sm:col-span-6 lg:col-span-6 grid lg:grid-cols-5 p-4 pb-6 sm:p-8">
 					<div className="col-span-2 flex sm:block">
 						<Logo framed={false} className="transform scale-75 origin-top-left" />
 						<h4 className="text-2xl font-bold uppercase leading-6 inline-block">
@@ -78,7 +78,9 @@ export const HomeMasonryGrid: FC = () => (
 					<Image src="/images/Detail02.png" width={300} height={300} objectFit="cover" />
 				</div>
 				<div className="relative col-span-12 sm:col-span-6 lg:col-span-3">
-					<div className={[styles.middleBlock, 'gf h-full-p p-4 pt-14 sm:p-8 sm:pt-24'].join(' ')}>
+					<div
+						className={[styles.middleBlock, 'gf h-full-p p-4 pt-14 pb-6 sm:p-8 sm:pt-24'].join(' ')}
+					>
 						<div
 							className={[
 								styles.marquee,
