@@ -291,20 +291,6 @@
 		@apply bg-secondary border-bd;
 	}
 
-	#__next::before {
-		content: ' ';
-		height: calc(var(--vh, 1vh) * 100);
-		@apply fixed inset-0 rounded-lg border-bd pointer-events-none z-50;
-	}
-
-	@media screen and (max-width: 639px) {
-		#__next::before,
-		.page-edges {
-			width: calc(100vw - (var(--menuSize, 64px) + var(--borderWidth, 3px)));
-			left: auto !important;
-		}
-	}
-
 	html.no-scroll {
 		overflow: hidden !important;
 	}
