@@ -1,3 +1,8 @@
+@keyframes slideDown {
+	0%   { transform: translate(-50%, -100%); }
+	100% { transform: translate(-50%, 0); }
+}
+
 @media screen and (max-width: 639px) {
   .container {
 		grid-template-rows: auto 1fr auto;
@@ -20,6 +25,10 @@
   .container {
 		grid-template-columns: auto 1fr auto auto;
 		height: calc(var(--borderWidth, 3px) + 63px);
+	}
+	.animatedContainer {
+		animation: slideDown 1500ms cubic-bezier(0,1,.03,.99) 500ms 1 normal forwards;
+		transform: translate(-50%, -100%);
 	}
 	.containerClosed {
 		overflow: hidden;

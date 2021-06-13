@@ -14,15 +14,17 @@ const allPaths: string[] = [paths.F, paths.A, paths.F]
 type LogoPropType = {
 	framed?: boolean
 	vertical?: boolean
+	className?: string
 }
 
-export const Logo: FC<LogoPropType> = ({ framed = true, vertical = true }) => {
+export const Logo: FC<LogoPropType> = ({ framed = true, vertical = true, className = '' }) => {
 	const router = useRouter()
 
 	return (
 		<Link href="/" locale={router.locale}>
 			<nav
 				className={[
+					className,
 					styles.container,
 					framed && styles.containerFramed,
 					vertical ? styles.containerVertical : styles.containerHorizontal,

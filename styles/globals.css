@@ -295,7 +295,7 @@
 		content: ' ';
 		height: calc(var(--vh, 1vh) * 100);
 		width: 100vw;
-		@apply fixed inset-0 rounded-lg border-bd pointer-events-none;
+		@apply fixed inset-0 rounded-lg border-bd pointer-events-none z-50;
 	}
 
 	@media screen and (max-width: 639px) {
@@ -317,14 +317,13 @@
 		html,
 		body,
 		.app-wrapper {
-			height: 100vh;
-			height: calc(var(--vh, 1vh) * 100);
+			min-height: 100vh;
+			min-height: calc(var(--vh, 1vh) * 100);
 			-webkit-overflow-scrolling: touch;
-			overflow: hidden;
 		}
 
 		.app-wrapper {
-			padding-left: 61px;
+			padding-left: 61px !important;
 		}
 	}
 
