@@ -102,7 +102,7 @@ export const Cart: FC = () => {
 						<>
 							<li className="hidden sm:grid flex-grow">
 								<Button type="button" colorType="Buy" className="w-full-p">
-									Checkout{' '}
+									{t('cart.checkout')}{' '}
 									<span className="inline-block text-sm font-normal">
 										({currency.format(cartTotalPrice)})
 									</span>
@@ -117,7 +117,7 @@ export const Cart: FC = () => {
 				{cartSize >= 1 && (
 					<div className="sm:hidden gfc -mt-bd w-full">
 						<Button type="button" colorType="Buy" className="w-full-p">
-							Checkout{' '}
+							{t('cart.checkout')}{' '}
 							<span className="inline-block text-sm font-normal">
 								({currency.format(cartTotalPrice)})
 							</span>

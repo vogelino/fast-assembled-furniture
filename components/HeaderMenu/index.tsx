@@ -5,6 +5,7 @@ import { MenuContext } from '@components/MenuContext'
 import styles from './HeaderMenu.module.css'
 import { CartContext } from '@components/CartContext'
 import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 
 const year = new Date().getFullYear()
 
@@ -55,6 +56,7 @@ export const HeaderMenu: FC = () => {
 	const { locale } = useRouter()
 	const { menuLinks, closeMenu, menuIsOpened } = useContext(MenuContext)
 	const { cartSize, cartTotalPrice } = useContext(CartContext)
+	const { t } = useTranslation('common')
 
 	const currency = new Intl.NumberFormat(locale, {
 		style: 'currency',
@@ -117,7 +119,7 @@ export const HeaderMenu: FC = () => {
 						{cartSize !== 0 ? (
 							<li className="hidden sm:grid">
 								<Button type="button" colorType="Buy" className="w-full-p">
-									Checkout{' '}
+									{t('cart.checkout')}{' '}
 									<span className="inline-block text-sm font-normal">
 										({currency.format(cartTotalPrice)})
 									</span>
@@ -132,7 +134,7 @@ export const HeaderMenu: FC = () => {
 				{cartSize !== 0 && (
 					<div className="sm:hidden gfc -mt-bd w-full">
 						<Button type="button" colorType="Buy" className="w-full-p">
-							Checkout{' '}
+							{t('cart.checkout')}{' '}
 							<span className="inline-block text-sm font-normal">
 								({currency.format(cartTotalPrice)})
 							</span>

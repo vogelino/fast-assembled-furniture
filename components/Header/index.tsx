@@ -1,4 +1,5 @@
 import React, { FC, useContext } from 'react'
+import useTranslation from 'next-translate/useTranslation'
 import { Button } from '@components/SquareButton'
 import { Logo } from '@components/Logo'
 import { CartContext } from '@components/CartContext'
@@ -37,6 +38,7 @@ const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 const Header: FC = () => {
 	const { menuLinks, menuIsOpened, closeMenu, toggleMenu } = useContext(MenuContext)
 	const { cartSize, cartIsOpened, closeCart, toggleCart } = useContext(CartContext)
+	const { t } = useTranslation('common')
 
 	return (
 		<>
@@ -63,9 +65,11 @@ const Header: FC = () => {
 							'origin-top-left whitespace-nowrap',
 						].join(' ')}
 					>
-						{menuIsOpened
-							? 'Menu'
-							: menuLinks.filter(({ active }) => active).map(({ title }) => title)}
+						{menuIsOpened && t('menu.titleLong')}
+						{cartIsOpened && t('cart.titleLong')}
+						{!menuIsOpened &&
+							!cartIsOpened &&
+							menuLinks.reduce((acc, { active, title }) => (active ? title : acc), '')}
 					</div>
 				</div>
 				<Button
@@ -77,7 +81,7 @@ const Header: FC = () => {
 						closeMenu()
 					}}
 				>
-					{cartIsOpened ? 'Close' : 'Cart'}
+					{cartIsOpened ? t('cart.close') : t('cart.titleShort')}
 				</Button>
 				<Button
 					type="button"
@@ -87,7 +91,7 @@ const Header: FC = () => {
 						closeCart()
 					}}
 				>
-					{menuIsOpened ? 'Close' : 'Menu'}
+					{menuIsOpened ? t('menu.close') : t('menu.titleShort')}
 				</Button>
 			</header>
 			<MenuContainer

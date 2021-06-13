@@ -5,7 +5,14 @@
     "pages": {
         "home": "Home"
     },
+    "menu": {
+        "titleShort": "Menu",
+        "titleLong": "Menu",
+        "close": "Close"
+    },
     "cart": {
+        "titleShort": "Cart",
+        "titleLong": "Shopping Cart",
         "checkout": "Checkout",
         "close": "Close",
         "remove": "Remove",

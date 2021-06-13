@@ -5,9 +5,16 @@
     "pages": {
         "home": "Startseite"
     },
+    "menu": {
+        "titleShort": "Menü",
+        "titleLong": "Menü",
+        "close": "Raus"
+    },
     "cart": {
+        "titleShort": "Wagn",
+        "titleLong": "Einkaufswagen",
         "checkout": "Zur Kasse",
-        "close": "Schließen",
+        "close": "Raus",
         "remove": "Entfernen",
         "empty": "Ihr Warenkorb ist leer!"
     }
