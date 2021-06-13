@@ -72,10 +72,9 @@ export const HomeMasonryGrid: FC = () => (
 					</div>
 				</div>
 				<div
-					className={[
-						styles.imageContainer,
-						'hidden sm:block gf col-span-6 lg:col-span-3',
-					].join(' ')}
+					className={[styles.imageContainer, 'hidden sm:block gf col-span-6 lg:col-span-3'].join(
+						' '
+					)}
 				>
 					<Image src="/images/Detail02.png" width={300} height={300} objectFit="cover" />
 				</div>
