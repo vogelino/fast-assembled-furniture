@@ -65,11 +65,15 @@ const Header: FC = () => {
 							'origin-top-left whitespace-nowrap',
 						].join(' ')}
 					>
-						{menuIsOpened && t('menu.titleLong')}
-						{cartIsOpened && t('cart.titleLong')}
-						{!menuIsOpened &&
-							!cartIsOpened &&
-							menuLinks.reduce((acc, { active, title }) => (active ? title : acc), '')}
+						<span className="hidden sm:inline">{menuIsOpened && t('menu.titleLong')}</span>
+						<span className="hidden sm:inline">{cartIsOpened && t('cart.titleLong')}</span>
+						<span className="sm:hidden">{menuIsOpened && t('menu.titleShort')}</span>
+						<span className="sm:hidden">{cartIsOpened && t('cart.titleShort')}</span>
+						<span className="hidden sm:inline">
+							{!menuIsOpened &&
+								!cartIsOpened &&
+								menuLinks.reduce((acc, { active, textId }) => (active ? t(textId) : acc), '')}
+						</span>
 					</div>
 				</div>
 				<Button

@@ -8,7 +8,15 @@
     "menu": {
         "titleShort": "Menu",
         "titleLong": "Menu",
-        "close": "Close"
+        "close": "Close",
+        "home": "Home",
+        "faf-product-faf-shelve-a32s": "The sideboard",
+        "how-it-works": "How it works",
+        "about-us": "About us",
+        "contact-form": "Contact form",
+        "brand": "Brand guidelines",
+        "imprint": "Imprint",
+        "data-privacy-guideline": "Data privacy"
     },
     "cart": {
         "titleShort": "Cart",

@@ -3,7 +3,7 @@ import { FC, createContext, useState } from 'react'
 
 type MenuLink = {
 	path: string
-	title: string
+	textId: string
 	active?: boolean
 }
 
@@ -20,37 +20,37 @@ const defaults = {
 	menuLinks: [
 		{
 			path: '/',
-			title: 'Home',
+			textId: 'menu.home',
 		},
 		{
 			path: '/faf-product-faf-shelve-a32s',
-			title: 'The sideboard',
+			textId: 'menu.faf-product-faf-shelve-a32s',
 		},
 		{
 			path: '/how-it-works',
-			title: 'How it works',
+			textId: 'menu.how-it-works',
 		},
 		{
 			path: '/about-us',
-			title: 'About us',
+			textId: 'menu.about-us',
 		},
 		{
 			path: '/contact-form',
-			title: 'Contact form',
+			textId: 'menu.contact-form',
 		},
 	],
 	secondaryLinks: [
 		{
 			path: '/brand',
-			title: 'Brand assets',
+			textId: 'menu.brand',
 		},
 		{
 			path: '/imprint',
-			title: 'Imprint',
+			textId: 'menu.imprint',
 		},
 		{
 			path: '/data-privacy-guideline',
-			title: 'Data privacy guideline',
+			textId: 'menu.data-privacy-guideline',
 		},
 	],
 	menuIsOpened: false,

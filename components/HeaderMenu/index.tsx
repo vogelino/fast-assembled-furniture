@@ -11,6 +11,7 @@ const year = new Date().getFullYear()
 
 const MenuFooter: FC = () => {
 	const { secondaryLinks, closeMenu } = useContext(MenuContext)
+	const { t } = useTranslation('common')
 
 	return (
 		<li
@@ -31,7 +32,7 @@ const MenuFooter: FC = () => {
 							inactiveClassName="underline hover:no-underline cursor-pointer"
 							onClick={closeMenu}
 						>
-							{secondaryLink.title}
+							{t(secondaryLink.textId)}
 						</Link>
 					</li>
 				))}
@@ -112,7 +113,7 @@ export const HeaderMenu: FC = () => {
 								].join(' ')}
 							>
 								<Link href={menuLink.path} onClick={closeMenu}>
-									{menuLink.title}
+									{t(menuLink.textId)}
 								</Link>
 							</li>
 						))}
