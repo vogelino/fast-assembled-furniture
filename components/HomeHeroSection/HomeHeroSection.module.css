@@ -12,7 +12,7 @@
 .fadeIn {
   opacity: 0;
   transform: translate(-50%, 10px);
-  animation: fadeIn 1000ms cubic-bezier(.35,.02,0,.99) 1500ms 1 normal forwards;
+  animation: fadeIn 1000ms cubic-bezier(.35,.02,0,.99) 1000ms 1 normal forwards;
 }
 
 .textLine {

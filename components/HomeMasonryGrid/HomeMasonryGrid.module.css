@@ -1,7 +1,53 @@
+
+@keyframes fadeIn {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  0%   { transform: translate3d(var(--move-initial), 0, 0); }
+  100% { transform: translate3d(var(--move-final), 0, 0); }
+}
+
+.container {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1000ms cubic-bezier(.35,.02,0,.99) 800ms 1 normal forwards;
+}
+
+.marquee {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  height: 80px;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+}
+
+.marqueeInner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  animation: marquee 10s linear infinite;
+}
+
 .buttonsContainer {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding-top: var(--borderWidth, 3px);
   padding-left: var(--borderWidth, 3px);
   margin-left: calc(var(--borderWidth, 3px) * -1);
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.imageContainer > div {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
