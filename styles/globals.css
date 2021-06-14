@@ -336,6 +336,13 @@
 		body .notion { font-family: 'Inter var', sans-serif; }
 	}
 
+	.image-container div,
+	.image-container img {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+
 	body .notion h1,
 	body .notion h2,
 	body .notion h3 {

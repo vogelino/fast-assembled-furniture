@@ -41,6 +41,7 @@
     "react-feather": "2.0.9",
     "react-notion": "0.9.3",
     "stripe": "8.129.0",
+    "swiper": "6.7.0",
     "tailwindcss": "2.1.4"
   },
   "repository": {

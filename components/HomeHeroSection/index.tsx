@@ -34,7 +34,7 @@ const HomeImage = (): ReactPortal | null => {
 					src="/images/HomeHeroImage.png"
 					alt="An isometric view of the furniture"
 					width={765}
-					height={705}
+					height={765}
 				/>
 			</div>
 		</div>

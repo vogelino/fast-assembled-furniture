@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from 'react'
+import { CSSProperties, FC, HTMLProps } from 'react'
 import { identity } from '@utils/functionsUtil'
 import { Button } from '@components/SquareButton'
 import styles from './BorderEdge.module.css'
@@ -29,7 +29,7 @@ type BorderEdgeType = {
 	style?: CSSProperties
 }
 
-type ButtonWithBorderEdgesPropType = {
+interface ButtonWithBorderEdgesPropType extends HTMLProps<HTMLButtonElement> {
 	openings?: OrientationType[]
 	edges?: Array<{
 		position: PositionType
@@ -69,6 +69,7 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 	colorType,
 	icon,
 	status,
+	...rest
 }) => (
 	<div className="inline-block relative -mt-bd -ml-bd">
 		<div
@@ -88,7 +89,14 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 				.join(' ')}
 			style={style}
 		>
-			<Button type="button" colorType={colorType} icon={icon} status={status} style={{ margin: 0 }}>
+			<Button
+				{...rest}
+				type="button"
+				colorType={colorType}
+				icon={icon}
+				status={status}
+				style={{ margin: 0 }}
+			>
 				{children}
 			</Button>
 		</div>
