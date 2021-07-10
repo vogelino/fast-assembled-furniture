@@ -29,7 +29,7 @@ export const PresetsSliderImage: FC<PresetsSliderImagePropType> = ({
 
 	return (
 		<div className="gf col-span-4 row-span-3 sm:row-span-3 md:row-span-2 relative overflow-hidden">
-			<span className="text-7xl sm:text-9xl uppercase absolute pointer-events-none top-6 left-4 opacity-10">
+			<span className="text-7xl sm:text-9xl uppercase absolute pointer-events-none top-6 left-4 opacity-10 z-10">
 				{t('terms.preset')
 					.split('-')
 					.map((text, idx) => (
@@ -38,24 +38,26 @@ export const PresetsSliderImage: FC<PresetsSliderImagePropType> = ({
 						</span>
 					))}
 			</span>
-			<span className="text-7xl sm:text-9xl uppercase absolute pointer-events-none -bottom-7 sm:-bottom-12 left-4 font-medium">
+			<span className="text-7xl sm:text-9xl uppercase absolute pointer-events-none -bottom-7 sm:-bottom-12 left-4 font-medium  z-10">
 				{title}
 			</span>
 			<Swiper
+				effect="fade"
 				pagination={true}
 				className={`${styles.swiperContainer} absolute w-full h-full`}
 				onSwiper={onReady}
-				onSlideChangeTransitionEnd={(swiper) => {
+				onSlideChange={(swiper) => {
 					onSlideChange(swiper.activeIndex)
 				}}
+				loop
 			>
 				{slides.map(({ id, imageUrl }) => (
 					<SwiperSlide key={id}>
 						<div className="image-container p-8 absolute inset-0">
 							<Image
 								src={imageUrl}
-								width={1530 / 2}
-								height={1530 / 2}
+								width={1225 / 2}
+								height={875 / 2}
 								objectFit="contain"
 								objectPosition="right"
 							/>

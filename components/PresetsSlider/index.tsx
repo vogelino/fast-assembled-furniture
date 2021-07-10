@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 // import Swiper from 'swiper'
-import SwiperCore, { Pagination } from 'swiper/core'
+import SwiperCore, { Pagination, EffectFade } from 'swiper/core'
 import SwiperClass from 'swiper/types/swiper-class'
 import 'swiper/swiper.min.css'
 import 'swiper/components/pagination/pagination.min.css'
@@ -9,35 +9,53 @@ import { PresetsSliderButton } from '@components/PresetsSliderButton'
 import useTranslation from 'next-translate/useTranslation'
 import { PresetsSliderImage } from '@components/PresetsSliderImage'
 
-SwiperCore.use([Pagination])
+SwiperCore.use([EffectFade, Pagination])
 
 const fakeSlides = [
 	{
 		id: '1',
-		title: 'A01',
+		title: 'ÖGÜB',
 		price: 123.45,
-		imageUrl: '/images/HomeHeroImage.png',
-		boxInfo: 'Opened & Black',
-		strapInfo: 'Green',
-		boardInfo: 'Black MDF',
+		imageUrl: '/images/th-31644131984-1225x875.png',
+		boxInfo: 'Geöffnet & Grau',
+		strapInfo: 'Olivgrün',
+		boardInfo: 'Beschichtetes Holz',
 	},
 	{
 		id: '2',
-		title: 'ICE 55',
+		title: 'ÖGBE',
 		price: 678.91,
-		imageUrl: '/images/HomeHeroImage.png',
-		boxInfo: 'Closed & Grey',
-		strapInfo: 'Red, Yellow & Blue',
-		boardInfo: 'White MDF',
+		imageUrl: '/images/th-31644133651-1225x875.png',
+		boxInfo: 'Geöffnet & Grau',
+		strapInfo: 'Beige',
+		boardInfo: 'Beschichtetes Holz',
 	},
 	{
 		id: '3',
-		title: 'C3P0',
+		title: 'BLÖK',
 		price: 999.99,
-		imageUrl: '/images/HomeHeroImage.png',
-		boxInfo: 'Opened & Grey',
-		strapInfo: 'Red',
-		boardInfo: 'Natural MDF',
+		imageUrl: '/images/th-31644135010-1225x875.png',
+		boxInfo: 'Geöffnet & Grau',
+		strapInfo: 'Black',
+		boardInfo: 'Beschichtetes Holz',
+	},
+	{
+		id: '4',
+		title: 'PIGÖ',
+		price: 999.99,
+		imageUrl: '/images/th-31644138607-1225x875.png',
+		boxInfo: 'Geöffnet & Grau',
+		strapInfo: 'Pink',
+		boardInfo: 'Beschichtetes Holz',
+	},
+	{
+		id: '5',
+		title: 'ÖRGG',
+		price: 999.99,
+		imageUrl: '/images/th-31644138927-1225x875.png',
+		boxInfo: 'Geöffnet & Grau',
+		strapInfo: 'Orange',
+		boardInfo: 'Beschichtetes Holz',
 	},
 ]
 
@@ -45,6 +63,8 @@ export const PresetsSlider: FC = () => {
 	const { t, lang } = useTranslation('common')
 	const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null)
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+	const prevSlideId = currentSlideIndex - 1 < 0 ? fakeSlides.length - 1 : currentSlideIndex - 1
+	const nextSlideId = currentSlideIndex + 1 > fakeSlides.length - 1 ? 0 : currentSlideIndex + 1
 
 	const currency = new Intl.NumberFormat(lang, {
 		style: 'currency',
@@ -57,7 +77,7 @@ export const PresetsSlider: FC = () => {
 				<PresetsSliderImage
 					title={fakeSlides[currentSlideIndex].title}
 					slides={fakeSlides}
-					onSlideChange={setCurrentSlideIndex}
+					onSlideChange={(idx) => setCurrentSlideIndex(idx - 1)}
 					onReady={setSwiperInstance}
 				/>
 				<PresetInfo
@@ -70,12 +90,12 @@ export const PresetsSlider: FC = () => {
 					}}
 				/>
 				<PresetsSliderButton
-					onClick={() => swiperInstance && swiperInstance.slidePrev()}
-					imageUrl="/images/HomeHeroImage.png"
+					onClick={() => swiperInstance && swiperInstance.slideTo(prevSlideId + 1)}
+					imageUrl={fakeSlides[prevSlideId].imageUrl}
 				/>
 				<PresetsSliderButton
-					onClick={() => swiperInstance && swiperInstance.slideNext()}
-					imageUrl="/images/HomeHeroImage.png"
+					onClick={() => swiperInstance && swiperInstance.slideTo(nextSlideId + 1)}
+					imageUrl={fakeSlides[nextSlideId].imageUrl}
 					next
 				/>
 			</div>
