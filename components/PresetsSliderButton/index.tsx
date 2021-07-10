@@ -28,11 +28,10 @@ export const PresetsSliderButton: FC<PresetsSliderButtonPropType> = ({
 			onClick()
 		}}
 	>
-		<div className={presetsSliderButtonOverlayStyles.concat('mix-blend-multiply').join(' ')} />
-		<div className={presetsSliderButtonOverlayStyles.concat('mix-blend-color').join(' ')} />
+		<div className={presetsSliderButtonOverlayStyles.join(' ')} />
+		<div className={presetsSliderButtonOverlayStyles.join(' ')} />
 		<div
-			className={`image-container absolute inset-0 pr-6 pb-6 pl-14 pt-14 mix-blend-luminosity`}
-			style={{ transform: next ? 'scaleX(-1)' : 'scaleX(1)' }}
+			className={[`image-container absolute inset-0`, `p-6 pt-16 transform scale-125`].join(' ')}
 		>
 			<Image src={imageUrl} width={300} height={300} objectFit="contain" />
 		</div>

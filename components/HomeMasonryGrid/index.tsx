@@ -70,14 +70,32 @@ export const HomeMasonryGrid: FC = () => {
 							'gf col-span-12 sm:col-span-6 lg:col-span-6 lg:row-span-3 order-first sm:order-2',
 						].join(' ')}
 					>
-						<Image src="/images/LargeBlock01.png" width={696} height={808} objectFit="cover" />
+						<Image
+							src="/images/LargeBlock01.png"
+							quality={100}
+							width={627}
+							height={895}
+							objectFit="cover"
+						/>
 					</div>
 					<div className={[styles.imageContainer, 'gf col-span-6 lg:col-span-3'].join(' ')}>
-						<Image src="/images/Detail01.png" width={300} height={300} objectFit="cover" />
+						<Image
+							src="/images/Detail01.png"
+							quality={100}
+							width={384}
+							height={384}
+							objectFit="cover"
+						/>
 					</div>
 					<div className="relative col-span-6 lg:col-span-3">
 						<div className={[styles.imageContainer, 'absolute gf h-full-p w-full-p'].join(' ')}>
-							<Image src="/images/Detail03.png" width={300} height={300} objectFit="cover" />
+							<Image
+								src="/images/Detail03.png"
+								quality={100}
+								width={384}
+								height={384}
+								objectFit="cover"
+							/>
 						</div>
 					</div>
 					<div
@@ -85,7 +103,13 @@ export const HomeMasonryGrid: FC = () => {
 							' '
 						)}
 					>
-						<Image src="/images/Detail02.png" width={300} height={300} objectFit="cover" />
+						<Image
+							src="/images/Detail02.png"
+							quality={100}
+							width={84}
+							height={84}
+							objectFit="cover"
+						/>
 					</div>
 					<div className="relative col-span-12 sm:col-span-6 lg:col-span-3">
 						<div
