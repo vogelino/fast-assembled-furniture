@@ -1,14 +1,36 @@
 import React, { FC, useContext } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { Button } from '@components/SquareButton'
-import { Logo } from '@components/Logo'
 import ThemeSelect from '@components/ThemeSelect'
 import { MenuContext } from '@components/MenuContext'
 import { HeaderMenu } from '@components/HeaderMenu'
 import { HeaderMenuOverlay } from '@components/HeaderMenuOverlay'
 import styles from './Header.module.css'
 import { BorderEdge } from '@components/BorderEdge'
+import Link from '@components/Link'
 import { useRouter } from 'next/router'
+import { logoPaths } from '@components/Logo'
+
+const HeaderLogo: FC = () => (
+	<Link href="/" className="flex relative group">
+		<>
+			{[logoPaths.F, logoPaths.A, logoPaths.F].map((letter, idx) => (
+				<span className="gf w-16 flex items-center justify-center" key={idx}>
+					<svg viewBox="0 0 24 24" style={{ width: 32, height: 32 }}>
+						<path d={letter} fillRule="evenodd" fill="currentColor" />
+					</svg>
+				</span>
+			))}
+			<span
+				className={[
+					'inset-0 absolute bg-primary cursor-pointer',
+					'opacity-0 group-hover:opacity-50',
+					'rounded cursor-pointer transition',
+				].join(' ')}
+			/>
+		</>
+	</Link>
+)
 
 const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 	children,
@@ -53,7 +75,7 @@ const Header: FC = () => {
 					.filter(Boolean)
 					.join(' ')}
 			>
-				<Logo />
+				<HeaderLogo />
 				<div className="gf flex flex-col sm:flex-row pt-3 relative justify-start items-start sm:pl-3">
 					<ThemeSelect />
 					<div
