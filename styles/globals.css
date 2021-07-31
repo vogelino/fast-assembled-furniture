@@ -323,7 +323,7 @@
 	body {
 		--borderWidth: 2px;
 		--menuSize: 58px;
-		@apply bg-primary text-primary;
+		@apply text-primary;
 	} 
 
 	/* purgecss start ignore */
