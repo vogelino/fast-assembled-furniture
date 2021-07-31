@@ -33,10 +33,16 @@
         'text text';
 }
 
+.iconOnlyContainer {
+    min-width: 3.5rem;
+    grid-template-areas: 'icon icon'
+        'icon icon';
+}
+
 .squareButton:focus {
     @apply outline-none ring-4 ring-primary20 ring-inset;
 }
 
 .buttonContent {
-    @apply grid content-start items-center w-full h-full;
+    @apply flex content-start place-items-center place-content-center w-full h-full;
 }

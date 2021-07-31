@@ -1,16 +1,36 @@
 import React, { FC, useContext } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { Button } from '@components/SquareButton'
-import { Logo } from '@components/Logo'
-import { CartContext } from '@components/CartContext'
 import ThemeSelect from '@components/ThemeSelect'
 import { MenuContext } from '@components/MenuContext'
 import { HeaderMenu } from '@components/HeaderMenu'
 import { HeaderMenuOverlay } from '@components/HeaderMenuOverlay'
 import styles from './Header.module.css'
 import { BorderEdge } from '@components/BorderEdge'
-import { Cart } from '@components/Cart'
+import Link from '@components/Link'
 import { useRouter } from 'next/router'
+import { logoPaths } from '@components/Logo'
+
+const HeaderLogo: FC = () => (
+	<Link href="/" className="flex flex-col sm:flex-row relative group">
+		<>
+			{[logoPaths.F, logoPaths.A, logoPaths.F].map((letter, idx) => (
+				<span className="gf sm:w-16 h-16 sm:h-auto flex items-center justify-center" key={idx}>
+					<svg viewBox="0 0 24 24" style={{ width: 32, height: 32 }}>
+						<path d={letter} fillRule="evenodd" fill="currentColor" />
+					</svg>
+				</span>
+			))}
+			<span
+				className={[
+					'inset-0 absolute bg-primary cursor-pointer',
+					'opacity-0 group-hover:opacity-50',
+					'rounded cursor-pointer transition',
+				].join(' ')}
+			/>
+		</>
+	</Link>
+)
 
 const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 	children,
@@ -38,7 +58,6 @@ const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 
 const Header: FC = () => {
 	const { menuLinks, menuIsOpened, closeMenu, toggleMenu } = useContext(MenuContext)
-	const { cartSize, cartIsOpened, closeCart, toggleCart } = useContext(CartContext)
 	const { locale, locales, asPath, push } = useRouter()
 	const { t } = useTranslation('common')
 	const nextLocale = (locales?.filter((loc) => loc !== locale) || [locale])[0]
@@ -49,30 +68,28 @@ const Header: FC = () => {
 				className={[
 					styles.container,
 					styles.animatedContainer,
-					!(menuIsOpened || cartIsOpened) && styles.containerClosed,
+					!menuIsOpened && styles.containerClosed,
 					'fixed top-0 left-0 gfc grid z-50',
 					'container sm:left-1/2 sm:transform sm:-translate-x-1/2',
 				]
 					.filter(Boolean)
 					.join(' ')}
 			>
-				<Logo />
+				<HeaderLogo />
 				<div className="gf flex flex-col sm:flex-row pt-3 relative justify-start items-start sm:pl-3">
 					<ThemeSelect />
 					<div
 						className={[
 							'transform absolute uppercase font-bold',
-							'left-2 sm:left-48',
+							'left-2 sm:left-96',
 							'-bottom-2 sm:bottom-1/2 sm:translate-y-1/2',
 							'-rotate-90 sm:rotate-0',
 							'origin-top-left whitespace-nowrap',
 						].join(' ')}
 					>
 						<span className="hidden sm:inline">{menuIsOpened && t('menu.titleLong')}</span>
-						<span className="hidden sm:inline">{cartIsOpened && t('cart.titleLong')}</span>
 						<span className="hidden sm:inline">
 							{!menuIsOpened &&
-								!cartIsOpened &&
 								menuLinks.reduce((acc, { active, textId }) => (active ? t(textId) : acc), '')}
 						</span>
 					</div>
@@ -86,35 +103,19 @@ const Header: FC = () => {
 				</Button>
 				<Button
 					type="button"
-					icon={cartIsOpened ? 'X' : 'ShoppingCart'}
-					status={cartSize}
-					onClick={() => {
-						toggleCart()
-						closeMenu()
-					}}
-				>
-					{cartIsOpened ? t('actions.close') : t('cart.titleShort')}
-				</Button>
-				<Button
-					type="button"
 					icon={menuIsOpened ? 'X' : 'Menu'}
 					onClick={() => {
 						toggleMenu()
-						closeCart()
 					}}
-				>
-					{menuIsOpened ? t('actions.close') : t('menu.titleShort')}
-				</Button>
+				/>
 			</header>
 			<MenuContainer
-				isOpened={Boolean(menuIsOpened || cartIsOpened)}
+				isOpened={Boolean(menuIsOpened)}
 				onClose={() => {
-					closeCart()
 					closeMenu()
 				}}
 			>
 				{menuIsOpened && <HeaderMenu />}
-				{cartIsOpened && <Cart />}
 			</MenuContainer>
 			<div
 				className={[

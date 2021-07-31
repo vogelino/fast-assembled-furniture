@@ -1,67 +1,23 @@
-import { CartContext } from '@components/CartContext'
-import { MenuContext } from '@components/MenuContext'
 import Image from 'next/image'
-import { FC, ReactPortal, useContext, useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
+import { FC } from 'react'
 import styles from './HomeHeroSection.module.css'
 
-const HomeImage = (): ReactPortal | null => {
-	const [container, setContainer] = useState<HTMLDivElement | null>(null)
-	const { menuIsOpened } = useContext(MenuContext)
-	const { cartIsOpened } = useContext(CartContext)
-
-	useEffect(() => {
-		if (typeof window === 'undefined') return
-		const rootContainer = document.createElement('div')
-		const parentElem = document.querySelector('#__next')
-		if (!parentElem) return
-		parentElem.prepend(rootContainer)
-		setContainer(rootContainer)
-	}, [])
-
-	const element = (
-		<div
-			className={[
-				menuIsOpened || cartIsOpened ? 'z-0' : 'z-20',
-				styles.fadeIn,
-				'container',
-				'absolute top-4 left-1/2 transform -translate-x-1/2 pl-56 sm:pl-72 lg:pl-96',
-				'pointer-events-none mix-blend-luminosity text-right',
-			].join(' ')}
-		>
-			<div className="transform translate-x-0 sm:translate-x-4 md:translate-x-8 lg:translate-x-24">
-				<Image
-					src="/images/HomeHeroImage.png"
-					alt="An isometric view of the furniture"
-					width={765}
-					height={765}
-				/>
-			</div>
-		</div>
-	)
-
-	return container ? createPortal(element, container, 'home-image') : null
-}
-
 export const HomeHeroSection: FC = () => (
-	<div className="py-8 sm:py-12 px-4 sm:px-0 relative">
-		<div
-			className={[
-				'text-4xl sm:text-7xl md:text-8xl lg:text-9xl uppercase',
-				'font-semibold sm:font-medium md:font-normal',
-			].join(' ')}
-			style={{ lineHeight: '.9em' }}
-		>
-			<span className={styles.textLine}>Fast</span>
-			<br />
-			<span className={styles.textLine} style={{ animationDelay: '250ms' }}>
-				Assembled
-			</span>
-			<br />
-			<span className={styles.textLine} style={{ animationDelay: '400ms' }}>
-				Furniture
-			</span>
-		</div>
-		<HomeImage />
+	<div
+		className={[
+			styles.container,
+			styles.fadeIn,
+			'w-full flex items-center',
+			'pointer-events-none',
+		].join(' ')}
+	>
+		<Image
+			src="/images/HomeHeroImage.jpg"
+			alt="An isometric view of the furniture"
+			width={2780 / 2}
+			height={1638 / 2}
+			objectFit="cover"
+			quality={100}
+		/>
 	</div>
 )

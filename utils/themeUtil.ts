@@ -34,9 +34,17 @@ function createThemesWithVariants(rawThemes: ThemesType): ThemesType {
 }
 
 export const themes: ThemesType = createThemesWithVariants({
-	light: { primary: '#000000', secondary: '#ffffff' },
-	dark: { primary: '#f8f9fa', secondary: '#212529' },
-	primaryGreen: { primary: '#00ab64', secondary: '#e7ffeb' },
-	primaryBlue: { primary: '#1347e4', secondary: '#e5edf1' },
-	primaryRed: { primary: '#f52937', secondary: '#ffebb6' },
+	/* eslint-disable prettier/prettier */
+	light: 		{ primary: '#000000', secondary: '#ffffff' },
+	dark: 		{ primary: '#f8f9fa', secondary: '#212529' },
+	blau: 		{ primary: '#ffffff', secondary: '#294eb6' },
+	rosa:  		{ primary: '#ffffff', secondary: '#fbb0db' },
+	silber:   { primary: '#ffffff', secondary: '#b3b3c2' },
+	gelb:   	{ primary: '#ffffff', secondary: '#f3c50d' },
+	orange:   { primary: '#f7732f', secondary: '#ffffff' },
+	vlieder:  { primary: '#ffffff', secondary: '#cfbcf5' },
+	rot:   		{ primary: '#e8213d', secondary: '#ffffff' },
+	beige:   	{ primary: '#ffffff', secondary: '#ddc6b9' },
+	olive:   	{ primary: '#756c52', secondary: '#756c52' },
+	/* eslint-enable prettier/prettier */
 })

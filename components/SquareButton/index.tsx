@@ -1,7 +1,6 @@
 import { HTMLProps, FC, CSSProperties, useContext } from 'react'
 import { icons } from '@components/Icon'
 import styles from './SquareButton.module.css'
-import { getLuminance, meetsContrastGuidelines, readableColor } from 'polished'
 import { ColorThemeContext } from '@components/ColorThemeContext'
 
 const {
@@ -10,19 +9,13 @@ const {
 	buttonContentContainer,
 	textOnlyContainer,
 	squareButtonActive,
+	iconOnlyContainer,
 } = styles
-
-enum TypeColorMap {
-	Edit = '#FF9A6B',
-	Add = '#FFEA61',
-	Info = '#70B3FF',
-	Buy = '#87E39D',
-}
 interface ButtonProps extends HTMLProps<HTMLButtonElement> {
 	type: 'button' | 'submit' | 'reset'
 	status?: string | number
 	icon?: string
-	colorType?: 'Edit' | 'Add' | 'Info' | 'Buy'
+	primary?: boolean
 	style?: CSSProperties
 	active?: boolean
 }
@@ -32,58 +25,49 @@ export const Button: FC<ButtonProps> = ({
 	className,
 	icon,
 	status = '',
-	colorType,
 	style = {},
+	primary = false,
 	active = false,
 	...rest
 }) => {
 	const { themeKey, themes } = useContext(ColorThemeContext)
 	const IconTag = icon ? icons[icon] : () => null
 	const isTextOnly = !icon && !status && children
+	const isIconOnly = icon && !status && !children
 	const theme = themes[themeKey]
-	const typeColor = TypeColorMap[colorType || 'Edit']
-	let { primary: textColor } = theme
-
-	if (colorType && getLuminance(textColor) > 0.5) {
-		textColor = theme.secondary
-	}
-
-	const contrastGuideLines = meetsContrastGuidelines(textColor, typeColor)
-
-	if (colorType && !contrastGuideLines.AALarge) {
-		textColor = readableColor(textColor)
-	}
 
 	return (
 		// eslint-disable-next-line react/button-has-type
 		<button
 			className={`gf ${squareButton} ${className || ''} ${active ? squareButtonActive : ''}`}
-			style={colorType ? { ...style, backgroundColor: typeColor } : style}
+			style={primary ? { ...style, backgroundColor: theme.primary } : style}
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			{...rest}
 		>
 			<span
-				className={`${buttonContentContainer} ${(isTextOnly && textOnlyContainer) || ''}`}
-				style={{
-					...(colorType
-						? {
-								color: textColor,
-						  }
-						: {}),
-				}}
+				className={[
+					buttonContentContainer,
+					isTextOnly && textOnlyContainer,
+					isIconOnly && iconOnlyContainer,
+				]
+					.filter(Boolean)
+					.join(' ')}
+				style={{ ...(primary ? { color: theme.secondary } : {}) }}
 			>
 				{icon && (
 					<span style={{ gridArea: 'icon' }} className={`${buttonContent} icon`}>
-						<IconTag size={20} />
+						<IconTag size={isIconOnly ? 32 : 20} />
 					</span>
 				)}
 				{status}
-				<span
-					style={{ gridArea: 'text' }}
-					className="text leading-5 self-center justify-self-start"
-				>
-					{children}
-				</span>
+				{children && (
+					<span
+						style={{ gridArea: 'text' }}
+						className="text leading-5 self-center justify-self-start"
+					>
+						{children}
+					</span>
+				)}
 			</span>
 		</button>
 	)

@@ -1,35 +1,36 @@
-@keyframes fontWeightPulseDesktop {
-  0%   { opacity: 0;    font-weight: 300; letter-spacing: 0.0001em; }
-  10%  { opacity: 20;   font-weight: 800; letter-spacing: 0.01em; }
-  100% { opacity: 100;  font-weight: 400; letter-spacing: 0.01em; }
-}
-
-@keyframes fontWeightPulseMobile {
-  0%   { opacity: 0;    font-weight: 300; letter-spacing: 0.01em; }
-  10%  { opacity: 20;   font-weight: 800; letter-spacing: 0.01em; }
-  100% { opacity: 100;  font-weight: 600; letter-spacing: 0.01em; }
-}
-
 @keyframes fadeIn {
-  0%   { opacity: 0; transform: translate(-50%, 10px); }
-  100% { opacity: 1; transform: translate(-50%, 0); }
+  0%   { opacity: 0; transform: translate(0, 10px); }
+  100% { opacity: 1; transform: translate(0, 0); }
+}
+
+@keyframes slideSideways {
+  0%   { transform: scale(3) translateX(50vw); }
+  100% { transform: scale(3) translateX(-50vw); }
 }
 
 .fadeIn {
   opacity: 0;
-  transform: translate(-50%, 10px);
+  transform: translate(0, 10px);
   animation: fadeIn 1000ms cubic-bezier(.35,.02,0,.99) 1000ms 1 normal forwards;
 }
 
-.textLine {
-  font-weight: 300;
-  letter-spacing: 0.0001em;
-  opacity: 0;
-  animation: fontWeightPulseMobile 15000ms cubic-bezier(.45,.01,0,.98) 100ms 1 alternate forwards;
+.container {
+  height: calc(100vh - 60px);
 }
 
-@media screen and (min-width: 639px) {
-  .textLine {
-    animation-name: fontWeightPulseDesktop;
+@media screen and (min-width: 640px) {
+  .container {
+    height: calc(100vh - 120px);
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .container {
+    overflow: hidden;
+  }
+
+  .container > div {
+    transform: scale(3) translateX(50vw);
+    animation: slideSideways 20000ms linear 0ms infinite normal both;
   }
 }
