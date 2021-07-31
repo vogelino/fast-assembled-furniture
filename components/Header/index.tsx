@@ -12,10 +12,10 @@ import { useRouter } from 'next/router'
 import { logoPaths } from '@components/Logo'
 
 const HeaderLogo: FC = () => (
-	<Link href="/" className="flex relative group">
+	<Link href="/" className="flex flex-col sm:flex-row relative group">
 		<>
 			{[logoPaths.F, logoPaths.A, logoPaths.F].map((letter, idx) => (
-				<span className="gf w-16 flex items-center justify-center" key={idx}>
+				<span className="gf sm:w-16 h-16 sm:h-auto flex items-center justify-center" key={idx}>
 					<svg viewBox="0 0 24 24" style={{ width: 32, height: 32 }}>
 						<path d={letter} fillRule="evenodd" fill="currentColor" />
 					</svg>
@@ -81,7 +81,7 @@ const Header: FC = () => {
 					<div
 						className={[
 							'transform absolute uppercase font-bold',
-							'left-2 sm:left-48',
+							'left-2 sm:left-96',
 							'-bottom-2 sm:bottom-1/2 sm:translate-y-1/2',
 							'-rotate-90 sm:rotate-0',
 							'origin-top-left whitespace-nowrap',

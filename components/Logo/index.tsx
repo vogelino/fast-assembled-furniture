@@ -12,12 +12,10 @@ export const logoPaths = {
 const alllogoPaths: string[] = [logoPaths.F, logoPaths.A, logoPaths.F]
 
 type LogoPropType = {
-	framed?: boolean
-	vertical?: boolean
 	className?: string
 }
 
-export const Logo: FC<LogoPropType> = ({ framed = true, vertical = true, className = '' }) => {
+export const Logo: FC<LogoPropType> = ({ className = '' }) => {
 	const router = useRouter()
 
 	return (
@@ -26,21 +24,18 @@ export const Logo: FC<LogoPropType> = ({ framed = true, vertical = true, classNa
 				className={[
 					className,
 					styles.container,
-					framed && styles.containerFramed,
-					vertical ? styles.containerVertical : styles.containerHorizontal,
-					framed && 'gf',
-					'grid cursor-pointer hover:opacity-50 transition-opacity',
+					'inline-grid cursor-pointer hover:opacity-50 transition-opacity',
 				]
 					.filter(Boolean)
 					.join(' ')}
 			>
 				{alllogoPaths.map((letter: string, idx: number) => (
 					<li
-						className="content-center justify-center list-none rounded bg-primary text-secondary h-11 w-11 grid"
+						className="content-center justify-center list-none rounded bg-primary text-secondary h-8 w-8 grid"
 						// eslint-disable-next-line react/no-array-index-key
 						key={`${letter}-${idx}`}
 					>
-						<svg viewBox="0 0 24 24" style={{ width: 24, height: 24 }}>
+						<svg viewBox="0 0 24 24" style={{ width: 16, height: 16 }}>
 							<path d={letter} fillRule="evenodd" fill="currentColor" />
 						</svg>
 					</li>

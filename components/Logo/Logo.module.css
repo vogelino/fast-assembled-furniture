@@ -1,25 +1,4 @@
 .container {
-	grid-gap: 7px;
-}
-
-.containerFramed {
-	padding: 8px 7px;
-}
-
-@media screen and (max-width: 639px) {
-  .containerVertical {
-		grid-template-rows: repeat(3, 44px);
-	}
-  .containerHorizontal {
-		grid-template-columns: repeat(3, 44px);
-	}
-}
-
-@media screen and (min-width: 640px) {
-  .containerVertical {
-		grid-template-columns: repeat(3, 44px);
-	}
-  .containerHorizontal {
-		grid-template-rows: repeat(3, 44px);
-	}
+	grid-gap: 4px;
+	grid-template-columns: repeat(3, 32px);
 }
