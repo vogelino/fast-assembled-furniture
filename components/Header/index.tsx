@@ -2,14 +2,12 @@ import React, { FC, useContext } from 'react'
 import useTranslation from 'next-translate/useTranslation'
 import { Button } from '@components/SquareButton'
 import { Logo } from '@components/Logo'
-import { CartContext } from '@components/CartContext'
 import ThemeSelect from '@components/ThemeSelect'
 import { MenuContext } from '@components/MenuContext'
 import { HeaderMenu } from '@components/HeaderMenu'
 import { HeaderMenuOverlay } from '@components/HeaderMenuOverlay'
 import styles from './Header.module.css'
 import { BorderEdge } from '@components/BorderEdge'
-import { Cart } from '@components/Cart'
 import { useRouter } from 'next/router'
 
 const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
@@ -38,7 +36,6 @@ const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 
 const Header: FC = () => {
 	const { menuLinks, menuIsOpened, closeMenu, toggleMenu } = useContext(MenuContext)
-	const { cartSize, cartIsOpened, closeCart, toggleCart } = useContext(CartContext)
 	const { locale, locales, asPath, push } = useRouter()
 	const { t } = useTranslation('common')
 	const nextLocale = (locales?.filter((loc) => loc !== locale) || [locale])[0]
@@ -49,7 +46,7 @@ const Header: FC = () => {
 				className={[
 					styles.container,
 					styles.animatedContainer,
-					!(menuIsOpened || cartIsOpened) && styles.containerClosed,
+					!menuIsOpened && styles.containerClosed,
 					'fixed top-0 left-0 gfc grid z-50',
 					'container sm:left-1/2 sm:transform sm:-translate-x-1/2',
 				]
@@ -69,10 +66,8 @@ const Header: FC = () => {
 						].join(' ')}
 					>
 						<span className="hidden sm:inline">{menuIsOpened && t('menu.titleLong')}</span>
-						<span className="hidden sm:inline">{cartIsOpened && t('cart.titleLong')}</span>
 						<span className="hidden sm:inline">
 							{!menuIsOpened &&
-								!cartIsOpened &&
 								menuLinks.reduce((acc, { active, textId }) => (active ? t(textId) : acc), '')}
 						</span>
 					</div>
@@ -86,35 +81,19 @@ const Header: FC = () => {
 				</Button>
 				<Button
 					type="button"
-					icon={cartIsOpened ? 'X' : 'ShoppingCart'}
-					status={cartSize}
-					onClick={() => {
-						toggleCart()
-						closeMenu()
-					}}
-				>
-					{cartIsOpened ? t('actions.close') : t('cart.titleShort')}
-				</Button>
-				<Button
-					type="button"
 					icon={menuIsOpened ? 'X' : 'Menu'}
 					onClick={() => {
 						toggleMenu()
-						closeCart()
 					}}
-				>
-					{menuIsOpened ? t('actions.close') : t('menu.titleShort')}
-				</Button>
+				/>
 			</header>
 			<MenuContainer
-				isOpened={Boolean(menuIsOpened || cartIsOpened)}
+				isOpened={Boolean(menuIsOpened)}
 				onClose={() => {
-					closeCart()
 					closeMenu()
 				}}
 			>
 				{menuIsOpened && <HeaderMenu />}
-				{cartIsOpened && <Cart />}
 			</MenuContainer>
 			<div
 				className={[
