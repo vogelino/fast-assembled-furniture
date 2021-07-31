@@ -39,7 +39,7 @@ interface ButtonWithBorderEdgesPropType extends HTMLProps<HTMLButtonElement> {
 	style?: CSSProperties
 	status?: string | number
 	icon?: string
-	colorType?: 'Edit' | 'Add' | 'Info' | 'Buy'
+	primary?: boolean
 }
 
 export const BorderEdge: FC<BorderEdgeType> = ({ orientation, style = {}, className = '' }) => (
@@ -66,7 +66,7 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 	className = '',
 	children,
 	style = {},
-	colorType,
+	primary = false,
 	icon,
 	status,
 	...rest
@@ -92,7 +92,7 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 			<Button
 				{...rest}
 				type="button"
-				colorType={colorType}
+				primary={primary}
 				icon={icon}
 				status={status}
 				style={{ margin: 0 }}

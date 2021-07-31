@@ -18,7 +18,7 @@ const MenuGuide: FC<Pick<NotionRendererProps, 'blockMap'>> = ({ blockMap }) => (
 				</div>
 			</div>
 			<div className="inline-grid grid-cols-2 gap-0 absolute top-0 left-0">
-				<ButtonWithBorderEdges icon="Info" colorType="Info" className="ml-0">
+				<ButtonWithBorderEdges icon="Info" className="ml-0">
 					Info
 				</ButtonWithBorderEdges>
 				<ButtonWithBorderEdges
@@ -28,7 +28,6 @@ const MenuGuide: FC<Pick<NotionRendererProps, 'blockMap'>> = ({ blockMap }) => (
 						{ position: 'BottomLeft', orientation: 'TopLeft' },
 					]}
 					icon="Edit"
-					colorType="Edit"
 				>
 					Edit
 				</ButtonWithBorderEdges>
@@ -36,7 +35,7 @@ const MenuGuide: FC<Pick<NotionRendererProps, 'blockMap'>> = ({ blockMap }) => (
 					openings={['BottomRight']}
 					edges={[{ position: 'BottomLeft', orientation: 'TopLeft' }]}
 					icon="Plus"
-					colorType="Add"
+					primary
 				>
 					Add
 				</ButtonWithBorderEdges>
@@ -49,11 +48,10 @@ const MenuGuide: FC<Pick<NotionRendererProps, 'blockMap'>> = ({ blockMap }) => (
 						{ position: 'LeftTop', orientation: 'TopRight' },
 					]}
 					icon="Edit"
-					colorType="Edit"
 				>
 					Edit
 				</ButtonWithBorderEdges>
-				<ButtonWithBorderEdges icon="Info" colorType="Info" className="ml-0">
+				<ButtonWithBorderEdges icon="Info" className="ml-0">
 					Info
 				</ButtonWithBorderEdges>
 				<span />
@@ -61,7 +59,7 @@ const MenuGuide: FC<Pick<NotionRendererProps, 'blockMap'>> = ({ blockMap }) => (
 					openings={['BottomLeft']}
 					edges={[{ position: 'BottomRight', orientation: 'TopRight' }]}
 					icon="Plus"
-					colorType="Add"
+					primary
 				>
 					Add
 				</ButtonWithBorderEdges>
@@ -74,19 +72,18 @@ const MenuGuide: FC<Pick<NotionRendererProps, 'blockMap'>> = ({ blockMap }) => (
 						{ position: 'RightBottom', orientation: 'BottomLeft' },
 					]}
 					icon="Edit"
-					colorType="Edit"
 				>
 					Edit
 				</ButtonWithBorderEdges>
 				<span />
-				<ButtonWithBorderEdges icon="Info" colorType="Info" className="ml-0">
+				<ButtonWithBorderEdges icon="Info" className="ml-0">
 					Info
 				</ButtonWithBorderEdges>
 				<ButtonWithBorderEdges
 					openings={['TopRight']}
 					edges={[{ position: 'RightBottom', orientation: 'BottomLeft' }]}
 					icon="Plus"
-					colorType="Add"
+					primary
 				>
 					Add
 				</ButtonWithBorderEdges>
@@ -100,7 +97,6 @@ const MenuGuide: FC<Pick<NotionRendererProps, 'blockMap'>> = ({ blockMap }) => (
 						{ position: 'LeftBottom', orientation: 'BottomRight' },
 					]}
 					icon="Edit"
-					colorType="Edit"
 				>
 					Edit
 				</ButtonWithBorderEdges>
@@ -108,11 +104,11 @@ const MenuGuide: FC<Pick<NotionRendererProps, 'blockMap'>> = ({ blockMap }) => (
 					openings={['TopLeft']}
 					edges={[{ position: 'LeftBottom', orientation: 'BottomRight' }]}
 					icon="Plus"
-					colorType="Add"
+					primary
 				>
 					Add
 				</ButtonWithBorderEdges>
-				<ButtonWithBorderEdges icon="Info" colorType="Info" className="ml-0">
+				<ButtonWithBorderEdges icon="Info" className="ml-0">
 					Info
 				</ButtonWithBorderEdges>
 			</div>

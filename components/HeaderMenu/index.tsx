@@ -119,7 +119,7 @@ export const HeaderMenu: FC = () => {
 						))}
 						{cartSize !== 0 ? (
 							<li className="hidden sm:grid">
-								<Button type="button" colorType="Buy" className="w-full-p">
+								<Button type="button" primary className="w-full-p">
 									{t('cart.checkout')}{' '}
 									<span className="inline-block text-sm font-normal">
 										({currency.format(cartTotalPrice)})
@@ -134,7 +134,7 @@ export const HeaderMenu: FC = () => {
 				</div>
 				{cartSize !== 0 && (
 					<div className="sm:hidden gfc -mt-bd w-full">
-						<Button type="button" colorType="Buy" className="w-full-p">
+						<Button type="button" primary className="w-full-p">
 							{t('cart.checkout')}{' '}
 							<span className="inline-block text-sm font-normal">
 								({currency.format(cartTotalPrice)})

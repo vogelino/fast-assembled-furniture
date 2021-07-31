@@ -17,7 +17,7 @@ export const HomeMasonryGrid: FC = () => {
 		<div className={styles.container}>
 			<div className="relative">
 				<div className={[styles.buttonsContainer, 'inline-flex bg-primary'].join(' ')}>
-					<Button type="button" colorType="Buy">
+					<Button type="button" primary>
 						<span className="whitespace-nowrap">
 							<span className="hidden sm:inline">{tCommon('actions.buy')}</span>
 							<span className="sm:hidden">{tCommon('actions.buyShort')}</span>
@@ -26,7 +26,6 @@ export const HomeMasonryGrid: FC = () => {
 					<ButtonWithBorderEdges
 						edges={[{ position: 'RightBottom', orientation: 'BottomLeft' }]}
 						openings={['TopRight']}
-						colorType="Edit"
 					>
 						<span className="hidden sm:inline">{tCommon('actions.edit')}</span>
 						<span className="sm:hidden">{tCommon('actions.editShort')}</span>
