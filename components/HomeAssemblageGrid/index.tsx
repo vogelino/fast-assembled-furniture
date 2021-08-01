@@ -34,11 +34,11 @@ export const HomeAssemblageGrid: FC = () => {
 					<div className="col-span-12 sm:col-span-9 grid sm:order-first">
 						<div className={[styles.imageContainer, 'gf'].join(' ')}>
 							<Image
-								src="/images/LandscapeGif01.jpg"
+								src="/images/LandscapeGif01.gif"
 								quality={100}
-								width={971}
-								height={531}
-								objectFit="cover"
+								width={1920}
+								height={1011}
+								objectFit="contain"
 							/>
 						</div>
 						<TabbedBlock
