@@ -79,7 +79,7 @@ const Header: FC = () => {
 					<div
 						className={[
 							'transform absolute uppercase font-bold',
-							'left-2 sm:left-96',
+							'left-2 sm:left-14 lg:left-96',
 							'-bottom-2 sm:bottom-1/2 sm:translate-y-1/2',
 							'-rotate-90 sm:rotate-0',
 							'origin-top-left whitespace-nowrap',
