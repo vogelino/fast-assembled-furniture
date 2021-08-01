@@ -3,9 +3,9 @@ import { Logo } from '@components/Logo'
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import { FC } from 'react'
-import styles from './HomeMasonryGrid.module.css'
+import styles from './HomeIntroGrid.module.css'
 
-export const HomeMasonryGrid: FC = () => {
+export const HomeIntroGrid: FC = () => {
 	const { t: tCommon } = useTranslation('common')
 	const { t: tHome } = useTranslation('home')
 
