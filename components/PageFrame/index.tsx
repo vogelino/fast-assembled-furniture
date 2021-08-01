@@ -6,7 +6,7 @@ export const PageFrame: FC = () => (
 	<div
 		className={[
 			styles.container,
-			'fixed pointer-events-none inset-0 page-edges z-50 rounded-lg border-bd',
+			'fixed pointer-events-none inset-0 page-edges z-50 rounded-lg border-bd border-primary',
 		].join(' ')}
 	>
 		<div className="relative w-full h-full">
