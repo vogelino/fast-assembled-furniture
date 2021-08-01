@@ -12,10 +12,10 @@ export const HomeHeroSection: FC = () => (
 		].join(' ')}
 	>
 		<Image
-			src="/images/HomeHeroImage.jpg"
+			src="/images/HomeHeroImage.png"
 			alt="An isometric view of the furniture"
-			width={2780 / 2}
-			height={1638 / 2}
+			width={1920}
+			height={919}
 			objectFit="cover"
 			quality={100}
 		/>

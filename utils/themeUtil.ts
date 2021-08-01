@@ -45,6 +45,6 @@ export const themes: ThemesType = createThemesWithVariants({
 	vlieder:  { primary: '#ffffff', secondary: '#cfbcf5' },
 	rot:   		{ primary: '#e8213d', secondary: '#ffffff' },
 	beige:   	{ primary: '#ffffff', secondary: '#ddc6b9' },
-	olive:   	{ primary: '#756c52', secondary: '#756c52' },
+	olive:   	{ primary: '#756c52', secondary: '#ffffff' },
 	/* eslint-enable prettier/prettier */
 })

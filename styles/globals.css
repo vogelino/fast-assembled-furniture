@@ -288,8 +288,7 @@
 
 	#__next {
 		min-height: calc(var(--vh, 1vh) * 100);
-		background: #ffffff;
-		@apply border-bd;
+		@apply bg-secondary border-bd;
 	}
 
 	html.no-scroll {
