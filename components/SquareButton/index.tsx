@@ -5,11 +5,11 @@ import { ColorThemeContext } from '@components/ColorThemeContext'
 
 const {
 	squareButton,
-	buttonContent,
 	buttonContentContainer,
 	textOnlyContainer,
-	squareButtonActive,
 	iconOnlyContainer,
+	squareButtonTab,
+	squareButtonActiveTab,
 } = styles
 interface ButtonProps extends HTMLProps<HTMLButtonElement> {
 	type: 'button' | 'submit' | 'reset'
@@ -18,6 +18,7 @@ interface ButtonProps extends HTMLProps<HTMLButtonElement> {
 	primary?: boolean
 	style?: CSSProperties
 	active?: boolean
+	asTab?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -28,6 +29,7 @@ export const Button: FC<ButtonProps> = ({
 	style = {},
 	primary = false,
 	active = false,
+	asTab = false,
 	...rest
 }) => {
 	const { themeKey, themes } = useContext(ColorThemeContext)
@@ -39,13 +41,25 @@ export const Button: FC<ButtonProps> = ({
 	return (
 		// eslint-disable-next-line react/button-has-type
 		<button
-			className={`gf ${squareButton} ${className || ''} ${active ? squareButtonActive : ''}`}
+			className={[
+				`gf grid focus:outline-none`,
+				!asTab && 'focus:ring-inset focus:ring-4 focus:ring-primary20',
+				squareButton,
+				className,
+				active && 'bg-primary text-secondary cursor-default',
+				asTab && squareButtonTab,
+				asTab && !primary && squareButtonActiveTab,
+			]
+				.filter(Boolean)
+				.join(' ')}
 			style={primary ? { ...style, backgroundColor: theme.primary } : style}
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			{...rest}
 		>
 			<span
 				className={[
+					'grid w-full place-items-center p-1.5 rounded-md uppercase',
+					'font-bold text-left text-sm transition-transform',
 					buttonContentContainer,
 					isTextOnly && textOnlyContainer,
 					isIconOnly && iconOnlyContainer,
@@ -55,7 +69,10 @@ export const Button: FC<ButtonProps> = ({
 				style={{ ...(primary ? { color: theme.secondary } : {}) }}
 			>
 				{icon && (
-					<span style={{ gridArea: 'icon' }} className={`${buttonContent} icon`}>
+					<span
+						style={{ gridArea: 'icon' }}
+						className="flex content-start place-items-center place-content-center w-full h-full icon"
+					>
 						<IconTag size={isIconOnly ? 32 : 20} />
 					</span>
 				)}

@@ -79,10 +79,12 @@ export const HomeIntroGrid: FC = () => {
 					<div className="relative col-span-12 lg:col-span-3">
 						<div className={[styles.middleBlock, 'gf h-full-p'].join(' ')}>
 							<div className="flex items-center p-6 border-b border-primary">
-								<h4 className="inline text-2xl font-bold uppercase leading-6">Drei zu Eins</h4>
+								<h4 className="inline text-2xl font-bold uppercase leading-6">
+									{tHome('components.title')}
+								</h4>
 							</div>
-							<p className={['md:text-xl lg:text-2xl col-span-3 xl:col-span-5 p-6 pb-8'].join(' ')}>
-								{tHome('componentsDescription')}
+							<p className={['lg:text-xl col-span-3 xl:col-span-5 p-6 pb-8'].join(' ')}>
+								{tHome('components.text')}
 							</p>
 						</div>
 						<BorderEdge

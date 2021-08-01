@@ -1,4 +1,27 @@
 {
-  "introduction": "Ein anpassbares modulares Möbelsystem. Schnell montier- und demontierbar. Industrielle Komponenten - oder Fundstücke - werden zu einem Möbelstück collagiert.",
-  "componentsDescription": "Die Kernelemente von FAF ermöglichen eine schnelle und flexible Montage. Die Gurte, die Box und die Bretter können nach Belieben an Ihr Branding oder Ihre Raumatmosphäre angepasst werden."
+  "introduction": "Ein funktionales, mobiles und personalisierbares Sideboard, das sich ohne Werkzeug auf- und abbauen lässt.",
+  "components": {
+    "title": "AUS DREI MACHT EINS",
+    "text": "FAF besteht aus drei Komponenten, die aus dem Transportwesen bekannt sind: Euro-Behälter, Holzplatten und Spanngurte. Sie werden ohne zusätzliches Werkzeug so zusammengesetzt, dass ein formschönes und stabiles Sideboard entsteht."
+  },
+  "box": {
+    "title": "BOX",
+    "text": "Die Euronorm Box aus Polypropylen ist ein robustes Produkt, das in der Industrie für seine Langlebigkeit bekannt ist. Für das FAF Sideboard dient die Box als Regalfach und gibt Stabilität – Damit das Sideboard noch mehr Dinge aufnehmen kann, werden exklusiv gefertigte Schienen aus Aluminium auf die Ränder der Kiste gesteckt."
+  },
+  "board": {
+    "title": "BOARD",
+    "text": "Die horizontalen Lagen des FAF Sideboard bestehen aus 18 mm starken Sperrholzplatten, in die mittels präziser CNC-Technik die Konturen der rotierten Eurokiste gefräst werden; durch dieses Verfahren rasten die Behälter auf der perforierten Holzoberfläche ein. Verwendet werden wahlweise naturbelassene Multiplexplatten aus Buche oder dunkel beschichtete Siebdruckplatten. An der unteren Holzplatte befinden sich Rollen aus weichem Polyurethan, die das FAF Sideboard mobil machen."
+  },
+  "strap": {
+    "title": "STRAP",
+    "text": "Der klassische Spanngurt ist aus aus dem Transportwesen nicht wegzudenkenFAF lässt Gurte mit verzinkter Metallschnalle, die die Komponente des Sideboard-Systems zusammenhalten, in 12 Farben exklusiv anfertigen. Die breite farbliche Auswahl der Gurte sorgt für das individuelle Erscheinungsbild, welches das FAF Sideboard auszeichnet. Natürlich können die Spanngurte des Sideboards jederzeit gewechselt werden und sind nachträglich als Set via hello@faf.berlin bestellbar."
+  },
+  "production": {
+    "title": "FERTIGUNG UND VERSAND",
+    "text": "Die CNC-gefrästen Holzplatten werden batchweise von einem kleinen Unternehmen in Brandenburg gefertigt. Die Schienen aus Aluminium und Spanngurte werden exklusiv in Berlin produziert. Zusammen mit den Rollen erfolgt der Versand dieser Bestandteile als CO-2 neutrale Lieferung. Um zusätzliche Transportwege und Verpackungsmaterial zu vermeiden, erfolgt die Zustellung der Euro-Kisten direkt vom Hersteller aus Süddeutschland."
+  },
+  "disclaimer":{
+    "title": "Bestellmodell",
+    "text": "Da FAF ein junges Unternehmen ist und seine Produkte aktuell nur in Kleinserie produzieren kann, wird das Sideboard-System batchweise hergestellt. Das heißt, dass FAF bei einer Menge von jeweils 20 Bestellungen in die Produktion geht. Wenn Du jetzt bestellst, müssen noch x weitere Bestellungen eingehen, damit die Produktion beginnt. Sollten 6 Wochen nach deiner Bestellung noch nicht genug weitere Bestellungen eingegangen sein, kannst du deine Anzahlung zurückfordern. Bei Sonderanfragen oder für weitere Informationen erreichst Du uns unter hello@faf.berlin."
+  }
 }

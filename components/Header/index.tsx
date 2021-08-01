@@ -1,5 +1,4 @@
 import React, { FC, useContext } from 'react'
-import useTranslation from 'next-translate/useTranslation'
 import { Button } from '@components/SquareButton'
 import ThemeSelect from '@components/ThemeSelect'
 import { MenuContext } from '@components/MenuContext'
@@ -16,7 +15,7 @@ const HeaderLogo: FC = () => (
 		<>
 			{[logoPaths.F, logoPaths.A, logoPaths.F].map((letter, idx) => (
 				<span className="gf sm:w-16 h-16 sm:h-auto flex items-center justify-center" key={idx}>
-					<svg viewBox="0 0 24 24" style={{ width: 32, height: 32 }}>
+					<svg viewBox="0 0 24 24" style={{ width: 40, height: 40 }}>
 						<path d={letter} fillRule="evenodd" fill="currentColor" />
 					</svg>
 				</span>
@@ -57,8 +56,7 @@ const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 )
 
 const Header: FC = () => {
-	const { menuLinks, menuIsOpened, closeMenu, toggleMenu } = useContext(MenuContext)
-	const { t } = useTranslation('common')
+	const { menuIsOpened, closeMenu, toggleMenu } = useContext(MenuContext)
 
 	return (
 		<>
@@ -74,23 +72,8 @@ const Header: FC = () => {
 					.join(' ')}
 			>
 				<HeaderLogo />
-				<div className="gf flex flex-col sm:flex-row pt-3 relative justify-start items-start sm:pl-3">
+				<div className="gf flex flex-col sm:flex-row pb-3 sm:pb-0 sm:pt-3 relative justify-end items-start sm:pr-3">
 					<ThemeSelect />
-					<div
-						className={[
-							'transform absolute uppercase font-bold',
-							'left-2 sm:left-14 lg:left-96',
-							'-bottom-2 sm:bottom-1/2 sm:translate-y-1/2',
-							'-rotate-90 sm:rotate-0',
-							'origin-top-left whitespace-nowrap',
-						].join(' ')}
-					>
-						<span className="hidden sm:inline">{menuIsOpened && t('menu.titleLong')}</span>
-						<span className="hidden sm:inline">
-							{!menuIsOpened &&
-								menuLinks.reduce((acc, { active, textId }) => (active ? t(textId) : acc), '')}
-						</span>
-					</div>
 				</div>
 				<LanguageButton />
 				<Button

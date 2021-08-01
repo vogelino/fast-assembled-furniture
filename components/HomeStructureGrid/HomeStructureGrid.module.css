@@ -1,0 +1,47 @@
+
+@keyframes fadeIn {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  0%   { transform: translate3d(var(--move-initial), 0, 0); }
+  100% { transform: translate3d(var(--move-final), 0, 0); }
+}
+
+.container {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1000ms cubic-bezier(.35,.02,0,.99) 800ms 1 normal forwards;
+}
+
+@media screen and (max-width: 639px) {
+  .container {
+    width: calc(100% + var(--borderWidth, 3px));
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .middleBlock {
+    width: calc(200% + var(--borderWidth, 3px));
+  }
+}
+
+.buttonsContainer {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding-top: var(--borderWidth, 3px);
+  padding-left: var(--borderWidth, 3px);
+  margin-left: calc(var(--borderWidth, 3px) * -1);
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.imageContainer > div {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  float: left;
+}

@@ -29,17 +29,20 @@ type BorderEdgeType = {
 	style?: CSSProperties
 }
 
+interface EdgeType {
+	position: PositionType
+	orientation: OrientationType
+}
+
 interface ButtonWithBorderEdgesPropType extends HTMLProps<HTMLButtonElement> {
 	openings?: OrientationType[]
-	edges?: Array<{
-		position: PositionType
-		orientation: OrientationType
-	}>
+	edges?: Array<EdgeType | false | undefined | null>
 	className?: string
 	style?: CSSProperties
 	status?: string | number
 	icon?: string
 	primary?: boolean
+	asTab?: boolean
 }
 
 export const BorderEdge: FC<BorderEdgeType> = ({ orientation, style = {}, className = '' }) => (
@@ -69,6 +72,7 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 	primary = false,
 	icon,
 	status,
+	asTab,
 	...rest
 }) => (
 	<div className="inline-block relative -mt-bd -ml-bd">
@@ -79,8 +83,8 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 					[
 						opening === 'TopLeft' && 'rounded-tl-lg',
 						opening === 'TopRight' && 'rounded-tr-lg',
-						opening === 'BottomLeft' && 'rounded-bl-lg',
-						opening === 'BottomRight' && 'rounded-br-lg',
+						opening === 'BottomLeft' && !asTab && 'rounded-bl-lg',
+						opening === 'BottomRight' && !asTab && 'rounded-br-lg',
 					].filter(identity)
 				),
 				className,
@@ -91,6 +95,7 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 		>
 			<Button
 				{...rest}
+				asTab={asTab}
 				type="button"
 				primary={primary}
 				icon={icon}
@@ -100,7 +105,7 @@ export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 				{children}
 			</Button>
 		</div>
-		{edges.map(({ position, orientation }) => (
+		{(edges.filter(Boolean) as EdgeType[]).map(({ position, orientation }) => (
 			<BorderEdge
 				key={`${position}-${orientation}`}
 				orientation={orientation}

@@ -19,7 +19,7 @@ export const HomeHeroSection: FC = () => {
 					src="/images/HomeHeroImage.gif"
 					alt="An isometric view of the furniture"
 					width={1920}
-					height={919}
+					height={975}
 					objectFit="cover"
 					quality={100}
 					className="opacity-10"
@@ -33,7 +33,7 @@ export const HomeHeroSection: FC = () => {
 						src="/images/HomeHeroImage.png"
 						alt="An isometric view of the furniture"
 						width={1920}
-						height={919}
+						height={975}
 						objectFit="cover"
 						quality={100}
 						onLoad={() => {

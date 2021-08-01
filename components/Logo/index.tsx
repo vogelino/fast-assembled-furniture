@@ -35,7 +35,7 @@ export const Logo: FC<LogoPropType> = ({ className = '' }) => {
 						// eslint-disable-next-line react/no-array-index-key
 						key={`${letter}-${idx}`}
 					>
-						<svg viewBox="0 0 24 24" style={{ width: 16, height: 16 }}>
+						<svg viewBox="0 0 24 24" style={{ width: 24, height: 24 }}>
 							<path d={letter} fillRule="evenodd" fill="currentColor" />
 						</svg>
 					</li>
