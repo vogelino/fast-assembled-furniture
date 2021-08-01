@@ -8,8 +8,8 @@ import { HeaderMenuOverlay } from '@components/HeaderMenuOverlay'
 import styles from './Header.module.css'
 import { BorderEdge } from '@components/BorderEdge'
 import Link from '@components/Link'
-import { useRouter } from 'next/router'
 import { logoPaths } from '@components/Logo'
+import { LanguageButton } from '@components/LanguageButton'
 
 const HeaderLogo: FC = () => (
 	<Link href="/" className="flex flex-col sm:flex-row relative group">
@@ -58,9 +58,7 @@ const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 
 const Header: FC = () => {
 	const { menuLinks, menuIsOpened, closeMenu, toggleMenu } = useContext(MenuContext)
-	const { locale, locales, asPath, push } = useRouter()
 	const { t } = useTranslation('common')
-	const nextLocale = (locales?.filter((loc) => loc !== locale) || [locale])[0]
 
 	return (
 		<>
@@ -94,13 +92,7 @@ const Header: FC = () => {
 						</span>
 					</div>
 				</div>
-				<Button
-					type="button"
-					icon={'Globe'}
-					onClick={() => push(asPath, asPath, { locale: nextLocale })}
-				>
-					{nextLocale}
-				</Button>
+				<LanguageButton />
 				<Button
 					type="button"
 					icon={menuIsOpened ? 'X' : 'Menu'}

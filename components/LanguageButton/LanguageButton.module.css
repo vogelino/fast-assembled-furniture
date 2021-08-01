@@ -1,0 +1,7 @@
+.container:hover .text {
+  @apply -translate-y-0.5;
+}
+
+.container:active .text {
+  @apply translate-y-0.5;
+}
