@@ -29,12 +29,12 @@
         "buy": "Kaufen",
         "buyShort": "Kaufen",
         "edit": "Customize",
-        "editShort": "Anpassen"
+        "editShort": "Customize"
     },
     "components": {
         "box": "Box",
-        "strap": "Gurt",
-        "board": "Brett"
+        "strap": "Strap",
+        "board": "Board"
     },
     "terms": {
         "preset": "Vari-ante"
