@@ -31,7 +31,10 @@ export const TabbedBlock: FC<TabsPropType> = ({ tabs, className = '' }) => {
 							primary={activeTabIndex !== idx}
 							openings={['TopLeft', 'TopRight']}
 							edges={[
-								idx === tabs.length - 1 && { position: 'RightBottom', orientation: 'BottomLeft' },
+								idx === tabs.length - 1 && {
+									position: 'RightBottom',
+									orientation: 'BottomLeft',
+								},
 							]}
 						>
 							{title}
@@ -43,7 +46,7 @@ export const TabbedBlock: FC<TabsPropType> = ({ tabs, className = '' }) => {
 					<Image
 						src={`/images/${tabs[activeTabIndex].img}`}
 						alt={`An isolated view of the ${tabs[activeTabIndex].title}`}
-						width={420}
+						width={530}
 						height={324}
 						objectFit="contain"
 						quality={100}

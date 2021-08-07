@@ -24,19 +24,19 @@ export const HomeIntroGrid: FC = () => {
 				</div>
 				<BorderEdge
 					orientation="BottomRight"
-					className="opacity-100 sm:opacity-0 absolute bottom-0 right-0"
+					className="absolute bottom-0 right-0 opacity-100 sm:opacity-0"
 				/>
 				<BorderEdge
 					orientation="BottomLeft"
-					className="opacity-100 sm:opacity-0 absolute -left-bd top-bd transform -translate-y-full"
+					className="absolute opacity-100 sm:opacity-0 -left-bd top-bd transform -translate-y-full"
 				/>
 			</div>
 			<div className="gfc -ml-bd -mt-bd w-full-p sm:rounded-tr-lg">
 				<div className="grid grid-cols-12 lg:grid-flow-col-dense">
 					<div className={['gf col-span-12 md:col-span-6', 'gap-4 lg:grid-cols-5'].join(' ')}>
-						<div className="sm:flex gap-4 items-center p-6 border-b border-primary">
+						<div className="items-center p-6 border-b sm:flex gap-4 border-primary">
 							<Logo />
-							<h4 className="sm:inline mt-4 sm:m-0 text-2xl font-bold uppercase leading-6">
+							<h4 className="mt-4 text-2xl font-bold uppercase sm:inline sm:m-0 leading-6">
 								Fast Assembled Furniture
 							</h4>
 						</div>
@@ -89,12 +89,12 @@ export const HomeIntroGrid: FC = () => {
 						</div>
 						<BorderEdge
 							orientation="BottomLeft"
-							className="opacity-0 lg:opacity-100 absolute -top-6"
+							className="absolute opacity-0 lg:opacity-100 -top-6"
 							style={{ left: 'calc(100% - var(--borderWidth, 3px))' }}
 						/>
 						<BorderEdge
 							orientation="BottomLeft"
-							className="opacity-0 lg:opacity-100 absolute bottom-0"
+							className="absolute bottom-0 opacity-0 lg:opacity-100"
 							style={{ left: 'calc(200% - var(--borderWidth, 3px))' }}
 						/>
 					</div>

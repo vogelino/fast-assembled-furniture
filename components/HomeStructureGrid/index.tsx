@@ -21,7 +21,7 @@ export const HomeStructureGrid: FC = () => {
 					</div>
 					<div className={['gf col-span-12 md:col-span-6', 'gap-4 lg:grid-cols-5'].join(' ')}>
 						<div className="sm:flex gap-4 items-center p-6 border-b border-primary">
-							<h4 className="sm:inline mt-4 sm:m-0 text-2xl font-bold uppercase leading-6">
+							<h4 className="sm:inline text-2xl font-bold uppercase leading-6">
 								{tHome('production.title')}
 							</h4>
 						</div>
@@ -44,9 +44,7 @@ export const HomeStructureGrid: FC = () => {
 					</div>
 					<div className={['gf col-span-12 md:col-span-6', 'gap-4 lg:grid-cols-5'].join(' ')}>
 						<div className="sm:flex gap-4 items-center p-6 border-b border-primary">
-							<h4 className="sm:inline mt-4 sm:m-0 text-2xl font-bold uppercase leading-6">
-								Make it you own
-							</h4>
+							<h4 className="sm:inline text-2xl font-bold uppercase leading-6">Make it you own</h4>
 						</div>
 						<p className={['lg:text-xl col-span-3 xl:col-span-5 p-6 pb-8'].join(' ')}>
 							{tHome('introduction')}

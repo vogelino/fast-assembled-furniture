@@ -21,7 +21,10 @@ export const HomeAssemblageGrid: FC = () => {
 								objectFit="cover"
 							/>
 						</div>
-						<div className={[styles.imageContainer, 'gf'].join(' ')}>
+						<div
+							className={[styles.imageContainer, 'gf'].join(' ')}
+							style={{ background: 'white' }}
+						>
 							<Image
 								src="/images/SquareDetail03.jpg"
 								quality={100}
@@ -32,31 +35,34 @@ export const HomeAssemblageGrid: FC = () => {
 						</div>
 					</div>
 					<div className="col-span-12 sm:col-span-9 grid sm:order-first">
-						<div className={[styles.imageContainer, 'gf'].join(' ')}>
+						<div
+							className={[styles.imageContainer, 'gf pb-16'].join(' ')}
+							style={{ background: 'white' }}
+						>
 							<Image
 								src="/images/LandscapeGif01.gif"
 								quality={100}
 								width={1920}
-								height={1011}
+								height={1280}
 								objectFit="contain"
 							/>
 						</div>
 						<TabbedBlock
 							tabs={[
 								{
-									img: 'BoardDetail01.jpg',
+									img: 'BoardDetail01.png',
 									id: 'board',
 									title: tHome('board.title'),
 									text: tHome('board.text'),
 								},
 								{
-									img: 'BoxDetail01.jpg',
+									img: 'BoxDetail01.png',
 									id: 'box',
 									title: tHome('box.title'),
 									text: tHome('box.text'),
 								},
 								{
-									img: 'StrapDetail01.jpg',
+									img: 'StrapDetail01.png',
 									id: 'strap',
 									title: tHome('strap.title'),
 									text: tHome('strap.text'),
