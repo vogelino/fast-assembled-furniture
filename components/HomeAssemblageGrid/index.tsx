@@ -48,6 +48,7 @@ export const HomeAssemblageGrid: FC = () => {
 							/>
 						</div>
 						<TabbedBlock
+							id="assemblage-anchor"
 							tabs={[
 								{
 									img: 'BoardDetail01.png',

@@ -2,6 +2,11 @@ import { useRouter } from 'next/router'
 import { FC, createContext, useState } from 'react'
 
 type MenuLink = {
+	id: string
+	textId: string
+}
+
+type SecondaryMenuLink = {
 	path: string
 	textId: string
 	active?: boolean
@@ -9,7 +14,7 @@ type MenuLink = {
 
 interface MenuContextType {
 	menuLinks: MenuLink[]
-	secondaryLinks: MenuLink[]
+	secondaryLinks: SecondaryMenuLink[]
 	menuIsOpened: boolean
 	openMenu: () => void
 	closeMenu: () => void
@@ -19,31 +24,31 @@ interface MenuContextType {
 const defaults = {
 	menuLinks: [
 		{
-			path: '/',
-			textId: 'menu.home',
+			id: 'introduction-anchor',
+			textId: 'introduction.title',
 		},
 		{
-			path: '/faf-product-faf-shelve-a32s',
-			textId: 'menu.faf-product-faf-shelve-a32s',
+			id: 'components-anchor',
+			textId: 'components.title',
 		},
 		{
-			path: '/how-it-works',
-			textId: 'menu.how-it-works',
+			id: 'assemblage-anchor',
+			textId: 'assemblage.title',
 		},
 		{
-			path: '/about-us',
-			textId: 'menu.about-us',
+			id: 'production-anchor',
+			textId: 'production.title',
 		},
 		{
-			path: '/contact-form',
-			textId: 'menu.contact-form',
+			id: 'makeityourown-anchor',
+			textId: 'makeityourown.title',
+		},
+		{
+			id: 'configurator-anchor',
+			textId: 'configurator.title',
 		},
 	],
 	secondaryLinks: [
-		{
-			path: '/brand',
-			textId: 'menu.brand',
-		},
 		{
 			path: '/imprint',
 			textId: 'menu.imprint',
@@ -69,7 +74,7 @@ export const MenuProvider: FC = ({ children }) => {
 		<MenuContext.Provider
 			value={{
 				...state,
-				menuLinks: state.menuLinks.map((menuLink) => ({
+				secondaryLinks: state.secondaryLinks.map((menuLink) => ({
 					...menuLink,
 					active: menuLink.path === router.asPath,
 				})),

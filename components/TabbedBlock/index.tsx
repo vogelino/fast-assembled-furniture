@@ -11,15 +11,16 @@ interface TabType {
 }
 
 interface TabsPropType {
+	id?: string
 	className?: string
 	tabs: TabType[]
 }
 
-export const TabbedBlock: FC<TabsPropType> = ({ tabs, className = '' }) => {
+export const TabbedBlock: FC<TabsPropType> = ({ tabs, className = '', id = '' }) => {
 	const [activeTabIndex, setActiveTabIndex] = useState(0)
 
 	return (
-		<div className="relative flex">
+		<div className="relative flex" id={id}>
 			<div className={['gf', className, styles.tabBlock].join(' ')}>
 				<div className="absolute top-0 transform -translate-y-full flex">
 					{tabs.map(({ id, title }, idx) => (

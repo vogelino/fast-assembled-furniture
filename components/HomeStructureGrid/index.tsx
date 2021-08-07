@@ -19,7 +19,10 @@ export const HomeStructureGrid: FC = () => {
 							objectFit="cover"
 						/>
 					</div>
-					<div className={['gf col-span-12 md:col-span-6', 'gap-4 lg:grid-cols-5'].join(' ')}>
+					<div
+						id="production-anchor"
+						className={['gf col-span-12 md:col-span-6', 'gap-4 lg:grid-cols-5'].join(' ')}
+					>
 						<div className="sm:flex gap-4 items-center p-6 border-b border-primary">
 							<h4 className="sm:inline text-2xl font-bold uppercase leading-6">
 								{tHome('production.title')}
@@ -42,7 +45,10 @@ export const HomeStructureGrid: FC = () => {
 							objectFit="cover"
 						/>
 					</div>
-					<div className={['gf col-span-12 md:col-span-6', 'gap-4 lg:grid-cols-5'].join(' ')}>
+					<div
+						id="makeityourown-anchor"
+						className={['gf col-span-12 md:col-span-6', 'gap-4 lg:grid-cols-5'].join(' ')}
+					>
 						<div className="sm:flex gap-4 items-center p-6 border-b border-primary">
 							<h4 className="sm:inline text-2xl font-bold uppercase leading-6">Make it you own</h4>
 						</div>

@@ -1,8 +1,14 @@
 {
-  "introduction": "Ein funktionales, mobiles und personalisierbares Sideboard, das sich ohne Werkzeug auf- und abbauen lässt.",
+  "introduction": {
+    "title": "Introduktion",
+    "text": "Ein funktionales, mobiles und personalisierbares Sideboard, das sich ohne Werkzeug auf- und abbauen lässt."
+  },
   "components": {
     "title": "AUS DREI MACHT EINS",
     "text": "FAF besteht aus drei Komponenten, die aus dem Transportwesen bekannt sind: Euro-Behälter, Holzplatten und Spanngurte. Sie werden ohne zusätzliches Werkzeug so zusammengesetzt, dass ein formschönes und stabiles Sideboard entsteht."
+  },
+  "assemblage": {
+    "title": "Komponente"
   },
   "box": {
     "title": "BOX",
@@ -19,6 +25,13 @@
   "production": {
     "title": "FERTIGUNG UND VERSAND",
     "text": "Die CNC-gefrästen Holzplatten werden batchweise von einem kleinen Unternehmen in Brandenburg gefertigt. Die Schienen aus Aluminium und Spanngurte werden exklusiv in Berlin produziert. Zusammen mit den Rollen erfolgt der Versand dieser Bestandteile als CO-2 neutrale Lieferung. Um zusätzliche Transportwege und Verpackungsmaterial zu vermeiden, erfolgt die Zustellung der Euro-Kisten direkt vom Hersteller aus Süddeutschland."
+  },
+  "makeityourown": {
+    "title": "Make it your own",
+    "text": "Die CNC-gefrästen Holzplatten werden batchweise von einem kleinen Unternehmen in Brandenburg gefertigt. Die Schienen aus Aluminium und Spanngurte werden exklusiv in Berlin produziert. Zusammen mit den Rollen erfolgt der Versand dieser Bestandteile als CO-2 neutrale Lieferung. Um zusätzliche Transportwege und Verpackungsmaterial zu vermeiden, erfolgt die Zustellung der Euro-Kisten direkt vom Hersteller aus Süddeutschland."
+  },
+  "configurator": {
+    "title": "Konfigurator"
   },
   "disclaimer":{
     "title": "Bestellmodell",

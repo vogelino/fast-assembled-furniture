@@ -53,11 +53,24 @@ const MenuFooter: FC = () => {
 	)
 }
 
+const scrollToTargetAdjusted = (id: string): void => {
+	const element = document.getElementById(id)
+	if (!element) return
+	const headerOffset = 62
+	const elementPosition = element.getBoundingClientRect().top
+	const offsetPosition = elementPosition - headerOffset
+	window.scrollTo({
+		top: offsetPosition + window.pageYOffset,
+		behavior: 'smooth',
+	})
+}
+
 export const HeaderMenu: FC = () => {
 	const { locale } = useRouter()
 	const { menuLinks, closeMenu, menuIsOpened } = useContext(MenuContext)
 	const { cartSize, cartTotalPrice } = useContext(CartContext)
 	const { t } = useTranslation('common')
+	const { t: tHome } = useTranslation('home')
 
 	const currency = new Intl.NumberFormat(locale, {
 		style: 'currency',
@@ -102,33 +115,22 @@ export const HeaderMenu: FC = () => {
 						}}
 					>
 						{menuLinks.map((menuLink) => (
-							<li
-								key={menuLink.path}
+							<button
+								key={menuLink.id}
 								className={[
 									'gf list-none p-4 uppercase text-2xl grid items-center',
-									'leading-6 flex-grow',
-									menuLink.active
-										? 'line-through'
-										: 'font-bold cursor-pointer hover:opacity-50 transition-opacity',
+									'leading-6 flex-grow text-left',
+									'font-bold cursor-pointer hover:opacity-50 transition-opacity',
 								].join(' ')}
+								onClick={(e) => {
+									e.preventDefault()
+									scrollToTargetAdjusted(menuLink.id)
+									closeMenu()
+								}}
 							>
-								<Link href={menuLink.path} onClick={closeMenu}>
-									{t(menuLink.textId)}
-								</Link>
-							</li>
+								{tHome(menuLink.textId)}
+							</button>
 						))}
-						{cartSize !== 0 ? (
-							<li className="hidden sm:grid">
-								<Button type="button" primary className="w-full-p">
-									{t('cart.checkout')}{' '}
-									<span className="inline-block text-sm font-normal">
-										({currency.format(cartTotalPrice)})
-									</span>
-								</Button>
-							</li>
-						) : (
-							<li className="gf hidden sm:block" />
-						)}
 						<MenuFooter />
 					</ul>
 				</div>
