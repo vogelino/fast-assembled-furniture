@@ -1,0 +1,22 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#000000",
+    "activityBar.activeBorder": "#000000",
+    "activityBar.background": "#ffffff",
+    "activityBar.foreground": "#ffffff",
+    "activityBar.inactiveForeground": "#000000",
+    "activityBarBadge.background": "#000000",
+    "activityBarBadge.foreground": "#ffffff",
+    "statusBar.background": "#ffffff",
+    "statusBar.foreground": "#000000",
+    "statusBarItem.hoverBackground": "#ffffff",
+    "titleBar.activeBackground": "#ffffff",
+    "titleBar.activeForeground": "#000000",
+    "titleBar.inactiveBackground": "#ffffff",
+    "titleBar.inactiveForeground": "#000000"  
+  },
+  "peacock.remoteColor": "#ac31b2",
+  "peacock.color": "#ac31b2",
+  "workbench.colorTheme": "GitHub Light",
+  "workbench.preferredDarkColorTheme": "GitHub Light",
+}
