@@ -51,22 +51,58 @@ export const HomeAssemblageGrid: FC = () => {
 							id="assemblage-anchor"
 							tabs={[
 								{
-									img: 'BoardDetail01.png',
 									id: 'board',
 									title: tHome('board.title'),
-									text: tHome('board.text'),
+									content: (
+										<div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
+											<p className="lg:text-xl p-6 pb-8">{tHome('board.text')}</p>
+											<Image
+												src={`/images/BoardDetail01.png`}
+												alt={`An isolated view of the ${tHome('board.title')}`}
+												width={530}
+												height={324}
+												objectFit="contain"
+												quality={100}
+												objectPosition="right"
+											/>
+										</div>
+									),
 								},
 								{
-									img: 'BoxDetail01.png',
 									id: 'box',
 									title: tHome('box.title'),
-									text: tHome('box.text'),
+									content: (
+										<div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
+											<p className="lg:text-xl p-6 pb-8">{tHome('box.text')}</p>
+											<Image
+												src={`/images/BoxDetail01.png`}
+												alt={`An isolated view of the ${tHome('box.title')}`}
+												width={530}
+												height={324}
+												objectFit="contain"
+												quality={100}
+												objectPosition="right"
+											/>
+										</div>
+									),
 								},
 								{
-									img: 'StrapDetail01.png',
 									id: 'strap',
 									title: tHome('strap.title'),
-									text: tHome('strap.text'),
+									content: (
+										<div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
+											<p className="lg:text-xl p-6 pb-8">{tHome('strap.text')}</p>
+											<Image
+												src={`/images/StrapDetail01.png`}
+												alt={`An isolated view of the ${tHome('strap.title')}`}
+												width={530}
+												height={324}
+												objectFit="contain"
+												quality={100}
+												objectPosition="right"
+											/>
+										</div>
+									),
 								},
 							]}
 						/>

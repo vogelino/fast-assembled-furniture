@@ -1,0 +1,32 @@
+.container {
+	@apply -ml-bd;
+	display: grid;
+	grid-template-columns: 1fr;
+	background: white;
+	position: relative;
+	border-bottom-left-radius: .5rem;
+	border-bottom-right-radius: .5rem;
+}
+
+.swiperContainer {
+	--swiper-pagination-color: var(--primary, #000);
+	/* padding: 12px 0 64px; */
+}
+
+.swiperSlide {
+	transition-property: opacity;
+}
+
+.swiperSlide img {
+	border-radius: 8px;
+}
+
+.infoBlock {
+	@apply overflow-hidden -mt-bd;
+	border-radius: 8px;
+	border-top-left-radius: 0px;
+}
+
+.firtTabBlock {
+	border-top-left-radius: 0px;
+}
