@@ -25,19 +25,25 @@ const HomeConfiguratorSlideImage: FC<SliderSlideType> = ({ filePath }) => {
 	}, [filePath])
 
 	return (
-		<>
-			<Image
-				src={filePath}
-				width={1536}
-				height={742}
-				objectFit="cover"
-				placeholder="blur"
-				blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP89B8AAukB8/71MdcAAAAASUVORK5CYII="
-				onLoad={() => setIsLoaded(true)}
-				className={['transition-all', isLoaded ? 'opacity-100' : 'opacity-60']
+		<div style={{ background: 'white' }}>
+			<div
+				className={[
+					'transition-all filter transform',
+					isLoaded
+						? 'grayscale-0 brightness-100 opacity-100'
+						: 'grayscale brightness-125 opacity-50',
+				]
 					.filter(Boolean)
 					.join(' ')}
-			/>
+			>
+				<Image
+					src={filePath}
+					width={1536}
+					height={742}
+					objectFit="cover"
+					onLoad={() => setIsLoaded(true)}
+				/>
+			</div>
 			<div
 				className={[
 					'absolute inset-0 grid place-content-center',
@@ -46,7 +52,6 @@ const HomeConfiguratorSlideImage: FC<SliderSlideType> = ({ filePath }) => {
 				]
 					.filter(Boolean)
 					.join(' ')}
-				style={{ color: 'gray' }}
 			>
 				<div className="p-4 rounded relative bg-primary">
 					<div
@@ -55,7 +60,7 @@ const HomeConfiguratorSlideImage: FC<SliderSlideType> = ({ filePath }) => {
 					></div>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

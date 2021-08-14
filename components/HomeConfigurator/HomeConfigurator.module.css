@@ -10,12 +10,13 @@
 
 .swiperContainer {
 	--swiper-pagination-color: var(--primary, #000);
-	padding: 12px 0 64px;
+	padding: var(--borderWidth, 3px) 0 64px;
 }
 
 .swiperSlide {
 	transition-property: opacity;
 	position: relative;
+	padding: 0 var(--borderWidth, 3px);
 }
 
 .swiperSlide img {
