@@ -1,3 +1,4 @@
+import { LoadingImage } from '@components/LoadingImage'
 import { TabbedBlock } from '@components/TabbedBlock'
 import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
@@ -56,15 +57,17 @@ export const HomeAssemblageGrid: FC = () => {
 									content: (
 										<div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
 											<p className="lg:text-xl p-6 pb-8">{tHome('board.text')}</p>
-											<Image
-												src={`/images/BoardDetail01.png`}
-												alt={`An isolated view of the ${tHome('board.title')}`}
-												width={530}
-												height={324}
-												objectFit="contain"
-												quality={100}
-												objectPosition="right"
-											/>
+											<div className="relative">
+												<LoadingImage
+													src={`/images/BoardDetail01.png`}
+													alt={`An isolated view of the ${tHome('board.title')}`}
+													width={530}
+													height={324}
+													objectFit="contain"
+													quality={100}
+													objectPosition="right"
+												/>
+											</div>
 										</div>
 									),
 								},
@@ -74,15 +77,17 @@ export const HomeAssemblageGrid: FC = () => {
 									content: (
 										<div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
 											<p className="lg:text-xl p-6 pb-8">{tHome('box.text')}</p>
-											<Image
-												src={`/images/BoxDetail01.png`}
-												alt={`An isolated view of the ${tHome('box.title')}`}
-												width={530}
-												height={324}
-												objectFit="contain"
-												quality={100}
-												objectPosition="right"
-											/>
+											<div className="relative">
+												<LoadingImage
+													src={`/images/BoxDetail01.png`}
+													alt={`An isolated view of the ${tHome('box.title')}`}
+													width={530}
+													height={324}
+													objectFit="contain"
+													quality={100}
+													objectPosition="right"
+												/>
+											</div>
 										</div>
 									),
 								},
@@ -92,15 +97,17 @@ export const HomeAssemblageGrid: FC = () => {
 									content: (
 										<div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
 											<p className="lg:text-xl p-6 pb-8">{tHome('strap.text')}</p>
-											<Image
-												src={`/images/StrapDetail01.png`}
-												alt={`An isolated view of the ${tHome('strap.title')}`}
-												width={530}
-												height={324}
-												objectFit="contain"
-												quality={100}
-												objectPosition="right"
-											/>
+											<div className="relative">
+												<LoadingImage
+													src={`/images/StrapDetail01.png`}
+													width={530}
+													height={324}
+													objectFit="contain"
+													alt={`An isolated view of the ${tHome('strap.title')}`}
+													quality={100}
+													objectPosition="right"
+												/>
+											</div>
 										</div>
 									),
 								},
