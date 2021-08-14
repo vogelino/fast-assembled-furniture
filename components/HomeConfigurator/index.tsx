@@ -69,7 +69,7 @@ export const HomeConfigurator: FC = () => {
 							className={[
 								'inline-block w-16 h-10 rounded border border-primary',
 								'overflow-hidden',
-								idx === currentSlideIndex ? 'border-2' : ' opacity-50',
+								idx === currentSlideIndex ? 'border-2 hidden sm:block' : ' opacity-50',
 							]
 								.filter(Boolean)
 								.join(' ')}
