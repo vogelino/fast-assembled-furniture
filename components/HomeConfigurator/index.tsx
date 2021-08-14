@@ -12,6 +12,7 @@ import ThemeSelect from '@components/ThemeSelect'
 import { InfoTable } from '@components/InfoTable'
 import Link from 'next/link'
 import { ButtonWithBorderEdges } from '@components/BorderEdge'
+import useTranslation from 'next-translate/useTranslation'
 
 SwiperCore.use([EffectFade])
 
@@ -40,6 +41,7 @@ const tabs = [
 ]
 
 export const HomeConfigurator: FC = () => {
+	const { t } = useTranslation('home')
 	const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null)
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
 	const [activeTabIndex, setActiveTabIndex] = useState(0)
@@ -102,15 +104,11 @@ export const HomeConfigurator: FC = () => {
 						<InfoTable />
 					</div>
 					<div className={['gf p-5 relative pb-20'].join(' ')}>
-						<h2 className="font-bold text-xl sm:text-2xl uppercase mb-3">Bestellmodell</h2>
+						<h2 className="font-bold text-xl sm:text-2xl uppercase mb-3">
+							{t('disclaimer.title')}
+						</h2>
 						<p>
-							Da FAF ein junges Unternehmen ist und seine Produkte aktuell nur in Kleinserie
-							produzieren kann, wird das Sideboard-System batchweise hergestellt. Das heißt, dass
-							FAF bei einer Menge von jeweils 20 Bestellungen in die Produktion geht. Wenn Du jetzt
-							bestellst, müssen noch x weitere Bestellungen eingehen, damit die Produktion beginnt.
-							Sollten 6 Wochen nach deiner Bestellung noch nicht genug weitere Bestellungen
-							eingegangen sein, kannst du deine Anzahlung zurückfordern. Bei Sonderanfragen oder für
-							weitere Informationen erreichst Du uns unter{' '}
+							{t('disclaimer.text')}
 							<a
 								href="mailto:hello@faf.berlin"
 								target="_blank"
@@ -135,12 +133,13 @@ export const HomeConfigurator: FC = () => {
 								</svg>
 							</div>
 							<label htmlFor="conditions-accepted">
-								I agree to the{' '}
+								{t('disclaimer.conditionsSentenceBefore')}
 								<Link href="/conditions">
 									<a href="/conditions" className="font-bold underline">
-										terms & conditions
+										{t('disclaimer.conditionsName')}
 									</a>
 								</Link>
+								{t('disclaimer.conditionsSentenceAfter')}
 							</label>
 						</form>
 						<div className="absolute -right-bd -bottom-2 inline-block">
@@ -158,7 +157,7 @@ export const HomeConfigurator: FC = () => {
 									},
 								]}
 							>
-								Zahlungspflichtig vorbestellen
+								{t('disclaimer.button')}
 							</ButtonWithBorderEdges>
 						</div>
 					</div>
