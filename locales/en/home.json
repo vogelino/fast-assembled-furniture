@@ -35,8 +35,8 @@
       "uncoated": "Uncoated wood"
     },
     "boxTypes": {
-      "dark": "Open & Grey",
-      "light": "Open & Black"
+      "dark": "Open & Black",
+      "light": "Open & Grey"
     },
     "values": {
       "width": "123",

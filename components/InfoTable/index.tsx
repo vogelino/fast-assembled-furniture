@@ -3,7 +3,7 @@ import useTranslation from 'next-translate/useTranslation'
 import { FC, useContext } from 'react'
 
 interface InfoTablePropType {
-	boxVersion: 'light' | 'dark'
+	lightness: 'light' | 'dark'
 }
 
 interface TableCellPropType {
@@ -13,7 +13,7 @@ interface TableCellPropType {
 const TableCell: FC<TableCellPropType> = ({ children, bold = false }) => (
 	<div
 		className={[
-			'px-2 sm:px-3 md:px-4 lg:px-5 border-r border-b border-primary20 flex items-center content-center',
+			'px-4 lg:px-5 border-r border-b border-primary20 flex items-center content-center',
 			'border-collapse h-12 leading-5 lg:col-span-1 last:rounded-br',
 			bold && 'font-bold',
 			bold ? 'col-span-2' : 'col-span-3',
@@ -23,18 +23,21 @@ const TableCell: FC<TableCellPropType> = ({ children, bold = false }) => (
 	</div>
 )
 
-export const InfoTable: FC<InfoTablePropType> = ({ boxVersion }) => {
+export const InfoTable: FC<InfoTablePropType> = ({ lightness }) => {
 	const { t } = useTranslation('home')
+	const { t: tCommon } = useTranslation('common')
 	const { themeKey } = useContext(ColorThemeContext)
 	return (
 		<div className="grid lg:grid-cols-12 border-t border-primary20 w-[calc(100%+2px)]">
 			<div className="grid grid-cols-5 lg:grid-cols-[min-content,1fr] lg:col-span-7 content-start">
 				<TableCell bold>{t('infoBox.labels.board')}</TableCell>
-				<TableCell>{t('infoBox.woodTypes.coated')}</TableCell>
+				<TableCell>
+					{lightness === 'light' ? t('infoBox.woodTypes.uncoated') : t('infoBox.woodTypes.coated')}
+				</TableCell>
 				<TableCell bold>{t('infoBox.labels.box')}</TableCell>
-				<TableCell>{t(`infoBox.boxTypes.${boxVersion}`)}</TableCell>
+				<TableCell>{t(`infoBox.boxTypes.${lightness}`)}</TableCell>
 				<TableCell bold>{t('infoBox.labels.strap')}</TableCell>
-				<TableCell>{themeKey}</TableCell>
+				<TableCell>{tCommon(`colors.${themeKey}`)}</TableCell>
 				<TableCell bold>{t('infoBox.labels.loadCapacity')}</TableCell>
 				<TableCell>{t('infoBox.values.loadCapacity')}&#8239;kg</TableCell>
 			</div>

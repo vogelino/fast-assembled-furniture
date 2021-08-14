@@ -16,27 +16,32 @@ const ThemeSelect: FC<ThemeSelectPropType> = ({ keepExpanded = false }) => {
 				const isNext = themeKey === nextThemeKey
 
 				return (
-					<button
-						style={{
-							borderWidth: 'var(--borderWidth, 3px)',
-							borderColor: theme['primary'],
-							backgroundColor: theme[isActive ? 'primary' : 'secondary'],
-							boxShadow: `0 0 0 var(--borderWidth, 3px) ${theme['secondary']}`,
-						}}
-						className={[
-							!isNext && !keepExpanded && 'hidden md:inline-block',
-							'w-4 h-4 bg-secondary rounded-full my-1.5 sm:my-2.5',
-							'ring-2 focus:outline-none focus:rounded-full',
-						]
+					<span
+						key={themeKey}
+						className={['text-center', !isNext && !keepExpanded && 'hidden md:inline-block']
 							.filter(Boolean)
 							.join(' ')}
-						type="button"
-						key={themeKey}
-						onClick={(evt) => {
-							evt.preventDefault()
-							setTheme(themeKey)
-						}}
-					/>
+					>
+						<button
+							style={{
+								borderColor: theme['primary'],
+								backgroundColor: theme[isActive ? 'primary' : 'secondary'],
+								boxShadow: `0 0 0 var(--borderWidth, 3px) ${theme['secondary']}`,
+							}}
+							className={[
+								'inline-block',
+								'w-4 h-4 bg-secondary rounded-full sm:my-2.5',
+								'ring-2 focus:outline-none focus:rounded-full border-bd',
+							]
+								.filter(Boolean)
+								.join(' ')}
+							type="button"
+							onClick={(evt) => {
+								evt.preventDefault()
+								setTheme(themeKey)
+							}}
+						/>
+					</span>
 				)
 			})}
 		</>

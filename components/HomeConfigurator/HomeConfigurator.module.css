@@ -46,3 +46,10 @@
 .form input:checked + svg {
 	display: block;
 }
+
+@media screen and (max-width: 340px) {
+	.themeSelect {
+		grid-template-columns: repeat(8, 1fr);
+		grid-gap: .25rem;
+	}
+}

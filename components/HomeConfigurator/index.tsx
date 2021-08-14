@@ -98,10 +98,18 @@ export const HomeConfigurator: FC = () => {
 							.filter(Boolean)
 							.join(' ')}
 					>
-						<div className="py-4 px-5 flex flex-wrap gap-x-3 items-start">
+						<div
+							className={[
+								styles.themeSelect,
+								'p-4 sm:p-5 grid sm:inline-grid gap-x-4 gap-y-2 grid-cols-11',
+								'items-center content-center justify-center',
+							]
+								.filter(Boolean)
+								.join(' ')}
+						>
 							<ThemeSelect keepExpanded />
 						</div>
-						<InfoTable boxVersion={activeTabIndex === 0 ? 'light' : 'dark'} />
+						<InfoTable lightness={activeTabIndex === 0 ? 'light' : 'dark'} />
 					</div>
 					<div className={['gf p-5 relative pb-20'].join(' ')}>
 						<h2 className="font-bold text-xl sm:text-2xl uppercase mb-3">

@@ -287,7 +287,7 @@
 	}
 
 	#__next {
-		min-height: calc(var(--vh, 1vh) * 100);
+		min-height: 100vh;
 		@apply bg-secondary border-bd;
 	}
 
@@ -304,7 +304,6 @@
 		body,
 		.app-wrapper {
 			min-height: 100vh;
-			min-height: calc(var(--vh, 1vh) * 100);
 			-webkit-overflow-scrolling: touch;
 		}
 
