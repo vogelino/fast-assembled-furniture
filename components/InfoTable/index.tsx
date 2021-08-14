@@ -29,7 +29,7 @@ export const InfoTable: FC = () => {
 				<TableCell>Geöffnet & Grau</TableCell>
 				<TableCell bold>Strap</TableCell>
 				<TableCell>{themeKey}</TableCell>
-				<TableCell bold>Tragfähigkeit</TableCell>
+				<TableCell bold>Trag&shy;fähigkeit</TableCell>
 				<TableCell>20&#8239;kg</TableCell>
 			</div>
 			<div className="grid grid-cols-5 lg:grid-cols-[min-content,1fr] lg:col-span-5 content-start">

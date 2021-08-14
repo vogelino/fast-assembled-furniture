@@ -25,7 +25,7 @@ const ThemeSelect: FC<ThemeSelectPropType> = ({ keepExpanded = false }) => {
 						}}
 						className={[
 							!isNext && !keepExpanded && 'hidden md:inline-block',
-							'w-4 h-4 bg-secondary rounded-full mx-auto my-1.5 sm:my-2.5',
+							'w-4 h-4 bg-secondary rounded-full my-1.5 sm:my-2.5',
 							'ring-2 focus:outline-none focus:rounded-full',
 						]
 							.filter(Boolean)

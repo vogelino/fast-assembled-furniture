@@ -94,7 +94,7 @@ export const HomeConfigurator: FC = () => {
 							.filter(Boolean)
 							.join(' ')}
 					>
-						<div className="py-4 px-5 space-x-4">
+						<div className="py-4 px-5 flex flex-wrap gap-x-3 items-start">
 							<ThemeSelect keepExpanded />
 						</div>
 						<InfoTable />
