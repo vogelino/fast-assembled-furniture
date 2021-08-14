@@ -42,3 +42,7 @@
 .firstTabBlock {
 	border-top-left-radius: 0px;
 }
+
+.form input:checked + svg {
+	display: block;
+}

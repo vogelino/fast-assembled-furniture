@@ -10,6 +10,8 @@ import { ColorThemeContext } from '@components/ColorThemeContext'
 import { TabbedBlockTabs } from '@components/TabbedBlock'
 import ThemeSelect from '@components/ThemeSelect'
 import { InfoTable } from '@components/InfoTable'
+import Link from 'next/link'
+import { ButtonWithBorderEdges } from '@components/BorderEdge'
 
 SwiperCore.use([EffectFade])
 
@@ -99,7 +101,67 @@ export const HomeConfigurator: FC = () => {
 						</div>
 						<InfoTable />
 					</div>
-					<div className={['gf'].join(' ')}>{tabs[activeTabIndex].content}</div>
+					<div className={['gf p-5 relative pb-20'].join(' ')}>
+						<h2 className="font-bold text-xl sm:text-2xl uppercase mb-3">Bestellmodell</h2>
+						<p>
+							Da FAF ein junges Unternehmen ist und seine Produkte aktuell nur in Kleinserie
+							produzieren kann, wird das Sideboard-System batchweise hergestellt. Das heißt, dass
+							FAF bei einer Menge von jeweils 20 Bestellungen in die Produktion geht. Wenn Du jetzt
+							bestellst, müssen noch x weitere Bestellungen eingehen, damit die Produktion beginnt.
+							Sollten 6 Wochen nach deiner Bestellung noch nicht genug weitere Bestellungen
+							eingegangen sein, kannst du deine Anzahlung zurückfordern. Bei Sonderanfragen oder für
+							weitere Informationen erreichst Du uns unter{' '}
+							<a
+								href="mailto:hello@faf.berlin"
+								target="_blank"
+								rel="noreferrer"
+								className="underline"
+							>
+								hello@faf.berlin
+							</a>
+							.
+						</p>
+						<form
+							onSubmit={(evt) => evt.preventDefault()}
+							className={`flex gap-x-2 mt-5 ${styles.form}`}
+						>
+							<div className="bg-white border-2 rounded border-gray-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500">
+								<input type="checkbox" className="opacity-0 absolute" name="conditions-accepted" />
+								<svg
+									className="fill-current hidden w-4 h-4 text-green-500 pointer-events-none"
+									viewBox="0 0 20 20"
+								>
+									<path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
+								</svg>
+							</div>
+							<label htmlFor="conditions-accepted">
+								I agree to the{' '}
+								<Link href="/conditions">
+									<a href="/conditions" className="font-bold underline">
+										terms & conditions
+									</a>
+								</Link>
+							</label>
+						</form>
+						<div className="absolute -right-bd -bottom-2 inline-block">
+							<ButtonWithBorderEdges
+								primary
+								openings={['TopLeft']}
+								edges={[
+									{
+										position: 'TopRight',
+										orientation: 'BottomRight',
+									},
+									{
+										position: 'LeftBottom',
+										orientation: 'BottomRight',
+									},
+								]}
+							>
+								Zahlungspflichtig vorbestellen
+							</ButtonWithBorderEdges>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
