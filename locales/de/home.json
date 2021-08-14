@@ -33,6 +33,32 @@
   "configurator": {
     "title": "Konfigurator"
   },
+  "infoBox": {
+    "labels": {
+      "board": "Board",
+      "box": "Box",
+      "strap": "Gurt",
+      "loadCapacity": "Tragfähigkeit",
+      "width": "Breite",
+      "height": "Höhe",
+      "depth": "Tiefe"
+    },
+    "woodTypes": {
+      "coated": "Beschichtetes Holz",
+      "uncoated": "Unbeschichtetes Holz"
+    },
+    "boxTypes": {
+      "dark": "Offen & Grau",
+      "light": "Offen & Schwarz"
+    },
+    "values": {
+      "width": "123",
+      "height": "456",
+      "depth": "789",
+      "loadCapacity": "20",
+      "price": "999"
+    }
+  },
   "disclaimer":{
     "title": "Bestellmodell",
     "text": "Da FAF ein junges Unternehmen ist und seine Produkte aktuell nur in Kleinserie produzieren kann, wird das Sideboard-System batchweise hergestellt. Das heißt, dass FAF bei einer Menge von jeweils 20 Bestellungen in die Produktion geht. Wenn Du jetzt bestellst, müssen noch x weitere Bestellungen eingehen, damit die Produktion beginnt. Sollten 6 Wochen nach deiner Bestellung noch nicht genug weitere Bestellungen eingegangen sein, kannst du deine Anzahlung zurückfordern. Bei Sonderanfragen oder für weitere Informationen erreichst Du uns unter ",

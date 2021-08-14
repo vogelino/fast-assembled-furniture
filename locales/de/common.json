@@ -35,5 +35,18 @@
         "box": "Box",
         "strap": "Strap",
         "board": "Board"
+    },
+    "colors": {
+        "light": "Weiß",
+        "dark": "Schwarz",
+        "blau": "Blau",
+        "rosa": "Rosa",
+        "silber": "Silber",
+        "gelb": "Gelb",
+        "orange": "Orange",
+        "vlieder": "Flieder",
+        "rot": "Rot",
+        "beige": "Beige",
+        "olive": "Olivgrün"
     }
 }

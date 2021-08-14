@@ -20,6 +20,32 @@
     "title": "FERTIGUNG UND VERSAND",
     "text": "Die CNC-gefrästen Holzplatten werden batchweise von einem kleinen Unternehmen in Brandenburg gefertigt. Die Schienen aus Aluminium und Spanngurte werden exklusiv in Berlin produziert. Zusammen mit den Rollen erfolgt der Versand dieser Bestandteile als CO-2 neutrale Lieferung. Um zusätzliche Transportwege und Verpackungsmaterial zu vermeiden, erfolgt die Zustellung der Euro-Kisten direkt vom Hersteller aus Süddeutschland."
   },
+  "infoBox": {
+    "labels": {
+      "board": "Board",
+      "box": "Box",
+      "strap": "Strap",
+      "loadCapacity": "Load capacity",
+      "width": "Width",
+      "height": "Height",
+      "depth": "Depth"
+    },
+    "woodTypes": {
+      "coated": "Coated wood",
+      "uncoated": "Uncoated wood"
+    },
+    "boxTypes": {
+      "dark": "Open & Grey",
+      "light": "Open & Black"
+    },
+    "values": {
+      "width": "123",
+      "height": "456",
+      "depth": "789",
+      "loadCapacity": "20",
+      "price": "999"
+    }
+  },
   "disclaimer":{
     "title": "Order model",
     "text": "Since FAF is a young company and can currently only produce its products in small series, the sideboard system is manufactured in batches. This means that FAF goes into production with a quantity of 20 orders each. If you order now, x more orders have to be received for production to begin. If not enough further orders have been received 6 weeks after your order, you can claim your deposit back. For special inquiries or for further information, you can reach us at ",

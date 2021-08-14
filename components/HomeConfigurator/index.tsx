@@ -101,7 +101,7 @@ export const HomeConfigurator: FC = () => {
 						<div className="py-4 px-5 flex flex-wrap gap-x-3 items-start">
 							<ThemeSelect keepExpanded />
 						</div>
-						<InfoTable />
+						<InfoTable boxVersion={activeTabIndex === 0 ? 'light' : 'dark'} />
 					</div>
 					<div className={['gf p-5 relative pb-20'].join(' ')}>
 						<h2 className="font-bold text-xl sm:text-2xl uppercase mb-3">
@@ -124,7 +124,11 @@ export const HomeConfigurator: FC = () => {
 							className={`flex gap-x-2 mt-5 ${styles.form}`}
 						>
 							<div className="bg-white border-2 rounded border-gray-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500">
-								<input type="checkbox" className="opacity-0 absolute" name="conditions-accepted" />
+								<input
+									type="checkbox"
+									className="opacity-0 absolute w-6 h-6 cursor-pointer"
+									name="conditions-accepted"
+								/>
 								<svg
 									className="fill-current hidden w-4 h-4 text-green-500 pointer-events-none"
 									viewBox="0 0 20 20"

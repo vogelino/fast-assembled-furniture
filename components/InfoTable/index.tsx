@@ -1,5 +1,10 @@
 import { ColorThemeContext } from '@components/ColorThemeContext'
+import useTranslation from 'next-translate/useTranslation'
 import { FC, useContext } from 'react'
+
+interface InfoTablePropType {
+	boxVersion: 'light' | 'dark'
+}
 
 interface TableCellPropType {
 	bold?: boolean
@@ -18,29 +23,30 @@ const TableCell: FC<TableCellPropType> = ({ children, bold = false }) => (
 	</div>
 )
 
-export const InfoTable: FC = () => {
+export const InfoTable: FC<InfoTablePropType> = ({ boxVersion }) => {
+	const { t } = useTranslation('home')
 	const { themeKey } = useContext(ColorThemeContext)
 	return (
 		<div className="grid lg:grid-cols-12 border-t border-primary20 w-[calc(100%+2px)]">
 			<div className="grid grid-cols-5 lg:grid-cols-[min-content,1fr] lg:col-span-7 content-start">
-				<TableCell bold>Board</TableCell>
-				<TableCell>Beschichtetes Holz</TableCell>
-				<TableCell bold>Box</TableCell>
-				<TableCell>Geöffnet & Grau</TableCell>
-				<TableCell bold>Strap</TableCell>
+				<TableCell bold>{t('infoBox.labels.board')}</TableCell>
+				<TableCell>{t('infoBox.woodTypes.coated')}</TableCell>
+				<TableCell bold>{t('infoBox.labels.box')}</TableCell>
+				<TableCell>{t(`infoBox.boxTypes.${boxVersion}`)}</TableCell>
+				<TableCell bold>{t('infoBox.labels.strap')}</TableCell>
 				<TableCell>{themeKey}</TableCell>
-				<TableCell bold>Trag&shy;fähigkeit</TableCell>
-				<TableCell>20&#8239;kg</TableCell>
+				<TableCell bold>{t('infoBox.labels.loadCapacity')}</TableCell>
+				<TableCell>{t('infoBox.values.loadCapacity')}&#8239;kg</TableCell>
 			</div>
 			<div className="grid grid-cols-5 lg:grid-cols-[min-content,1fr] lg:col-span-5 content-start">
-				<TableCell bold>Breite</TableCell>
-				<TableCell>221&#8239;cm</TableCell>
-				<TableCell bold>Höhe</TableCell>
-				<TableCell>152&#8239;cm</TableCell>
-				<TableCell bold>Tiefe</TableCell>
-				<TableCell>152&#8239;cm</TableCell>
+				<TableCell bold>{t('infoBox.labels.width')}</TableCell>
+				<TableCell>{t('infoBox.values.width')}&#8239;cm</TableCell>
+				<TableCell bold>{t('infoBox.labels.height')}</TableCell>
+				<TableCell>{t('infoBox.values.height')}&#8239;cm</TableCell>
+				<TableCell bold>{t('infoBox.labels.depth')}</TableCell>
+				<TableCell>{t('infoBox.values.depth')}&#8239;cm</TableCell>
 				<div className="text-2xl font-bold col-span-5 lg:col-span-2 row-span-4 p-8 text-right">
-					999&#8239;€
+					{t('infoBox.values.price')}&#8239;€
 				</div>
 			</div>
 		</div>
