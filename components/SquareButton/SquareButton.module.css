@@ -35,6 +35,12 @@
         'text text';
 }
 
+@media screen and (max-width: 340px) {
+    .textOnlyContainer {
+        @apply text-base;
+    }
+}
+
 .iconOnlyContainer {
     min-width: 3.5rem;
     grid-template-areas: 'icon icon'

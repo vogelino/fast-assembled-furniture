@@ -12,6 +12,8 @@ interface LoadingImagePropType {
 	objectPosition?: ImageProps['objectPosition']
 }
 
+const loadedImagesCache = new Map<string, boolean>()
+
 export const LoadingImage: FC<LoadingImagePropType> = ({
 	src,
 	width,
@@ -22,7 +24,11 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 	const [isLoaded, setIsLoaded] = useState(false)
 
 	useEffect(() => {
-		setIsLoaded(false)
+		if (loadedImagesCache.get(src) === true) {
+			setIsLoaded(true)
+		} else {
+			setIsLoaded(false)
+		}
 	}, [src])
 
 	return (
@@ -43,7 +49,10 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 					height={height}
 					objectFit={objectFit}
 					{...rest}
-					onLoad={() => setIsLoaded(true)}
+					onLoad={() => {
+						loadedImagesCache.set(src, true)
+						setIsLoaded(true)
+					}}
 				/>
 			</div>
 			<div

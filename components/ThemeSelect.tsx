@@ -1,7 +1,11 @@
 import { useContext, FC } from 'react'
 import { ColorThemeContext } from './ColorThemeContext'
 
-const ThemeSelect: FC = () => {
+interface ThemeSelectPropType {
+	keepExpanded?: boolean
+}
+
+const ThemeSelect: FC<ThemeSelectPropType> = ({ keepExpanded = false }) => {
 	const { themeKey: activeTheme, nextThemeKey, themes, setTheme } = useContext(ColorThemeContext)
 
 	return (
@@ -20,8 +24,8 @@ const ThemeSelect: FC = () => {
 							boxShadow: `0 0 0 var(--borderWidth, 3px) ${theme['secondary']}`,
 						}}
 						className={[
-							!isNext && 'hidden lg:inline-block',
-							'w-4 h-4 bg-secondary rounded-full mx-auto sm:mx-2 my-1.5 sm:my-2.5',
+							!isNext && !keepExpanded && 'hidden md:inline-block',
+							'w-4 h-4 bg-secondary rounded-full mx-auto my-1.5 sm:my-2.5',
 							'ring-2 focus:outline-none focus:rounded-full',
 						]
 							.filter(Boolean)
@@ -34,7 +38,6 @@ const ThemeSelect: FC = () => {
 						}}
 					/>
 				)
-				return null
 			})}
 		</>
 	)

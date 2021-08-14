@@ -20,7 +20,7 @@ module.exports = {
 			semi: 'var(--semi)',
 			semi50: 'var(--semi50)',
 			semi20: 'var(--semi20)',
-		},
+		}
 	},
 	variants: {
 		extend: {

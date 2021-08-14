@@ -72,8 +72,10 @@ const Header: FC = () => {
 					.join(' ')}
 			>
 				<HeaderLogo />
-				<div className="gf flex flex-col sm:flex-row pb-3 sm:pb-0 sm:pt-3 relative justify-end items-start sm:pr-3">
-					<ThemeSelect />
+				<div className="gf p-5 flex justify-end items-start sm:items-center">
+					<div className={['space-x-4 pb-3 sm:pb-0 relative'].join(' ')}>
+						<ThemeSelect />
+					</div>
 				</div>
 				<LanguageButton />
 				<Button

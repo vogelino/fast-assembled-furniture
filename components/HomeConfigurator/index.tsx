@@ -8,6 +8,7 @@ import { HomeConfiguratorSlide } from './HomeConfiguratorSlide'
 import Image from 'next/image'
 import { ColorThemeContext } from '@components/ColorThemeContext'
 import { TabbedBlockTabs } from '@components/TabbedBlock'
+import ThemeSelect from '@components/ThemeSelect'
 
 SwiperCore.use([EffectFade])
 
@@ -88,11 +89,13 @@ export const HomeConfigurator: FC = () => {
 				/>
 				<div className={['gfc grid sm:grid-cols-2 relative z-20', styles.infoBlock].join(' ')}>
 					<div
-						className={['gf', activeTabIndex === 0 && styles.firtTabBlock]
+						className={['gf', activeTabIndex === 0 && styles.firstTabBlock]
 							.filter(Boolean)
 							.join(' ')}
 					>
-						{tabs[activeTabIndex].content}
+						<div className="py-4 px-5 space-x-4">
+							<ThemeSelect keepExpanded />
+						</div>
 					</div>
 					<div className={['gf'].join(' ')}>{tabs[activeTabIndex].content}</div>
 				</div>
