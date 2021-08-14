@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="650px" viewBox="0 0 96 650" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>LoadingSprite / olive</title>
+    <g id="LoadingSprite-/-olive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-7" transform="translate(0.000000, 42.000000)">
+            <g id="Group-2" transform="translate(0.000000, 558.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="42.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="21.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="0.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <g id="Group-4" transform="translate(31.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+                <g id="Group-5" transform="translate(62.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+                <g id="Group-6" transform="translate(90.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+                <g id="Group" transform="translate(9.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 47.500000) scale(-1, 1) translate(-83.500000, -47.500000) translate(80.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group-3" transform="translate(2.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 508.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="42.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="21.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="0.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <g id="Group-4" transform="translate(31.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+                <g id="Group-5" transform="translate(62.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+                <g id="Group-6" transform="translate(90.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+                <g id="Group" transform="translate(9.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 47.500000) scale(-1, 1) translate(-83.500000, -47.500000) translate(80.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 458.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="42.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="21.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="0.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <g id="Group-5" transform="translate(62.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+                <g id="Group-6" transform="translate(90.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+                <g id="Group" transform="translate(9.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 47.500000) scale(-1, 1) translate(-83.500000, -47.500000) translate(80.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 408.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="42.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="21.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="0.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <g id="Group-6" transform="translate(90.000000, 2.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                    <rect id="Rectangle" x="0.5" y="0.5" width="3" height="19" rx="1"></rect>
+                    <rect id="Rectangle" x="0.5" y="21.5" width="3" height="19" rx="1"></rect>
+                </g>
+                <g id="Group" transform="translate(9.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 47.500000) scale(-1, 1) translate(-83.500000, -47.500000) translate(80.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 358.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="42.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="21.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="0.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="23.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <g id="Group" transform="translate(9.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 47.500000) scale(-1, 1) translate(-83.500000, -47.500000) translate(80.000000, 45.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 310.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="40.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="19.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="21.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="21.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="21.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <g id="Group" transform="translate(9.000000, 43.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 45.500000) scale(-1, 1) translate(-83.500000, -45.500000) translate(80.000000, 43.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 260.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="40.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="19.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="21.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="21.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="21.5" width="29" height="19" rx="1"></rect>
+                <g id="Group" transform="translate(9.000000, 43.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 45.500000) scale(-1, 1) translate(-83.500000, -45.500000) translate(80.000000, 43.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 210.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="40.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="19.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="21.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="21.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="21.5" width="29" height="19" rx="1"></rect>
+                <g id="Group" transform="translate(9.000000, 43.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 45.500000) scale(-1, 1) translate(-83.500000, -45.500000) translate(80.000000, 43.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 179.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="21.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="0.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="2.5" width="29" height="19" rx="1"></rect>
+                <g id="Group" transform="translate(9.000000, 24.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 26.500000) scale(-1, 1) translate(-83.500000, -26.500000) translate(80.000000, 24.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 131.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="19.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="3.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <g id="Group" transform="translate(9.000000, 22.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 24.500000) scale(-1, 1) translate(-83.500000, -24.500000) translate(80.000000, 22.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 81.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="19.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="33.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <g id="Group" transform="translate(9.000000, 22.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 24.500000) scale(-1, 1) translate(-83.500000, -24.500000) translate(80.000000, 22.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" transform="translate(0.000000, 31.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" fill="#FFFFFF" x="0.5" y="19.5" width="95" height="2" rx="1"></rect>
+                <rect id="Rectangle" stroke="#FFFFFF" x="63.5" y="0.5" width="29" height="19" rx="1"></rect>
+                <g id="Group" transform="translate(9.000000, 22.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 24.500000) scale(-1, 1) translate(-83.500000, -24.500000) translate(80.000000, 22.000000)" fill="#FFFFFF">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+            <g id="Group-2" fill="#FFFFFF">
+                <rect id="Rectangle" stroke="#FFFFFF" x="0.5" y="0.5" width="95" height="2" rx="1"></rect>
+                <g id="Group" transform="translate(9.000000, 3.000000)">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+                <g id="Group" transform="translate(83.500000, 5.500000) scale(-1, 1) translate(-83.500000, -5.500000) translate(80.000000, 3.000000)">
+                    <polygon id="Rectangle" points="3 0 7 0 7 1 3 2"></polygon>
+                    <circle id="Oval" stroke="#FFFFFF" cx="2.5" cy="2.5" r="2"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

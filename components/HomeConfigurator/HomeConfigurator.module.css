@@ -10,11 +10,12 @@
 
 .swiperContainer {
 	--swiper-pagination-color: var(--primary, #000);
-	/* padding: 12px 0 64px; */
+	padding: 12px 0 64px;
 }
 
 .swiperSlide {
 	transition-property: opacity;
+	position: relative;
 }
 
 .swiperSlide img {
@@ -29,4 +30,34 @@
 
 .firtTabBlock {
 	border-top-left-radius: 0px;
+}
+
+.loadingSprite {
+	width: 96px;
+	height: 50px;
+	background-image: url('/images/configurator/LoadingSprite/dark.svg');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size: 100% auto;
+	animation-name: leading-sprite;
+	animation-duration: 2000ms;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: step-end;
+}
+
+@keyframes leading-sprite {
+	0% { background-position: 0px 0px; }
+	7.7% { background-position: 0px -50px; }
+	15.4% { background-position: 0px -100px; }
+	23.1% { background-position: 0px -150px; }
+	30.8% { background-position: 0px -200px; }
+	38.5% { background-position: 0px -250px; }
+	46.2% { background-position: 0px -300px; }
+	53.9% { background-position: 0px -350px; }
+	61.6% { background-position: 0px -400px; }
+	69.3% { background-position: 0px -450px; }
+	77% { background-position: 0px -500px; }
+	84.7% { background-position: 0px -550px; }
+	92.4% { background-position: 0px -600px; }
 }
