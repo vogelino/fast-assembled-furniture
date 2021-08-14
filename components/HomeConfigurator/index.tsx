@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { ColorThemeContext } from '@components/ColorThemeContext'
 import { TabbedBlockTabs } from '@components/TabbedBlock'
 import ThemeSelect from '@components/ThemeSelect'
+import { InfoTable } from '@components/InfoTable'
 
 SwiperCore.use([EffectFade])
 
@@ -96,6 +97,7 @@ export const HomeConfigurator: FC = () => {
 						<div className="py-4 px-5 space-x-4">
 							<ThemeSelect keepExpanded />
 						</div>
+						<InfoTable />
 					</div>
 					<div className={['gf'].join(' ')}>{tabs[activeTabIndex].content}</div>
 				</div>
