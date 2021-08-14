@@ -21,6 +21,14 @@
   }
 }
 
+@media screen and (min-width: 640px) {
+  .wrapper {
+    overflow: hidden;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .middleBlock {
     width: calc(200% + var(--borderWidth, 3px));

@@ -8,15 +8,25 @@
 	border-bottom-right-radius: .5rem;
 }
 
+@media screen and (max-width: 639px) {
+	.container {
+		width: calc(100% + var(--borderWidth, 3px) * 2);
+	}
+}
+
 .swiperContainer {
 	--swiper-pagination-color: var(--primary, #000);
-	padding: var(--borderWidth, 3px) 0 64px;
+}
+
+@media screen and (max-width: 1023px) {
+	.swiperContainer {
+		padding: 12px 0 64px;
+	}
 }
 
 .swiperSlide {
 	transition-property: opacity;
 	position: relative;
-	padding: 0 var(--borderWidth, 3px);
 }
 
 .swiperSlide img {

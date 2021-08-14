@@ -79,14 +79,14 @@ export const HomeConfigurator: FC = () => {
 					))}
 				</div>
 			</div>
-			<div className="relative z-20">
+			<div className="relative z-20 lg:-mt-1.5">
 				<TabbedBlockTabs
 					tabsParentClassName="z-30 pl-bd"
 					tabs={tabs}
 					onTabChange={(idx) => setActiveTabIndex(idx)}
 					activeTabIndex={activeTabIndex}
 				/>
-				<div className={['gfc grid grid-cols-2 relative z-20', styles.infoBlock].join(' ')}>
+				<div className={['gfc grid sm:grid-cols-2 relative z-20', styles.infoBlock].join(' ')}>
 					<div
 						className={['gf', activeTabIndex === 0 && styles.firtTabBlock]
 							.filter(Boolean)

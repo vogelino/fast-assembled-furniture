@@ -8,7 +8,7 @@ export const HomeStructureGrid: FC = () => {
 
 	return (
 		<div className={styles.container}>
-			<div className="gfc -ml-bd -mt-bd w-full-p sm:rounded-tr-lg">
+			<div className={[styles.wrapper, 'gfc -ml-bd -mt-bd w-full-p sm:rounded-tr-lg'].join(' ')}>
 				<div className="grid grid-cols-12">
 					<div className={[styles.imageContainer, 'gf col-span-12 lg:col-span-6'].join(' ')}>
 						<Image
