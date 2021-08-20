@@ -1,9 +1,11 @@
-import { LoadingSprite } from '@components/LoadingSprite'
-import { useWindowSize } from '@utils/hooks/useWindowSize'
-import { cover } from '@utils/intrisicScale'
 import Image, { ImageProps } from 'next/image'
 import { FC, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { useSpring, animated } from '@react-spring/web'
+import { useDrag } from 'react-use-gesture'
+import { LoadingSprite } from '@components/LoadingSprite'
+import { useWindowSize } from '@utils/hooks/useWindowSize'
+import { cover } from '@utils/intrinsicScale'
 
 interface LoadingImagePropType {
 	src: string
@@ -11,6 +13,7 @@ interface LoadingImagePropType {
 	height: number
 	objectFit: 'cover' | 'contain'
 	alt?: ImageProps['alt']
+	zoomable?: boolean
 	quality?: ImageProps['quality']
 	objectPosition?: ImageProps['objectPosition']
 }
@@ -20,18 +23,27 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 	width,
 	height,
 	objectFit,
+	zoomable = false,
 	...rest
 }) => {
 	const windowSize = useWindowSize()
 	const [isLoaded, setIsLoaded] = useState(false)
 	const [zoomedImageIsLoaded, setZoomedImageIsLoaded] = useState(false)
 	const [isZoomedIn, setIsZoomedIn] = useState(false)
-
 	const zoomedInSize = cover({
 		parentHeight: windowSize.height,
 		parentWidth: windowSize.width,
 		childHeight: height * 3,
 		childWidth: width * 3,
+	})
+	const [{ x, y }, api] = useSpring(() => ({ x: zoomedInSize.offsetX, y: zoomedInSize.offsetY }))
+
+	const isLandscape = zoomedInSize.offsetY === 0 && zoomedInSize.offsetX < 0
+	const bind = useDrag(({ down, movement: [mx, my] }) => {
+		api.start({
+			x: isLandscape ? (down ? mx + zoomedInSize.offsetX : zoomedInSize.offsetX) : 0,
+			y: !isLandscape ? (down ? my + zoomedInSize.offsetY : zoomedInSize.offsetY) : 0,
+		})
 	})
 
 	return (
@@ -53,6 +65,7 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 					objectFit={objectFit}
 					{...rest}
 					onClick={() => {
+						if (!zoomable) return
 						setIsZoomedIn(true)
 						document.body.classList.add('no-scroll')
 					}}
@@ -71,23 +84,30 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 				<LoadingSprite />
 			</div>
 			{isZoomedIn &&
+				zoomable &&
 				createPortal(
 					<>
-						<div
-							role="button"
-							onClick={() => {
-								setIsZoomedIn(false)
-								document.body.classList.remove('no-scroll')
-							}}
-							onKeyUp={(evt) => evt.key === 'enter' && setIsZoomedIn(false)}
-							tabIndex={0}
-							className="fixed inset-0 bg-primary bg-opacity-80 z-50 overflow-hidden"
-						>
-							<div
+						<div className="fixed inset-0 bg-primary bg-opacity-80 z-50 overflow-hidden">
+							<button
+								className={[
+									'fixed z-50 top-4 right-4 bg-secondary text-primary border-bd',
+									'border-primary w-16 h-16 grid place-content-center font-mono',
+									'text-4xl rounded',
+								].join(' ')}
+								onClick={() => {
+									setIsZoomedIn(false)
+									document.body.classList.remove('no-scroll')
+								}}
+							>
+								✕
+							</button>
+							<animated.div
+								{...bind()}
 								style={{
 									width: zoomedInSize.width,
 									height: zoomedInSize.height,
-									transform: `translate(${zoomedInSize.offsetX}px,${zoomedInSize.offsetY}px)`,
+									x,
+									y,
 								}}
 							>
 								<Image
@@ -97,12 +117,13 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 									layout="fixed"
 									{...rest}
 									onLoad={() => setZoomedImageIsLoaded(true)}
+									className="pointer-events-none"
 								/>
-							</div>
+							</animated.div>
 							<div
 								className={[
 									'absolute inset-0 grid place-content-center',
-									'transition-all z-10',
+									'transition-all z-10 pointer-events-none',
 									zoomedImageIsLoaded && 'opacity-0',
 								]
 									.filter(Boolean)

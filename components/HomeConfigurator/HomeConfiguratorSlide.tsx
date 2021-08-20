@@ -19,7 +19,7 @@ interface SliderImagePropType {
 const HomeConfiguratorSlideImage: FC<SliderSlideType> = ({ filePath }) => {
 	return (
 		<div style={{ background: 'white' }}>
-			<LoadingImage src={filePath} width={1536} height={742} objectFit="cover" />
+			<LoadingImage src={filePath} width={1536} height={742} objectFit="cover" zoomable />
 		</div>
 	)
 }
