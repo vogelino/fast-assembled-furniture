@@ -1,5 +1,5 @@
 import Image, { ImageProps } from 'next/image'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
@@ -36,15 +36,20 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 		childHeight: height * 3,
 		childWidth: width * 3,
 	})
-	const [{ x, y }, api] = useSpring(() => ({ x: zoomedInSize.offsetX, y: zoomedInSize.offsetY }))
+	const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }))
 
 	const isLandscape = zoomedInSize.offsetY === 0 && zoomedInSize.offsetX < 0
 	const bind = useDrag(({ down, movement: [mx, my] }) => {
 		api.start({
-			x: isLandscape ? (down ? mx + zoomedInSize.offsetX : zoomedInSize.offsetX) : 0,
-			y: !isLandscape ? (down ? my + zoomedInSize.offsetY : zoomedInSize.offsetY) : 0,
+			x: isLandscape && down ? mx : 0,
+			y: !isLandscape && down ? my : 0,
 		})
 	})
+
+	useEffect(() => {
+		setIsLoaded(false)
+		setZoomedImageIsLoaded(false)
+	}, [src])
 
 	return (
 		<>
@@ -67,7 +72,7 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 					onClick={() => {
 						if (!zoomable) return
 						setIsZoomedIn(true)
-						document.body.classList.add('no-scroll')
+						document.querySelector('html')?.classList.add('no-scroll')
 					}}
 					onLoad={() => setIsLoaded(true)}
 				/>
@@ -75,8 +80,8 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 			<div
 				className={[
 					'absolute inset-0 grid place-content-center',
-					'transition-all',
-					isLoaded && 'opacity-0 pointer-events-none',
+					'transition-all pointer-events-none z-30',
+					isLoaded && 'opacity-0',
 				]
 					.filter(Boolean)
 					.join(' ')}
@@ -96,14 +101,17 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 								].join(' ')}
 								onClick={() => {
 									setIsZoomedIn(false)
-									document.body.classList.remove('no-scroll')
+									document.querySelector('html')?.classList.remove('no-scroll')
 								}}
 							>
 								✕
 							</button>
 							<animated.div
 								{...bind()}
+								className="absolute"
 								style={{
+									top: zoomedInSize.offsetY,
+									left: zoomedInSize.offsetX,
 									width: zoomedInSize.width,
 									height: zoomedInSize.height,
 									x,

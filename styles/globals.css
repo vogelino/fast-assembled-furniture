@@ -291,7 +291,10 @@
 		@apply bg-secondary border-bd;
 	}
 
-	html.no-scroll {
+	html.no-scroll,
+	html.no-scroll body,
+	html.no-scroll #__next,
+	html.no-scroll .app-wrapper {
 		overflow: hidden !important;
 	}
 
