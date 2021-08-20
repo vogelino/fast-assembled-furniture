@@ -60,6 +60,7 @@ export const HomeConfigurator: FC = () => {
 					slides={slidesWithFullPath}
 					onSlideChange={setCurrentSlideIndex}
 					onReady={setSwiperInstance}
+					currentSlideIndex={currentSlideIndex}
 				/>
 				<div
 					className={[

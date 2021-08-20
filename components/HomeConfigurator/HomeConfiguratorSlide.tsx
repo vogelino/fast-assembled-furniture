@@ -13,6 +13,7 @@ interface SliderImagePropType {
 	slides: SliderSlideType[]
 	onSlideChange: (currentSlide: number) => void
 	onReady: (swiper: SwiperClass) => void
+	currentSlideIndex: number
 }
 
 const HomeConfiguratorSlideImage: FC<SliderSlideType> = ({ filePath }) => {
@@ -27,6 +28,7 @@ export const HomeConfiguratorSlide: FC<SliderImagePropType> = ({
 	slides,
 	onSlideChange,
 	onReady,
+	currentSlideIndex,
 }) => (
 	<Swiper
 		effect="fade"
@@ -36,8 +38,13 @@ export const HomeConfiguratorSlide: FC<SliderImagePropType> = ({
 			onSlideChange(swiper.activeIndex)
 		}}
 	>
-		{slides.map((slide) => (
-			<SwiperSlide key={slide.id} className={styles.swiperSlide}>
+		{slides.map((slide, idx) => (
+			<SwiperSlide
+				key={slide.id}
+				className={[styles.swiperSlide, currentSlideIndex === idx && styles.swiperSlideActive]
+					.filter(Boolean)
+					.join(' ')}
+			>
 				<HomeConfiguratorSlideImage {...slide} />
 			</SwiperSlide>
 		))}

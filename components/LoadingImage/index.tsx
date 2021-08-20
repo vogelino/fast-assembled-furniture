@@ -1,6 +1,9 @@
 import { LoadingSprite } from '@components/LoadingSprite'
+import { useWindowSize } from '@utils/hooks/useWindowSize'
+import { cover } from '@utils/intrisicScale'
 import Image, { ImageProps } from 'next/image'
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 interface LoadingImagePropType {
 	src: string
@@ -12,8 +15,6 @@ interface LoadingImagePropType {
 	objectPosition?: ImageProps['objectPosition']
 }
 
-const loadedImagesCache = new Map<string, boolean>()
-
 export const LoadingImage: FC<LoadingImagePropType> = ({
 	src,
 	width,
@@ -21,15 +22,17 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 	objectFit,
 	...rest
 }) => {
+	const windowSize = useWindowSize()
 	const [isLoaded, setIsLoaded] = useState(false)
+	const [zoomedImageIsLoaded, setZoomedImageIsLoaded] = useState(false)
+	const [isZoomedIn, setIsZoomedIn] = useState(false)
 
-	useEffect(() => {
-		if (loadedImagesCache.get(src) === true) {
-			setIsLoaded(true)
-		} else {
-			setIsLoaded(false)
-		}
-	}, [src])
+	const zoomedInSize = cover({
+		parentHeight: windowSize.height,
+		parentWidth: windowSize.width,
+		childHeight: height * 3,
+		childWidth: width * 3,
+	})
 
 	return (
 		<>
@@ -49,23 +52,68 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 					height={height}
 					objectFit={objectFit}
 					{...rest}
-					onLoad={() => {
-						loadedImagesCache.set(src, true)
-						setIsLoaded(true)
+					onClick={() => {
+						setIsZoomedIn(true)
+						document.body.classList.add('no-scroll')
 					}}
+					onLoad={() => setIsLoaded(true)}
 				/>
 			</div>
 			<div
 				className={[
 					'absolute inset-0 grid place-content-center',
 					'transition-all',
-					isLoaded && 'opacity-0',
+					isLoaded && 'opacity-0 pointer-events-none',
 				]
 					.filter(Boolean)
 					.join(' ')}
 			>
 				<LoadingSprite />
 			</div>
+			{isZoomedIn &&
+				createPortal(
+					<>
+						<div
+							role="button"
+							onClick={() => {
+								setIsZoomedIn(false)
+								document.body.classList.remove('no-scroll')
+							}}
+							onKeyUp={(evt) => evt.key === 'enter' && setIsZoomedIn(false)}
+							tabIndex={0}
+							className="fixed inset-0 bg-primary bg-opacity-80 z-50 overflow-hidden"
+						>
+							<div
+								style={{
+									width: zoomedInSize.width,
+									height: zoomedInSize.height,
+									transform: `translate(${zoomedInSize.offsetX}px,${zoomedInSize.offsetY}px)`,
+								}}
+							>
+								<Image
+									src={src}
+									width={zoomedInSize.width}
+									height={zoomedInSize.height}
+									layout="fixed"
+									{...rest}
+									onLoad={() => setZoomedImageIsLoaded(true)}
+								/>
+							</div>
+							<div
+								className={[
+									'absolute inset-0 grid place-content-center',
+									'transition-all z-10',
+									zoomedImageIsLoaded && 'opacity-0',
+								]
+									.filter(Boolean)
+									.join(' ')}
+							>
+								<LoadingSprite />
+							</div>
+						</div>
+					</>,
+					document.getElementById('__next') || document.body
+				)}
 		</>
 	)
 }

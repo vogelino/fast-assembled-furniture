@@ -27,6 +27,11 @@
 .swiperSlide {
 	transition-property: opacity;
 	position: relative;
+	pointer-events: none;
+}
+
+.swiperSlideActive {
+	pointer-events: auto;
 }
 
 .swiperSlide img {
