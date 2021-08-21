@@ -70,10 +70,7 @@ const ZoomedInView: FC<ZoomedInViewPropType> = ({ src, width, height, onClose, .
 						'border-primary w-16 h-16 grid place-content-center font-mono',
 						'text-4xl rounded',
 					].join(' ')}
-					onClick={() => {
-						onClose()
-						document.querySelector('html')?.classList.remove('no-scroll')
-					}}
+					onClick={onClose}
 				>
 					✕
 				</button>
@@ -173,7 +170,10 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 					src={src}
 					width={width}
 					height={height}
-					onClose={() => setIsZoomedIn(false)}
+					onClose={() => {
+						setIsZoomedIn(false)
+						document.querySelector('html')?.classList.remove('no-scroll')
+					}}
 				/>
 			)}
 		</>
