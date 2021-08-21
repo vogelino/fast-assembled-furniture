@@ -1,8 +1,6 @@
 import Image, { ImageProps } from 'next/image'
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from 'react-use-gesture'
 import { LoadingSprite } from '@components/LoadingSprite'
 import { useWindowSize } from '@utils/hooks/useWindowSize'
 import { cover } from '@utils/intrinsicScale'
@@ -18,6 +16,88 @@ interface LoadingImagePropType {
 	objectPosition?: ImageProps['objectPosition']
 }
 
+interface ZoomedInViewPropType extends Omit<LoadingImagePropType, 'zoomable' | 'objectFit'> {
+	onClose: () => void
+}
+
+const ZoomedInView: FC<ZoomedInViewPropType> = ({ src, width, height, onClose, ...rest }) => {
+	const scrollContainerRef = useRef<HTMLDivElement | null>(null)
+	const windowSize = useWindowSize()
+	const [zoomedImageIsLoaded, setZoomedImageIsLoaded] = useState(false)
+	const zoomedInSize = cover({
+		parentHeight: windowSize.height,
+		parentWidth: windowSize.width,
+		childHeight: height * 3,
+		childWidth: width * 3,
+	})
+
+	useEffect(() => {
+		setZoomedImageIsLoaded(false)
+	}, [src])
+
+	useEffect(() => {
+		if (!zoomedImageIsLoaded) return
+		scrollContainerRef.current?.scrollTo(
+			Math.abs(zoomedInSize.offsetX),
+			Math.abs(zoomedInSize.offsetY)
+		)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [zoomedImageIsLoaded])
+
+	return createPortal(
+		<>
+			<div className="fixed inset-0 bg-primary bg-opacity-80 z-50 overflow-hidden">
+				<button
+					className={[
+						'fixed z-50 top-4 right-4 bg-secondary text-primary border-bd',
+						'border-primary w-16 h-16 grid place-content-center font-mono',
+						'text-4xl rounded',
+					].join(' ')}
+					onClick={() => {
+						onClose()
+						document.querySelector('html')?.classList.remove('no-scroll')
+					}}
+				>
+					✕
+				</button>
+				<div
+					ref={scrollContainerRef}
+					className={[
+						'fixed w-screen h-screen top-0 left-0',
+						zoomedInSize.offsetX !== 0
+							? 'overflow-x-scroll overflow-y-hidden'
+							: 'overflow-y-scroll overflow-x-hidden',
+					]
+						.filter(Boolean)
+						.join(' ')}
+				>
+					<Image
+						src={src}
+						width={zoomedInSize.width}
+						height={zoomedInSize.height}
+						layout="fixed"
+						{...rest}
+						onLoad={() => setZoomedImageIsLoaded(true)}
+						className="pointer-events-none"
+					/>
+				</div>
+				<div
+					className={[
+						'absolute inset-0 grid place-content-center',
+						'transition-all z-10 pointer-events-none',
+						zoomedImageIsLoaded && 'opacity-0',
+					]
+						.filter(Boolean)
+						.join(' ')}
+				>
+					<LoadingSprite />
+				</div>
+			</div>
+		</>,
+		document.getElementById('__next') || document.body
+	)
+}
+
 export const LoadingImage: FC<LoadingImagePropType> = ({
 	src,
 	width,
@@ -26,29 +106,11 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 	zoomable = false,
 	...rest
 }) => {
-	const windowSize = useWindowSize()
 	const [isLoaded, setIsLoaded] = useState(false)
-	const [zoomedImageIsLoaded, setZoomedImageIsLoaded] = useState(false)
 	const [isZoomedIn, setIsZoomedIn] = useState(false)
-	const zoomedInSize = cover({
-		parentHeight: windowSize.height,
-		parentWidth: windowSize.width,
-		childHeight: height * 3,
-		childWidth: width * 3,
-	})
-	const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }))
-
-	const isLandscape = zoomedInSize.offsetY === 0 && zoomedInSize.offsetX < 0
-	const bind = useDrag(({ down, movement: [mx, my] }) => {
-		api.start({
-			x: isLandscape && down ? mx : 0,
-			y: !isLandscape && down ? my : 0,
-		})
-	})
 
 	useEffect(() => {
 		setIsLoaded(false)
-		setZoomedImageIsLoaded(false)
 	}, [src])
 
 	return (
@@ -88,61 +150,14 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 			>
 				<LoadingSprite />
 			</div>
-			{isZoomedIn &&
-				zoomable &&
-				createPortal(
-					<>
-						<div className="fixed inset-0 bg-primary bg-opacity-80 z-50 overflow-hidden">
-							<button
-								className={[
-									'fixed z-50 top-4 right-4 bg-secondary text-primary border-bd',
-									'border-primary w-16 h-16 grid place-content-center font-mono',
-									'text-4xl rounded',
-								].join(' ')}
-								onClick={() => {
-									setIsZoomedIn(false)
-									document.querySelector('html')?.classList.remove('no-scroll')
-								}}
-							>
-								✕
-							</button>
-							<animated.div
-								{...bind()}
-								className="absolute"
-								style={{
-									top: zoomedInSize.offsetY,
-									left: zoomedInSize.offsetX,
-									width: zoomedInSize.width,
-									height: zoomedInSize.height,
-									x,
-									y,
-								}}
-							>
-								<Image
-									src={src}
-									width={zoomedInSize.width}
-									height={zoomedInSize.height}
-									layout="fixed"
-									{...rest}
-									onLoad={() => setZoomedImageIsLoaded(true)}
-									className="pointer-events-none"
-								/>
-							</animated.div>
-							<div
-								className={[
-									'absolute inset-0 grid place-content-center',
-									'transition-all z-10 pointer-events-none',
-									zoomedImageIsLoaded && 'opacity-0',
-								]
-									.filter(Boolean)
-									.join(' ')}
-							>
-								<LoadingSprite />
-							</div>
-						</div>
-					</>,
-					document.getElementById('__next') || document.body
-				)}
+			{isZoomedIn && zoomable && (
+				<ZoomedInView
+					src={src}
+					width={width}
+					height={height}
+					onClose={() => setIsZoomedIn(false)}
+				/>
+			)}
 		</>
 	)
 }
