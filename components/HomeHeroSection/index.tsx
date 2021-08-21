@@ -1,3 +1,4 @@
+import { LoadingImage } from '@components/LoadingImage'
 import Image from 'next/image'
 import { FC, useState } from 'react'
 import styles from './HomeHeroSection.module.css'
@@ -29,7 +30,7 @@ export const HomeHeroSection: FC = () => {
 						imageIsLoaded ? 'opacity-100' : 'opacity-0'
 					} transition-opacity absolute inset-0`}
 				>
-					<Image
+					<LoadingImage
 						src="/images/HomeHeroImage.png"
 						alt="An isometric view of the furniture"
 						width={1920}

@@ -1,7 +1,6 @@
 import { LoadingImage } from '@components/LoadingImage'
 import { TabbedBlock } from '@components/TabbedBlock'
 import useTranslation from 'next-translate/useTranslation'
-import Image from 'next/image'
 import { FC } from 'react'
 import styles from './HomeAssemblageGrid.module.css'
 
@@ -14,7 +13,8 @@ export const HomeAssemblageGrid: FC = () => {
 				<div className="grid grid-cols-12">
 					<div className="col-span-12 sm:col-span-3 grid grid-cols-2 sm:grid-cols-1">
 						<div className={[styles.imageContainer, 'gf'].join(' ')}>
-							<Image
+							<LoadingImage
+								zoomable
 								src="/images/SquareDetail02.jpg"
 								quality={100}
 								width={272}
@@ -26,7 +26,8 @@ export const HomeAssemblageGrid: FC = () => {
 							className={[styles.imageContainer, 'gf'].join(' ')}
 							style={{ background: 'white' }}
 						>
-							<Image
+							<LoadingImage
+								zoomable
 								src="/images/SquareDetail03.jpg"
 								quality={100}
 								width={272}
@@ -40,7 +41,7 @@ export const HomeAssemblageGrid: FC = () => {
 							className={[styles.imageContainer, 'gf pb-16'].join(' ')}
 							style={{ background: 'white' }}
 						>
-							<Image
+							<LoadingImage
 								src="/images/LandscapeGif01.gif"
 								quality={100}
 								width={1920}

@@ -1,5 +1,5 @@
+import { LoadingImage } from '@components/LoadingImage'
 import useTranslation from 'next-translate/useTranslation'
-import Image from 'next/image'
 import { FC } from 'react'
 import styles from './HomeStructureGrid.module.css'
 
@@ -11,7 +11,8 @@ export const HomeStructureGrid: FC = () => {
 			<div className={[styles.wrapper, 'gfc -ml-bd -mt-bd w-full-p sm:rounded-tr-lg'].join(' ')}>
 				<div className="grid grid-cols-12">
 					<div className={[styles.imageContainer, 'gf col-span-12 lg:col-span-6'].join(' ')}>
-						<Image
+						<LoadingImage
+							zoomable
 							src="/images/LandscapeDetail02.jpg"
 							quality={100}
 							width={1246}
@@ -37,7 +38,8 @@ export const HomeStructureGrid: FC = () => {
 							' '
 						)}
 					>
-						<Image
+						<LoadingImage
+							zoomable
 							src="/images/LandscapeDetail03.jpg"
 							quality={100}
 							width={1246}

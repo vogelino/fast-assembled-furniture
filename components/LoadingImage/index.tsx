@@ -13,6 +13,8 @@ interface LoadingImagePropType {
 	alt?: ImageProps['alt']
 	zoomable?: boolean
 	quality?: ImageProps['quality']
+	className?: ImageProps['className']
+	onLoad?: ImageProps['onLoad']
 	objectPosition?: ImageProps['objectPosition']
 }
 
@@ -91,6 +93,7 @@ const ZoomedInView: FC<ZoomedInViewPropType> = ({ src, width, height, onClose, .
 						height={zoomedInSize.height}
 						layout="fixed"
 						{...rest}
+						quality={100}
 						onLoad={() => setZoomedImageIsLoaded(true)}
 						className="pointer-events-none"
 					/>
@@ -118,6 +121,9 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 	height,
 	objectFit,
 	zoomable = false,
+	className = '',
+	onLoad = () => undefined,
+	quality,
 	...rest
 }) => {
 	const [isLoaded, setIsLoaded] = useState(false)
@@ -129,9 +135,25 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 
 	return (
 		<>
-			<div
+			<Image
+				src={src}
+				width={width}
+				height={height}
+				objectFit={objectFit}
+				quality={quality}
+				{...rest}
+				onClick={() => {
+					if (!zoomable) return
+					setIsZoomedIn(true)
+					document.querySelector('html')?.classList.add('no-scroll')
+				}}
+				onLoad={(evt) => {
+					setIsLoaded(true)
+					onLoad(evt)
+				}}
 				className={[
-					'transition-all filter transform',
+					className,
+					'transition-all filter',
 					zoomable && 'cursor-[zoom-in]',
 					isLoaded
 						? 'grayscale-0 brightness-100 opacity-100'
@@ -139,21 +161,7 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 				]
 					.filter(Boolean)
 					.join(' ')}
-			>
-				<Image
-					src={src}
-					width={width}
-					height={height}
-					objectFit={objectFit}
-					{...rest}
-					onClick={() => {
-						if (!zoomable) return
-						setIsZoomedIn(true)
-						document.querySelector('html')?.classList.add('no-scroll')
-					}}
-					onLoad={() => setIsLoaded(true)}
-				/>
-			</div>
+			/>
 			<div
 				className={[
 					'absolute inset-0 grid place-content-center',

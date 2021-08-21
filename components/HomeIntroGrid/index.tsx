@@ -1,7 +1,7 @@
 import { BorderEdge, ButtonWithBorderEdges } from '@components/BorderEdge'
+import { LoadingImage } from '@components/LoadingImage'
 import { Logo } from '@components/Logo'
 import useTranslation from 'next-translate/useTranslation'
-import Image from 'next/image'
 import { FC } from 'react'
 import styles from './HomeIntroGrid.module.css'
 
@@ -53,7 +53,8 @@ export const HomeIntroGrid: FC = () => {
 							'gf col-span-12 lg:col-span-6 lg:row-span-3 order-first md:order-2',
 						].join(' ')}
 					>
-						<Image
+						<LoadingImage
+							zoomable
 							src="/images/LargeBlock01.jpg"
 							quality={100}
 							width={696}
@@ -62,7 +63,8 @@ export const HomeIntroGrid: FC = () => {
 						/>
 					</div>
 					<div className={[styles.imageContainer, 'gf col-span-12 md:col-span-6'].join(' ')}>
-						<Image
+						<LoadingImage
+							zoomable
 							src="/images/LandscapeDetail01.jpg"
 							quality={100}
 							width={544}
@@ -71,7 +73,8 @@ export const HomeIntroGrid: FC = () => {
 						/>
 					</div>
 					<div className={[styles.imageContainer, 'gf col-span-12 lg:col-span-3'].join(' ')}>
-						<Image
+						<LoadingImage
+							zoomable
 							src="/images/SquareDetail01.jpg"
 							quality={100}
 							width={272}
