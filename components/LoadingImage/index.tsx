@@ -1,5 +1,5 @@
 import Image, { ImageProps } from 'next/image'
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { LoadingSprite } from '@components/LoadingSprite'
 import { useWindowSize } from '@utils/hooks/useWindowSize'
@@ -44,9 +44,26 @@ const ZoomedInView: FC<ZoomedInViewPropType> = ({ src, width, height, onClose, .
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [zoomedImageIsLoaded])
 
+	const escFunction = useCallback((event: KeyboardEvent) => {
+		if (event.key === 'Escape' || event.key === 'Enter') onClose()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
+	useEffect(() => {
+		document.addEventListener('keydown', escFunction, false)
+		return () => document.removeEventListener('keydown', escFunction, false)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
 	return createPortal(
 		<>
-			<div className="fixed inset-0 bg-primary bg-opacity-80 z-50 overflow-hidden">
+			<div
+				role="button"
+				onClick={onClose}
+				onKeyPress={(evt) => evt.key === 'escape' && onClose()}
+				tabIndex={0}
+				className="fixed inset-0 bg-primary bg-opacity-80 z-50 overflow-hidden cursor-[zoom-out]"
+			>
 				<button
 					className={[
 						'fixed z-50 top-4 right-4 bg-secondary text-primary border-bd',
@@ -118,6 +135,7 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 			<div
 				className={[
 					'transition-all filter transform',
+					zoomable && 'cursor-[zoom-in]',
 					isLoaded
 						? 'grayscale-0 brightness-100 opacity-100'
 						: 'grayscale brightness-125 opacity-50',
