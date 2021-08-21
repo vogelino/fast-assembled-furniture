@@ -4,8 +4,8 @@
 }
 
 @keyframes slideSideways {
-  0%   { transform: scale(3) translateX(50vw); }
-  100% { transform: scale(3) translateX(-50vw); }
+  0%   { transform: scale(.5) translateX(30%); }
+  100% { transform: scale(.5) translateX(-100%); }
 }
 
 .fadeIn {
@@ -15,11 +15,13 @@
 }
 
 .container {
+  width: 100%;
   height: calc(100vh - 60px);
 }
 
 @media screen and (min-width: 640px) {
   .container {
+    width: 100%;
     height: calc(100vh - 120px);
   }
 }
@@ -29,8 +31,15 @@
     overflow: hidden;
   }
 
+  .container > div,
+  .container > div > div {
+    width: var(--imgWidth, 1920px);
+    height: var(--imgHeight, 740px);
+  }
+
   .container > div {
-    transform: scale(3) translateX(50vw);
+    transform-origin: 0 0;
+    transform: scale(.5) translateX(calc(var(--imgWidth, 1920px) * -1));
     animation: slideSideways 20000ms linear 0ms infinite normal both;
   }
 }
