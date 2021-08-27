@@ -20,16 +20,19 @@ interface TabbedBlockTabsPropType
 	extends Omit<TabsPropType, 'wrapperClassName' | 'contentClassName'> {
 	onTabChange: (tabIdx: number) => void
 	activeTabIndex: number
+	id: string
 }
 
 export const TabbedBlockTabs: FC<TabbedBlockTabsPropType> = ({
 	tabs,
 	onTabChange,
 	activeTabIndex,
+	id,
 	tabsParentClassName = '',
 }) => (
 	<div
 		className={['absolute top-0 transform -translate-y-full flex', tabsParentClassName].join(' ')}
+		id={id}
 	>
 		{tabs.map(({ id, title }, idx) => (
 			<ButtonWithBorderEdges
@@ -62,11 +65,12 @@ export const TabbedBlock: FC<TabsPropType> = ({
 	const [activeTabIndex, setActiveTabIndex] = useState(0)
 
 	return (
-		<div className={['relative w-full', wrapperClassName].join(' ')} id={id}>
+		<div className={['relative w-full', wrapperClassName].join(' ')}>
 			<div className={['gf', contentClassName, styles.tabBlock].join(' ')}>
 				{tabs[activeTabIndex].content}
 			</div>
 			<TabbedBlockTabs
+				id={id}
 				tabsParentClassName={tabsParentClassName}
 				tabs={tabs}
 				onTabChange={(idx) => setActiveTabIndex(idx)}

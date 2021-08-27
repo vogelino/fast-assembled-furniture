@@ -13,12 +13,6 @@
     grid-template-rows: repeat(var(--linksCount, 3), auto) 1fr;
     min-height: calc(100% + var(--borderWidth, 3px));
   }
-  .innerContainerWithCart {
-    grid-template-rows: auto var(--menuSize, 64px);
-  }
-  .innerContainerWithoutCart {
-    grid-template-rows: auto;
-  }
 }
 
 @media screen and (min-width: 640px) {

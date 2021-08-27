@@ -55,7 +55,7 @@ export const HomeConfigurator: FC = () => {
 
 	return (
 		<div className={styles.container}>
-			<div className="w-full overflow-hidden relative">
+			<div className="w-full overflow-hidden relative" id="configurator-anchor">
 				<HomeConfiguratorSlide
 					slides={slidesWithFullPath}
 					onSlideChange={setCurrentSlideIndex}
@@ -88,6 +88,7 @@ export const HomeConfigurator: FC = () => {
 			</div>
 			<div className="relative z-20 lg:-mt-1.5">
 				<TabbedBlockTabs
+					id="configurator-tabs"
 					tabsParentClassName="z-30 pl-bd"
 					tabs={tabs}
 					onTabChange={(idx) => setActiveTabIndex(idx)}

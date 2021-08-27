@@ -1,10 +1,7 @@
 import { FC, useContext, useEffect } from 'react'
-import { Button } from '@components/SquareButton'
 import Link from '@components/Link'
 import { MenuContext } from '@components/MenuContext'
 import styles from './HeaderMenu.module.css'
-import { CartContext } from '@components/CartContext'
-import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 
 const year = new Date().getFullYear()
@@ -55,27 +52,24 @@ const MenuFooter: FC = () => {
 
 const scrollToTargetAdjusted = (id: string): void => {
 	const element = document.getElementById(id)
-	if (!element) return
-	const headerOffset = 62
-	const elementPosition = element.getBoundingClientRect().top
+	const scrollParent = document.querySelector('.app-wrapper')
+	if (!element || !scrollParent) return
+	const isMobile = window.innerWidth < 640
+	const headerOffset = isMobile ? -2 : 62
+	const parentTop = scrollParent.getBoundingClientRect().top
+	const elementTop = element.getBoundingClientRect().top
+	const elementPosition = elementTop - parentTop
 	const offsetPosition = elementPosition - headerOffset
-	window.scrollTo({
-		top: offsetPosition + window.pageYOffset,
+
+	scrollParent.scrollTo({
+		top: offsetPosition + scrollParent.scrollTop,
 		behavior: 'smooth',
 	})
 }
 
 export const HeaderMenu: FC = () => {
-	const { locale } = useRouter()
 	const { menuLinks, closeMenu, menuIsOpened } = useContext(MenuContext)
-	const { cartSize, cartTotalPrice } = useContext(CartContext)
-	const { t } = useTranslation('common')
 	const { t: tHome } = useTranslation('home')
-
-	const currency = new Intl.NumberFormat(locale, {
-		style: 'currency',
-		currency: 'EUR',
-	})
 
 	useEffect(() => {
 		const htmlElement = document.querySelector('html')
@@ -93,13 +87,7 @@ export const HeaderMenu: FC = () => {
 				'gfc h-full z-20 overflow-hidden relative',
 			].join(' ')}
 		>
-			<div
-				className={[
-					styles.innerContainer,
-					cartSize !== 0 ? styles.innerContainerWithCart : styles.innerContainerWithoutCart,
-					'grid grid-flow-row w-full h-full',
-				].join(' ')}
-			>
+			<div className={[styles.innerContainer, 'grid grid-flow-row w-full h-full'].join(' ')}>
 				<div
 					className={[
 						'overflow-y-auto overflow-x-hidden border-bd rounded-lg',
@@ -134,16 +122,6 @@ export const HeaderMenu: FC = () => {
 						<MenuFooter />
 					</ul>
 				</div>
-				{cartSize !== 0 && (
-					<div className="sm:hidden gfc -mt-bd w-full">
-						<Button type="button" primary className="w-full-p">
-							{t('cart.checkout')}{' '}
-							<span className="inline-block text-sm font-normal">
-								({currency.format(cartTotalPrice)})
-							</span>
-						</Button>
-					</div>
-				)}
 			</div>
 		</div>
 	)
