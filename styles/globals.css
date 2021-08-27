@@ -330,7 +330,7 @@
 
 	/* purgecss start ignore */
 	body .notion {
-		@apply text-primary text-base leading-normal;
+		@apply text-base leading-normal text-primary;
 		caret-color: var(--primary);
 		font-family: 'Inter', sans-serif;
 	}
@@ -349,7 +349,7 @@
 	body .notion h1,
 	body .notion h2,
 	body .notion h3 {
-		@apply uppercase font-semibold;
+		@apply font-semibold uppercase;
 	}
 
 	body .notion h1 {
@@ -380,11 +380,11 @@
 	}
 
 	body .notion-th {
-		@apply text-secondary font-bold uppercase;
+		@apply font-bold uppercase text-secondary;
 	}
 
 	body .notion-td {
-		@apply bg-secondary rounded;
+		@apply rounded bg-secondary;
 	}
 
 	body .notion-table,
