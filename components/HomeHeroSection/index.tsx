@@ -35,8 +35,8 @@ export const HomeHeroSection: FC = () => {
 				<Image
 					src="/images/HomeHeroImage.gif"
 					alt="An isometric view of the furniture"
-					width={isMobile ? zoomedInSize.width * 2 : imgWidth}
-					height={isMobile ? zoomedInSize.height * 2 : imgHeight}
+					width={isMobile ? zoomedInSize.width : imgWidth}
+					height={isMobile ? zoomedInSize.height : imgHeight}
 					layout={isMobile ? 'fixed' : 'intrinsic'}
 					quality={100}
 					className="opacity-10"
@@ -49,8 +49,8 @@ export const HomeHeroSection: FC = () => {
 					<Image
 						src="/images/HomeHeroImage.png"
 						alt="An isometric view of the furniture"
-						width={isMobile ? zoomedInSize.width * 2 : imgWidth}
-						height={isMobile ? zoomedInSize.height * 2 : imgHeight}
+						width={isMobile ? zoomedInSize.width : imgWidth}
+						height={isMobile ? zoomedInSize.height : imgHeight}
 						layout={isMobile ? 'fixed' : 'intrinsic'}
 						quality={100}
 						onLoad={() => {
