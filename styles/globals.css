@@ -284,6 +284,7 @@
 		width: 100%;
 		-webkit-overflow-scrolling: touch;
 		overflow-x: hidden;
+		height: 100vh;
 	}
 
 	#__next {
