@@ -4,8 +4,8 @@
 }
 
 @keyframes slideSideways {
-  0%   { transform: translateX(30%); }
-  100% { transform: translateX(-100%); }
+  0%   { transform: translate3d(30%, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
 }
 
 .fadeIn {
@@ -41,5 +41,6 @@
     transform-origin: 0 0;
     transform: translateX(calc(var(--imgWidth, 1920px) * -1));
     animation: slideSideways 20000ms linear 0ms infinite normal both;
+	will-change: transform;
   }
 }
