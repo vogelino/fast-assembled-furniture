@@ -44,7 +44,7 @@ export const HomeIntroGrid: FC = () => {
 							</h4>
 						</div>
 						<p className={['md:text-xl lg:text-2xl col-span-3 xl:col-span-5 p-6 pb-8'].join(' ')}>
-							{tHome('introduction.text')}
+							{tHome('introduction')}
 						</p>
 					</div>
 					<div

@@ -1,34 +1,31 @@
 {
-  "introduction": {
-    "title": "Introduktion",
-    "text": "Ein funktionales, mobiles und personalisierbares Sideboard, das sich ohne Werkzeug auf- und abbauen lässt."
-  },
+  "introduction": "Ein funktionales und mobiles Sideboard, das sich personalisieren, erweitern und ohne Werkzeug auf- und abbauen lässt. So oft du willst.",
   "components": {
     "title": "AUS DREI MACHT EINS",
-    "text": "FAF besteht aus drei Komponenten, die aus dem Transportwesen bekannt sind: Euro-Behälter, Holzplatten und Spanngurte. Sie werden ohne zusätzliches Werkzeug so zusammengesetzt, dass ein formschönes und stabiles Sideboard entsteht."
+    "text": "Drei Komponenten werden zu einer Einheit: Euro-Behälter, Holzplatten und Spanngurte werden in wenigen Minuten und ohne Werkzeug so zusammengesetzt, dass ein stabiles Sideboard entsteht."
   },
   "assemblage": {
     "title": "Komponente"
   },
   "box": {
     "title": "BOX",
-    "text": "Die Euronorm Box aus Polypropylen ist ein robustes Produkt, das in der Industrie für seine Langlebigkeit bekannt ist. Für das FAF Sideboard dient die Box als Regalfach und gibt Stabilität – Damit das Sideboard noch mehr Dinge aufnehmen kann, werden exklusiv gefertigte Schienen aus Aluminium auf die Ränder der Kiste gesteckt."
+    "text": "In Industrie und Transportwesen gelichermaßen für ihre Langlebigkeit und Robustheit geschätzt, dient die Euronorm-Box aus grauschwarzem Polypropylen im FAF als Regalfach. Um die bereits gegebene Stabilität noch zu erhöhen, werden die Seitenstege der Boxen mit eigens angefertigten Metallschienen verstärkt."
   },
   "board": {
     "title": "BOARD",
-    "text": "Die horizontalen Lagen des FAF Sideboard bestehen aus 18 mm starken Sperrholzplatten, in die mittels präziser CNC-Technik die Konturen der rotierten Eurokiste gefräst werden; durch dieses Verfahren rasten die Behälter auf der perforierten Holzoberfläche ein. Verwendet werden wahlweise naturbelassene Multiplexplatten aus Buche oder dunkel beschichtete Siebdruckplatten. An der unteren Holzplatte befinden sich Rollen aus weichem Polyurethan, die das FAF Sideboard mobil machen."
+    "text": "18 Millimeter dicke Holzplatten bilden das Gerüst des FAF. Sie sind wahlweise aus naturbelassenem Multiplex oder dunklem Siebdruck. In diese werden mittels präziser CNC-Technik die Konturen der Euro-Boxen gefräst, so dass ein Verrutschen der Kisten unmöglich gemacht wird. Die Bodenplatte ist mit weichen Industrierollen versehen, die ein belagschonendes Bewegen des FAF möglich machen."
   },
   "strap": {
     "title": "STRAP",
-    "text": "Der klassische Spanngurt ist aus aus dem Transportwesen nicht wegzudenkenFAF lässt Gurte mit verzinkter Metallschnalle, die die Komponente des Sideboard-Systems zusammenhalten, in 12 Farben exklusiv anfertigen. Die breite farbliche Auswahl der Gurte sorgt für das individuelle Erscheinungsbild, welches das FAF Sideboard auszeichnet. Natürlich können die Spanngurte des Sideboards jederzeit gewechselt werden und sind nachträglich als Set via hello@faf.berlin bestellbar."
+    "text": "FAF lässt seine hochwertigen Spanngurte mit verzinkter Metallschnalle exklusiv in 12 Farben in Berlin herstellen. Der Klassiker aus dem Transportwesen gibt FAF den farblichen und gleichzeitig filigranen Rahmen und prägt das individuelle Erscheinungsbild. Unsere Gurte können jederzeit nachbestellt und gewechselt werden."
   },
   "production": {
     "title": "FERTIGUNG UND VERSAND",
-    "text": "Die CNC-gefrästen Holzplatten werden batchweise von einem kleinen Unternehmen in Brandenburg gefertigt. Die Schienen aus Aluminium und Spanngurte werden exklusiv in Berlin produziert. Zusammen mit den Rollen erfolgt der Versand dieser Bestandteile als CO-2 neutrale Lieferung. Um zusätzliche Transportwege und Verpackungsmaterial zu vermeiden, erfolgt die Zustellung der Euro-Kisten direkt vom Hersteller aus Süddeutschland."
+    "text": "Unsere CNC-gefrästen Holzplatten werden „made to order“ von einem mittelständischen Unternehmen in Brandenburg gefertigt, Spanngurte und Metallschienen sind „Made in Berlin“. Um unnötige Transportwege und Verpackungsmüll zu vermeiden, werden diese Komponenten gemeinsam mit den Rollen (inklusive Schrauben) als kompaktes CO-2 neutrales Paket verschickt. Der Versand der Euro-Boxen erfolgt direkt vom Hersteller aus Süddeutschland. "
   },
   "makeityourown": {
-    "title": "Make it your own",
-    "text": "Die CNC-gefrästen Holzplatten werden batchweise von einem kleinen Unternehmen in Brandenburg gefertigt. Die Schienen aus Aluminium und Spanngurte werden exklusiv in Berlin produziert. Zusammen mit den Rollen erfolgt der Versand dieser Bestandteile als CO-2 neutrale Lieferung. Um zusätzliche Transportwege und Verpackungsmaterial zu vermeiden, erfolgt die Zustellung der Euro-Kisten direkt vom Hersteller aus Süddeutschland."
+    "title": "Zu Eigen machen",
+    "text": "FAF zeichnet sich durch seine Vielseitigkeit aus. Vom filigranen Bücherregal mit Pastell-Akzenten, über ein dunkel-monochromes DJ-Pult, in dem die Vinyl-Sammlung perfekt Platz findet, bis zum Corporate-Büromöbel. Um nur einige Beispiele zu nennen."
   },
   "configurator": {
     "title": "Konfigurator"
@@ -61,7 +58,7 @@
   },
   "disclaimer":{
     "title": "Bestellmodell",
-    "text": "Da FAF ein junges Unternehmen ist und seine Produkte aktuell nur in Kleinserie produzieren kann, wird das Sideboard-System batchweise hergestellt. Das heißt, dass FAF bei einer Menge von jeweils 20 Bestellungen in die Produktion geht. Wenn Du jetzt bestellst, müssen noch x weitere Bestellungen eingehen, damit die Produktion beginnt. Sollten 6 Wochen nach deiner Bestellung noch nicht genug weitere Bestellungen eingegangen sein, kannst du deine Anzahlung zurückfordern. Bei Sonderanfragen oder für weitere Informationen erreichst Du uns unter ",
+    "text": "FAF ist ein junges Unternehmen, das aktuell nur in Kleinserie produzieren kann. Das bedeutet, dass wir mit unseren Partner*innen immer erst ab 20 Bestellungen mit der Produktion beginnen können. Sollte sechs Wochen nach deiner Bestellung noch nicht die Mindestanzahl weiterer Käufer*innen erreicht sein, kannst du deine Anzahlung jederzeit wiederbekommen. Für weitere Informationen, Nachbestellungen von Spanngurten, oder Anfragen bezüglich Sonderanfertigungen erreichst du uns unter ",
     "button": "Kauf abschließen",
     "conditionsSentenceBefore": "Ich habe die ",
     "conditionsSentenceAfter": " gelesen und akzeptiert.",

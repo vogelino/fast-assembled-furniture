@@ -1,24 +1,34 @@
 {
-  "introduction": "Ein funktionales, mobiles und personalisierbares Sideboard, das sich ohne Werkzeug auf- und abbauen lässt.",
+  "introduction": "A functional and mobile sideboard that can be personalised, extended and assembled and disassembled without tools. As often as you like.",
   "components": {
-    "title": "AUS DREI MACHT EINS",
-    "text": "FAF besteht aus drei Komponenten, die aus dem Transportwesen bekannt sind: Euro-Behälter, Holzplatten und Spanngurte. Sie werden ohne zusätzliches Werkzeug so zusammengesetzt, dass ein formschönes und stabiles Sideboard entsteht."
+    "title": "THREE BECOMES ONE",
+    "text": "Three components become one unit: Euro containers, wooden boards and tensioning straps are assembled in a few minutes and without tools to create a stable sideboard."
+  },
+  "assemblage": {
+    "title": "Components"
   },
   "box": {
     "title": "BOX",
-    "text": "Die Euronorm Box aus Polypropylen ist ein robustes Produkt, das in der Industrie für seine Langlebigkeit bekannt ist. Für das FAF Sideboard dient die Box als Regalfach und gibt Stabilität – Damit das Sideboard noch mehr Dinge aufnehmen kann, werden exklusiv gefertigte Schienen aus Aluminium auf die Ränder der Kiste gesteckt."
+    "text": "Equally appreciated in industry and transport for its durability and robustness, the Euronorm box made of grey-black polypropylene serves as a shelf in the FAF. In order to increase the already given stability even more, the side bars of the boxes are reinforced with specially made metal rails."
   },
   "board": {
     "title": "BOARD",
-    "text": "Die horizontalen Lagen des FAF Sideboard bestehen aus 18 mm starken Sperrholzplatten, in die mittels präziser CNC-Technik die Konturen der rotierten Eurokiste gefräst werden; durch dieses Verfahren rasten die Behälter auf der perforierten Holzoberfläche ein. Verwendet werden wahlweise naturbelassene Multiplexplatten aus Buche oder dunkel beschichtete Siebdruckplatten. An der unteren Holzplatte befinden sich Rollen aus weichem Polyurethan, die das FAF Sideboard mobil machen."
+    "text": "18-millimetre-thick wooden panels form the framework of the FAF. They are optionally made of natural multiplex or dark silk-screen printed. The contours of the Euro boxes are milled into these using precise CNC technology, making it impossible for the boxes to slip. The base plate is fitted with soft industrial castors that allow the FAF to be moved without damaging the floor."
   },
   "strap": {
     "title": "STRAP",
-    "text": "Der klassische Spanngurt ist aus aus dem Transportwesen nicht wegzudenkenFAF lässt Gurte mit verzinkter Metallschnalle, die die Komponente des Sideboard-Systems zusammenhalten, in 12 Farben exklusiv anfertigen. Die breite farbliche Auswahl der Gurte sorgt für das individuelle Erscheinungsbild, welches das FAF Sideboard auszeichnet. Natürlich können die Spanngurte des Sideboards jederzeit gewechselt werden und sind nachträglich als Set via hello@faf.berlin bestellbar."
+    "text": "FAF has its high-quality tensioning straps with galvanised metal buckle produced exclusively in 12 colours in Berlin. The classic from the transport sector gives FAF the colourful and at the same time filigree frame and shapes the individual appearance. Our straps can be reordered and changed at any time."
   },
   "production": {
-    "title": "FERTIGUNG UND VERSAND",
-    "text": "Die CNC-gefrästen Holzplatten werden batchweise von einem kleinen Unternehmen in Brandenburg gefertigt. Die Schienen aus Aluminium und Spanngurte werden exklusiv in Berlin produziert. Zusammen mit den Rollen erfolgt der Versand dieser Bestandteile als CO-2 neutrale Lieferung. Um zusätzliche Transportwege und Verpackungsmaterial zu vermeiden, erfolgt die Zustellung der Euro-Kisten direkt vom Hersteller aus Süddeutschland."
+    "title": "Production and Shipment",
+    "text": "Our CNC-milled wooden panels are \"made to order\" by a medium-sized company in Brandenburg, while tensioning straps and metal rails are \"made in Berlin\". To avoid unnecessary transport and packaging waste, these components are shipped together with the castors (including screws) as a compact CO-2 neutral package. The Euro boxes are shipped directly from the manufacturer in southern Germany. "
+  },
+  "makeityourown": {
+    "title": "Make it your own",
+    "text": "FAF is characterised by its versatility. From a filigree bookcase with pastel accents, to a dark monochrome DJ booth that perfectly accommodates the vinyl collection, to corporate office furniture. To name just a few examples."
+  },
+  "configurator": {
+    "title": "Configurator"
   },
   "infoBox": {
     "labels": {
