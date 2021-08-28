@@ -15,8 +15,6 @@
     "titleBar.inactiveBackground": "#ffffff",
     "titleBar.inactiveForeground": "#000000"  
   },
-  "peacock.remoteColor": "#ac31b2",
-  "peacock.color": "#ac31b2",
   "workbench.colorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Light",
 }
