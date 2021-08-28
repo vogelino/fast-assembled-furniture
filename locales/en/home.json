@@ -1,5 +1,8 @@
 {
-  "introduction": "A functional and mobile sideboard that can be personalised, extended and assembled and disassembled without tools. As often as you like.",
+  "introduction": {
+    "title": "Introduction",
+    "text": "A functional and mobile sideboard that can be personalised, extended and assembled and disassembled without tools. As often as you like."
+  },
   "components": {
     "title": "THREE BECOMES ONE",
     "text": "Three components become one unit: Euro containers, wooden boards and tensioning straps are assembled in a few minutes and without tools to create a stable sideboard."

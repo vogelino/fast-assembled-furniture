@@ -1,5 +1,8 @@
 {
-  "introduction": "Ein funktionales und mobiles Sideboard, das sich personalisieren, erweitern und ohne Werkzeug auf- und abbauen lässt. So oft du willst.",
+  "introduction": {
+    "title": "Einführung",
+    "text": "Ein funktionales und mobiles Sideboard, das sich personalisieren, erweitern und ohne Werkzeug auf- und abbauen lässt. So oft du willst."
+  },
   "components": {
     "title": "AUS DREI MACHT EINS",
     "text": "Drei Komponenten werden zu einer Einheit: Euro-Behälter, Holzplatten und Spanngurte werden in wenigen Minuten und ohne Werkzeug so zusammengesetzt, dass ein stabiles Sideboard entsteht."
