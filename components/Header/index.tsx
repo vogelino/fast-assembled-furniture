@@ -76,7 +76,7 @@ const Header: FC = () => {
 				<HeaderLogo />
 				<div className="gf p-5 flex justify-end items-start sm:items-center">
 					<div
-						className={['space-x-4 pb-3 sm:pb-0 relative', 'px-3 rounded-full'].join(' ')}
+						className={['sm:space-x-4 relative', 'px-1 sm:px-3 rounded-full'].join(' ')}
 						style={{ background: 'white' }}
 					>
 						<ThemeSelect />

@@ -289,16 +289,13 @@
 
 	#__next {
 		@apply bg-secondary border-bd;
+		z-index: 1;
 	}
 
 	html.no-scroll,
 	html.no-scroll body,
 	html.no-scroll #__next {
 		overflow: hidden !important;
-	}
-
-	#__next {
-		z-index: 1;
 	}
 
 	@media screen and (max-width: 639px) {
@@ -310,7 +307,7 @@
 		}
 
 		#__next {
-			padding-left: calc(var(--borderWidth, 2px) + var(--menuSize, 64px)) !important;
+			padding-left: calc(var(--menuSize, 64px)) !important;
 		}
 	}
 
