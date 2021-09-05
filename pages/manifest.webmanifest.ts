@@ -1,7 +1,5 @@
 import { NextApiResponse } from 'next'
 import { Component } from 'react'
-import { gql } from 'graphql-request'
-import { request } from '@utils/requestUtil'
 
 const getManifest = ({
 	siteTitle = 'Fast Assembled Furniture',
@@ -28,21 +26,10 @@ const getManifest = ({
 }
 `
 
-const query = gql`
-	query AllProductsHome($stage: Stage!) {
-		seoCommons(stage: $stage) {
-			siteTitle
-			themeTextColor
-			themeBackgroundColor
-		}
-	}
-`
-
 class Sitemap extends Component {
-	static async getInitialProps({ res }: { res: NextApiResponse }): Promise<void> {
+	static getInitialProps({ res }: { res: NextApiResponse }): void {
 		res.setHeader('Content-Type', 'application/manifest+json')
-		const response = await request(query)
-		res.write(getManifest(response.seoCommons))
+		res.write(getManifest({}))
 		res.end()
 	}
 }

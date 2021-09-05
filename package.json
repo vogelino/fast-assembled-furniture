@@ -21,16 +21,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@stripe/react-stripe-js": "1.1.2",
-    "@stripe/stripe-js": "1.11.0",
     "autoprefixer": "10.1.0",
     "chrome-aws-lambda": "5.5.0",
     "cors": "2.8.5",
-    "graphql": "15.4.0",
-    "graphql-request": "3.4.0",
     "next": "11.0.1",
     "next-translate": "1.0.1",
-    "nookies": "2.5.0",
     "polished": "4.1.0",
     "postcss": "8.3.2",
     "prismjs": "1.23.0",
@@ -40,7 +35,6 @@
     "react-dom": "17.0.1",
     "react-feather": "2.0.9",
     "react-notion": "0.9.3",
-    "stripe": "8.129.0",
     "swiper": "6.7.0",
     "tailwindcss": "2.2.7"
   },

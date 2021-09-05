@@ -16,6 +16,37 @@ import useTranslation from 'next-translate/useTranslation'
 
 SwiperCore.use([EffectFade])
 
+type PaymentLinksType = Record<string, Record<string, string>>
+
+const paymentLinks: PaymentLinksType = {
+	light: {
+		light: 'https://buy.stripe.com/00g14WblC9qY5t67sy',
+		dark: 'https://buy.stripe.com/4gw4h89du0Usg7K28c',
+		blau: 'https://buy.stripe.com/3cs9Bs89q0Us9JmbJ4',
+		rosa: 'https://buy.stripe.com/dR6fZQ0GYdHeaNqdQY',
+		silber: 'https://buy.stripe.com/00g00SahycDabRu4gq',
+		gelb: 'https://buy.stripe.com/8wM2900GY8mU6xa8wB',
+		orange: 'https://buy.stripe.com/7sI5lcblCav29Jm5kr',
+		vlieder: 'https://buy.stripe.com/4gwfZQdtK7iQ7Be7st',
+		rot: 'https://buy.stripe.com/00g9Bs61i0Us1cQ4gp',
+		beige: 'https://buy.stripe.com/dR6eVMdtK7iQ5t64gi',
+		olive: 'https://buy.stripe.com/3cs3d42P69qYg7K288',
+	},
+	dark: {
+		light: 'https://buy.stripe.com/00gbJAgFW7iQ8FiaET',
+		dark: 'https://buy.stripe.com/dR614W4Xebz6bRu5kx',
+		blau: 'https://buy.stripe.com/5kA6pgahy1Ywf3GeV6',
+		rosa: 'https://buy.stripe.com/cN27tkahyeLi3kY6oG',
+		silber: 'https://buy.stripe.com/cN2aFw89qcDabRueVe',
+		gelb: 'https://buy.stripe.com/dR66pg89qdHe6xa5ky',
+		orange: 'https://buy.stripe.com/aEU6pgcpGgTq9JmdR7',
+		vlieder: 'https://buy.stripe.com/fZedRI3TagTq9Jm3cx',
+		rot: 'https://buy.stripe.com/bIY3d43TagTq8Fi7sL',
+		beige: 'https://buy.stripe.com/6oE00S89q7iQ8Fi7sD',
+		olive: 'https://buy.stripe.com/cN200Sahy8mU2gU00g',
+	},
+}
+
 const fakeSlides = [
 	{
 		id: '1',
@@ -46,11 +77,10 @@ export const HomeConfigurator: FC = () => {
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
 	const [activeTabIndex, setActiveTabIndex] = useState(0)
 	const { themeKey } = useContext(ColorThemeContext)
+	const lightnessMode = activeTabIndex === 0 ? 'light' : 'dark'
 	const slidesWithFullPath = fakeSlides.map(({ id, fileName }) => ({
 		id,
-		filePath: `/images/configurator/${
-			activeTabIndex === 0 ? 'light' : 'dark'
-		}/${themeKey}/${fileName}`,
+		filePath: `/images/configurator/${lightnessMode}/${themeKey}/${fileName}`,
 	}))
 
 	return (
@@ -148,8 +178,8 @@ export const HomeConfigurator: FC = () => {
 							</div>
 							<label htmlFor="conditions-accepted">
 								{t('disclaimer.conditionsSentenceBefore')}
-								<Link href="/conditions">
-									<a href="/conditions" className="font-bold underline">
+								<Link href="/agb">
+									<a href="/agb" className="font-bold underline">
 										{t('disclaimer.conditionsName')}
 									</a>
 								</Link>
@@ -160,6 +190,12 @@ export const HomeConfigurator: FC = () => {
 							<ButtonWithBorderEdges
 								primary
 								openings={['TopLeft']}
+								onClick={() => {
+									if (paymentLinks[lightnessMode] && paymentLinks[lightnessMode][themeKey]) {
+										const paymentLink = paymentLinks[lightnessMode][themeKey]
+										window.open(paymentLink, '_blank')
+									}
+								}}
 								edges={[
 									{
 										position: 'TopRight',
