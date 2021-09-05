@@ -4,5 +4,6 @@ import { TextPage } from '@components/TextPage'
 
 export const PrivacySection: FC = () => {
 	const { t } = useTranslation('privacy')
-	return <TextPage text={t('text')} />
+	const { t: tCommon } = useTranslation('common')
+	return <TextPage text={t('text', tCommon('legal', {}, { returnObjects: true }))} />
 }

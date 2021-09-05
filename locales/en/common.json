@@ -50,5 +50,15 @@
         "beige": "Beige",
         "olive": "Olive green"
     },
-    "backLinkText": "Back to the FAF Homepage"
+    "backLinkText": "Back to the FAF Homepage",
+    "legal": {
+        "addressLine1": "Dresdener Str. 15",
+        "addressLine2": "10999 Berlin",
+        "representative1": "Florian Kilian Jaritz",
+        "representative2": "Philipp Krüpe",
+        "contactPhone": "0049-0174 7892062",
+        "contactEmail": "hello@faf.berlin",
+        "vatTaxID": "016/068/10314",
+        "businessID": "016/068/10314"
+    }
 }
