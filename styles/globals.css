@@ -346,6 +346,15 @@
 		text-align: center;
 	}
 
+	body .prose h1,
+	body .prose h2,
+	body .prose h3,
+	body .prose h4,
+	body .prose h5,
+	body .prose h6 {
+		@apply text-primary;
+	}
+
 	body .notion h1,
 	body .notion h2,
 	body .notion h3 {

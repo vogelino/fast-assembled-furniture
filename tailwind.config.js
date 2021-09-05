@@ -27,5 +27,5 @@ module.exports = {
 			opacity: ['group-focus']
 		},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/typography')],
 }

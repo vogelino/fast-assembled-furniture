@@ -54,8 +54,12 @@ const defaults = {
 			textId: 'menu.imprint',
 		},
 		{
-			path: '/data-privacy-guideline',
-			textId: 'menu.data-privacy-guideline',
+			path: '/privacy',
+			textId: 'menu.privacy',
+		},
+		{
+			path: '/agb',
+			textId: 'menu.agb',
 		},
 	],
 	menuIsOpened: false,

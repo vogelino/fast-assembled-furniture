@@ -15,7 +15,8 @@
         "contact-form": "Contact form",
         "brand": "Brand guidelines",
         "imprint": "Imprint",
-        "data-privacy-guideline": "Data privacy"
+        "privacy": "Data privacy",
+        "agb": "Terms"
     },
     "cart": {
         "titleShort": "Cart",

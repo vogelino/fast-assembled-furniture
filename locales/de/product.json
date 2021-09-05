@@ -1,7 +1,0 @@
-{
-    "buttons": {
-        "addToCart": "Zum Warenkorb hinzufügen",
-        "removeFromCart": "Aus dem Warenkorb entfernen"
-    },
-    "priceStartingFrom": "Ab {{price}}"
-}

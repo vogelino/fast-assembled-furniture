@@ -15,7 +15,8 @@
         "contact-form": "Kontakt",
         "brand": "Markenrichtlinien",
         "imprint": "Impressum",
-        "data-privacy-guideline": "Datenschutz"
+        "privacy": "Datenschutz",
+        "agb": "AGBs"
     },
     "cart": {
         "titleShort": "Wagn",

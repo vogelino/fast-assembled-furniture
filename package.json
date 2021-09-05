@@ -21,6 +21,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@tailwindcss/typography": "0.4.1",
     "autoprefixer": "10.1.0",
     "chrome-aws-lambda": "5.5.0",
     "cors": "2.8.5",
