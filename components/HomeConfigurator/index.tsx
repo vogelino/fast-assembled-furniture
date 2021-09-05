@@ -130,16 +130,13 @@ export const HomeConfigurator: FC = () => {
 							.filter(Boolean)
 							.join(' ')}
 					>
-						<div
-							className={[
-								styles.themeSelect,
-								'p-4 sm:p-5 grid sm:inline-grid gap-x-4 gap-y-2 grid-cols-11',
-								'items-center content-center justify-center',
-							]
-								.filter(Boolean)
-								.join(' ')}
-						>
-							<ThemeSelect keepExpanded />
+						<div className={[styles.themeSelect, 'p-4 sm:p-5'].filter(Boolean).join(' ')}>
+							<span
+								className="grid sm:inline-grid gap-x-4 gap-y-2 grid-cols-11 rounded-full px-3 items-center content-center justify-center"
+								style={{ background: 'white' }}
+							>
+								<ThemeSelect keepExpanded />
+							</span>
 						</div>
 						<InfoTable lightness={activeTabIndex === 0 ? 'light' : 'dark'} />
 					</div>

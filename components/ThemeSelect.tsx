@@ -14,6 +14,16 @@ const ThemeSelect: FC<ThemeSelectPropType> = ({ keepExpanded = false }) => {
 				const theme = themes[themeKey]
 				const isActive = themeKey === activeTheme
 				const isNext = themeKey === nextThemeKey
+				const darkColor = theme['primary'] !== '#ffffff' ? theme['primary'] : theme['secondary']
+				const isLightTheme = themeKey === 'light'
+				const backgroundColor = isActive
+					? isLightTheme
+						? 'white'
+						: darkColor
+					: isLightTheme
+					? 'white'
+					: darkColor
+				const borderColor = isActive ? darkColor : 'transparent'
 
 				return (
 					<span
@@ -24,14 +34,14 @@ const ThemeSelect: FC<ThemeSelectPropType> = ({ keepExpanded = false }) => {
 					>
 						<button
 							style={{
-								borderColor: theme['primary'],
-								backgroundColor: theme[isActive ? 'primary' : 'secondary'],
-								boxShadow: `0 0 0 var(--borderWidth, 2px) ${theme['secondary']}`,
+								borderColor: isLightTheme && !isActive ? 'black' : 'white',
+								backgroundColor,
+								boxShadow: `0 0 0 var(--borderWidth, 2px) ${borderColor}`,
 							}}
 							className={[
 								'inline-block',
 								'w-4 h-4 bg-secondary rounded-full sm:my-2.5',
-								'ring-2 focus:outline-none focus:rounded-full border-bd',
+								'focus:outline-none focus:rounded-full border-bd',
 							]
 								.filter(Boolean)
 								.join(' ')}
