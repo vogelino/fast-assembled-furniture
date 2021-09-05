@@ -6,7 +6,7 @@
 @media screen and (max-width: 639px) {
   .container {
 		grid-template-rows: auto 1fr auto auto;
-		width: calc(var(--menuSize, 64px) + (var(--borderWidth, 3px) * 2));
+		width: calc(var(--menuSize, 64px) + (var(--borderWidth, 2px) * 2));
 		height: 100%;
 	}
 	.menuContainerClosed {
@@ -17,14 +17,14 @@
 		grid-template-columns: auto 1fr;
 	}
 	.menuWrapper {
-		left: calc(var(--borderWidth, 3px) + var(--menuSize, 64px));
+		left: calc(var(--borderWidth, 2px) + var(--menuSize, 64px));
 	}
 }
 
 @media screen and (min-width: 640px) {
   .container {
 		grid-template-columns: auto 1fr auto auto auto;
-		height: calc((var(--borderWidth, 3px) * 2) + 60px);
+		height: calc((var(--borderWidth, 2px) * 2) + 60px);
 	}
 	.animatedContainer {
 		animation: slideDown 1500ms cubic-bezier(0,1,.03,.99) 500ms 1 normal forwards;
@@ -42,7 +42,7 @@
 		grid-template-rows: auto 1fr;
 	}
 	.menuWrapper {
-		top: calc(var(--menuSize, 64px) + (var(--borderWidth, 3px) * 2));
+		top: calc(var(--menuSize, 64px) + (var(--borderWidth, 2px) * 2));
 		left: 0;
 	}
 }

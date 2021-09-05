@@ -45,7 +45,7 @@ const ProductListItem: FC<Product> = ({
 			{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 			<a
 				className="group gfc hover:border-gray-300 w-full-p"
-				style={{ paddingTop: 'calc(var(--borderWidth, 3px) * -1)' }}
+				style={{ paddingTop: 'calc(var(--borderWidth, 2px) * -1)' }}
 			>
 				{thumbnail && (
 					<div className="gf">
@@ -79,7 +79,7 @@ const ProductListItem: FC<Product> = ({
 const ProductList: FC<Products> = ({ products }) => (
 	<div
 		className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-		style={{ paddingTop: 'var(--borderWidth, 3px)' }}
+		style={{ paddingTop: 'var(--borderWidth, 2px)' }}
 	>
 		{products.map((product) => (
 			<ProductListItem

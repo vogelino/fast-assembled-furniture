@@ -17,22 +17,22 @@
 
 @media screen and (max-width: 639px) {
   .container {
-    width: calc(100% + var(--borderWidth, 3px));
+    width: calc(100% + var(--borderWidth, 2px));
   }
 }
 
 @media screen and (min-width: 1024px) {
   .middleBlock {
-    width: calc(200% + var(--borderWidth, 3px));
+    width: calc(200% + var(--borderWidth, 2px));
   }
 }
 
 .buttonsContainer {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  padding-top: var(--borderWidth, 3px);
-  padding-left: var(--borderWidth, 3px);
-  margin-left: calc(var(--borderWidth, 3px) * -1);
+  padding-top: var(--borderWidth, 2px);
+  padding-left: var(--borderWidth, 2px);
+  margin-left: calc(var(--borderWidth, 2px) * -1);
 }
 
 .imageContainer {

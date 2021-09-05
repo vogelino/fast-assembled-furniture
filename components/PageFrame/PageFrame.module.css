@@ -1,7 +1,12 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
 @media screen and (max-width: 639px) {
   .container {
     height: 100vh;
-    width: calc(100vw - (var(--menuSize, 64px) + var(--borderWidth, 3px)));
+    width: calc(100vw - (var(--menuSize, 64px) + var(--borderWidth, 2px)));
     left: auto !important;
   }
 }

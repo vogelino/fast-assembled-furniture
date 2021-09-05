@@ -15,7 +15,7 @@ const BrandGuide: FC<{
 		<div
 			className="h-screen relative w-full-p overflow-hidden"
 			style={{
-				paddingLeft: 'calc(20rem - var(--borderWidth, 3px))',
+				paddingLeft: 'calc(20rem - var(--borderWidth, 2px))',
 			}}
 		>
 			<Sidebar pageTree={pageTree} />

@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 639px) {
 	.container {
-		width: calc(100% + var(--borderWidth, 3px) * 2);
+		width: calc(100% + var(--borderWidth, 2px) * 2);
 	}
 }
 

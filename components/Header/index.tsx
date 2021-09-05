@@ -9,6 +9,7 @@ import { BorderEdge } from '@components/BorderEdge'
 import Link from '@components/Link'
 import { logoPaths } from '@components/Logo'
 import { LanguageButton } from '@components/LanguageButton'
+import { useRouter } from 'next/router'
 
 const HeaderLogo: FC = () => (
 	<Link href="/" className="flex flex-col sm:flex-row relative group">
@@ -56,6 +57,7 @@ const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
 )
 
 const Header: FC = () => {
+	const { pathname } = useRouter()
 	const { menuIsOpened, closeMenu, toggleMenu } = useContext(MenuContext)
 
 	return (
@@ -78,22 +80,26 @@ const Header: FC = () => {
 					</div>
 				</div>
 				<LanguageButton />
-				<Button
-					type="button"
-					icon={menuIsOpened ? 'X' : 'Menu'}
-					onClick={() => {
-						toggleMenu()
-					}}
-				/>
+				{pathname === '/' && (
+					<Button
+						type="button"
+						icon={menuIsOpened ? 'X' : 'Menu'}
+						onClick={() => {
+							toggleMenu()
+						}}
+					/>
+				)}
 			</header>
-			<MenuContainer
-				isOpened={Boolean(menuIsOpened)}
-				onClose={() => {
-					closeMenu()
-				}}
-			>
-				{menuIsOpened && <HeaderMenu />}
-			</MenuContainer>
+			{pathname === '/' && (
+				<MenuContainer
+					isOpened={Boolean(menuIsOpened)}
+					onClose={() => {
+						closeMenu()
+					}}
+				>
+					{menuIsOpened && <HeaderMenu />}
+				</MenuContainer>
+			)}
 			<div
 				className={[
 					styles.animatedContainer,

@@ -100,12 +100,12 @@ export const HomeIntroGrid: FC = () => {
 						<BorderEdge
 							orientation="BottomLeft"
 							className="absolute opacity-0 lg:opacity-100 -top-6"
-							style={{ left: 'calc(100% - var(--borderWidth, 3px))' }}
+							style={{ left: 'calc(100% - var(--borderWidth, 2px))' }}
 						/>
 						<BorderEdge
 							orientation="BottomLeft"
 							className="absolute bottom-0 opacity-0 lg:opacity-100"
-							style={{ left: 'calc(200% - var(--borderWidth, 3px))' }}
+							style={{ left: 'calc(200% - var(--borderWidth, 2px))' }}
 						/>
 					</div>
 				</div>

@@ -61,8 +61,8 @@ export const BorderEdge: FC<BorderEdgeType> = ({ orientation, style = {}, classN
 	</span>
 )
 
-const uPos = 'var(--borderWidth, 3px)'
-const uNeg = 'calc(var(--borderWidth, 3px) * -1)'
+const uPos = 'var(--borderWidth, 2px)'
+const uNeg = 'calc(var(--borderWidth, 2px) * -1)'
 export const ButtonWithBorderEdges: FC<ButtonWithBorderEdgesPropType> = ({
 	openings = [],
 	edges = [],

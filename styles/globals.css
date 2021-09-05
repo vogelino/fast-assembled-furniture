@@ -4,83 +4,83 @@
 @layer utilities {
 
 	.h-full-p {
-		height: calc(100% + var(--borderWidth, 3px));
+		height: calc(100% + var(--borderWidth, 2px));
 	}
 
 	.h-full-fr {
-		height: calc(1fr + var(--borderWidth, 3px));
+		height: calc(1fr + var(--borderWidth, 2px));
 	}
 
 	.w-full-p {
-		width: calc(100% + var(--borderWidth, 3px));
+		width: calc(100% + var(--borderWidth, 2px));
 	}
 
 	.w-full-fr {
-		width: calc(1fr + var(--borderWidth, 3px));
+		width: calc(1fr + var(--borderWidth, 2px));
 	}
 
 	.w-50-p {
-		width: calc(50% + var(--borderWidth, 3px));
+		width: calc(50% + var(--borderWidth, 2px));
 	}
 
 	.p-bd {
-		padding: var(--borderWidth, 3px);
+		padding: var(--borderWidth, 2px);
 	}
 
 	.pt-bd {
-		padding-top: var(--borderWidth, 3px);
+		padding-top: var(--borderWidth, 2px);
 	}
 
 	.pl-bd {
-		padding-left: var(--borderWidth, 3px);
+		padding-left: var(--borderWidth, 2px);
 	}
 
 	.-mt-bd {
-		margin-top: calc(var(--borderWidth, 3px) * -1);
+		margin-top: calc(var(--borderWidth, 2px) * -1);
 	}
 
 	.-ml-bd {
-		margin-left: calc(var(--borderWidth, 3px) * -1);
+		margin-left: calc(var(--borderWidth, 2px) * -1);
 	}
 
 	.-mr-bd {
-		margin-right: calc(var(--borderWidth, 3px) * -1);
+		margin-right: calc(var(--borderWidth, 2px) * -1);
 	}
 
 	.border-bd {
-		border-width: var(--borderWidth, 3px);
+		border-width: var(--borderWidth, 2px);
 	}
 
 	.top-bd {
-		top: var(--borderWidth, 3px)
+		top: var(--borderWidth, 2px)
 	}
 
 	.right-bd {
-		right: var(--borderWidth, 3px)
+		right: var(--borderWidth, 2px)
 	}
 
 	.bottom-bd {
-		bottom: var(--borderWidth, 3px)
+		bottom: var(--borderWidth, 2px)
 	}
 
 	.left-bd {
-		left: var(--borderWidth, 3px)
+		left: var(--borderWidth, 2px)
 	}
 
 	.-top-bd {
-		top: calc(var(--borderWidth, 3px) * -1);
+		top: calc(var(--borderWidth, 2px) * -1);
 	}
 
 	.-right-bd {
-		right: calc(var(--borderWidth, 3px) * -1)
+		right: calc(var(--borderWidth, 2px) * -1)
 	}
 
 	.-bottom-bd {
-		bottom: calc(var(--borderWidth, 3px) * -1)
+		bottom: calc(var(--borderWidth, 2px) * -1)
 	}
 
 	.-left-bd {
-		left: calc(var(--borderWidth, 3px) * -1)
+		left: calc(var(--borderWidth, 2px) * -1)
 	}
 
 	.gf {
@@ -279,7 +279,7 @@
 
 	html,
 	body,
-	.app-wrapper {
+	#__next {
 		position: relative;
 		width: 100%;
 		-webkit-overflow-scrolling: touch;
@@ -288,37 +288,35 @@
 	}
 
 	#__next {
-		min-height: 100vh;
 		@apply bg-secondary border-bd;
 	}
 
 	html.no-scroll,
 	html.no-scroll body,
-	html.no-scroll #__next,
-	html.no-scroll .app-wrapper {
+	html.no-scroll #__next {
 		overflow: hidden !important;
 	}
 
-	.app-wrapper {
+	#__next {
 		z-index: 1;
 	}
 
 	@media screen and (max-width: 639px) {
 		html,
 		body,
-		.app-wrapper {
+		#__next {
 			min-height: 100vh;
 			-webkit-overflow-scrolling: touch;
 		}
 
-		.app-wrapper {
-			padding-left: calc(var(--borderWidth, 3px) + var(--menuSize, 64px)) !important;
+		#__next {
+			padding-left: calc(var(--borderWidth, 2px) + var(--menuSize, 64px)) !important;
 		}
 	}
 
 	@media screen and (min-width: 640px) {
-		.app-wrapper {
-			padding-top: calc(var(--menuSize, 64px) + var(--borderWidth, 3px));
+		#__next {
+			padding-top: calc(var(--menuSize, 64px) + var(--borderWidth, 2px));
 		}
 	}
 
@@ -346,13 +344,8 @@
 		text-align: center;
 	}
 
-	body .prose h1,
-	body .prose h2,
-	body .prose h3,
-	body .prose h4,
-	body .prose h5,
-	body .prose h6 {
-		@apply text-primary;
+	body .prose * {
+		color: var(--primary, #000) !important;
 	}
 
 	body .notion h1,

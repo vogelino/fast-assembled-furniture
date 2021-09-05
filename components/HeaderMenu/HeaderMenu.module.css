@@ -4,14 +4,14 @@
 
 .innerContainer {
   min-width: 256px;
-  top: var(--borderWidth, 3px);
+  top: var(--borderWidth, 2px);
   left: 0px;
 }
 
 @media screen and (max-width: 639px) {
   .linksParent {
     grid-template-rows: repeat(var(--linksCount, 3), auto) 1fr;
-    min-height: calc(100% + var(--borderWidth, 3px));
+    min-height: calc(100% + var(--borderWidth, 2px));
   }
 }
 

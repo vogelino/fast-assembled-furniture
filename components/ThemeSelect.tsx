@@ -26,7 +26,7 @@ const ThemeSelect: FC<ThemeSelectPropType> = ({ keepExpanded = false }) => {
 							style={{
 								borderColor: theme['primary'],
 								backgroundColor: theme[isActive ? 'primary' : 'secondary'],
-								boxShadow: `0 0 0 var(--borderWidth, 3px) ${theme['secondary']}`,
+								boxShadow: `0 0 0 var(--borderWidth, 2px) ${theme['secondary']}`,
 							}}
 							className={[
 								'inline-block',
