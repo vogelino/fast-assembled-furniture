@@ -1,6 +1,7 @@
 import { BorderEdge, ButtonWithBorderEdges } from '@components/BorderEdge'
 import { LoadingImage } from '@components/LoadingImage'
 import { Logo } from '@components/Logo'
+import { scrollToTargetAdjusted } from '@utils/scrollUtil'
 import useTranslation from 'next-translate/useTranslation'
 import { FC } from 'react'
 import styles from './HomeIntroGrid.module.css'
@@ -16,6 +17,9 @@ export const HomeIntroGrid: FC = () => {
 					<ButtonWithBorderEdges
 						edges={[{ position: 'RightBottom', orientation: 'BottomLeft' }]}
 						openings={['TopRight', 'TopLeft']}
+						onClick={() => {
+							scrollToTargetAdjusted('configurator-anchor')
+						}}
 						primary
 					>
 						<span className="hidden sm:inline">{tCommon('actions.edit')}</span>

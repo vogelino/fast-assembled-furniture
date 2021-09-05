@@ -3,6 +3,7 @@ import Link from '@components/Link'
 import { MenuContext } from '@components/MenuContext'
 import styles from './HeaderMenu.module.css'
 import useTranslation from 'next-translate/useTranslation'
+import { scrollToTargetAdjusted } from '@utils/scrollUtil'
 
 const year = new Date().getFullYear()
 
@@ -48,23 +49,6 @@ const MenuFooter: FC = () => {
 			</small>
 		</li>
 	)
-}
-
-const scrollToTargetAdjusted = (id: string): void => {
-	const element = document.getElementById(id)
-	const scrollParent = document.querySelector('.app-wrapper')
-	if (!element || !scrollParent) return
-	const isMobile = window.innerWidth < 640
-	const headerOffset = isMobile ? -2 : 62
-	const parentTop = scrollParent.getBoundingClientRect().top
-	const elementTop = element.getBoundingClientRect().top
-	const elementPosition = elementTop - parentTop
-	const offsetPosition = elementPosition - headerOffset
-
-	scrollParent.scrollTo({
-		top: offsetPosition + scrollParent.scrollTop,
-		behavior: 'smooth',
-	})
 }
 
 export const HeaderMenu: FC = () => {
