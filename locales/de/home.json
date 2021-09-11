@@ -5,30 +5,30 @@
   },
   "components": {
     "title": "AUS DREI MACH EINS",
-    "text": "Drei Komponenten werden zu einer Einheit: Euro-Behälter, Holzplatten und Spanngurte werden in wenigen Minuten und ohne Werkzeug so zusammengesetzt, dass ein stabiles Sideboard entsteht."
+    "text": "Drei Komponenten werden zu einer Einheit: Euro-Boxen, Holzplatten und Spanngurte werden in wenigen Minuten und ohne Werkzeug so zusammengesetzt, dass ein stabiles Sideboard entsteht."
   },
   "assemblage": {
     "title": "Bord, Box Strap"
   },
   "box": {
     "title": "BOX",
-    "text": "In Industrie und Transportwesen gelichermaßen für ihre Langlebigkeit und Robustheit geschätzt, dient die Euronorm-Box aus grauschwarzem Polypropylen im FAF als Regalfach. Um die bereits gegebene Stabilität noch zu erhöhen, werden die Seitenstege der Boxen mit eigens angefertigten Metallschienen verstärkt."
+    "text": "In Industrie und Transportwesen gelichermaßen für ihre Langlebigkeit und Robustheit geschätzt, dient die Euronorm-Box aus grauen oder schwarzen Polypropylen bei FAF als Regalfach. Um die Stabilität noch weiter zu erhöhen, werden die Seitenstege der Boxen mit eigens angefertigten Metallschienen verstärkt."
   },
   "board": {
     "title": "BOARD",
-    "text": "18 Millimeter dicke Holzplatten bilden das Gerüst des FAF. Sie sind wahlweise aus naturbelassenem Multiplex oder dunklem Siebdruck. In diese werden mittels präziser CNC-Technik die Konturen der Euro-Boxen gefräst, so dass ein Verrutschen der Kisten unmöglich gemacht wird. Die Bodenplatte ist mit weichen Industrierollen versehen, die ein belagschonendes Bewegen des FAF möglich machen."
+    "text": "18 Millimeter starke Holzplatten bilden die Basis des Sideboards. Sie bestehen wahlweise aus naturbelassenem Multiplex oder dunklem Siebdruck. In diese werden mittels präziser CNC-Technik die Konturen der Euro-Boxen gefräst, so dass ein Verrutschen der Kisten unmöglich gemacht wird. Die Bodenplatte ist mit weichen Industrierollen versehen, die ein belagschonendes Bewegen des FAF gewährleisten."
   },
   "strap": {
     "title": "STRAP",
-    "text": "FAF lässt seine hochwertigen Spanngurte mit verzinkter Metallschnalle exklusiv in 12 Farben in Berlin herstellen. Der Klassiker aus dem Transportwesen gibt FAF den farblichen und gleichzeitig filigranen Rahmen und prägt das individuelle Erscheinungsbild. Unsere Gurte können jederzeit nachbestellt und gewechselt werden."
+    "text": "FAF lässt seine hochwertigen Spanngurte mit verzinkter Metallschnalle exklusiv in 12 Farben in Berlin herstellen. Der Klassiker aus dem Transportwesen gibt FAF den farblichen und gleichzeitig filigranen Rahmen und prägt das individuelle Erscheinungsbild. Die Gurte können jederzeit nachbestellt und gewechselt werden."
   },
   "production": {
     "title": "FERTIGUNG UND VERSAND",
-    "text": "Unsere CNC-gefrästen Holzplatten werden „made to order“ von einem mittelständischen Unternehmen in Brandenburg gefertigt, Spanngurte und Metallschienen sind „Made in Berlin“. Um unnötige Transportwege und Verpackungsmüll zu vermeiden, werden diese Komponenten gemeinsam mit den Rollen (inklusive Schrauben) als kompaktes CO-2 neutrales Paket verschickt. Der Versand der Euro-Boxen erfolgt direkt vom Hersteller aus Süddeutschland. "
+    "text": "Unsere CNC-gefrästen Holzplatten werden „made to order“ von einem mittelständischen Unternehmen in Brandenburg bei Berlin gefertigt, Spanngurte und Metallschienen sind „Made in Berlin“. Um unnötige Transportwege und Verpackungsmüll zu vermeiden, werden diese Komponenten gemeinsam mit den Rollen als kompaktes, CO-2 neutrales Paket verschickt. Der Versand der Euro-Boxen erfolgt direkt vom Hersteller aus Süddeutschland. "
   },
   "makeityourown": {
     "title": "Make it your own",
-    "text": "FAF zeichnet sich durch seine Vielseitigkeit aus. Vom filigranen Bücherregal mit Pastell-Akzenten, über ein dunkel-monochromes DJ-Pult, in dem die Vinyl-Sammlung perfekt Platz findet, bis zum Corporate-Büromöbel. Um nur einige Beispiele zu nennen."
+    "text": "FAF zeichnet sich durch seine Vielseitigkeit aus. Vom filigranen Bücherregal mit Pastell-Akzenten, monochromen Plattenregal, in dem die Vinyl-Sammlung perfekt Platz findet, bis zum Büromöbel – Um nur einige Beispiele zu nennen. Nutze den Konfigurator, um dein eigenes Sideboard zu konfigurieren."
   },
   "configurator": {
     "title": "Konfigurator"
@@ -52,16 +52,16 @@
       "light": "Offen & Grau"
     },
     "values": {
-      "width": "250",
-      "height": "456",
-      "depth": "789",
+      "height": "92",
+      "width": "37",
+      "length": "187",
       "loadCapacity": "20",
       "price": "999"
     }
   },
   "disclaimer":{
     "title": "Bestellmodell",
-    "text": "FAF ist ein junges Unternehmen, das aktuell nur in Kleinserie produzieren kann. Das bedeutet, dass wir mit unseren Partner*innen immer erst ab 20 Bestellungen mit der Produktion beginnen können. Sollte sechs Wochen nach deiner Bestellung noch nicht die Mindestanzahl weiterer Käufer*innen erreicht sein, kannst du deine Anzahlung jederzeit wiederbekommen. Für weitere Informationen, Nachbestellungen von Spanngurten, oder Anfragen bezüglich Sonderanfertigungen erreichst du uns unter ",
+    "text": "FAF ist ein junges Unternehmen, das aktuell nur in Kleinserie produzieren kann. Das bedeutet, dass wir mit unseren Partner*innen immer erst ab 20 Bestellungen mit der Produktion beginnen können. Sollte sechs Wochen nach deiner Bestellung noch nicht die Mindestanzahl weiterer Käufer*innen erreicht sein, kannst du deine Zahlung jederzeit zurückbekommen. Für weitere Informationen, Nachbestellungen von Spanngurten, oder Anfragen bezüglich Sonderanfertigungen erreichst du uns unter ",
     "button": "Kauf abschließen",
     "conditionsSentenceBefore": "Ich habe die ",
     "conditionsSentenceAfter": " gelesen und akzeptiert.",
