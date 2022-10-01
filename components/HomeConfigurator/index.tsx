@@ -176,9 +176,7 @@ export const HomeConfigurator: FC = () => {
 							<label htmlFor="conditions-accepted">
 								{t('disclaimer.conditionsSentenceBefore')}
 								<Link href="/agb">
-									<a href="/agb" className="font-bold underline">
-										{t('disclaimer.conditionsName')}
-									</a>
+									<a className="font-bold underline">{t('disclaimer.conditionsName')}</a>
 								</Link>
 								{t('disclaimer.conditionsSentenceAfter')}
 							</label>

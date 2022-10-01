@@ -11,6 +11,9 @@ class Sitemap extends Component {
 		res.write(getRobots())
 		res.end()
 	}
+	render(): null {
+		return null
+	}
 }
 
 export default Sitemap

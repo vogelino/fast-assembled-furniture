@@ -22,6 +22,9 @@ class Sitemap extends Component<NextPage> {
 		res.write(getSitemap())
 		res.end()
 	}
+	render(): null {
+		return null
+	}
 }
 
 export default Sitemap

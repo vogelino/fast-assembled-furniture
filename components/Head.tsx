@@ -45,11 +45,6 @@ const Head: FC<{
 	}, [stopLoading])
 
 	const longTitle = [pageTitle, siteTitle].join(' ✦ ')
-	const formatedSocialImage =
-		socialThumbnail &&
-		`${
-			typeof window !== 'undefined' ? window.location.origin : siteUrl || ''
-		}/api/social-image?text=${encodeURI(pageTitle)}&imgUrl=${encodeURI(socialThumbnail)}`
 
 	return (
 		<NextHead>
@@ -82,9 +77,9 @@ const Head: FC<{
 			<meta property="og:site_name" content={siteTitle} />
 			{fbAppId && <meta property="fb:app_id" content={fbAppId} />}
 
-			{socialThumbnail && <meta itemProp="image" content={formatedSocialImage} />}
-			{socialThumbnail && <meta name="twitter:image" content={formatedSocialImage} />}
-			{socialThumbnail && <meta property="og:image" content={formatedSocialImage} />}
+			{socialThumbnail && <meta itemProp="image" content={socialThumbnail} />}
+			{socialThumbnail && <meta name="twitter:image" content={socialThumbnail} />}
+			{socialThumbnail && <meta property="og:image" content={socialThumbnail} />}
 			{socialThumbnail && <meta property="og:image:alt" content={socialThumbnail} />}
 
 			<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />

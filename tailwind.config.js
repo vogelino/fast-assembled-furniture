@@ -1,13 +1,9 @@
 module.exports = {
 	content: [
-		'./pages/**/*.tsx',
-		'./pages/**/*.ts',
-		'./components/**/*.tsx',
-		'./components/**/*.ts',
-		'./utils/**/*.ts',
-		'./utils/**/*.tsx',
+		'./pages/**/*.{js,jsx,ts,tsx}',
+		'./components/**/*.{js,jsx,ts,tsx}',
+		'./utils/**/*.{js,jsx,ts,tsx}',
 	],
-	darkMode: 'media',
 	theme: {
 		colors: {
 			primary: 'var(--primary)',

@@ -7,7 +7,7 @@ module.exports = {
 	},
 	parserOptions: { ecmaVersion: 8, project: './tsconfig.json', tsconfigRootDir: './' }, // to enable features such as async/await
 	ignorePatterns: ['node_modules/*', '.next/*', '.out/*', '!.prettierrc.js'], // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
-	extends: ['eslint:recommended'],
+	extends: ['eslint:recommended', `plugin:@next/next/recommended`],
 	overrides: [
 		// This configuration will apply only to TypeScript files
 		{
@@ -33,7 +33,7 @@ module.exports = {
 			extends: [
 				'eslint:recommended',
 				'plugin:@typescript-eslint/recommended', // TypeScript rules
-				"plugin:@typescript-eslint/recommended-requiring-type-checking",
+				'plugin:@typescript-eslint/recommended-requiring-type-checking',
 				'plugin:react/recommended', // React rules
 				'plugin:react-hooks/recommended', // React hooks rules
 				'plugin:jsx-a11y/recommended', // Accessibility rules

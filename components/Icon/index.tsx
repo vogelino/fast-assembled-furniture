@@ -6,6 +6,7 @@ const X: IconType = ({ size = 24 }) => (
 	<svg
 		width={size}
 		height={size}
+		viewBox="0 0 24 24"
 		fill="none"
 		stroke="currentColor"
 		strokeWidth="2"
@@ -20,6 +21,7 @@ const Menu: IconType = ({ size = 24 }) => (
 	<svg
 		width={size}
 		height={size}
+		viewBox="0 0 24 24"
 		fill="none"
 		stroke="currentColor"
 		strokeWidth="2"
@@ -34,6 +36,7 @@ const MessageSquare: IconType = ({ size = 24 }) => (
 	<svg
 		width={size}
 		height={size}
+		viewBox="0 0 24 24"
 		fill="none"
 		stroke="currentColor"
 		strokeWidth="2"
