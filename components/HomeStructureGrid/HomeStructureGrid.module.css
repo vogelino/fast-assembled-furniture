@@ -47,9 +47,9 @@
   position: relative;
 }
 
-.imageContainer > div {
-  height: 100%;
-  width: 100%;
+.imageContainer > span {
+  height: 100% !important;
+  width: 100% !important;
   overflow: hidden;
   float: left;
 }

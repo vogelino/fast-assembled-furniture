@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react'
+import { FC, useContext } from 'react'
 import { Button } from '@components/SquareButton'
 import ThemeSelect from '@components/ThemeSelect'
 import { MenuContext } from '@components/MenuContext'
@@ -32,11 +32,11 @@ const HeaderLogo: FC = () => (
 	</Link>
 )
 
-const MenuContainer: FC<{ isOpened?: boolean; onClose?: () => void }> = ({
-	children,
-	isOpened = false,
-	onClose = () => undefined,
-}) => (
+const MenuContainer: FC<{
+	isOpened?: boolean
+	onClose?: () => void
+	children?: JSX.Element | JSX.Element[] | null | string | string[] | boolean
+}> = ({ children, isOpened = false, onClose = () => undefined }) => (
 	<div
 		className={[
 			styles.menuWrapper,

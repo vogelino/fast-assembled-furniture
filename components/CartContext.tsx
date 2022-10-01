@@ -34,7 +34,9 @@ const defaultState = {
 
 export const CartContext = createContext<CartContextType>(defaultState)
 
-export const CartProvider: FC = ({ children }) => {
+export const CartProvider: FC<{
+	children: JSX.Element
+}> = ({ children }) => {
 	const [cart, setCart] = useState(defaultState.cart as Cart)
 	const [cartIsOpened, setCartIsOpened] = useState(defaultState.cartIsOpened)
 
@@ -64,7 +66,7 @@ export const CartProvider: FC = ({ children }) => {
 		const localStorageCart = window.localStorage.getItem(LOCAL_STORAGE_CART_KEY)
 		if (!localStorageCart) return
 		try {
-			setCart(JSON.parse(localStorageCart))
+			setCart(JSON.parse(localStorageCart) as Cart)
 		} catch {
 			setCart({})
 			window.localStorage.setItem(LOCAL_STORAGE_CART_KEY, JSON.stringify({}))

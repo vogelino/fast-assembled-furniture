@@ -5,7 +5,7 @@ import { LoadingSprite } from '@components/LoadingSprite'
 import { useWindowSize } from '@utils/hooks/useWindowSize'
 import { cover } from '@utils/intrinsicScale'
 
-interface LoadingImagePropType {
+interface LoadingImagePropType extends ImageProps {
 	src: string
 	width: number
 	height: number

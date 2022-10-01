@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import Layout from '@components/Layout'
 import { ImprintSection } from '@components/ImprintSection'
 import { Footer } from '@components/Footer'

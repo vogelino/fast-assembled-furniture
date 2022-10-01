@@ -10,8 +10,10 @@ export const TextPage: FC<{ text: string }> = ({ text }) => {
 				href="/"
 				className="mb-16 inline-block opacity-50 hover:opacity-100 transition-opacity"
 			>
-				{`<-`}
-				<span className="ml-2 pb-0.5 border-b border-primary">{t('backLinkText')}</span>
+				<>
+					{`<-`}
+					<span className="ml-2 pb-0.5 border-b border-primary">{t('backLinkText')}</span>
+				</>
 			</ActiveLink>
 			<div className="prose max-w-none text-primary" dangerouslySetInnerHTML={{ __html: text }} />
 		</div>

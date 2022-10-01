@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 type LinkType = {
+	children?: JSX.Element | JSX.Element[] | string | string[]
 	href: string
 	as?: string
 	replace?: boolean

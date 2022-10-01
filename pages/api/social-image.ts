@@ -46,7 +46,7 @@ export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> 
 		res.setHeader('cache-control', 'public, max-age=604800')
 		res.send(screenshot)
 	} catch (error) {
-		res.status(500).json({ error: new Error(error) })
+		res.status(500).json({ error: new Error(error as string) })
 	} finally {
 		if (browser) {
 			await browser.close()

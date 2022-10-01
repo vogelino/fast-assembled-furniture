@@ -11,7 +11,7 @@ export const LanguageButton: FC = () => {
 			<Button
 				type="button"
 				icon={'MessageSquare'}
-				onClick={() => push(asPath, asPath, { locale: nextLocale })}
+				onClick={() => void push(asPath, asPath, { locale: nextLocale })}
 				className="w-full-p"
 			/>
 			<span

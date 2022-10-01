@@ -1,5 +1,5 @@
-import React, { FC, useContext, useState } from 'react'
-import SwiperCore, { EffectFade } from 'swiper/core'
+import { FC, useContext, useState } from 'react'
+import SwiperCore, { EffectFade } from 'swiper'
 import SwiperClass from 'swiper/types/swiper-class'
 import 'swiper/swiper.min.css'
 import 'swiper/components/pagination/pagination.min.css'

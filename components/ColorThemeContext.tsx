@@ -23,7 +23,9 @@ const defaults = {
 
 export const ColorThemeContext = createContext<ColorThemeContextType>(defaults)
 
-export const ColorThemeProvider: FC = ({ children }) => {
+export const ColorThemeProvider: FC<{
+	children: JSX.Element
+}> = ({ children }) => {
 	const [themeKey, setTheme] = useState(defaults.themeKey)
 	const themesKeys = Object.keys(themes)
 	const activeThemeIdx = themesKeys.indexOf(themeKey)

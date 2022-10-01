@@ -12,7 +12,9 @@ export const LoadingContext = createContext<LoadingContextType>({
 	stopLoading: () => undefined,
 })
 
-export const LoadingProvider: FC = ({ children }) => {
+export const LoadingProvider: FC<{
+	children: JSX.Element
+}> = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false)
 
 	const startLoading = (): void => {

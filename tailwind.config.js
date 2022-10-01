@@ -1,6 +1,5 @@
 module.exports = {
-	mode: 'jit',
-	purge: [
+	content: [
 		'./pages/**/*.tsx',
 		'./pages/**/*.ts',
 		'./components/**/*.tsx',
@@ -8,7 +7,7 @@ module.exports = {
 		'./utils/**/*.ts',
 		'./utils/**/*.tsx',
 	],
-	darkMode: false,
+	darkMode: 'media',
 	theme: {
 		colors: {
 			primary: 'var(--primary)',
@@ -20,11 +19,11 @@ module.exports = {
 			semi: 'var(--semi)',
 			semi50: 'var(--semi50)',
 			semi20: 'var(--semi20)',
-		}
+		},
 	},
 	variants: {
 		extend: {
-			opacity: ['group-focus']
+			opacity: ['group-focus'],
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

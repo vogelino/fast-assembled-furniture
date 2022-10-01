@@ -26,12 +26,15 @@ const getManifest = ({
 }
 `
 
-class Sitemap extends Component {
+class Manifest extends Component {
 	static getInitialProps({ res }: { res: NextApiResponse }): void {
 		res.setHeader('Content-Type', 'application/manifest+json')
 		res.write(getManifest({}))
 		res.end()
 	}
+	render(): null {
+		return null
+	}
 }
 
-export default Sitemap
+export default Manifest

@@ -8,6 +8,7 @@ interface InfoTablePropType {
 
 interface TableCellPropType {
 	bold?: boolean
+	children?: JSX.Element | JSX.Element[] | string | string[]
 }
 
 const TableCell: FC<TableCellPropType> = ({ children, bold = false }) => (
@@ -39,15 +40,23 @@ export const InfoTable: FC<InfoTablePropType> = ({ lightness }) => {
 				<TableCell bold>{t('infoBox.labels.strap')}</TableCell>
 				<TableCell>{tCommon(`colors.${themeKey}`)}</TableCell>
 				<TableCell bold>{t('infoBox.labels.loadCapacity')}</TableCell>
-				<TableCell>{t('infoBox.values.loadCapacity')}&#8239;kg</TableCell>
+				<TableCell>
+					<>{t('infoBox.values.loadCapacity')}&#8239;kg</>
+				</TableCell>
 			</div>
 			<div className="grid grid-cols-5 lg:grid-cols-[min-content,1fr] lg:col-span-5 content-start">
 				<TableCell bold>{t('infoBox.labels.width')}</TableCell>
-				<TableCell>{t('infoBox.values.width')}&#8239;cm</TableCell>
+				<TableCell>
+					<>{t('infoBox.values.width')}&#8239;cm</>
+				</TableCell>
 				<TableCell bold>{t('infoBox.labels.height')}</TableCell>
-				<TableCell>{t('infoBox.values.height')}&#8239;cm</TableCell>
+				<TableCell>
+					<>{t('infoBox.values.height')}&#8239;cm</>
+				</TableCell>
 				<TableCell bold>{t('infoBox.labels.depth')}</TableCell>
-				<TableCell>{t('infoBox.values.depth')}&#8239;cm</TableCell>
+				<TableCell>
+					<>{t('infoBox.values.depth')}&#8239;cm</>
+				</TableCell>
 				<div className="text-2xl font-bold col-span-5 lg:col-span-2 row-span-4 p-8 text-right">
 					{t('infoBox.values.price')}&#8239;€
 				</div>

@@ -29,7 +29,8 @@
         "./utils/*"
       ]
     },
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",

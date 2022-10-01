@@ -70,7 +70,9 @@ const defaults = {
 
 export const MenuContext = createContext<MenuContextType>(defaults)
 
-export const MenuProvider: FC = ({ children }) => {
+export const MenuProvider: FC<{
+	children: JSX.Element | JSX.Element[]
+}> = ({ children }) => {
 	const [state, setState] = useState(defaults)
 	const router = useRouter()
 
