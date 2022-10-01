@@ -1,9 +1,6 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: [
-		'./pages/**/*.{js,jsx,ts,tsx}',
-		'./components/**/*.{js,jsx,ts,tsx}',
-		'./utils/**/*.{js,jsx,ts,tsx}',
-	],
+	content: ['./pages/**/*.tsx', './components/**/*.tsx'],
 	theme: {
 		colors: {
 			primary: 'var(--primary)',
@@ -15,11 +12,6 @@ module.exports = {
 			semi: 'var(--semi)',
 			semi50: 'var(--semi50)',
 			semi20: 'var(--semi20)',
-		},
-	},
-	variants: {
-		extend: {
-			opacity: ['group-focus'],
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

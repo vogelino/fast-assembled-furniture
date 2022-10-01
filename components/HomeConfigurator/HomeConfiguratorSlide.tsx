@@ -1,7 +1,6 @@
 import { LoadingImage } from '@components/LoadingImage'
 import { FC } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperClass from 'swiper/types/swiper-class'
+import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
 import styles from './HomeConfigurator.module.css'
 
 interface SliderSlideType {
@@ -12,7 +11,7 @@ interface SliderSlideType {
 interface SliderImagePropType {
 	slides: SliderSlideType[]
 	onSlideChange: (currentSlide: number) => void
-	onReady: (swiper: SwiperClass) => void
+	onReady: SwiperProps['onSwiper']
 	currentSlideIndex: number
 }
 
@@ -27,12 +26,13 @@ const HomeConfiguratorSlideImage: FC<SliderSlideType> = ({ filePath }) => {
 export const HomeConfiguratorSlide: FC<SliderImagePropType> = ({
 	slides,
 	onSlideChange,
-	onReady,
+	onReady = () => undefined,
 	currentSlideIndex,
 }) => (
 	<Swiper
 		effect="fade"
 		className={`${styles.swiperContainer}`}
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		onSwiper={onReady}
 		onSlideChange={(swiper) => {
 			onSlideChange(swiper.activeIndex)

@@ -1,5 +1,5 @@
 .container {
-	@apply -ml-bd;
+	margin-left: calc(var(--borderWidth, 2px) * -1);
 	display: grid;
 	grid-template-columns: 1fr;
 	background: white;
@@ -39,7 +39,8 @@
 }
 
 .infoBlock {
-	@apply overflow-hidden -mt-bd;
+	@apply overflow-hidden;
+	margin-top: calc(var(--borderWidth, 2px) * -1);
 	border-radius: 8px;
 	border-top-left-radius: 0px;
 }

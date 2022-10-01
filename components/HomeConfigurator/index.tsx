@@ -1,8 +1,7 @@
 import { FC, useContext, useState } from 'react'
 import SwiperCore, { EffectFade } from 'swiper'
-import SwiperClass from 'swiper/types/swiper-class'
-import 'swiper/swiper.min.css'
-import 'swiper/components/pagination/pagination.min.css'
+import 'swiper/css'
+import 'swiper/css/pagination'
 import styles from './HomeConfigurator.module.css'
 import { HomeConfiguratorSlide } from './HomeConfiguratorSlide'
 import Image from 'next/image'
@@ -73,7 +72,7 @@ const tabs = [
 
 export const HomeConfigurator: FC = () => {
 	const { t } = useTranslation('home')
-	const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null)
+	const [swiperInstance, setSwiperInstance] = useState<SwiperCore | null>(null)
 	const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
 	const [activeTabIndex, setActiveTabIndex] = useState(0)
 	const { themeKey } = useContext(ColorThemeContext)
