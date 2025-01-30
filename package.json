@@ -16,6 +16,9 @@
     "lint-fix": "npm run lint -- --fix",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit"
   },
+  "engines": {
+    "node": "22.13.1"
+  },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.16",
