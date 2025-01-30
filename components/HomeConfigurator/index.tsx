@@ -1,17 +1,17 @@
+import { ButtonWithBorderEdges } from '@components/BorderEdge'
+import { ColorThemeContext } from '@components/ColorThemeContext'
+import { InfoTable } from '@components/InfoTable'
+import { TabbedBlockTabs } from '@components/TabbedBlock'
+import ThemeSelect from '@components/ThemeSelect'
+import useTranslation from 'next-translate/useTranslation'
+import Image from 'next/image'
+import Link from 'next/link'
 import { FC, useContext, useState } from 'react'
 import SwiperCore, { EffectFade } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import styles from './HomeConfigurator.module.css'
 import { HomeConfiguratorSlide } from './HomeConfiguratorSlide'
-import Image from 'next/image'
-import { ColorThemeContext } from '@components/ColorThemeContext'
-import { TabbedBlockTabs } from '@components/TabbedBlock'
-import ThemeSelect from '@components/ThemeSelect'
-import { InfoTable } from '@components/InfoTable'
-import Link from 'next/link'
-import { ButtonWithBorderEdges } from '@components/BorderEdge'
-import useTranslation from 'next-translate/useTranslation'
 
 SwiperCore.use([EffectFade])
 
@@ -110,7 +110,7 @@ export const HomeConfigurator: FC = () => {
 								.filter(Boolean)
 								.join(' ')}
 						>
-							<Image src={filePath} width={64} height={40} quality={90} objectFit="cover" />
+							<Image src={filePath} width={64} height={40} quality={90} objectFit="cover" alt="" />
 						</button>
 					))}
 				</div>
@@ -174,8 +174,8 @@ export const HomeConfigurator: FC = () => {
 							</div>
 							<label htmlFor="conditions-accepted">
 								{t('disclaimer.conditionsSentenceBefore')}
-								<Link href="/agb">
-									<a className="font-bold underline">{t('disclaimer.conditionsName')}</a>
+								<Link href="/agb" className="font-bold underline">
+									{t('disclaimer.conditionsName')}
 								</Link>
 								{t('disclaimer.conditionsSentenceAfter')}
 							</label>

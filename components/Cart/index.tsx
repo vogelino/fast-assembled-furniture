@@ -1,9 +1,9 @@
-import { FC, useContext } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import useTranslation from 'next-translate/useTranslation'
 import { CartContext } from '@components/CartContext'
 import { Button } from '@components/SquareButton'
+import useTranslation from 'next-translate/useTranslation'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FC, useContext } from 'react'
 import styles from './Cart.module.css'
 
 export const Cart: FC = () => {
@@ -55,46 +55,45 @@ export const Cart: FC = () => {
 								'text-2xl flex items-center',
 							].join(' ')}
 						>
-							<Link href={`/${slug}`} key={slug}>
-								{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-								<a
-									className={[
-										'grid sm:flex gap-4 justify-between items-center p-4 sm:px-6',
-										'hover:bg-gray-200 focus:bg-primary50 focus:outline-none',
-									].join(' ')}
+							<Link
+								href={`/${slug}`}
+								key={slug}
+								className={[
+									'grid sm:flex gap-4 justify-between items-center p-4 sm:px-6',
+									'hover:bg-gray-200 focus:bg-primary50 focus:outline-none',
+								].join(' ')}
+								role="button"
+								tabIndex={0}
+								onClick={closeCart}
+								onKeyPress={(e) => {
+									if (e.key !== 'Enter') return
+									closeCart()
+									void push(`/${slug}`)
+								}}
+							>
+								<h4 className="font-bold leading-7">
+									{title}
+									<span className="sm:ml-4 font-light block sm:inline">
+										{currency.format(startPrice)}
+									</span>
+								</h4>
+								<span
+									className="text-sm p-2 -ml-2 sm:ml-0 -mt-2 sm:mt-0 rounded underline float-right focus:outline-none focus:bg-primary20"
+									onClick={(e) => {
+										e.preventDefault()
+										e.stopPropagation()
+										onRemoveItem(slug)
+									}}
 									role="button"
 									tabIndex={0}
-									onClick={closeCart}
 									onKeyPress={(e) => {
+										e.preventDefault()
 										if (e.key !== 'Enter') return
-										closeCart()
-										void push(`/${slug}`)
+										onRemoveItem(slug)
 									}}
 								>
-									<h4 className="font-bold leading-7">
-										{title}
-										<span className="sm:ml-4 font-light block sm:inline">
-											{currency.format(startPrice)}
-										</span>
-									</h4>
-									<span
-										className="text-sm p-2 -ml-2 sm:ml-0 -mt-2 sm:mt-0 rounded underline float-right focus:outline-none focus:bg-primary20"
-										onClick={(e) => {
-											e.preventDefault()
-											e.stopPropagation()
-											onRemoveItem(slug)
-										}}
-										role="button"
-										tabIndex={0}
-										onKeyPress={(e) => {
-											e.preventDefault()
-											if (e.key !== 'Enter') return
-											onRemoveItem(slug)
-										}}
-									>
-										{t('cart.remove')}
-									</span>
-								</a>
+									{t('cart.remove')}
+								</span>
 							</Link>
 						</li>
 					))}

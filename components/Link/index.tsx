@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { FC } from 'react'
+import { useRouter } from 'next/router'
+import { FC, ReactNode } from 'react'
 
 type LinkType = {
-	children?: JSX.Element | JSX.Element[] | string | string[]
+	children?: ReactNode
 	href: string
 	as?: string
 	replace?: boolean
@@ -37,10 +37,13 @@ const ActiveLink: FC<LinkType> = ({
 
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
-		<Link {...props} href={href}>
-			<a href={href} className={className} onClick={onClick}>
-				{children}
-			</a>
+		<Link
+			{...props}
+			href={href}
+			className={className}
+			onClick={onClick}
+		>
+			{children}
 		</Link>
 	)
 }

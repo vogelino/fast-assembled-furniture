@@ -1,34 +1,32 @@
-import { FC, useContext } from 'react'
-import { Button } from '@components/SquareButton'
-import ThemeSelect from '@components/ThemeSelect'
-import { MenuContext } from '@components/MenuContext'
+import { BorderEdge } from '@components/BorderEdge'
 import { HeaderMenu } from '@components/HeaderMenu'
 import { HeaderMenuOverlay } from '@components/HeaderMenuOverlay'
-import styles from './Header.module.css'
-import { BorderEdge } from '@components/BorderEdge'
+import { LanguageButton } from '@components/LanguageButton'
 import Link from '@components/Link'
 import { logoPaths } from '@components/Logo'
-import { LanguageButton } from '@components/LanguageButton'
+import { MenuContext } from '@components/MenuContext'
+import { Button } from '@components/SquareButton'
+import ThemeSelect from '@components/ThemeSelect'
 import { useRouter } from 'next/router'
+import { FC, useContext } from 'react'
+import styles from './Header.module.css'
 
 const HeaderLogo: FC = () => (
 	<Link href="/" className="flex flex-col sm:flex-row relative group">
-		<>
-			{[logoPaths.F, logoPaths.A, logoPaths.F].map((letter, idx) => (
-				<span className="gf sm:w-16 h-16 sm:h-auto flex items-center justify-center" key={idx}>
-					<svg viewBox="0 0 24 24" style={{ width: 40, height: 40 }}>
-						<path d={letter} fillRule="evenodd" fill="currentColor" />
-					</svg>
-				</span>
-			))}
-			<span
-				className={[
-					'inset-0 absolute bg-primary cursor-pointer',
-					'opacity-0 group-hover:opacity-50',
-					'rounded cursor-pointer transition',
-				].join(' ')}
-			/>
-		</>
+		{[logoPaths.F, logoPaths.A, logoPaths.F].map((letter, idx) => (
+			<span className="gf sm:w-16 h-16 sm:h-auto flex items-center justify-center" key={idx}>
+				<svg viewBox="0 0 24 24" style={{ width: 40, height: 40 }}>
+					<path d={letter} fillRule="evenodd" fill="currentColor" />
+				</svg>
+			</span>
+		))}
+		<span
+			className={[
+				'inset-0 absolute bg-primary cursor-pointer',
+				'opacity-0 group-hover:opacity-50',
+				'rounded cursor-pointer transition',
+			].join(' ')}
+		/>
 	</Link>
 )
 

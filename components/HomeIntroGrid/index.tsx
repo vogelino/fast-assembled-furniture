@@ -86,7 +86,7 @@ export const HomeIntroGrid: FC = () => {
 							objectFit="cover"
 						/>
 					</div>
-					<div className="relative col-span-12 lg:col-span-3">
+					<div className="relative col-span-12 lg:col-span-3 z-10">
 						<div className={[styles.middleBlock, 'gf h-full-p'].join(' ')} id="components-anchor">
 							<div className="flex items-center p-6 border-b border-primary">
 								<h4 className="inline text-2xl font-bold uppercase leading-6">

@@ -24,6 +24,7 @@
 @media screen and (min-width: 1024px) {
   .middleBlock {
     width: calc(200% + var(--borderWidth, 2px));
+    z-index: 10;
   }
 }
 
@@ -39,7 +40,7 @@
   position: relative;
 }
 
-.imageContainer > span {
+.imageContainer > img {
   height: 100% !important;
   width: 100% !important;
   overflow: hidden;

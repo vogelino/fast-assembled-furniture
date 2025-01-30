@@ -1,8 +1,8 @@
-import { FC } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import useTranslation from 'next-translate/useTranslation'
 import { Button } from '@components/SquareButton'
+import useTranslation from 'next-translate/useTranslation'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FC } from 'react'
 
 const shortenText: (text: string) => string = (text) =>
 	text.length > 80 ? `${text.slice(0, 80)}...` : text
@@ -41,9 +41,7 @@ const ProductListItem: FC<Product> = ({
 	})
 
 	return (
-		<Link href={`/${slug}`}>
-			{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-			<a
+		<Link href={`/${slug}`}
 				className="group gfc hover:border-gray-300 w-full-p"
 				style={{ paddingTop: 'calc(var(--borderWidth, 2px) * -1)' }}
 			>
@@ -52,7 +50,6 @@ const ProductListItem: FC<Product> = ({
 						<Image
 							src={thumbnail.url}
 							alt={title}
-							layout="responsive"
 							width="1000"
 							height="600"
 							objectFit="cover"
@@ -71,7 +68,6 @@ const ProductListItem: FC<Product> = ({
 					<p className="text-sm mt-1 text-gray-400 mb-4">{shortenText(description)}</p>
 					<Button type="button">{t('common:buttons.learnMore')}</Button>
 				</div>
-			</a>
 		</Link>
 	)
 }

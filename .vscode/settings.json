@@ -15,6 +15,6 @@
     "titleBar.inactiveBackground": "#ffffff",
     "titleBar.inactiveForeground": "#000000"  
   },
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "Dark",
   "workbench.preferredDarkColorTheme": "GitHub Light",
 }

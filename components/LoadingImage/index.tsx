@@ -1,11 +1,11 @@
-import Image, { ImageProps } from 'next/image'
-import { FC, useCallback, useEffect, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
 import { LoadingSprite } from '@components/LoadingSprite'
 import { useWindowSize } from '@utils/hooks/useWindowSize'
 import { cover } from '@utils/intrinsicScale'
+import Image, { ImageProps } from 'next/image'
+import { FC, useCallback, useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 
-interface LoadingImagePropType extends ImageProps {
+type LoadingImagePropType = ImageProps & {
 	src: string
 	width: number
 	height: number
@@ -79,7 +79,7 @@ const ZoomedInView: FC<ZoomedInViewPropType> = ({ src, width, height, onClose, .
 				<div
 					ref={scrollContainerRef}
 					className={[
-						'fixed w-screen h-screen top-0 left-0',
+						'fixed w-screen h-screen top-0 left-0 flex items-center justify-center bg-secondary',
 						zoomedInSize.offsetX !== 0
 							? 'overflow-x-scroll overflow-y-hidden'
 							: 'overflow-y-scroll overflow-x-hidden',
@@ -91,7 +91,6 @@ const ZoomedInView: FC<ZoomedInViewPropType> = ({ src, width, height, onClose, .
 						src={src}
 						width={zoomedInSize.width}
 						height={zoomedInSize.height}
-						layout="fixed"
 						{...rest}
 						quality={100}
 						onLoad={() => setZoomedImageIsLoaded(true)}
@@ -178,6 +177,7 @@ export const LoadingImage: FC<LoadingImagePropType> = ({
 					src={src}
 					width={width}
 					height={height}
+					alt={rest.alt || ''}
 					onClose={() => {
 						setIsZoomedIn(false)
 						document.querySelector('html')?.classList.remove('no-scroll')
