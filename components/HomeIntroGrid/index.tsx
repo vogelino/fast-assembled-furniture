@@ -64,6 +64,7 @@ export const HomeIntroGrid: FC = () => {
 							width={696}
 							height={832}
 							objectFit="cover"
+							alt=""
 						/>
 					</div>
 					<div className={[styles.imageContainer, 'gf col-span-12 md:col-span-6'].join(' ')}>
@@ -74,6 +75,7 @@ export const HomeIntroGrid: FC = () => {
 							width={544}
 							height={268}
 							objectFit="cover"
+							alt=""
 						/>
 					</div>
 					<div className={[styles.imageContainer, 'gf col-span-12 lg:col-span-3'].join(' ')}>
@@ -84,6 +86,7 @@ export const HomeIntroGrid: FC = () => {
 							width={272}
 							height={290}
 							objectFit="cover"
+							alt=""
 						/>
 					</div>
 					<div className="relative col-span-12 lg:col-span-3 z-10">

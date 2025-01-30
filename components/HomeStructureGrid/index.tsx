@@ -18,6 +18,7 @@ export const HomeStructureGrid: FC = () => {
 							width={1246}
 							height={660}
 							objectFit="cover"
+							alt=""
 						/>
 					</div>
 					<div
@@ -45,6 +46,7 @@ export const HomeStructureGrid: FC = () => {
 							width={1246}
 							height={660}
 							objectFit="cover"
+							alt=""
 						/>
 					</div>
 					<div

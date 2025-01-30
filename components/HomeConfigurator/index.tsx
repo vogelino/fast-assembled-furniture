@@ -7,13 +7,11 @@ import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useContext, useState } from 'react'
-import SwiperCore, { EffectFade } from 'swiper'
+import SwiperCore from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import styles from './HomeConfigurator.module.css'
 import { HomeConfiguratorSlide } from './HomeConfiguratorSlide'
-
-SwiperCore.use([EffectFade])
 
 type PaymentLinksType = Record<string, Record<string, string>>
 

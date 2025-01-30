@@ -1,6 +1,6 @@
 import { LoadingImage } from '@components/LoadingImage'
 import { FC } from 'react'
-import { Swiper, SwiperSlide, SwiperProps } from 'swiper/react'
+import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
 import styles from './HomeConfigurator.module.css'
 
 interface SliderSlideType {
@@ -18,7 +18,7 @@ interface SliderImagePropType {
 const HomeConfiguratorSlideImage: FC<SliderSlideType> = ({ filePath }) => {
 	return (
 		<div style={{ background: 'white' }}>
-			<LoadingImage src={filePath} width={1536} height={742} objectFit="cover" zoomable />
+			<LoadingImage src={filePath} width={1536} height={742} objectFit="cover" zoomable alt="" />
 		</div>
 	)
 }

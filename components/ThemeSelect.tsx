@@ -21,8 +21,8 @@ const ThemeSelect: FC<ThemeSelectPropType> = ({ keepExpanded = false }) => {
 						? 'white'
 						: darkColor
 					: isLightTheme
-					? 'white'
-					: darkColor
+						? 'white'
+						: darkColor
 				const borderColor = isActive ? darkColor : 'transparent'
 
 				return (

@@ -41,33 +41,28 @@ const ProductListItem: FC<Product> = ({
 	})
 
 	return (
-		<Link href={`/${slug}`}
-				className="group gfc hover:border-gray-300 w-full-p"
-				style={{ paddingTop: 'calc(var(--borderWidth, 2px) * -1)' }}
-			>
-				{thumbnail && (
-					<div className="gf">
-						<Image
-							src={thumbnail.url}
-							alt={title}
-							width="1000"
-							height="600"
-							objectFit="cover"
-						/>
-					</div>
-				)}
-				<div className="gf p-6 group-hover:border-gray-300">
-					<h3 className="font-bold text-xl">{title}</h3>
-					{startPrice && (
-						<h4 className="text-mmd mb-2">
-							{t('product:priceStartingFrom', {
-								price: currency.format(startPrice),
-							})}
-						</h4>
-					)}
-					<p className="text-sm mt-1 text-gray-400 mb-4">{shortenText(description)}</p>
-					<Button type="button">{t('common:buttons.learnMore')}</Button>
+		<Link
+			href={`/${slug}`}
+			className="group gfc hover:border-gray-300 w-full-p"
+			style={{ paddingTop: 'calc(var(--borderWidth, 2px) * -1)' }}
+		>
+			{thumbnail && (
+				<div className="gf">
+					<Image src={thumbnail.url} alt={title} width="1000" height="600" objectFit="cover" />
 				</div>
+			)}
+			<div className="gf p-6 group-hover:border-gray-300">
+				<h3 className="font-bold text-xl">{title}</h3>
+				{startPrice && (
+					<h4 className="text-mmd mb-2">
+						{t('product:priceStartingFrom', {
+							price: currency.format(startPrice),
+						})}
+					</h4>
+				)}
+				<p className="text-sm mt-1 text-gray-400 mb-4">{shortenText(description)}</p>
+				<Button type="button">{t('common:buttons.learnMore')}</Button>
+			</div>
 		</Link>
 	)
 }

@@ -20,6 +20,7 @@ export const HomeAssemblageGrid: FC = () => {
 								width={272}
 								height={344}
 								objectFit="cover"
+								alt=""
 							/>
 						</div>
 						<div
@@ -33,6 +34,7 @@ export const HomeAssemblageGrid: FC = () => {
 								width={272}
 								height={516}
 								objectFit="contain"
+								alt=""
 							/>
 						</div>
 					</div>
@@ -47,6 +49,7 @@ export const HomeAssemblageGrid: FC = () => {
 								width={1920}
 								height={1280}
 								objectFit="contain"
+								alt=""
 							/>
 						</div>
 						<TabbedBlock

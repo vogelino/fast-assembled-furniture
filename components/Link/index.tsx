@@ -37,12 +37,7 @@ const ActiveLink: FC<LinkType> = ({
 
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
-		<Link
-			{...props}
-			href={href}
-			className={className}
-			onClick={onClick}
-		>
+		<Link {...props} href={href} className={className} onClick={onClick}>
 			{children}
 		</Link>
 	)
